@@ -10,6 +10,8 @@ datagroup: sdt_default_datagroup {
 
 persist_with: sdt_default_datagroup
 
+####### Explore DoubleClick Data #######
+
 explore: sdt_dcm_view {
   label: "DoubleClick"
   view_label: "DoubleClick"
@@ -22,6 +24,8 @@ join: sdt_mc_ga_view {
   relationship: many_to_one
 }
 }
+
+###### Explore Facebook Data #######
 
 explore: sdt_fb_view {
   label: "Facebook"

@@ -12,6 +12,109 @@ view: sdt_dcm_view {
     sql: ${TABLE}.id ;;
   }
 
+##### Dimensions added to this table via LookML ######
+
+  dimension: fiscal_year {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Fiscal Year"
+    sql:
+      CASE
+        WHEN ${date_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 18/18'
+        WHEN ${date_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
+        WHEN ${date_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+        ELSE 'Uncategorized'
+        END
+        ;;
+  }
+
+  dimension: ad_size {
+    type: string
+    group_label: "DCM Dimensions"
+    label: "Ad Size"
+    sql:
+      CASE
+        when ${creative} ILIKE '%728x90%' then '728x90'
+        when ${creative} ILIKE '%300x250%' then '300x250'
+        when ${creative} ILIKE '%300x600%' then '300x600'
+        when ${creative} ILIKE '%320x50%' then '320x50'
+        when ${creative} ILIKE '%160x600%' then '160x600'
+        when ${creative} ILIKE '%970x250%' then '970x250'
+        when ${creative} ILIKE '%300x50%' then '300x50'
+      ELSE 'Uncategorized'
+      END;;
+  }
+
+  dimension: publisher {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Publisher"
+    sql:
+      CASE
+        when ${site_dcm} ILIKE 'bellmedia%' then 'Bell Media'
+        when ${site_dcm} ILIKE 'CBS%' then 'CBS'
+        when ${site_dcm} ILIKE 'Expedia%' then 'Expedia'
+        when ${site_dcm} ILIKE 'globaltv%' then 'GlobalTV'
+        when ${site_dcm} ILIKE 'Hulu%' then 'Hulu'
+        when ${site_dcm} ILIKE 'Nativo%' then 'Nativo'
+        when ${site_dcm} ILIKE 'NBC Sports%' then 'NBC Sports'
+        when ${site_dcm} ILIKE 'TripAdvisor%' then 'Trip Advisor'
+      ELSE ${site_dcm}
+      END;;
+  }
+
+  dimension: sdt_campaign {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Campaign Name"
+    sql:
+      CASE
+        when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park'
+        when ${campaign} ILIKE '%Family Content%' then 'Family Content'
+        when ${campaign} ILIKE '%SD For The Holidays%' then 'Holiday Program'
+        when ${campaign} ILIKE '%TripAdvisor%' then 'TripAdvisor Program'
+        when ${campaign} ILIKE '%Pull-Through%' then 'Pull-Through'
+        when ${campaign} ILIKE '%Brand Digital Video%' then 'Brand Digital Video'
+        when ${campaign} ILIKE '%Canada Digital%' then 'Canada Digital'
+        when ${campaign} ILIKE '%Fall Promo%' then 'Fall Promo'
+        when ${campaign} ILIKE '%Canada Campaign%' then 'Canada Digital'
+        when ${campaign} ILIKE '%Germany Campaign%' then 'Germany Digital'
+        when ${campaign} ILIKE '%UK Digital Campaign%' then 'UK Digital'
+        when ${campaign} ILIKE '%UK Digital' then 'UK Digital'
+        when ${campaign} ILIKE '%Content%' then 'Always On Content'
+        when ${campaign} ILIKE '%Content' then 'Always On Content'
+        when ${campaign} ILIKE '%Sports%' then 'Sports Digital Video'
+        when ${campaign} ILIKE '%Travel & Tourism Week' then 'Travel & Tourism Week'
+        when ${campaign} ILIKE '%NatGeo%' then 'Nat Geo Digital'
+        when ${campaign} ILIKE '%Mexico Campaign' then 'Mexico Digital'
+        when ${campaign} ILIKE '%Mexico Campaign' then 'Mexico Digital'
+        when ${campaign} ILIKE '%Kids Free%' then 'Kids Free'
+        when ${campaign} ILIKE '%ABC VOD%' then 'ABC VOD'
+        when ${campaign} ILIKE '%Digital Video' then 'Brand Digital Video'
+      ELSE ${campaign}
+      END;;
+  }
+
+  dimension: market {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Market"
+    sql:
+      CASE
+        when ${sdt_campaign} = 'UK Digital' then 'United Kingdom'
+        when ${sdt_campaign} = 'Canada Digital' then 'Canada'
+        when ${sdt_campaign} = 'Mexico Digital' then 'Mexico'
+        when ${sdt_campaign} = 'Germany Digital' then 'Germany'
+        when ${campaign_id} = '22103210' then 'United Kingdom'
+        when ${campaign_id} = '23302406' then 'Canada'
+        when ${campaign_id} = '22169957' then 'Canada'
+        when ${campaign_id} = '23350539' then 'Canada'
+          ELSE 'United States'
+      END;;
+  }
+
+######### All Dimensions Native to Source Table Below #########
+
   dimension: __id {
     hidden: yes
     type: string
@@ -91,46 +194,55 @@ view: sdt_dcm_view {
 
   dimension: ad {
     type: string
+    group_label: "DCM Dimensions"
     sql: ${TABLE}.ad ;;
   }
 
   dimension: ad_id {
     type: string
-    hidden: yes
+#     hidden: yes
     sql: ${TABLE}."ad id" ;;
   }
 
   dimension: advertiser {
     type: string
+    hidden: yes
     sql: ${TABLE}.advertiser ;;
   }
 
   dimension: booked_clicks {
-    type: number
     hidden: yes
+    group_label: "Booked Metrics"
+    label: "Booked Clicks"
+    type: number
     sql: ${TABLE}."booked clicks" ;;
   }
 
   dimension: booked_impressions {
     type: number
     hidden: yes
+    group_label: "Booked Metrics"
+    label: "Booked Impressions"
     sql: ${TABLE}."booked impressions" ;;
   }
 
   dimension: booked_viewable_impressions {
     type: number
     hidden: yes
+    group_label: "Booked Metrics"
+    label: "Booked Viewable Impressions"
     sql: ${TABLE}."booked viewable impressions" ;;
   }
 
   dimension: campaign {
     type: string
+    group_label: "DCM Dimensions"
     sql: ${TABLE}.campaign ;;
   }
 
   dimension: campaign_id {
     type: number
-    hidden: yes
+#     hidden: yes
     sql: ${TABLE}."campaign id" ;;
   }
 
@@ -160,17 +272,20 @@ view: sdt_dcm_view {
 
   dimension: creative {
     type: string
+    group_label: "DCM Dimensions"
     sql: ${TABLE}.creative ;;
   }
 
   dimension: creative_id {
     type: string
-    hidden: yes
+#     hidden: yes
     sql: ${TABLE}."creative id" ;;
   }
 
   dimension_group: date {
     type: time
+    group_label: "Date Periods"
+    label: ""
     timeframes: [
       raw,
       time,
@@ -197,33 +312,42 @@ view: sdt_dcm_view {
 
   dimension: placement {
     type: string
+    group_label: "DCM Dimensions"
     sql: ${TABLE}.placement ;;
   }
 
   dimension: placement_id {
     type: number
-    hidden: yes
+#     hidden: yes
     sql: ${TABLE}."placement id" ;;
   }
 
-  dimension: placement_strategy {
+  dimension: advertising_channel {
     type: string
+    group_label: "DCM Dimensions"
+    label: "Channel"
     sql: ${TABLE}."placement strategy" ;;
   }
 
   dimension: planned_media_cost {
     type: number
     hidden: yes
+    group_label: "Booked Metrics"
+    label: "Booked Media Cost"
+    value_format_name: usd
     sql: ${TABLE}."planned media cost" ;;
   }
 
   dimension: platform_type {
     type: string
+    hidden: yes
     sql: ${TABLE}."platform type" ;;
   }
 
   dimension: site_dcm {
     type: string
+    label: "Site"
+    group_label: "DCM Dimensions"
     sql: ${TABLE}."site (dcm)" ;;
   }
 
