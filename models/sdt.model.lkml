@@ -34,15 +34,36 @@ explore: sdt_fb_view {
 
    join: facebookads__mc_visit_san_diego_actions {
      type: left_outer
-    view_label: "Facebook Actions"
+     fields: []
      sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_actions.facebookads__mc_visit_san_diego_id} ;;
      relationship: many_to_one
    }
 
   join: facebookads__mc_visit_san_diego_video_p100_watched_actions {
     type: left_outer
-    view_label: "Facebook Actions"
+    fields: []
     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p100_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+    relationship: many_to_one
+  }
+
+  join: facebookads__mc_visit_san_diego_video_p75_watched_actions {
+    type: left_outer
+    fields: []
+    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p75_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+    relationship: many_to_one
+  }
+
+  join: facebookads__mc_visit_san_diego_video_p50_watched_actions {
+    type: left_outer
+    fields: []
+    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p50_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+    relationship: many_to_one
+  }
+
+  join: facebookads__mc_visit_san_diego_video_p25_watched_actions {
+    type: left_outer
+    fields: []
+    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p25_watched_actions.facebookads__mc_visit_san_diego_id} ;;
     relationship: many_to_one
   }
 

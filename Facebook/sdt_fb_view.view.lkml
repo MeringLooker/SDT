@@ -6,12 +6,73 @@ view: sdt_fb_view {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: string
     sql: ${TABLE}.id ;;
   }
 
+##### Dimensions added to this table via LookML #####
+
+#   dimension: ad_type {
+#     type: string
+#     group_label: "Facebook Dimensions"
+#     sql:
+#      CASE
+#        when ${ad_name} ilike '%SingleImage%' then 'Single Image'
+#        when ${ad_name} ilike '%Carousel%' then 'Carousel'
+#        when ${ad_name} ilike '%Video%' then 'Video'
+#        when ${ad_name} ilike '%Stories%' then 'Story'
+#        when ${ad_name} ilike '%Canvas%' then 'Canvas'
+#        ELSE 'Uncategorized'
+#       END;;
+#     drill_fields: [ad_name]
+#   }
+
+  dimension: fiscal_year {
+    label: "Fiscal"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+        WHEN ${date_start_date} BETWEEN '2015-07-01' AND '2016-06-30' THEN 'FY 15/16'
+        WHEN ${date_start_date} BETWEEN '2016-07-01' AND '2017-06-30' THEN 'FY 16/17'
+        WHEN ${date_start_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
+        WHEN ${date_start_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
+        WHEN ${date_start_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+        ELSE 'Uncategorized'
+        END
+        ;;
+    drill_fields: [campaign_name]
+  }
+
+  dimension: sdt_campaign {
+    label: "Campaign"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+        WHEN ${campaign_name} ILIKE '%AlwaysOnContent%' then 'Content Program'
+        WHEN ${campaign_name} ILIKE '%_Content_%' then 'Content Program'
+        WHEN ${campaign_name} ILIKE '%FallPromo%' then 'Fall Promos'
+        WHEN ${campaign_name} ILIKE '%_DigitalVideo_%' then 'Digital Video'
+        WHEN ${campaign_name} ILIKE '%AAY%' then 'Awesome All Year'
+        WHEN ${campaign_name} ILIKE '%_Holiday_%%' then 'SD For The Holidays'
+        WHEN ${campaign_name} ILIKE '%_PullThrough_%' then 'PullThrough'
+        WHEN ${campaign_name} ILIKE '%_CAN_%' then 'Canada Digital'
+        WHEN ${campaign_name} ILIKE '%_MEX_%' then 'Mexico Digital'
+        WHEN ${campaign_name} ILIKE '%_UK_%' then 'United Kingdom Digital'
+        WHEN ${campaign_name} ILIKE '%_GER_%' then 'Germany Digital'
+        when ${campaign_name} ILIKE '%PullThrough%' then 'PullThrough'
+        else 'Uncategorized'
+        end
+        ;;
+  }
+
+##### All Dimensions go below #####
+
   dimension_group: __senttime {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -26,6 +87,7 @@ view: sdt_fb_view {
 
   dimension_group: __updatetime {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -58,23 +120,10 @@ view: sdt_fb_view {
 
   dimension: ad_name {
     type: string
+    group_label: "Facebook Dimensions"
     sql: ${TABLE}.ad_name ;;
   }
 
-  dimension: ad_type {
-    type: string
-    group_label: "Facebook Dimensions"
-    sql:
-     CASE
-       when ${ad_name} ilike '%SingleImage%' then 'Single Image'
-       when ${ad_name} ilike '%Carousel%' then 'Carousel'
-       when ${ad_name} ilike '%Video%' then 'Video'
-       when ${ad_name} ilike '%Stories%' then 'Story'
-       when ${ad_name} ilike '%Canvas%' then 'Canvas'
-       ELSE 'Uncategorized'
-      END;;
-    drill_fields: [ad_name]
-  }
 
   dimension: adset_id {
     type: number
@@ -106,91 +155,65 @@ view: sdt_fb_view {
     sql: ${TABLE}.campaign_name ;;
   }
 
-  dimension: fiscal_year {
-    label: "Fiscal"
-    group_label: "Client Dimensions"
-    type: string
-    sql:
-      CASE
-        WHEN ${date_start_date} BETWEEN '2015-07-01' AND '2016-06-30' THEN 'FY 15/16'
-        WHEN ${date_start_date} BETWEEN '2016-07-01' AND '2017-06-30' THEN 'FY 16/17'
-        WHEN ${date_start_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
-        WHEN ${date_start_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
-        WHEN ${date_start_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
-        ELSE 'Uncategorized'
-        END
-        ;;
-    drill_fields: [campaign_name]
-  }
-
-
-  dimension: sdt_campaign {
-    label: "Campaign"
-    group_label: "Client Dimensions"
-    type: string
-    sql:
-      CASE
-        WHEN ${campaign_name} ILIKE '%AlwaysOnContent%' or '%_Content_%' then 'Content Program'
-        WHEN ${campaign_name} ILIKE '%FallPromo%' then 'Fall Promos'
-        WHEN ${campaign_name} ILIKE '%_DigitalVideo_%' then 'Digital Video'
-        WHEN ${campaign_name} ILIKE '%AAY%' then 'Awesome All Year'
-        WHEN ${campaign_name} ILIKE '%_Holiday_%%' then 'SD For The Holidays'
-        WHEN ${campaign_name} ILIKE '%_PullThrough_%' then 'PullThrough'
-        WHEN ${campaign_name} ILIKE '%_CAN_%' then 'Canada Digital'
-        WHEN ${campaign_name} ILIKE '%_MEX_%' then 'Mexico Digital'
-        WHEN ${campaign_name} ILIKE '%_UK_%' then 'United Kingdom Digital'
-        WHEN ${campaign_name} ILIKE '%_GER_%' then 'Germany Digital'
-        ;;
-  }
-
   dimension: clicks {
     type: number
+    hidden: yes
     sql: ${TABLE}.clicks ;;
   }
 
   dimension: comp_key {
     type: string
+    hidden: yes
     sql: ${TABLE}.comp_key ;;
   }
 
   dimension: comp_key_backup {
     type: string
+    hidden: yes
     sql: ${TABLE}.comp_key_backup ;;
   }
 
   dimension: cost_per_inline_post_engagement {
     type: number
+    hidden: yes
     sql: ${TABLE}.cost_per_inline_post_engagement ;;
   }
 
   dimension: cost_per_unique_click {
     type: number
+    hidden: yes
     sql: ${TABLE}.cost_per_unique_click ;;
   }
 
   dimension: country {
     type: string
     map_layer_name: countries
+    group_label: "Facebook Dimensions"
     sql: ${TABLE}.country ;;
   }
 
   dimension: cpm {
     type: number
+    hidden: yes
     sql: ${TABLE}.cpm ;;
   }
 
   dimension: cpp {
     type: number
+    hidden: yes
     sql: ${TABLE}.cpp ;;
   }
 
   dimension: ctr {
     type: number
+    hidden: yes
     sql: ${TABLE}.ctr ;;
   }
 
   dimension_group: date_start {
     type: time
+    label: ""
+    group_label: "Date Periods"
     timeframes: [
       raw,
       time,
@@ -205,6 +228,7 @@ view: sdt_fb_view {
 
   dimension_group: date_stop {
     type: time
+    hidden: yes
     timeframes: [
       raw,
       time,
@@ -219,67 +243,78 @@ view: sdt_fb_view {
 
   dimension: frequency {
     type: number
+    hidden: yes
     sql: ${TABLE}.frequency ;;
   }
 
   dimension: impressions {
     type: number
+    hidden: yes
     sql: ${TABLE}.impressions ;;
   }
 
   dimension: inline_link_clicks {
     type: number
+    hidden: yes
     sql: ${TABLE}.inline_link_clicks ;;
   }
 
   dimension: inline_post_engagement {
     type: number
+    hidden: yes
     sql: ${TABLE}.inline_post_engagement ;;
   }
 
   dimension: objective {
     type: string
+    group_label: "Facebook Dimensions"
     sql: ${TABLE}.objective ;;
   }
 
   dimension: reach {
     type: number
+    hidden: yes
     sql: ${TABLE}.reach ;;
   }
 
   dimension: spend {
     type: number
+    hidden: yes
     sql: ${TABLE}.spend ;;
   }
 
   dimension: unique_clicks {
     type: number
+    hidden: yes
     sql: ${TABLE}.unique_clicks ;;
   }
 
   dimension: unique_ctr {
     type: number
+    hidden: yes
     sql: ${TABLE}.unique_ctr ;;
   }
 
 #### All Measures go below ####
 
-
   measure: total_impressions {
     type: sum
     label: "Impressions"
+    group_label: "Facebook Reporting"
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum
     label: "Clicks"
+    group_label: "Facebook Reporting"
     sql: ${inline_link_clicks} ;;
   }
 
   measure: click_through_rate {
     type: number
     label: "CTR"
+    group_label: "Facebook Reporting"
     sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
   }
@@ -287,6 +322,7 @@ view: sdt_fb_view {
   measure: total_spend {
     type: sum
     label: "Media Spend"
+    group_label: "Facebook Reporting"
     sql: ${spend};;
     value_format_name: usd
   }
@@ -294,6 +330,7 @@ view: sdt_fb_view {
   measure: cost_per_click {
     type: number
     label: "CPC"
+    group_label: "Facebook Reporting"
     sql: ${total_spend}/nullif(${total_clicks}, 0) ;;
     value_format_name: usd
   }
@@ -301,6 +338,7 @@ view: sdt_fb_view {
   measure: cost_per_thousand {
     type: number
     label: "CPM"
+    group_label: "Facebook Reporting"
     sql: ${total_spend}/nullif(${total_impressions}/1000, 0) ;;
     value_format_name: usd
   }
@@ -311,6 +349,7 @@ view: sdt_fb_view {
     type: sum_distinct
     sql_distinct_key: ${sdt_fb_view.id};;
     label: ":03 Video Views"
+    group_label: "Facebook Reporting"
     sql:
       CASE
       WHEN ${facebookads__mc_visit_san_diego_actions.action_type} = 'video_view' THEN ${facebookads__mc_visit_san_diego_actions.value}
@@ -320,15 +359,66 @@ view: sdt_fb_view {
   measure: video_completes {
     type: sum_distinct
     label: "Views to 100%"
-    sql_distinct_key: ${sdt_fb_view.id};;
+    group_label: "Facebook Reporting"
+    sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p100_watched_actions.id};;
     sql: ${facebookads__mc_visit_san_diego_video_p100_watched_actions.value} ;;
   }
 
   measure: video_completion_rate {
     type: number
     label: "Vid. Completion Rate"
+    group_label: "Facebook Reporting"
     sql: 1.0*${video_completes}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
+  }
+
+#### Joined FB Action Measures #####
+
+  measure: view_rate {
+    type: number
+    group_label: "Facebook Reporting"
+    label: ":03 View Rate"
+    sql: 1.0*(${video_views}/nullif(${total_impressions}, 0) ;;
+  }
+
+  measure: view_to_25_percent {
+    type: sum_distinct
+    group_label: "Facebook Reporting"
+    label: "Views to 25%"
+    sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p25_watched_actions.id};;
+    sql: ${facebookads__mc_visit_san_diego_video_p25_watched_actions.value} ;;
+  }
+
+  measure: view_to_50_percent {
+    type: sum_distinct
+    group_label: "Facebook Reporting"
+    label: "Views to 50%"
+    sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p50_watched_actions.id};;
+    sql: ${facebookads__mc_visit_san_diego_video_p50_watched_actions.value} ;;
+  }
+
+  measure: view_to_75_percent {
+    type: sum_distinct
+    group_label: "Facebook Reporting"
+    label: "Views to 75%"
+    sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p75_watched_actions.id};;
+    sql: ${facebookads__mc_visit_san_diego_video_p75_watched_actions.value} ;;
+  }
+
+  measure: cost_per_03sec_view {
+    type: number
+    group_label: "Facebook Reporting"
+    label: "CPV :03"
+    sql: ${video_views}/nullif(${total_spend}, 0);;
+    value_format_name: usd
+  }
+
+  measure: cost_per_100p_view {
+    type: number
+    group_label: "Facebook Reporting"
+    label: "Cost/Completed View"
+    sql: ${video_completes}/nullif(${total_spend}, 0);;
+    value_format_name: usd
   }
 
   ####### Joined GA Measures #######
