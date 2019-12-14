@@ -3,13 +3,21 @@ view: sdt_dcm_view {
   drill_fields: [id]
 
 
-######## Dimensions go below ########
+######## Primary Key ########
 
   dimension: id {
     primary_key: yes
     hidden: yes
     type: string
     sql: ${TABLE}.id ;;
+  }
+
+######## GA Join ID ########
+
+  dimension: comp_key {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.comp_key ;;
   }
 
 ##### Dimensions added to this table via LookML ######
@@ -59,9 +67,35 @@ view: sdt_dcm_view {
         when ${site_dcm} ILIKE 'Nativo%' then 'Nativo'
         when ${site_dcm} ILIKE 'NBC Sports%' then 'NBC Sports'
         when ${site_dcm} ILIKE 'TripAdvisor%' then 'Trip Advisor'
-      ELSE ${site_dcm}
+        ELSE ${site_dcm}
       END;;
   }
+
+  dimension: layer {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Campaign Layer"
+    sql:
+      CASE
+        when ${placement} ILIKE '%Anaheim/Disneyland%' then 'Disneyland'
+        when ${placement} ILIKE '%Conquesting%' then 'Competitive Conquest'
+        when ${placement} ILIKE 'Adara\\_Los Angeles\\_%' then 'Los Angeles'
+        when ${placement} ILIKE 'Adara\\_PT\\_Display Prospecting%' then 'PullThrough Base'
+        when ${placement} ILIKE 'Adara\\_PT\\_AV Display Prospecting%' then 'PullThrough Base'
+        when ${placement} ILIKE 'AdRoll\\_Retargeting%' then 'Retargeting'
+        when ${placement} ILIKE '%Competitive Conquesting%' then 'Competitive Conquest'
+        when ${placement} ILIKE '%Disneyland/Anaheim%' then 'Disneyland'
+        when ${placement} ILIKE 'Expedia\\_Los Angeles\\_%' then 'Los Angeles'
+        when ${placement} ILIKE 'Expedia\\_OTA Base\\_%' then 'OTA Base'
+        when ${placement} ILIKE 'Kayak\\_Los Angeles\\_%' then 'Los Angeles'
+        when ${placement} ILIKE 'Expedia\\_Los Angeles\\_%' then 'Los Angeles'
+        when ${placement} ILIKE 'Sojern\\_PT\\_Display Prospecting%' then 'PullThrough Base'
+        when ${placement} ILIKE 'Sojern\\_PT\\_AV Display Prospecting%' then 'PullThrough Base'
+        when ${placement} ILIKE 'Priceline\\_OTA Base\\_%' then 'OTA Base'
+        ELSE 'Uncategorized'
+      END;;
+  }
+
 
   dimension: sdt_campaign {
     type: string
@@ -264,12 +298,6 @@ view: sdt_dcm_view {
     sql: ${TABLE}."click-through revenue" ;;
   }
 
-  dimension: comp_key {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.comp_key ;;
-  }
-
   dimension: creative {
     type: string
     group_label: "DCM Dimensions"
@@ -461,88 +489,83 @@ view: sdt_dcm_view {
     value_format_name: usd
   }
 
-######## Joined measures from GA #######
+  ####### Joined GA Measures #########
 
-#   measure: ga_sessions {
-#     group_label: "GA Reporting"
-#     type: sum_distinct
-#     label: "Sessions"
-#     sql_distinct_key: ${sdt_mc_ga_view.id};;
-#     sql: ${sdt_mc_ga_view.sessions};;
-#   }
-#
-#   measure: cost_per_session {
-#     group_label: "GA Reporting"
-#     type: number
-#     label: "CPS"
-#     sql: ${total_media_cost}/nullif(${sdt_mc_ga_view.sessions}, 0) ;;
-#     value_format_name: usd
-#   }
-#
-#   measure: ga_total_session_duration {
-#     hidden: yes
-#     type: sum
-#     label: "Total Session Duration"
-#     sql_distinct_key: ${sdt_mc_ga_view.id};;
-#     sql: ${sdt_mc_ga_view.sessionduration};;
-#   }
-#
-#   measure: avg_time_on_site {
-#     label: "Avg. TOS - Unformatted"
-#     hidden: yes
-#     type: number
-#     sql: ${sdt_mc_ga_view.total_session_duration}/nullif(${sdt_mc_ga_view.total_sessions}, 0);;
-#     value_format: "0.##"
-#   }
-#
-#   measure: formatted_tos {
-#     group_label: "GA Reporting"
-#     label: "Avg. TOS"
-#     type: number
-#     sql:  ${avg_time_on_site}::float/86400 ;;
-#     value_format: "m:ss"
-#   }
-#
-#   measure: total_users {
-#     group_label: "GA Reporting"
-#     label: "Users"
-#     type: sum
-#     sql: ${sdt_mc_ga_view.users} ;;
-#   }
-#
-#   measure: new_users {
-#     group_label: "GA Reporting"
-#     label: "New Users"
-#     type: sum
-#     sql: ${sdt_mc_ga_view.newusers} ;;
-#   }
-#
-#   measure: percent_new_users {
-#     group_label: "GA Reporting"
-#     label: "% New Users"
-#     type: number
-#     sql: ${sdt_mc_ga_view.new_users}/nullif(${sdt_mc_ga_view.total_users}, 0) ;;
-#     value_format_name: percent_0
-#   }
-#
-#   measure: total_pageviews {
-#     group_label: "GA Reporting"
-#     label: "Pageviews"
-#     type: sum
-#     sql: ${sdt_mc_ga_view.pageviews} ;;
-#   }
-#
-#   measure: pages_per_session {
-#     group_label: "GA Reporting"
-#     label: "Pgs/Session"
-#     type: number
-#     sql: ${sdt_mc_ga_view.pageviews}/nullif(${sdt_mc_ga_view.total_sessions}, 0) ;;
-#   }
+  measure: ga_sessions {
+    group_label: "GA Reporting"
+    type: sum_distinct
+    label: "Sessions"
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.sessions} ;;
+  }
+
+  measure: cost_per_session {
+    group_label: "GA Reporting"
+    type: number
+    label: "CPS"
+    sql: ${total_media_cost}/nullif(${ga_sessions}, 0) ;;
+    value_format_name: usd
+  }
+
+  measure: ga_total_session_duration {
+    hidden: yes
+    group_label: "GA Reporting"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    label: "Total Session Duration"
+    sql: ${sdt_ga_onsite.sessionduration} ;;
+  }
+
+  measure: ga_avg_session_duration {
+    type: number
+    label: "Avg. TOS"
+    group_label: "GA Reporting"
+    sql: (${ga_total_session_duration}/nullif(${ga_sessions}, 0))::float/86400 ;;
+    value_format: "m:ss"
+  }
+
+  measure: ga_total_users {
+    group_label: "GA Reporting"
+    label: "Users"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.users} ;;
+  }
+
+  measure: ga_new_users {
+    group_label: "GA Reporting"
+    label: "New Users"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.newusers} ;;
+  }
+
+  measure: percent_new_users {
+    group_label: "GA Reporting"
+    label: "% New Users"
+    type: number
+    sql: ${ga_new_users}/nullif(${ga_total_users}, 0) ;;
+    value_format_name: percent_0
+  }
+
+  measure: ga_total_pageviews {
+    group_label: "GA Reporting"
+    label: "Pageviews"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.pageviews} ;;
+  }
+
+  measure: pages_per_session {
+    group_label: "GA Reporting"
+    label: "Pgs/Session"
+    type: number
+    sql: ${ga_total_pageviews}/nullif(${ga_sessions}, 0) ;;
+    value_format: "#.0"
+  }
 
   measure: count {
     type: count
     drill_fields: [id]
   }
 }
-
-##### Drill Fields go here #####
