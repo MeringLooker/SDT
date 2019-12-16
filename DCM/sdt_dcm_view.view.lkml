@@ -194,36 +194,31 @@ view: sdt_dcm_view {
   dimension: active_view__measurable_impressions {
     hidden: yes
     type: number
-    sql: ${TABLE}."active view: % measurable impressions"
-      ;;
+    sql: ${TABLE}."active view: % measurable impressions"  ;;
   }
 
   dimension: active_view__viewable_impressions {
     type: number
     hidden: yes
-    sql: ${TABLE}."active view: % viewable impressions"
-      ;;
+    sql: ${TABLE}."active view: % viewable impressions"  ;;
   }
 
   dimension: active_view_eligible_impressions {
     type: number
     hidden: yes
-    sql: ${TABLE}."active view: eligible impressions"
-      ;;
+    sql: ${TABLE}."active view: eligible impressions"  ;;
   }
 
   dimension: active_view_measurable_impressions {
     hidden: yes
     type: number
-    sql: ${TABLE}."active view: measurable impressions"
-      ;;
+    sql: ${TABLE}."active view: measurable impressions" ;;
   }
 
   dimension: active_view_viewable_impressions {
     type: number
     hidden: yes
-    sql: ${TABLE}."active view: viewable impressions"
-      ;;
+    sql: ${TABLE}."active view: viewable impressions" ;;
   }
 
   dimension: ad {
@@ -407,14 +402,16 @@ view: sdt_dcm_view {
 
   measure: total_impressions {
     group_label: "3rd Party Measures"
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Impressions"
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     group_label: "3rd Party Measures"
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Clicks"
     sql: ${clicks} ;;
   }
@@ -429,14 +426,16 @@ view: sdt_dcm_view {
 
   measure: total_active_view_measureable_impressions {
     group_label: "3rd Party Measures"
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Active View Measureable Impressions"
-    sql: ${active_view_measurable_impressions}   ;;
+    sql: ${active_view_measurable_impressions} ;;
   }
 
   measure: total_active_view_viewable_impressions {
     group_label: "3rd Party Measures"
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Active View Viewable Impressions"
     sql: ${active_view_viewable_impressions} ;;
   }
@@ -451,7 +450,8 @@ view: sdt_dcm_view {
 
   measure: total_media_cost {
     group_label: "3rd Party Measures"
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Media Spend"
     sql: ${media_cost} ;;
     value_format_name: usd
