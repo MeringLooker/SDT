@@ -68,6 +68,49 @@ view: sdt_fb_view {
         ;;
   }
 
+  dimension: sdt_campaign_layer {
+    label: "Campaign Layer"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+        when ${campaign_name} ILIKE 'SDT\\_FY20\\_PullThrough%' then 'PullThrough Base'
+        else 'Uncategorized'
+        end
+        ;;
+  }
+
+  dimension: sdt_audience {
+    label: "Audience"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National' then 'Brand Audience'
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National_Adara' then 'Adara Audience'
+        else 'Uncategorized'
+        end
+        ;;
+  }
+
+  dimension: sdt_creative_name {
+    label: "Creative Name"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+        when ${ad_name} ilike '%\\_SingleImage\\_DadDaughter' then 'Dad & Daughter'
+        when ${ad_name} ilike '%\\_SingleImage\\_PoolParty' then 'Pool Party'
+        when ${ad_name} ilike '%\\_SingleImage\\_FamilyBeach' then 'Beach Family'
+        when ${ad_name} ilike '%\\_SingleImage\\_Dinner' then 'Dinner'
+        when ${ad_name} ilike '%\\_SingleImage\\_FriendsBeach' then 'Beach Friends'
+        when ${ad_name} ilike '%\\_SingleImage\\_RollerGirls' then 'Roller Girls'
+
+        else 'Uncategorized'
+        end
+        ;;
+  }
+
 ##### All Dimensions go below #####
 
   dimension_group: __senttime {
@@ -423,87 +466,78 @@ view: sdt_fb_view {
 
   ####### Joined GA Measures #######
 
-#   measure: ga_sessions {
-#     type: sum_distinct
-#     label: "Sessions"
-#     group_label: "GA Reporting"
-#     sql_distinct_key: ${sdt_mc_ga_view.id};;
-#     sql: ${sdt_mc_ga_view.sessions};;
-#   }
-#
-#   measure: cost_per_session {
-#     type: number
-#     label: "CPS"
-#     group_label: "GA Reporting"
-#     sql: ${total_spend}/nullif(${ga_sessions}, 0) ;;
-#     value_format_name: usd
-#   }
-#
-#   measure: click_to_session {
-#     type: number
-#     label: "CTS"
-#     group_label: "GA Reporting"
-#     description: "Percent of clicks that result in a session."
-#     sql: 1.0*${ga_sessions}/nullif(${total_clicks}, 0) ;;
-#     value_format_name: percent_0
-#   }
-#
-#   measure: ga_total_session_duration {
-#     hidden: yes
-#     type: sum
-#     group_label: "GA Reporting"
-#     label: "Total Session Duration"
-#     sql_distinct_key: ${sdt_mc_ga_view.id};;
-#     sql: ${sdt_mc_ga_view.sessionduration};;
-#   }
-#
-#   measure: avg_time_on_site {
-#     label: "Avg. TOS"
-#     group_label: "GA Reporting"
-#     type: number
-#     sql: (${sdt_mc_ga_view.total_session_duration}/nullif(${sdt_mc_ga_view.total_sessions}, 0))::float/86400 ;;
-#     value_format: "m:ss"
-#   }
-#
-#   measure: ga_total_users {
-#     type: sum
-#     group_label: "GA Reporting"
-#     label: "Users"
-#     sql_distinct_key: ${sdt_mc_ga_view.id};;
-#     sql: ${sdt_mc_ga_view.users};;
-#   }
-#
-#   measure: ga_new_users {
-#     type: sum
-#     group_label: "GA Reporting"
-#     label: "New Users"
-#     sql_distinct_key: ${sdt_mc_ga_view.id};;
-#     sql: ${sdt_mc_ga_view.newusers};;
-#   }
-#
-#   measure: percent_new_users {
-#     group_label: "GA Reporting"
-#     label: "% New Users"
-#     type: number
-#     sql: 1.0*${ga_new_users}/nullif(${ga_total_users}, 0) ;;
-#     value_format_name: percent_0
-#   }
-#
-#   measure: ga_total_pageviews {
-#     group_label: "GA Reporting"
-#     label: "Pageviews"
-#     type: sum
-#     sql: ${sdt_mc_ga_view.pageviews} ;;
-#   }
-#
-#   measure: pages_per_session {
-#     group_label: "GA Reporting"
-#     label: "Pgs/Session"
-#     type: number
-#     sql: ${ga_total_pageviews}/nullif(${ga_sessions}, 0) ;;
-#     value_format: "#.0"
-#   }
+  measure: ga_sessions {
+    group_label: "GA Reporting"
+    type: sum_distinct
+    label: "Sessions"
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.sessions} ;;
+  }
 
+  measure: cost_per_session {
+    group_label: "GA Reporting"
+    type: number
+    label: "CPS"
+    sql: ${total_spend}/nullif(${ga_sessions}, 0) ;;
+    value_format_name: usd
+  }
+
+  measure: ga_total_session_duration {
+    hidden: yes
+    group_label: "GA Reporting"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    label: "Total Session Duration"
+    sql: ${sdt_ga_onsite.sessionduration} ;;
+  }
+
+  measure: ga_avg_session_duration {
+    type: number
+    label: "Avg. TOS"
+    group_label: "GA Reporting"
+    sql: (${ga_total_session_duration}/nullif(${ga_sessions}, 0))::float/86400 ;;
+    value_format: "m:ss"
+  }
+
+  measure: ga_total_users {
+    group_label: "GA Reporting"
+    label: "Users"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.users} ;;
+  }
+
+  measure: ga_new_users {
+    group_label: "GA Reporting"
+    label: "New Users"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.newusers} ;;
+  }
+
+  measure: percent_new_users {
+    group_label: "GA Reporting"
+    label: "% New Users"
+    type: number
+    sql: ${ga_new_users}/nullif(${ga_total_users}, 0) ;;
+    value_format_name: percent_0
+  }
+
+  measure: ga_total_pageviews {
+    group_label: "GA Reporting"
+    label: "Pageviews"
+    type: sum_distinct
+    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql: ${sdt_ga_onsite.pageviews} ;;
+  }
+
+  measure: pages_per_session {
+    group_label: "GA Reporting"
+    label: "Pgs/Session"
+    type: number
+    sql: ${ga_total_pageviews}/nullif(${ga_sessions}, 0) ;;
+    value_format: "#.0"
+  }
 
   measure: count {
     type: count

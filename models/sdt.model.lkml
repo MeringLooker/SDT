@@ -12,70 +12,70 @@ persist_with: sdt_default_datagroup
 
 ####### Explore DoubleClick Data #######
 
-explore: sdt_dcm_view {
-  label: "DoubleClick"
-  view_label: "DoubleClick"
-  group_label: "SDT"
+# explore: sdt_dcm_view {
+#   label: "DoubleClick"
+#   view_label: "DoubleClick"
+#   group_label: "San Diego Tourism"
 
-join: sdt_ga_onsite {
-  view_label: "Google Analytics"
-  type: left_outer
-  fields: []
-  sql_on: ${sdt_dcm_view.comp_key} = ${sdt_ga_onsite.join_id} ;;
-  relationship: many_to_one
-}
-}
+# join: sdt_ga_onsite {
+#   view_label: "Google Analytics"
+#   type: left_outer
+#   fields: []
+#   sql_on: ${sdt_dcm_view.comp_key} = ${sdt_ga_onsite.join_id} ;;
+#   relationship: many_to_one
+# }
+# }
 
 ###### Explore Facebook Data #######
 
-explore: sdt_fb_view {
-  label: "Facebook"
-  view_label: "Facebook"
-  group_label: "SDT"
+# explore: sdt_fb_view {
+#   label: "Facebook"
+#   view_label: "Facebook"
+#   group_label: "San Diego Tourism"
 
-   join: facebookads__mc_visit_san_diego_actions {
-     type: left_outer
-     fields: []
-     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_actions.facebookads__mc_visit_san_diego_id} ;;
-     relationship: many_to_one
-   }
-
-  join: facebookads__mc_visit_san_diego_video_p100_watched_actions {
-    type: left_outer
-    fields: []
-    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p100_watched_actions.facebookads__mc_visit_san_diego_id} ;;
-    relationship: many_to_one
-  }
-
-  join: facebookads__mc_visit_san_diego_video_p75_watched_actions {
-    type: left_outer
-    fields: []
-    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p75_watched_actions.facebookads__mc_visit_san_diego_id} ;;
-    relationship: many_to_one
-  }
-
-  join: facebookads__mc_visit_san_diego_video_p50_watched_actions {
-    type: left_outer
-    fields: []
-    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p50_watched_actions.facebookads__mc_visit_san_diego_id} ;;
-    relationship: many_to_one
-  }
-
-  join: facebookads__mc_visit_san_diego_video_p25_watched_actions {
-    type: left_outer
-    fields: []
-    sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p25_watched_actions.facebookads__mc_visit_san_diego_id} ;;
-    relationship: many_to_one
-  }
-
-#   join: sdt_mc_ga_view {
-#     view_label: "Google Analytics"
+#   join: facebookads__mc_visit_san_diego_actions {
 #     type: left_outer
-#     sql_on: ${sdt_fb_view.comp_key} = ${sdt_mc_ga_view.comp_key} ;;
+#     fields: []
+#     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_actions.facebookads__mc_visit_san_diego_id} ;;
 #     relationship: many_to_one
 #   }
 
-  }
+#   join: facebookads__mc_visit_san_diego_video_p100_watched_actions {
+#     type: left_outer
+#     fields: []
+#     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p100_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+#     relationship: many_to_one
+#   }
+
+#   join: facebookads__mc_visit_san_diego_video_p75_watched_actions {
+#     type: left_outer
+#     fields: []
+#     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p75_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+#     relationship: many_to_one
+#   }
+
+#   join: facebookads__mc_visit_san_diego_video_p50_watched_actions {
+#     type: left_outer
+#     fields: []
+#     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p50_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+#     relationship: many_to_one
+#   }
+
+#   join: facebookads__mc_visit_san_diego_video_p25_watched_actions {
+#     type: left_outer
+#     fields: []
+#     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_video_p25_watched_actions.facebookads__mc_visit_san_diego_id} ;;
+#     relationship: many_to_one
+#   }
+
+#   join: sdt_ga_onsite {
+#     view_label: "Google Analytics"
+#     type: left_outer
+#     fields: []
+#     sql_on: ${sdt_fb_view.comp_key} = ${sdt_ga_onsite.join_id} ;;
+#     relationship: one_to_many
+#   }
+# }
 
 
 # explore: adwords_ad_performance_report {}
