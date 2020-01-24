@@ -23,7 +23,7 @@ view: ndt_can_pullthrough_expedia {
         value: "Expedia"
       }
     }
-    datagroup_trigger: sdt_uk_pullthrough_datagroup
+    datagroup_trigger: sdt_can_pullthrough_datagroup
     distribution_style: all
   }
 

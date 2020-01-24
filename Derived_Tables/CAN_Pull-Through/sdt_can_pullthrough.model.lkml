@@ -4,7 +4,7 @@ include: "*.view.lkml"
 include: "/Google_Analytics/*.view"
 include: "/DCM/*.view"
 
-datagroup: sdt_uk_pullthrough_datagroup {
+datagroup: sdt_can_pullthrough_datagroup {
   sql_trigger: SELECT current_date;;
   max_cache_age: "24 hours"
 }

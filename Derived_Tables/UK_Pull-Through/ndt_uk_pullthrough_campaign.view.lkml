@@ -1,7 +1,7 @@
 view: ndt_uk_pullthrough_campaign {
   derived_table: {
     sql:
-          select * from ${ndt_uk_pullthrough_expedia.SQL_TABLE_NAME}
+        select * from ${ndt_uk_pullthrough_expedia.SQL_TABLE_NAME}
             ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
