@@ -13,6 +13,12 @@ view: sdt_fb_view {
 
 ##### Dimensions added to this table via LookML #####
 
+  dimension: publisher {
+    type: string
+    hidden: yes
+    sql: 'Facebook' ;;
+  }
+
 #   dimension: ad_type {
 #     type: string
 #     group_label: "Facebook Dimensions"
@@ -45,36 +51,69 @@ view: sdt_fb_view {
     drill_fields: [campaign_name]
   }
 
+  dimension: sdt_market {
+    label: "Market"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+
+        WHEN ${campaign_name} ILIKE '%_CAN_%' then 'Canada'
+        WHEN ${campaign_name} ILIKE '%_MEX_%' then 'Mexico'
+        WHEN ${campaign_name} ILIKE '%_UK_%' then 'United Kingdom'
+        WHEN ${campaign_name} ILIKE '%_GER_%' then 'Germany'
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National' then 'United States'
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National_Adara' then 'United States'
+
+        else 'Uncategorized'
+        end
+        ;;
+  }
+
   dimension: sdt_campaign {
     label: "Campaign"
     group_label: "Client Dimensions"
     type: string
     sql:
       CASE
-        WHEN ${campaign_name} ILIKE '%AlwaysOnContent%' then 'Content Program'
-        WHEN ${campaign_name} ILIKE '%_Content_%' then 'Content Program'
+        WHEN ${campaign_name} ILIKE '%AlwaysOnContent%' then 'Always On Content'
+        WHEN ${campaign_name} ILIKE 'FY19_Content_Stage%' then 'Always On Content'
+        WHEN ${campaign_name} ILIKE 'FY19_Content_Family%' then 'Family Content'
+        WHEN ${campaign_name} ILIKE 'SDTA Kids Free%' then 'Kids Free'
+        WHEN ${campaign_name} ILIKE '1718_Content%' then 'Always On Content'
+        WHEN ${campaign_name} ILIKE '1718_BrandCampaign_CAN%' then 'Canada Digital'
+        WHEN ${campaign_name} ILIKE '1718_BrandCampaign_GER%' then 'Germany Digital'
+        WHEN ${campaign_name} ILIKE '1718_BrandCampaign_SWZ%' then 'Switzerland Digital'
+        WHEN ${campaign_name} ILIKE '1718_BrandCampaign_UK%' then 'United Kingdom Digital'
+
+
         WHEN ${campaign_name} ILIKE '%FallPromo%' then 'Fall Promos'
-        WHEN ${campaign_name} ILIKE '%_DigitalVideo_%' then 'Digital Video'
+        WHEN ${campaign_name} ILIKE '%_DigitalVideo_%' then 'Brand Digital Video'
         WHEN ${campaign_name} ILIKE '%AAY%' then 'Awesome All Year'
-        WHEN ${campaign_name} ILIKE '%_Holiday_%%' then 'SD For The Holidays'
-        WHEN ${campaign_name} ILIKE '%_PullThrough_%' then 'PullThrough'
-        WHEN ${campaign_name} ILIKE '%_CAN_%' then 'Canada Digital'
-        WHEN ${campaign_name} ILIKE '%_MEX_%' then 'Mexico Digital'
-        WHEN ${campaign_name} ILIKE '%_UK_%' then 'United Kingdom Digital'
-        WHEN ${campaign_name} ILIKE '%_GER_%' then 'Germany Digital'
-        when ${campaign_name} ILIKE '%PullThrough%' then 'PullThrough'
+        WHEN ${campaign_name} ILIKE 'FY19_Holiday_%%' then 'SD For The Holidays'
+        WHEN ${campaign_name} ILIKE 'SDT_FY20_PullThrough_%' then 'US Pull-Through'
+        WHEN ${campaign_name} ILIKE 'SDT_FY20_CAN_%' then 'Canada Digital'
+        WHEN ${campaign_name} ILIKE 'FY19_CAN_%' then 'Canada Digital'
+        WHEN ${campaign_name} ILIKE 'FY19_MEX_%' then 'Mexico Digital'
+        WHEN ${campaign_name} ILIKE 'SDT_FY20_UK_%' then 'United Kingdom Digital'
+        WHEN ${campaign_name} ILIKE 'FY19_UK_%' then 'United Kingdom Digital'
+        WHEN ${campaign_name} ILIKE 'FY19_GER_%' then 'Germany Digital'
+
         else 'Uncategorized'
         end
         ;;
   }
 
-  dimension: sdt_campaign_layer {
+  dimension: sdt_layer {
     label: "Campaign Layer"
     group_label: "Client Dimensions"
     type: string
     sql:
       CASE
-        when ${campaign_name} ILIKE 'SDT\\_FY20\\_PullThrough%' then 'PullThrough Base'
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National' then 'Pull-Through Base'
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National_Adara' then 'Pull-Through Base'
+
+
         else 'Uncategorized'
         end
         ;;
@@ -93,7 +132,7 @@ view: sdt_fb_view {
         ;;
   }
 
-  dimension: sdt_creative_name {
+  dimension: creative_name {
     label: "Creative Name"
     group_label: "Client Dimensions"
     type: string
@@ -230,6 +269,7 @@ view: sdt_fb_view {
 
   dimension: country {
     type: string
+    hidden: yes
     map_layer_name: countries
     group_label: "Facebook Dimensions"
     sql: ${TABLE}.country ;;

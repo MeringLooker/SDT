@@ -1,7 +1,5 @@
 view: sdt_dcm_view {
   sql_table_name: public.sdt_dcm_view ;;
-  drill_fields: [id]
-
 
 ######## Primary Key ########
 
@@ -67,11 +65,27 @@ view: sdt_dcm_view {
         when ${site_dcm} ILIKE 'Nativo%' then 'Nativo'
         when ${site_dcm} ILIKE 'NBC Sports%' then 'NBC Sports'
         when ${site_dcm} ILIKE 'TripAdvisor%' then 'Trip Advisor'
+
+        when ${site_dcm} ILIKE 'Turner Sports%' then 'Turner Sports'
+        when ${site_dcm} ILIKE 'Meredith%' then 'Meredith'
+
+        when ${site_dcm} ILIKE 'Lastminute%' then 'Lastminute'
+        when ${site_dcm} ILIKE 'Triplelift%' then 'TripleLift'
+
+        when ${site_dcm} ILIKE 'Adroll%' then 'AdRoll'
+        when ${site_dcm} ILIKE 'Adara%' then 'Adara'
+        when ${site_dcm} ILIKE 'Kayak%' then 'Kayak'
+
+        when ${site_dcm} ILIKE 'travelocity.ca/ca%' then 'Travelocity'
+
+        when ${site_dcm} ILIKE 'TravelandLeisure' then 'Travel + Leisure'
+
         ELSE ${site_dcm}
+
       END;;
   }
 
-  dimension: layer {
+  dimension: sdt_layer {
     type: string
     group_label: "Client Dimensions"
     label: "Campaign Layer"
@@ -105,16 +119,24 @@ view: sdt_dcm_view {
       CASE
         when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park'
         when ${campaign} ILIKE '%Family Content%' then 'Family Content'
-        when ${campaign} ILIKE '%SD For The Holidays%' then 'Holiday Program'
-        when ${campaign} ILIKE '%TripAdvisor%' then 'TripAdvisor Program'
-        when ${campaign} ILIKE '%Pull-Through%' then 'Pull-Through'
+        when ${campaign} ILIKE '%SD For The Holidays%' then 'SD For The Holidays'
+
+
+
+        when ${campaign} = 'SDT: FY19 TripAdvisor Program- CAN' then 'CAN TripAdvisor Program'
+        when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor CAN Campaign' then 'CAN TripAdvisor Program'
+        when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor US Campaign' then 'US TripAdvisor Program'
+        when ${campaign} = 'SDT FY19 TripAdvisor Program- US' then 'US TripAdvisor Program'
+        when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor UK Campaign' then 'UK TripAdvisor Program'
+        when ${campaign} = 'SDT FY19 TripAdvisor Program- UK' then 'UK TripAdvisor Program'
+
         when ${campaign} ILIKE '%Brand Digital Video%' then 'Brand Digital Video'
         when ${campaign} ILIKE '%Canada Digital%' then 'Canada Digital'
         when ${campaign} ILIKE '%Fall Promo%' then 'Fall Promo'
         when ${campaign} ILIKE '%Canada Campaign%' then 'Canada Digital'
         when ${campaign} ILIKE '%Germany Campaign%' then 'Germany Digital'
-        when ${campaign} ILIKE '%UK Digital Campaign%' then 'UK Digital'
-        when ${campaign} ILIKE '%UK Digital' then 'UK Digital'
+        when ${campaign} ILIKE '%UK Digital Campaign%' then 'United Kingdom Digital'
+        when ${campaign} ILIKE '%UK Digital' then 'United Kingdom Digital'
         when ${campaign} ILIKE '%Content%' then 'Always On Content'
         when ${campaign} ILIKE '%Content' then 'Always On Content'
         when ${campaign} ILIKE '%Sports%' then 'Sports Digital Video'
@@ -125,17 +147,25 @@ view: sdt_dcm_view {
         when ${campaign} ILIKE '%Kids Free%' then 'Kids Free'
         when ${campaign} ILIKE '%ABC VOD%' then 'ABC VOD'
         when ${campaign} ILIKE '%Digital Video' then 'Brand Digital Video'
+
+        when ${campaign} = 'SDT: 004762_01 FY20 UK Pull-Through Campaign' then 'UK Pull-Through'
+        when ${campaign} = 'SDT: 004762_01 FY20 Pull-Through Campaign' then 'US Pull-Through'
+        when ${campaign} = 'SDT: 004762_01 FY20 CAN Pull-Through Campaign' then 'CAN Pull-Through'
+        when ${campaign} = 'SDT: 004027_01 FY19 Foundational Pull-Through' then 'US Pull-Through'
+        when ${campaign} = '003220_01 FY18 Foundational Travel Intender Pull-Through Digital' then 'US Pull-Through'
+
+
       ELSE ${campaign}
       END;;
   }
 
-  dimension: market {
+  dimension: sdt_market {
     type: string
     group_label: "Client Dimensions"
     label: "Market"
     sql:
       CASE
-        when ${sdt_campaign} = 'UK Digital' then 'United Kingdom'
+        when ${sdt_campaign} = 'United Kingdom Digital' then 'United Kingdom'
         when ${sdt_campaign} = 'Canada Digital' then 'Canada'
         when ${sdt_campaign} = 'Mexico Digital' then 'Mexico'
         when ${sdt_campaign} = 'Germany Digital' then 'Germany'
@@ -143,17 +173,18 @@ view: sdt_dcm_view {
         when ${campaign_id} = '23302406' then 'Canada'
         when ${campaign_id} = '22169957' then 'Canada'
         when ${campaign_id} = '23350539' then 'Canada'
-          ELSE 'United States'
+
+
+        when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor US Campaign' then 'United States'
+        when ${campaign} = 'SDT FY19 TripAdvisor Program- US' then 'United States'
+        when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor UK Campaign' then 'United Kingdom'
+
+
+          ELSE null
       END;;
   }
 
 ######### All Dimensions Native to Source Table Below #########
-
-  dimension: __id {
-    hidden: yes
-    type: string
-    sql: ${TABLE}.__id ;;
-  }
 
   dimension: __report {
     hidden: yes

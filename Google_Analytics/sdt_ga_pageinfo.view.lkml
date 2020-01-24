@@ -2,8 +2,27 @@ view: sdt_ga_pageinfo {
   sql_table_name: public.sdt_ga_pageinfo ;;
   drill_fields: [id]
 
+######### Join Id ##########
+
+  dimension: join_id {
+    hidden: yes
+    type: string
+    sql: ${keyword}||'_'||${date_date} ;;
+  }
+
+####### AdWords Join ID #######
+
+  dimension: adwords_join_id {
+    hidden: yes
+    type: string
+    sql: ${adwordsadgroupid}||'_'||${devicecategory}||'_'||${date_date} ;;
+  }
+
+#### Dimensions go below ####
+
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: string
     sql: ${TABLE}.id ;;
   }
