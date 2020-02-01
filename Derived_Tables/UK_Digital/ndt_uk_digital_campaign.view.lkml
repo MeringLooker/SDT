@@ -1,20 +1,14 @@
-view: ndt_us_pullthrough_campaign {
+view: ndt_uk_digital_campaign {
   derived_table: {
     sql:
-          select * from ${ndt_us_pullthrough_fb.SQL_TABLE_NAME}
-          union
-          select * from ${ndt_us_pullthrough_gdn.SQL_TABLE_NAME}
-          union
-          select * from ${ndt_us_pullthrough_adara.SQL_TABLE_NAME}
-          union
-          select * from ${ndt_us_pullthrough_expedia.SQL_TABLE_NAME}
-          union
-          select * from ${ndt_us_pullthrough_kayak.SQL_TABLE_NAME}
-          union
-          select * from ${ndt_us_pullthrough_priceline.SQL_TABLE_NAME}
-          union
-          select * from ${ndt_us_pullthrough_sojern.SQL_TABLE_NAME}
-            ;;
+        select * from ${ndt_uk_digital_yt.SQL_TABLE_NAME}
+        union
+        select * from ${ndt_uk_digital_gdn.SQL_TABLE_NAME}
+        union
+        select * from ${ndt_uk_digital_fb.SQL_TABLE_NAME}
+        union
+        select * from ${ndt_uk_digital_sem.SQL_TABLE_NAME}
+        ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
   }
@@ -32,7 +26,7 @@ view: ndt_us_pullthrough_campaign {
 
   dimension: publisher {
     type: string
-    drill_fields: [layer,week,month,quarter]
+    drill_fields: [layer,date,week,month]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -45,15 +39,20 @@ view: ndt_us_pullthrough_campaign {
   dimension: market {
     type: string
     hidden: yes
-    drill_fields: [publisher,layer,week,month,quarter]
     sql: ${TABLE}.market ;;
   }
 
   dimension: layer {
     type: string
-    drill_fields: [publisher,week,month,quarter]
+    drill_fields: [publisher,date,week,month]
     sql: ${TABLE}.layer ;;
   }
+
+#   dimension: placement {
+#     type: string
+#     drill_fields: [date,week,month]
+#     sql: ${TABLE}.placement ;;
+#   }
 
   dimension: fiscal_year {
     type:  string
@@ -90,12 +89,6 @@ view: ndt_us_pullthrough_campaign {
     sql: ${TABLE}.month ;;
   }
 
-  dimension: quarter {
-    type: date
-    group_label: "Date Periods"
-    sql: ${TABLE}.quarter ;;
-  }
-
   dimension: impressions {
     type: number
     hidden: yes
@@ -106,6 +99,12 @@ view: ndt_us_pullthrough_campaign {
     type: number
     hidden: yes
     sql: ${TABLE}.total_clicks ;;
+  }
+
+  dimension: views {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.total_views ;;
   }
 
   dimension: cost {
@@ -131,60 +130,58 @@ view: ndt_us_pullthrough_campaign {
 
   measure: total_impressions {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
 
   measure: click_through_rate {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
     label: "CTR"
     sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
   }
 
+  measure: total_views {
+    type: sum_distinct
+    sql_distinct_key: ${primary_key} ;;
+    sql: ${views} ;;
+  }
+
   measure: total_cost {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
   }
 
-  measure: cost_per_click {
-    type: number
-    drill_fields: [publisher,layer,week,month,quarter]
-    label: "CPC"
-    value_format_name: usd
-    sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
-  }
-
   measure: cost_per_thousand {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
     label: "CPM"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
   }
 
+  measure: cost_per_click {
+    type: number
+    label: "CPC"
+    value_format_name: usd
+    sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
+  }
+
   measure: total_sessions {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
   measure: cost_per_session {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
     label: "CPS"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
@@ -192,17 +189,21 @@ view: ndt_us_pullthrough_campaign {
 
   measure: total_session_duration {
     type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
-    sql: ${session_duration} ;;
     hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    value_format_name: usd
+    sql: ${session_duration} ;;
   }
 
   measure: avg_session_duration {
     label: "Avg. TOS"
-    drill_fields: [publisher,layer,week,month,quarter]
     type: number
     sql: (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400 ;;
     value_format: "m:ss"
   }
+
+#   measure: count {
+#     type: count
+#   }
 
 }

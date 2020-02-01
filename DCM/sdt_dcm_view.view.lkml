@@ -18,6 +18,12 @@ view: sdt_dcm_view {
     sql: ${TABLE}.comp_key ;;
   }
 
+  dimension: passback_join { ## placement ID + date ALWAYS
+    type: string
+    hidden: yes
+    sql: ${placement_id}||'_'||${date_date} ;;
+  }
+
 ##### Dimensions added to this table via LookML ######
 
   dimension: fiscal_year {
@@ -75,6 +81,7 @@ view: sdt_dcm_view {
         when ${site_dcm} ILIKE 'Adroll%' then 'AdRoll'
         when ${site_dcm} ILIKE 'Adara%' then 'Adara'
         when ${site_dcm} ILIKE 'Kayak%' then 'Kayak'
+        when ${site_dcm} ILIKE 'Priceline%' then 'Priceline'
 
         when ${site_dcm} ILIKE 'travelocity.ca/ca%' then 'Travelocity'
 
@@ -94,8 +101,8 @@ view: sdt_dcm_view {
         when ${placement} ILIKE '%Anaheim/Disneyland%' then 'Disneyland'
         when ${placement} ILIKE '%Conquesting%' then 'Competitive Conquest'
         when ${placement} ILIKE 'Adara\\_Los Angeles\\_%' then 'Los Angeles'
-        when ${placement} ILIKE 'Adara\\_PT\\_Display Prospecting%' then 'PullThrough Base'
-        when ${placement} ILIKE 'Adara\\_PT\\_AV Display Prospecting%' then 'PullThrough Base'
+        when ${placement} ILIKE 'Adara\\_PT\\_Display Prospecting%' then 'Pull-Through Base'
+        when ${placement} ILIKE 'Adara\\_PT\\_AV Display Prospecting%' then 'Pull-Through Base'
         when ${placement} ILIKE 'AdRoll\\_Retargeting%' then 'Retargeting'
         when ${placement} ILIKE '%Competitive Conquesting%' then 'Competitive Conquest'
         when ${placement} ILIKE '%Disneyland/Anaheim%' then 'Disneyland'
@@ -103,13 +110,12 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'Expedia\\_OTA Base\\_%' then 'OTA Base'
         when ${placement} ILIKE 'Kayak\\_Los Angeles\\_%' then 'Los Angeles'
         when ${placement} ILIKE 'Expedia\\_Los Angeles\\_%' then 'Los Angeles'
-        when ${placement} ILIKE 'Sojern\\_PT\\_Display Prospecting%' then 'PullThrough Base'
-        when ${placement} ILIKE 'Sojern\\_PT\\_AV Display Prospecting%' then 'PullThrough Base'
+        when ${placement} ILIKE 'Sojern\\_PT\\_Display Prospecting%' then 'Pull-Through Base'
+        when ${placement} ILIKE 'Sojern\\_PT\\_AV Display Prospecting%' then 'Pull-Through Base'
         when ${placement} ILIKE 'Priceline\\_OTA Base\\_%' then 'OTA Base'
         ELSE 'Uncategorized'
-      END;;
+        end ;;
   }
-
 
   dimension: sdt_campaign {
     type: string
@@ -117,11 +123,9 @@ view: sdt_dcm_view {
     label: "Campaign Name"
     sql:
       CASE
-        when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park'
+        when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park Digital'
         when ${campaign} ILIKE '%Family Content%' then 'Family Content'
         when ${campaign} ILIKE '%SD For The Holidays%' then 'SD For The Holidays'
-
-
 
         when ${campaign} = 'SDT: FY19 TripAdvisor Program- CAN' then 'CAN TripAdvisor Program'
         when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor CAN Campaign' then 'CAN TripAdvisor Program'
@@ -153,6 +157,7 @@ view: sdt_dcm_view {
         when ${campaign} = 'SDT: 004762_01 FY20 CAN Pull-Through Campaign' then 'CAN Pull-Through'
         when ${campaign} = 'SDT: 004027_01 FY19 Foundational Pull-Through' then 'US Pull-Through'
         when ${campaign} = '003220_01 FY18 Foundational Travel Intender Pull-Through Digital' then 'US Pull-Through'
+        when ${campaign} = 'SDT: 004978_01 FY20 Premium Digital Display Campaign' then 'Premium Digital Display'
 
 
       ELSE ${campaign}
@@ -178,11 +183,166 @@ view: sdt_dcm_view {
         when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor US Campaign' then 'United States'
         when ${campaign} = 'SDT FY19 TripAdvisor Program- US' then 'United States'
         when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor UK Campaign' then 'United Kingdom'
+        when ${campaign} = 'SDT: 004762_01 FY20 UK Pull-Through Campaign' then 'United Kingdom'
+        when ${campaign} = 'SDT: 004762_01 FY20 Pull-Through Campaign' then 'United States'
 
+        when ${campaign} = 'SDTA_FY19 SD for the Holidays Campaign' then 'United States'
+        when ${campaign} = 'SDTA_FY18 Balboa Park Spring Native Campaign' then 'United States'
+        when ${campaign} = 'SDT: FY19 Sports Campaign' then 'United States'
+        when ${campaign} = 'SDT: FY19 National Travel & Tourism Week' then 'United States'
+        when ${campaign} = 'SDT: FY19 Family Content' then 'United States'
+        when ${campaign} = 'SDT: FY19 Balboa Park' then 'United States'
+        when ${campaign} = 'SDT: 004978_01 FY20 Premium Digital Display Campaign' then 'United States'
+        when ${campaign} = 'SDT: 004576_01 FY20 Brand Digital Video Campaign' then 'United States'
+        when ${campaign} = 'SDT: 004573_01 FY20 Fall Promo Campaign' then 'United States'
+        when ${campaign} = 'SDT: 004183_01 FY19 NatGeoa Digital Campaign' then 'United States'
+        when ${campaign} = 'SDT: 004027_01 FY19 Foundational Pull-Through' then 'United States'
+        when ${campaign} = 'SDT: 003858_01 FY19 Brand Digital Video' then 'United States'
+        when ${campaign} = 'SDT_FY19 Always On Content - Stage 2' then 'United States'
+        when ${campaign} = 'SDT FY19 Kids Free Campaign' then 'United States'
+        when ${campaign} = 'SDT : 004655_01 / FY20 Always On Content' then 'United States'
+        when ${campaign} = 'FY19 ABC VOD Campaign' then 'United States'
+        when ${campaign} = '003451_01 FY18 Content Digital Campaign' then 'United States'
+        when ${campaign} = '003392_01_FY18_SDTA_Digital Video' then 'United States'
+        when ${campaign} = '003220_01 FY18 Foundational Travel Intender Pull-Through Digital' then 'United States'
+        when ${campaign} = '003076_01 FY18 San Diego Kids Free Digital' then 'United States'
 
-          ELSE null
+          ELSE 'Uncategorized'
       END;;
   }
+
+  dimension: sdt_region {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Region"
+    sql:
+      case
+        when ${placement_id} = '253217116' then 'National'
+        when ${placement_id} = '253217146' then 'National'
+        when ${placement_id} = '252866297' then 'National'
+        when ${placement_id} = '252866285' then 'National'
+
+        when ${placement} ilike '%Geotargeting Seattle DMA%' then 'Seattle'
+        when ${placement} ilike '%Geotargeting San Francisco DMA%' then 'San Francisco'
+        when ${placement} ilike '%Geotargeting Sacramento DMA%' then 'Sacramento'
+        when ${placement} ilike '%Geotargeting Phoenix DMA%' then 'Phoenix'
+        when ${placement} ilike '%Geotargeting New York DMA%' then 'New York City'
+        when ${placement} ilike '%Geotargeting Dallas DMA%' then 'Dallas'
+        when ${placement} ilike '%Geotargeting Chicago DMA%' then 'Chicago'
+
+        when ${placement} ilike 'ABC Seattle LFV%' then 'Seattle'
+        when ${placement} ilike 'ABC New York LFV%' then 'New York City'
+        when ${placement} ilike 'ABC Chicago LFV%' then 'Chicago'
+        when ${placement} ilike 'ABC Chicago SFV%' then 'Chicago'
+
+        when ${placement} ilike 'CBS Chicago Cross Platform%' then 'Chicago'
+        when ${placement} ilike 'CBS National Cross Platform%' then 'National'
+        when ${placement} ilike 'CBS New York City Cross Platform%' then 'New York City'
+        when ${placement} ilike 'CBS Seattle Cross Platform%' then 'Seattle'
+
+        when ${placement} ilike 'NBC Seattle Sports Live Streaming%' then 'Seattle'
+        when ${placement} ilike 'NBC National Sports Live Streaming%' then 'National'
+        when ${placement} ilike 'NBC Chicago Sports Live Streaming%' then 'Chicago'
+        when ${placement} ilike 'NBC New York Sports Live Streaming%' then 'New York City'
+
+
+        when ${placement_id} ilike '252324176' then 'National'
+        when ${placement_id} ilike '252324173' then 'National'
+        when ${placement_id} ilike '252328262' then 'National'
+        when ${placement_id} ilike '252330722' then 'National'
+        when ${placement_id} ilike '252330719' then 'National'
+        when ${placement_id} ilike '252701236' then 'National'
+
+        when ${campaign} = 'SDT: 004576_01 FY20 Brand Digital Video Campaign' and ${site_dcm} = 'Amobee' then 'National'
+
+
+          ELSE 'Uncategorized'
+      END;;
+  }
+
+  dimension: sdt_audience {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Audience"
+    sql:
+      case
+        when ${placement_id} = '252937755' then 'Family'
+        when ${placement_id} = '252509375' then 'Brand'
+        when ${placement_id} = '253217116' then 'Brand'
+        when ${placement_id} = '253217146' then 'Family'
+        when ${placement_id} = '252866297' then 'Brand'
+        when ${placement_id} = '252866285' then 'Family'
+
+        when ${placement_id} = '252328262' then 'Family'
+        when ${placement_id} = '252701236' then 'Brand'
+        when ${placement_id} = '253315548' then 'Brand'
+
+        when ${campaign} = 'SDT: 004576_01 FY20 Brand Digital Video Campaign' and ${site_dcm} = 'NBC Sports' then 'Brand'
+
+        when ${placement} ilike '%\\:30 Happy Today - Family' then 'Family'
+        when ${placement} ilike '%\\:30 Happy Today - Brand' then 'Brand'
+
+        when ${placement_id} = '252871376' then 'Brand'
+        when ${placement_id} = '253303128' then 'Brand'
+        when ${placement_id} = '252324173' then 'Brand'
+        when ${placement_id} = '253309155' then 'Brand'
+        when ${placement_id} = '253301820' then 'Brand'
+        when ${placement_id} = '252875912' then 'Brand'
+        when ${placement_id} = '252330719' then 'Brand'
+        when ${placement_id} = '253225471' then 'Brand'
+        when ${placement_id} = '253220767' then 'Brand'
+        when ${placement_id} = '252868753' then 'Brand'
+
+        when ${placement_id} = '265518918' then 'Family'
+        when ${placement_id} = '265499293' then 'Family'
+        when ${placement_id} = '253236655' then 'Family'
+        when ${placement_id} = '265503247' then 'Family'
+
+          ELSE 'Uncategorized'
+      END;;
+  }
+
+  dimension: sdt_placement {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Placement"
+    sql:
+      case
+      when ${placement} ilike 'Expedia_OTA Base_ROS Bundle_%' then 'ROS Bundle'
+      when ${placement} ilike 'Expedia_OTA Base_ROS 160x600_%' then 'ROS 160x600'
+      when ${placement} ilike 'Expedia_OTA Base_Hotels.com Responsive ROS Bundle_%' then 'Hotels.com Responsive ROS Bundle'
+      when ${placement} ilike 'Expedia_OTA Base_Hotels.com ROS Bundle%' then 'Hotels.com ROS Bundle'
+      when ${placement} ilike 'Expedia_OTA Base_EBP_Previous search%' then 'EBP'
+      when ${placement} ilike 'Expedia_OTA Base_EBP_Previous search%' then 'EBP'
+      when ${placement} ilike 'Expedia_OTA Base_EBP Native Marquee%' then 'EBP Native Marquee'
+      when ${placement} ilike 'Expedia_OTA Base_EBP Match_Previous search%' then 'EBP Match'
+
+      else 'Uncategorized'
+    end;;
+}
+
+  dimension: creative_name {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Creative Name"
+    sql:
+      case
+        when ${placement_id} = '252937755' then 'Share Smile in San Diego (:30)'
+        when ${placement_id} = '252509375' then 'Find Your Smile in San Diego (:30)'
+
+        when ${placement_id} = '252866297' then 'Find Your Smile in San Diego (:30)'
+        when ${placement_id} = '252866285' then 'Share Smile in San Diego (:30)'
+
+        when ${placement_id} = '252328262' then 'Share Smile in San Diego (:30)'
+        when ${placement_id} = '252701236' then 'Find Your Smile in San Diego (:30)'
+
+        when ${placement} ilike '%live straming video added value companion%' then 'Companion Banner'
+
+          ELSE 'Uncategorized'
+      END;;
+  }
+
+#           when ${placement} ilike '%:30 Happy Today - Brand%' then 'Every Day is a Happy Day in San Diego (:30)'
 
 ######### All Dimensions Native to Source Table Below #########
 
@@ -372,7 +532,7 @@ view: sdt_dcm_view {
 
   dimension: placement_id {
     type: number
-    hidden: yes
+#     hidden: yes
     sql: ${TABLE}."placement id" ;;
   }
 
@@ -394,7 +554,7 @@ view: sdt_dcm_view {
 
   dimension: platform_type {
     type: string
-    hidden: yes
+#     hidden: yes
     sql: ${TABLE}."platform type" ;;
   }
 

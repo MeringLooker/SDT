@@ -40,7 +40,7 @@ view: sdt_gdn_view {
 ###### Dimensions added to this table via LookML #######
 
   dimension: fiscal_year {
-    label: "Fiscal"
+    label: "Fiscal Year"
     type: string
     group_label: "Client Dimensions"
     sql:
@@ -86,7 +86,7 @@ view: sdt_gdn_view {
         when ${account} = 'SDTA Content GDN PHX' then 'United States'
         when ${account} = 'SDTA Content GDN LA' then 'United States'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -131,7 +131,7 @@ view: sdt_gdn_view {
         when ${campaign_id} = '1655248509' then 'National'
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'National'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -178,7 +178,7 @@ view: sdt_gdn_view {
         when ${campaign_id} = '1382958146' then 'Always On Content'
         when ${campaign_id} = '1382957996' then 'Always On Content'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -195,7 +195,26 @@ view: sdt_gdn_view {
 
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Pull-Through Base'
 
-        else null
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'Nano Traffic'
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro%' then 'Macro Traffic'
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Micro%' then 'Micro Traffic'
+
+        ELSE 'Uncategorized'
+        end
+        ;;
+  }
+
+  dimension: sdt_placement {
+    type: string
+    label: "Campaign Placement"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        when ${campaign} ilike 'SDTA - UK - Brand - Awareness - FY20%' then 'Static Display'
+        when ${campaign} = 'SDTA - CAN - Conversion - Responsive - FY20' then 'Responsive Display'
+        when ${campaign} = 'SDTA - CAN - Awareness - Static - FY20' then 'Static Display'
+
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -217,7 +236,7 @@ view: sdt_gdn_view {
         when ${ad_group_id} = '82341756678' then 'Variety Seeker'
         when ${ad_group_id} = '82341756438' then 'Variety Seeker'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -238,7 +257,7 @@ view: sdt_gdn_view {
         when ${campaign} ilike 'Beach Family%' then 'Beach Family'
         when ${campaign} ilike 'Beach People%' then 'Beach People'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }

@@ -14,7 +14,7 @@ view: sdt_trueview_view {
 ####### Dimensions Added to this table via LookML #######
 
   dimension: fiscal_year {
-    label: "Fiscal"
+    label: "Fiscal Year"
     type: string
     group_label: "Client Dimensions"
     sql:
@@ -33,9 +33,10 @@ view: sdt_trueview_view {
 
   dimension: advertising_channel {
     type: string
+    hidden: yes
     label: "Channel"
     group_label: "TrueView Dimensions"
-    sql: 'Video' end
+    sql: 'Video'
       ;;
   }
 
@@ -57,7 +58,7 @@ view: sdt_trueview_view {
         when ${customer_id} = '2993077445' then 'United States'
         when ${customer_id} = '7618451325' then 'United States'
         when ${customer_id} = '2366121513' then 'United States'
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -77,7 +78,7 @@ view: sdt_trueview_view {
         when ${campaign_id} = '1656164088' then 'National'
         when ${campaign_id} = '1656164085' then 'National'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -94,7 +95,7 @@ view: sdt_trueview_view {
         when ${customer_id} = '2366121513' then 'Always On Content'
         when ${customer_id} = '7208478809' then 'United Kingdom Digital'
         when ${customer_id} = '4881077717' then 'Canada Digital'
-        else null
+       ELSE 'Uncategorized'
         end
         ;;
   }
@@ -105,18 +106,15 @@ view: sdt_trueview_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${campaign} ilike '%SDTA - UK - Content%' then 'Content'
-        when ${campaign} ilike '%SDTA - UK - Brand%' then 'Brand Awareness'
-        when ${campaign} ilike '%SDTA - CAN - Content%' then 'Content'
-        when ${campaign} ilike '%SDTA - CAN - Brand%' then 'Brand Awareness'
+        when ${campaign} ilike '%SDTA - UK - Content%' then 'Storytelling'
+        when ${campaign} ilike '%SDTA - UK - Brand%' then 'Amplify Reach'
+        when ${campaign} ilike '%SDTA - CAN - Content%' then 'Storytelling'
+        when ${campaign} ilike '%SDTA - CAN - Brand%' then 'Amplify Reach'
 
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro%' then 'Macro Video'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Micro%' then 'Micro Video'
 
-
-
-
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -127,8 +125,8 @@ view: sdt_trueview_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${campaign_id} = '1656164085' then 'Variety Seeker'
-        when ${campaign_id} = '1656164088' then 'Variety Seeker'
+        when ${campaign_id} = '1656164085' then 'Brand'
+        when ${campaign_id} = '1656164088' then 'Family'
         when ${campaign} ilike 'SDTA - Digital Video - Retargeting' then 'Retargeting'
 
         when ${campaign} ilike '%SDTA - CAN - Content - Retargeting %' then 'Retargeting'
@@ -141,7 +139,7 @@ view: sdt_trueview_view {
         when ${campaign} ilike '%SDTA - CAN - Content - FY20%' then 'Variety Seeker'
         when ${campaign} ilike '%SDTA - CAN - Brand - FY20%' then 'Variety Seeker'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -152,19 +150,18 @@ view: sdt_trueview_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${ad_group_id} = '64714221278' then 'Surfer Sunsets (:15)'
-        when ${ad_group_id} = '64714221078' then 'Coffee Cup Coastal (:15)'
-        when ${ad_group_id} = '64714221118' then 'Gliderport (:15)'
-        when ${ad_group_id} = '64714221318' then 'Mister As (:15)'
-        when ${ad_group_id} = '76924755746' then 'Destination (:15)'
+        when ${ad_group_id} = '64714221278' then 'Surfer Sunsets (:30)'
+        when ${ad_group_id} = '64714221078' then 'Coffee Cup Coastal (:30)'
+        when ${ad_group_id} = '64714221118' then 'Gliderport (:30)'
+        when ${ad_group_id} = '64714221318' then 'Mister As (:30)'
+        when ${ad_group_id} = '76924755746' then 'Destination (:30)'
 
-        when ${campaign_id} = '1656164085' then 'San Diego Smiles (:30)'
-        when ${campaign_id} = '1656164088' then 'San Diego Smiles Family (:30)'
+        when ${campaign_id} = '1656164085' then 'Find Your Smile in San Diego (:30)'
+        when ${campaign_id} = '1656164088' then 'Share a Smile in San Diego (:30)'
 
-        when ${campaign} ilike '%SDTA - UK - Content - FY20%' then 'San Diego Smiles (:30)'
-        when ${campaign} ilike '%SDTA - UK - Brand - FY20%' then 'San Diego Smiles (:30)'
+        when ${campaign} ilike '%SDTA - UK - Brand - FY20%' then 'Find Your Smile in San Diego (:30)'
 
-        else null
+        ELSE 'Uncategorized'
         end
         ;;
   }
@@ -174,6 +171,7 @@ view: sdt_trueview_view {
 
   dimension: account {
     type: string
+    hidden: yes
     group_label: "TrueView Dimensions"
     sql: ${TABLE}.account ;;
   }
@@ -186,7 +184,7 @@ view: sdt_trueview_view {
 
   dimension: ad_group_id {
     type: number
-    group_label: "TrueView Dimensions"
+    group_label: "TrueView IDs"
     sql: ${TABLE}."ad group id" ;;
   }
 
@@ -204,7 +202,7 @@ view: sdt_trueview_view {
 
   dimension: campaign_id {
     type: number
-    group_label: "TrueView Dimensions"
+    group_label: "TrueView IDs"
     sql: ${TABLE}."campaign id" ;;
   }
 
@@ -223,6 +221,7 @@ view: sdt_trueview_view {
 
   dimension: client_name {
     type: string
+    label: "Account Name"
     group_label: "TrueView Dimensions"
     sql: ${TABLE}."client name" ;;
   }
@@ -249,7 +248,7 @@ view: sdt_trueview_view {
   dimension: customer_id {
     type: number
     label: "Account ID"
-    group_label: "TrueView Dimensions"
+    group_label: "TrueView IDs"
     sql: ${TABLE}."customer id" ;;
   }
 
@@ -296,6 +295,7 @@ view: sdt_trueview_view {
 
   dimension: network {
     type: string
+    hidden: yes
     group_label: "TrueView Dimensions"
     sql: ${TABLE}.network ;;
   }
@@ -318,6 +318,20 @@ view: sdt_trueview_view {
     hidden: yes
     sql: ${TABLE}.views ;;
   }
+
+  dimension: sessions {
+    type: number
+    hidden: yes
+    sql: '0' ;;
+  }
+
+  dimension: session_duration {
+    type: number
+    hidden: yes
+    sql: '0' ;;
+  }
+
+
 
 ###### All measures go below ######
 
@@ -347,6 +361,13 @@ view: sdt_trueview_view {
     sql: ${views} ;;
   }
 
+  measure: total_completes {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${id} ;;
+    sql: ${views} ;;
+  }
+
   measure: view_rate {
     type: number
     sql: 1.0*${total_views}/nullif(${total_impressions}, 0);;
@@ -363,6 +384,20 @@ view: sdt_trueview_view {
     type: number
     sql: ${total_cost}/nullif(${total_views},0) ;;
     value_format: "$0.000"
+  }
+
+  measure: total_sessions {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${id} ;;
+    sql: ${sessions} ;;
+  }
+
+  measure: total_session_duration {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${id} ;;
+    sql: ${session_duration} ;;
   }
 
   measure: count {

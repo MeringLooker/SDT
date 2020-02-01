@@ -39,7 +39,7 @@ view: sdt_sem_view {
 ###### Dimensions added to this table via LookML #######
 
   dimension: fiscal_year {
-    label: "Fiscal"
+    label: "Fiscal Year"
     type: string
     group_label: "Client Dimensions"
     sql:
@@ -51,6 +51,75 @@ view: sdt_sem_view {
         WHEN ${day_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
         WHEN ${day_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
         WHEN ${day_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+        ELSE 'Uncategorized'
+        END
+        ;;
+  }
+
+  dimension: sdt_market {
+    label: "Market"
+    type: string
+    group_label: "Client Dimensions"
+    sql:
+      CASE
+        WHEN ${account} = 'SDTA CAN SEM' then 'Canada'
+        WHEN ${account} = 'SDTA UK SEM' then 'United Kingdom'
+        ELSE 'Uncategorized'
+        END
+        ;;
+  }
+
+  dimension: sdt_campaign {
+    label: "Campaign"
+    type: string
+    group_label: "Client Dimensions"
+    sql:
+      CASE
+        WHEN ${account} = 'SDTA CAN SEM' then 'Canada Digital'
+        WHEN ${account} = 'SDTA UK SEM' then 'United Kingdom Digital'
+        ELSE 'Uncategorized'
+        END
+        ;;
+  }
+
+  dimension: sdt_layer {
+    type: string
+    label: "Campaign Layer"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        WHEN ${account} = 'SDTA CAN SEM' then 'Impact'
+        WHEN ${account} = 'SDTA UK SEM' then 'Impact'
+
+        ELSE 'Uncategorized'
+        end
+        ;;
+  }
+
+  dimension: sdt_placement {
+    label: "Placement"
+    type: string
+    group_label: "Client Dimensions"
+    sql:
+      CASE
+        WHEN ${campaign} ilike 'SDTA - Canada - Attractions%' then 'Attractions'
+        WHEN ${campaign} ilike 'SDTA - Canada - Brand%' then 'Brand'
+        WHEN ${campaign} ilike 'SDTA - Canada - RLSA%' then 'RLSA'
+        WHEN ${campaign} ilike 'SDTA - UK - Brand%' then 'Brand'
+        WHEN ${campaign} ilike 'SDTA - UK - Attractions%' then 'Attractions'
+        WHEN ${campaign} ilike 'SDTA - UK - California%' then 'California'
+        WHEN ${campaign} ilike '%SDTA - UK - Generic%' then 'Generic'
+        WHEN ${campaign} ilike '%SDTA - Canada - Generic%' then 'Generic'
+        WHEN ${campaign} ilike 'SDTA - Canada - California%' then 'California'
+
+        WHEN ${campaign} = 'United States' then 'United States'
+        WHEN ${campaign} = 'U.S.' then 'United States'
+        WHEN ${campaign} = 'Retargeting' then 'Retargeting'
+        WHEN ${campaign} = 'Inspiration' then 'Inspiration'
+        WHEN ${campaign} = 'Competitive' then 'Competitive'
+        WHEN ${campaign} = 'California' then 'California'
+        WHEN ${campaign} = 'Brand' then 'Brand'
+
         ELSE 'Uncategorized'
         END
         ;;
