@@ -5,6 +5,7 @@ view: ndt_can_pullthrough_expedia {
       column: campaign {field: sdt_dcm_view.sdt_campaign}
       column: market {field: sdt_dcm_view.sdt_market}
       column: layer {field: sdt_dcm_view.sdt_layer}
+      column: placement {field: sdt_dcm_view.sdt_placement}
       column: date {field: sdt_dcm_view.date_date}
       column: week {field: sdt_dcm_view.date_week}
       column: month {field: sdt_dcm_view.date_month}
@@ -40,6 +41,10 @@ view: ndt_can_pullthrough_expedia {
   }
 
   dimension: layer {
+    type: string
+  }
+
+  dimension: placement {
     type: string
   }
 

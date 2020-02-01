@@ -13,7 +13,7 @@ view: ndt_uk_pullthrough_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -39,8 +39,15 @@ view: ndt_uk_pullthrough_campaign {
 
   dimension: layer {
     type: string
+    hidden: yes
     drill_fields: [publisher,week,month,quarter]
     sql: ${TABLE}.layer ;;
+  }
+
+  dimension: placement {
+    type: string
+    drill_fields: [publisher,week,month,quarter]
+    sql: ${TABLE}.placement ;;
   }
 
   dimension: fiscal_year {

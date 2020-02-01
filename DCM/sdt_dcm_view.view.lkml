@@ -316,6 +316,8 @@ view: sdt_dcm_view {
       when ${placement} ilike 'Expedia_OTA Base_EBP_Previous search%' then 'EBP'
       when ${placement} ilike 'Expedia_OTA Base_EBP Native Marquee%' then 'EBP Native Marquee'
       when ${placement} ilike 'Expedia_OTA Base_EBP Match_Previous search%' then 'EBP Match'
+      when ${placement} ilike 'Expedia_OTA Base_Travelocity Responsive ROS Bundle_%' then 'Travelocity Responsive ROS Bundle'
+      when ${placement} ilike 'Expedia_OTA Base_Travelocity ROS Bundle%' then 'Travelocity ROS Bundle'
 
       else 'Uncategorized'
     end;;
