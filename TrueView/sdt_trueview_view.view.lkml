@@ -137,13 +137,12 @@ view: sdt_trueview_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${ad_group_id} = '84098397302' then 'Awareness - Variety Seeker'
-        when ${ad_group_id} = '84098397302' then 'Awareness - Retargeting'
-        when ${ad_group} = 'SDTA - UK - Brand - Retargeting - FY20 - January' then 'Awareness - Retargeting'
+        when ${campaign} ilike 'SDTA - UK - Brand - Retargeting - FY20%' then 'Awareness - Retargeting'
+        when ${campaign} ilike 'SDTA - UK - Brand - FY20 %' then 'Awareness - Variety Seeker'
 
-        when ${ad_group_id} = '88436086482' then 'Content - Variety Seeker'
-        when ${ad_group_id} = '88436086682' then 'Content - Retargeting Content'
-        when ${ad_group_id} = '88436086522' then 'Content - Retargeting Brand '
+        when ${ad_group} ilike 'SDTA - Content - VS - Combined Audience' then 'Content - Variety Seeker'
+        when ${ad_group} ilike 'SDTA - Content - Retargeting - Content Video Viewers%' then 'Content - Retargeting Content'
+        when ${ad_group} ilike 'SDTA - Content - Retargeting - Brand Video Viewers%' then 'Content - Retargeting Brand '
 
         ELSE 'Uncategorized'
         end

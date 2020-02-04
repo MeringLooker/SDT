@@ -221,7 +221,7 @@ view: sdt_fb_view {
         when ${adset_name} = 'FY20_UK_Views_Content_VS' then 'Video Content - Variety Seeker'
         when ${adset_name} = 'FY20_UK_Views_Brand_LAL_USContentViewers' then 'Awareness - Lookalikes (Content Viewers)'
         when ${adset_name} = 'FY20_UK_Views_Brand_LAL_SiteVisitors' then 'Awareness - Lookalikes (Site Visitors)'
-        when ${adset_name} = 'FY20_UK_Views_Brand_VS' then 'Awareness - Variety Seekers'
+        when ${adset_name} = 'FY20_UK_Views_Brand_VS' then 'Awareness - Variety Seeker'
         when ${adset_name} = 'FY20_UK_Conversions_Content_RT' then 'Traffic Content - Retargeting'
         when ${adset_name} = 'FY20_UK_Conversions_Content_LAL' then 'Traffic Content - Lookalikes (Site Visitors)'
 
