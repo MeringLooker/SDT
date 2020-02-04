@@ -51,4 +51,11 @@ explore: sdt_fb {
     relationship: one_to_many
   }
 
+  join: sdt_fb_thruplays {
+    type: left_outer
+    fields: []
+    sql_on: ${sdt_fb_view.thruplay_join_id} = ${sdt_fb_thruplays.thruplay_join} ;;
+    relationship: one_to_many
+  }
+
 }

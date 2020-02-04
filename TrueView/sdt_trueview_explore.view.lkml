@@ -7,4 +7,11 @@ explore: sdt_trueview {
   label: "YouTube"
   view_label: "YouTube"
   group_label: "San Diego Tourism"
+
+  join: sdt_trueview_quartiles {
+    type: left_outer
+    fields: []
+    sql_on: ${sdt_trueview_view.quartiles_join_id} = ${sdt_trueview_quartiles.trueview_join} ;;
+    relationship: many_to_one
+  }
 }

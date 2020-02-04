@@ -11,6 +11,12 @@ view: sdt_fb_view {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: thruplay_join_id {
+    hidden: yes
+    type: string
+    sql: ${ad_id}||'_'||${date_start_date} ;;
+  }
+
 ##### Dimensions added to this table via LookML #####
 
   dimension: publisher {
@@ -525,7 +531,7 @@ view: sdt_fb_view {
     type: sum_distinct
     sql_distinct_key: ${facebookads__mc_visit_san_diego_actions.id};;
     label: ":03 Video Views"
-    group_label: "Facebook Reporting"
+    group_label: "Video Reporting"
     sql:
       CASE
       WHEN ${facebookads__mc_visit_san_diego_actions.action_type} = 'video_view' THEN ${facebookads__mc_visit_san_diego_actions.value}
@@ -536,7 +542,7 @@ view: sdt_fb_view {
   measure: video_completes {
     type: sum_distinct
     label: "Views to 100%"
-    group_label: "Facebook Reporting"
+    group_label: "Video Quartiles"
     sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p100_watched_actions.id};;
     sql: ${facebookads__mc_visit_san_diego_video_p100_watched_actions.value} ;;
   }
@@ -544,7 +550,7 @@ view: sdt_fb_view {
   measure: video_completion_rate {
     type: number
     label: "Vid. Completion Rate"
-    group_label: "Facebook Reporting"
+    group_label: "Video Quartiles"
     sql: 1.0*${video_completes}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
   }
@@ -553,14 +559,14 @@ view: sdt_fb_view {
 
   measure: view_rate {
     type: number
-    group_label: "Facebook Reporting"
+    group_label: "Video Reporting"
     label: ":03 View Rate"
     sql: 1.0*(${video_views}/nullif(${total_impressions}, 0) ;;
   }
 
   measure: view_to_25_percent {
     type: sum_distinct
-    group_label: "Facebook Reporting"
+    group_label: "Video Quartiles"
     label: "Views to 25%"
     sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p25_watched_actions.id};;
     sql: ${facebookads__mc_visit_san_diego_video_p25_watched_actions.value} ;;
@@ -568,7 +574,7 @@ view: sdt_fb_view {
 
   measure: view_to_50_percent {
     type: sum_distinct
-    group_label: "Facebook Reporting"
+    group_label: "Video Quartiles"
     label: "Views to 50%"
     sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p50_watched_actions.id};;
     sql: ${facebookads__mc_visit_san_diego_video_p50_watched_actions.value} ;;
@@ -576,7 +582,7 @@ view: sdt_fb_view {
 
   measure: view_to_75_percent {
     type: sum_distinct
-    group_label: "Facebook Reporting"
+    group_label: "Video Quartiles"
     label: "Views to 75%"
     sql_distinct_key: ${facebookads__mc_visit_san_diego_video_p75_watched_actions.id};;
     sql: ${facebookads__mc_visit_san_diego_video_p75_watched_actions.value} ;;
@@ -584,7 +590,7 @@ view: sdt_fb_view {
 
   measure: cost_per_03sec_view {
     type: number
-    group_label: "Facebook Reporting"
+    group_label: "Video Reporting"
     label: "CPV :03"
     sql: ${video_views}/nullif(${total_spend}, 0);;
     value_format_name: usd
@@ -592,11 +598,38 @@ view: sdt_fb_view {
 
   measure: cost_per_100p_view {
     type: number
-    group_label: "Facebook Reporting"
+    group_label: "Video Quartiles"
     label: "Cost/Completed View"
     sql: ${video_completes}/nullif(${total_spend}, 0);;
     value_format_name: usd
   }
+
+  #### Joined FB ThruPlays #####
+
+  measure: total_thruplays {
+    type: sum_distinct
+    sql_distinct_key: ${sdt_fb_thruplays.id};;
+    label: "ThruPlays"
+    description: "This metrics is currently only available beyond July 1, 2019."
+    group_label: "Video Reporting"
+    sql: ${sdt_fb_thruplays.thruplays} ;;
+  }
+
+  measure: thruplay_rate {
+    type: number
+    group_label: "Video Reporting"
+    label: "ThruPlay Rate"
+    sql: 1.0*(${total_thruplays}/nullif(${total_impressions}, 0) ;;
+  }
+
+  measure: cost_per_thruplay {
+    type: number
+    group_label: "Video Reporting"
+    label: "Cost/ThruPlay"
+    sql: ${total_thruplays}/nullif(${total_spend}, 0);;
+    value_format_name: usd
+  }
+
 
   ####### Joined GA Measures #######
 

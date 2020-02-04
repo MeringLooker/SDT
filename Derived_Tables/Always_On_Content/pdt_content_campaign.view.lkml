@@ -111,6 +111,12 @@ view: pdt_content_campaign {
     sql: ${TABLE}.total_views ;;
   }
 
+  dimension: completes {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.total_completes ;;
+  }
+
   dimension: cost {
     type: number
     hidden: yes
@@ -156,6 +162,12 @@ view: pdt_content_campaign {
     type: sum_distinct
     sql_distinct_key: ${primary_key} ;;
     sql: ${views} ;;
+  }
+
+  measure: total_completes {
+    type: sum_distinct
+    sql_distinct_key: ${primary_key} ;;
+    sql: ${completes} ;;
   }
 
   measure: total_cost {

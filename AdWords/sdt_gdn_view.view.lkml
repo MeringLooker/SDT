@@ -190,10 +190,16 @@ view: sdt_gdn_view {
     sql:
       case
         when ${campaign} ilike 'SDTA - UK - Brand - Awareness - FY20%' then 'Amplify Reach'
+        when ${campaign_id} = '1655713166' then 'Amplify Reach'
+        when ${campaign_id} = '1661582078' then 'Amplify Reach'
         when ${campaign} = 'SDTA - CAN - Conversion - Responsive - FY20' then 'Amplify Reach'
         when ${campaign} = 'SDTA - CAN - Awareness - Static - FY20' then 'Amplify Reach'
 
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Pull-Through Base'
+
+        when ${campaign} ilike '%Consider - Targeting - PT - GDN' then 'Pull-Through Base'
+        when ${campaign} ilike '%Active Eval - Retargeting - PT - GDN' then 'Pull-Through Base'
+
 
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'Nano Traffic'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro%' then 'Macro Traffic'
@@ -426,6 +432,12 @@ view: sdt_gdn_view {
     sql: '0' ;;
   }
 
+  dimension: completes {
+    type: number
+    hidden: yes
+    sql: '0' ;;
+  }
+
   ###### All Measures go Below #######
 
   measure: total_impressions {
@@ -502,6 +514,13 @@ view: sdt_gdn_view {
     hidden: yes
     sql_distinct_key: ${id} ;;
     sql: ${views} ;;
+  }
+
+  measure: total_completes {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${id} ;;
+    sql: ${completes} ;;
   }
 
 ###### All Measures go Below ###### Joined to User Info instead of onsite because that's where device currently resides

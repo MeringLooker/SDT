@@ -20,7 +20,7 @@ view: ndt_uk_pullthrough_campaign {
 
   dimension: publisher {
     type: string
-    drill_fields: [layer,week,month,quarter]
+    drill_fields: [date,week,month,quarter]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -46,7 +46,7 @@ view: ndt_uk_pullthrough_campaign {
 
   dimension: placement {
     type: string
-    drill_fields: [publisher,week,month,quarter]
+    drill_fields: [date,week,month,quarter]
     sql: ${TABLE}.placement ;;
   }
 
@@ -126,21 +126,21 @@ view: ndt_uk_pullthrough_campaign {
 
   measure: total_impressions {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
 
   measure: click_through_rate {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CTR"
     sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
@@ -148,7 +148,7 @@ view: ndt_uk_pullthrough_campaign {
 
   measure: total_cost {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
@@ -156,7 +156,7 @@ view: ndt_uk_pullthrough_campaign {
 
   measure: cost_per_click {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CPC"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
@@ -164,7 +164,7 @@ view: ndt_uk_pullthrough_campaign {
 
   measure: cost_per_thousand {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CPM"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
@@ -172,14 +172,14 @@ view: ndt_uk_pullthrough_campaign {
 
   measure: total_sessions {
     type: sum_distinct
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
   measure: cost_per_session {
     type: number
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CPS"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
@@ -194,7 +194,7 @@ view: ndt_uk_pullthrough_campaign {
 
   measure: avg_session_duration {
     label: "Avg. TOS"
-    drill_fields: [publisher,layer,week,month,quarter]
+#     drill_fields: [publisher,layer,week,month,quarter]
     type: number
     sql: (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400 ;;
     value_format: "m:ss"

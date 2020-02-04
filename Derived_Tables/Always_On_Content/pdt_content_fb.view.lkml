@@ -12,7 +12,8 @@ view: pdt_content_fb {
       column: quarter {field: sdt_fb_view.date_start_quarter}
       column: total_impressions {field: sdt_fb_view.total_impressions}
       column: total_clicks {field: sdt_fb_view.total_clicks}
-      column: total_views {field: sdt_fb_view.video_views}
+      column: total_views {field: sdt_fb_view.total_thruplays}
+      column: total_completes {field: sdt_fb_view.video_completes}
       column: total_cost {field: sdt_fb_view.total_spend}
       column: total_sessions {field: sdt_fb_view.ga_sessions}
       column: total_session_duration {field: sdt_fb_view.ga_total_session_duration}
@@ -70,6 +71,10 @@ view: pdt_content_fb {
   }
 
   dimension: total_views {
+    type: number
+  }
+
+  dimension: total_completes {
     type: number
   }
 

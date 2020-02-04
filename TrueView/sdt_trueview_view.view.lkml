@@ -11,6 +11,18 @@ view: sdt_trueview_view {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: quartiles_join_id {
+    type: string
+    hidden: yes
+    sql: ${ad_group_id}||'_'||${day_date} ;;
+  }
+
+  dimension: trueview_join_id {
+    type: string
+    hidden: yes
+    sql: ${sdt_trueview_quartiles.trueview_join} ;;
+  }
+
 ####### Dimensions Added to this table via LookML #######
 
   dimension: fiscal_year {
@@ -332,7 +344,6 @@ view: sdt_trueview_view {
   }
 
 
-
 ###### All measures go below ######
 
   measure: total_cost {
@@ -376,12 +387,14 @@ view: sdt_trueview_view {
 
   measure: cost_per_thousand {
     type: number
+    label: "CPM"
     sql: ${total_cost}/nullif(${total_impressions}/1000,0) ;;
     value_format: "$0.00"
   }
 
   measure: cost_per_view {
     type: number
+    label: "CPV"
     sql: ${total_cost}/nullif(${total_views},0) ;;
     value_format: "$0.000"
   }
@@ -400,8 +413,109 @@ view: sdt_trueview_view {
     sql: ${session_duration} ;;
   }
 
+  ##### Joining Quartiles reporting #####
+
+  dimension: total_views_to_25q {
+    type: number
+    hidden: yes
+    sql: ${sdt_trueview_quartiles.video_played_to_25}*${impressions} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_views_to_25q {
+    type: sum_distinct
+    label: "Views to 25%"
+    group_label: "Video Quartiles"
+    sql_distinct_key: ${id} ;;
+    sql: ${total_views_to_25q} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: views_to_25q {
+    type: number
+    label: "% Played to 25%"
+    group_label: "Video Quartiles"
+    sql: 1*${sum_views_to_25q}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  dimension: total_views_to_50q {
+    type: number
+    hidden: yes
+    sql: ${sdt_trueview_quartiles.video_played_to_50}*${impressions} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_views_to_50q {
+    type: sum_distinct
+    label: "Views to 50%"
+    group_label: "Video Quartiles"
+    sql_distinct_key: ${id} ;;
+    sql: ${total_views_to_50q} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: views_to_50q {
+    type: number
+    label: "% Played to 50%"
+    group_label: "Video Quartiles"
+    sql: 1*${sum_views_to_50q}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  dimension: total_views_to_75q {
+    type: number
+    hidden: yes
+    sql: ${sdt_trueview_quartiles.video_played_to_75}*${impressions} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_views_to_75q {
+    type: sum_distinct
+    label: "Views to 75%"
+    group_label: "Video Quartiles"
+    sql_distinct_key: ${id} ;;
+    sql: ${total_views_to_75q} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: views_to_75q {
+    type: number
+    label: "% Played to 75%"
+    group_label: "Video Quartiles"
+    sql: 1*${sum_views_to_75q}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  dimension: total_views_to_100q {
+    type: number
+    hidden: yes
+    sql: ${sdt_trueview_quartiles.video_played_to_100}*${impressions} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: sum_views_to_100q {
+    type: sum_distinct
+    label: "Views to 100%"
+    group_label: "Video Quartiles"
+    sql_distinct_key: ${id} ;;
+    sql: ${total_views_to_100q} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: views_to_100q {
+    type: number
+    label: "% Played to 100%"
+    group_label: "Video Quartiles"
+    sql: 1*${sum_views_to_100q}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+
+
   measure: count {
     type: count
+    hidden: yes
     drill_fields: [id, client_name, reportname]
   }
 }

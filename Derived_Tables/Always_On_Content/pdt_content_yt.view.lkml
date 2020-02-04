@@ -13,6 +13,7 @@ view: pdt_content_yt {
       column: total_impressions {field: sdt_trueview_view.total_impressions}
       column: total_clicks {field: sdt_trueview_view.total_clicks}
       column: total_views {field: sdt_trueview_view.total_views}
+      column: total_completes {field: sdt_trueview_view.sum_views_to_100q}
       column: total_cost {field: sdt_trueview_view.total_cost}
       column: total_sessions {field: sdt_trueview_view.total_sessions}
       column: total_session_duration {field: sdt_trueview_view.total_session_duration}
@@ -70,6 +71,10 @@ view: pdt_content_yt {
   }
 
   dimension: total_views {
+    type: number
+  }
+
+  dimension: total_completes {
     type: number
   }
 

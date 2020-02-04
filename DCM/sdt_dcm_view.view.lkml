@@ -53,6 +53,16 @@ view: sdt_dcm_view {
         when ${creative} ILIKE '%160x600%' then '160x600'
         when ${creative} ILIKE '%970x250%' then '970x250'
         when ${creative} ILIKE '%300x50%' then '300x50'
+        when ${placement} ilike '%\\_728x90' then '728x90'
+        when ${placement} ilike '%\\_300x250' then '300x250'
+        when ${placement} ilike '%\\_160x600' then '160x600'
+        when ${placement} ilike '%\\_468x60' then '468x60'
+        when ${placement} ilike '%\\_300x50' then '300x50'
+        when ${placement} ilike '%\\_970x90' then '970x90'
+        when ${placement} ilike '%\\_1320x742' then '1320x742'
+
+
+
       ELSE 'Uncategorized'
       END;;
   }
@@ -329,16 +339,28 @@ view: sdt_dcm_view {
     label: "Creative Name"
     sql:
       case
-        when ${placement_id} = '252937755' then 'Share Smile in San Diego (:30)'
+        when ${placement_id} = '252937755' then 'Share a Smile in San Diego (:30)'
         when ${placement_id} = '252509375' then 'Find Your Smile in San Diego (:30)'
 
         when ${placement_id} = '252866297' then 'Find Your Smile in San Diego (:30)'
         when ${placement_id} = '252866285' then 'Share Smile in San Diego (:30)'
 
-        when ${placement_id} = '252328262' then 'Share Smile in San Diego (:30)'
+        when ${placement_id} = '252328262' then 'Share a Smile in San Diego (:30)'
         when ${placement_id} = '252701236' then 'Find Your Smile in San Diego (:30)'
 
-        when ${placement} ilike '%live straming video added value companion%' then 'Companion Banner'
+        when ${placement} ilike '%live streaming video added value companion%' then 'Companion Banner'
+        when ${placement} ilike '%30 Happy Today%' then 'Happy Today (:30)'
+
+        when ${placement_id} = '252945715' then 'Something to Smile About (:30)'
+        when ${placement_id} = '252530186' then 'Something to Smile About (:30)'
+        when ${placement_id} = '252530123' then 'Something to Smile About (:30)'
+        when ${placement_id} = '252888028' then 'Something to Smile About (:30)'
+        when ${placement_id} = '252888751' then 'Something to Smile About (:30)'
+
+        when ${placement_id} = '252330719' then 'Happy Today (:30)'
+        when ${placement_id} = '252324173' then 'Happy Today (:30)'
+        when ${placement_id} = '252868753' then 'Happy Today (:30)'
+
 
           ELSE 'Uncategorized'
       END;;

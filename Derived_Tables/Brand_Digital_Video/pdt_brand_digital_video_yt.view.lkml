@@ -13,7 +13,7 @@ view: pdt_brand_digital_video_yt {
       column: quarter {field: sdt_trueview_view.day_quarter}
       column: total_impressions {field: sdt_trueview_view.total_impressions}
       column: total_views {field: sdt_trueview_view.total_views}
-      column: total_completes {field: sdt_trueview_view.total_completes}
+      column: total_completes {field: sdt_trueview_view.sum_views_to_100q}
       column: total_cost {field: sdt_trueview_view.total_cost}
       filters: {
         field: sdt_trueview_view.sdt_campaign
