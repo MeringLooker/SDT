@@ -5,6 +5,7 @@ include: "/Google_Analytics/*.view"
 include: "/AdWords/*.view"
 include: "/DCM/*.view"
 include: "/Facebook/*.view"
+include: "/Pinterest/*.view"
 
 datagroup: sdt_us_pullthrough_datagroup {
   sql_trigger: SELECT current_date;;

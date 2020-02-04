@@ -22,7 +22,6 @@ view: sdt_pinterest {
 
  dimension: publisher {
     type: string
-    hidden: yes
     sql: 'Pinterest' ;;
   }
 
@@ -313,6 +312,7 @@ view: sdt_pinterest {
     group_label: "Pinterest Delivery"
     sql_distinct_key: ${id} ;;
     sql: ${spend} ;;
+    value_format_name: usd
   }
 
   measure: total_impressions {

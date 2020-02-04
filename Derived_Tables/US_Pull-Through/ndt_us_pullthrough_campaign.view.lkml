@@ -14,6 +14,8 @@ view: ndt_us_pullthrough_campaign {
           select * from ${ndt_us_pullthrough_priceline.SQL_TABLE_NAME}
           union
           select * from ${ndt_us_pullthrough_sojern.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_pinterest.SQL_TABLE_NAME}
             ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
