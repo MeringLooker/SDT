@@ -133,8 +133,9 @@ view: ndt_uk_digital_campaign {
     group_label: "Campaign Goals"
     sql:
       case
-        when ${fiscal_year} = 'FY 19/20' then '6832747'
+        when ${fiscal_year} = 'FY 19/20' then 6832747
         else null
+        end
         ;;
   }
 

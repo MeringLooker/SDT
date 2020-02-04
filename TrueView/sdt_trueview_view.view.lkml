@@ -139,6 +139,7 @@ view: sdt_trueview_view {
       case
         when ${ad_group_id} = '84098397302' then 'Awareness - Variety Seeker'
         when ${ad_group_id} = '84098397302' then 'Awareness - Retargeting'
+        when ${ad_group} = 'SDTA - UK - Brand - Retargeting - FY20 - January' then 'Awareness - Retargeting'
 
         when ${ad_group_id} = '88436086482' then 'Content - Variety Seeker'
         when ${ad_group_id} = '88436086682' then 'Content - Retargeting Content'
