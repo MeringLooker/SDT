@@ -5,6 +5,7 @@ view: ndt_uk_digital_fb {
       column: campaign {field: sdt_fb_view.sdt_campaign}
       column: market {field: sdt_fb_view.sdt_market}
       column: layer {field: sdt_fb_view.sdt_layer}
+      column: placement {field: sdt_fb_view.sdt_placement}
       column: date {field: sdt_fb_view.date_start_date}
       column: week {field: sdt_fb_view.date_start_week}
       column: month {field: sdt_fb_view.date_start_month}
@@ -36,6 +37,10 @@ view: ndt_uk_digital_fb {
   }
 
   dimension: layer {
+    type: string
+  }
+
+  dimension: placement {
     type: string
   }
 

@@ -5,6 +5,7 @@ view: ndt_uk_digital_gdn {
       column: campaign {field: sdt_gdn_view.sdt_campaign}
       column: market {field: sdt_gdn_view.sdt_market}
       column: layer {field: sdt_gdn_view.sdt_layer}
+      column: placement {field: sdt_gdn_view.sdt_placement}
       column: date {field: sdt_gdn_view.day_date}
       column: week {field: sdt_gdn_view.day_week}
       column: month {field: sdt_gdn_view.day_month}
@@ -36,6 +37,10 @@ view: ndt_uk_digital_gdn {
   }
 
   dimension: layer {
+    type: string
+  }
+
+  dimension: placement {
     type: string
   }
 

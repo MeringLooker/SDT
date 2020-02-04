@@ -5,6 +5,7 @@ view: ndt_uk_digital_yt {
       column: campaign {field: sdt_trueview_view.sdt_campaign}
       column: market {field: sdt_trueview_view.sdt_market}
       column: layer {field: sdt_trueview_view.sdt_layer}
+      column: placement {field: sdt_trueview_view.sdt_placement}
       column: date {field: sdt_trueview_view.day_date}
       column: week {field: sdt_trueview_view.day_week}
       column: month {field: sdt_trueview_view.day_month}
@@ -36,6 +37,10 @@ view: ndt_uk_digital_yt {
   }
 
   dimension: layer {
+    type: string
+  }
+
+  dimension: placement {
     type: string
   }
 

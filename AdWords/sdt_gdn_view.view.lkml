@@ -216,9 +216,27 @@ view: sdt_gdn_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${campaign} ilike 'SDTA - UK - Brand - Awareness - FY20%' then 'Static Display'
+        when ${ad_group_id} = '89533583427' then 'Static Display - Variety Seeker'
+        when ${ad_group_id} = '92121636452' then 'Static Display - Variety Seeker'
+        when ${ad_group_id} = '92121636852' then 'Static Display - Variety Seeker'
+        when ${ad_group_id} = '92121636612' then 'Static Display - Variety Seeker'
+        when ${ad_group_id} = '89533583467' then 'Static Display - Variety Seeker'
+        when ${ad_group_id} = '92121636892' then 'Static Display - Variety Seeker'
+
+        when ${ad_group_id} = '92121637092' then 'Static Display - Lookalike'
+        when ${ad_group_id} = '89533583667' then 'Static Display - Lookalike'
+        when ${ad_group_id} = '92121636692' then 'Static Display - Lookalike'
+
+        when ${ad_group_id} = '92121636932' then 'Static Display - Competitive Destinations'
+        when ${ad_group_id} = '89533583507' then 'Static Display - Competitive Destinations'
+        when ${ad_group_id} = '92121636652' then 'Static Display - Competitive Destinations'
+
+
         when ${campaign} = 'SDTA - CAN - Conversion - Responsive - FY20' then 'Responsive Display'
         when ${campaign} = 'SDTA - CAN - Awareness - Static - FY20' then 'Static Display'
+
+        when ${campaign} = 'SDTA - UK - Traffic - GDN Responsive - FY19' then 'Responsive Display'
+        when ${campaign} = 'SDTA - UK - Impressions - GDN Display - FY19' then 'Static Display'
 
         ELSE 'Uncategorized'
         end

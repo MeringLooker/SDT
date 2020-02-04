@@ -19,14 +19,14 @@ view: ndt_uk_digital_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
 
   dimension: publisher {
     type: string
-    drill_fields: [layer,date,week,month]
+    drill_fields: [placement,date,week,month]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -44,15 +44,15 @@ view: ndt_uk_digital_campaign {
 
   dimension: layer {
     type: string
-    drill_fields: [publisher,date,week,month]
+    drill_fields: [publisher,placement,date,week,month]
     sql: ${TABLE}.layer ;;
   }
 
-#   dimension: placement {
-#     type: string
-#     drill_fields: [date,week,month]
-#     sql: ${TABLE}.placement ;;
-#   }
+  dimension: placement {
+    type: string
+    drill_fields: [date,week,month]
+    sql: ${TABLE}.placement ;;
+  }
 
   dimension: fiscal_year {
     type:  string

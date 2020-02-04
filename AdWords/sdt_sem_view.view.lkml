@@ -97,28 +97,28 @@ view: sdt_sem_view {
   }
 
   dimension: sdt_placement {
-    label: "Placement"
+    label: "Campaign Placement"
     type: string
     group_label: "Client Dimensions"
     sql:
       CASE
-        WHEN ${campaign} ilike 'SDTA - Canada - Attractions%' then 'Attractions'
-        WHEN ${campaign} ilike 'SDTA - Canada - Brand%' then 'Brand'
-        WHEN ${campaign} ilike 'SDTA - Canada - RLSA%' then 'RLSA'
-        WHEN ${campaign} ilike 'SDTA - UK - Brand%' then 'Brand'
-        WHEN ${campaign} ilike 'SDTA - UK - Attractions%' then 'Attractions'
-        WHEN ${campaign} ilike 'SDTA - UK - California%' then 'California'
-        WHEN ${campaign} ilike '%SDTA - UK - Generic%' then 'Generic'
-        WHEN ${campaign} ilike '%SDTA - Canada - Generic%' then 'Generic'
-        WHEN ${campaign} ilike 'SDTA - Canada - California%' then 'California'
+        WHEN ${campaign} ilike 'SDTA - Canada - Attractions%' then 'Search - Attractions'
+        WHEN ${campaign} ilike 'SDTA - Canada - Brand%' then 'Search - Brand'
+        WHEN ${campaign} ilike 'SDTA - Canada - RLSA%' then 'Search - RLSA'
+        WHEN ${campaign} ilike 'SDTA - UK - Brand%' then 'Search - Brand'
+        WHEN ${campaign} ilike 'SDTA - UK - Attractions%' then 'Search - Attractions'
+        WHEN ${campaign} ilike 'SDTA - UK - California%' then 'Search - California'
+        WHEN ${campaign} ilike '%SDTA - UK - Generic%' then 'Search - Generic'
+        WHEN ${campaign} ilike '%SDTA - Canada - Generic%' then 'Search - Generic'
+        WHEN ${campaign} ilike 'SDTA - Canada - California%' then 'Search - California'
 
-        WHEN ${campaign} = 'United States' then 'United States'
-        WHEN ${campaign} = 'U.S.' then 'United States'
-        WHEN ${campaign} = 'Retargeting' then 'Retargeting'
-        WHEN ${campaign} = 'Inspiration' then 'Inspiration'
-        WHEN ${campaign} = 'Competitive' then 'Competitive'
-        WHEN ${campaign} = 'California' then 'California'
-        WHEN ${campaign} = 'Brand' then 'Brand'
+        WHEN ${campaign} = 'United States' then 'Search - United States'
+        WHEN ${campaign} = 'U.S.' then 'Search - United States'
+        WHEN ${campaign} = 'Retargeting' then 'Search - Retargeting'
+        WHEN ${campaign} = 'Inspiration' then 'Search - Inspiration'
+        WHEN ${campaign} = 'Competitive' then 'Search - Competitive'
+        WHEN ${campaign} = 'California' then 'Search - California'
+        WHEN ${campaign} = 'Brand' then 'Search - Brand'
 
         ELSE 'Uncategorized'
         END

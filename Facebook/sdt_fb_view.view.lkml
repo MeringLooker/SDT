@@ -211,6 +211,32 @@ view: sdt_fb_view {
         ;;
   }
 
+  dimension: sdt_placement {
+    label: "Campaign Placement"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+      CASE
+        when ${adset_name} = 'FY20_UK_Views_Content_RT' then 'Video Content - Retargeting'
+        when ${adset_name} = 'FY20_UK_Views_Content_VS' then 'Video Content - Variety Seeker'
+        when ${adset_name} = 'FY20_UK_Views_Brand_LAL_USContentViewers' then 'Awareness - Lookalikes (Content Viewers)'
+        when ${adset_name} = 'FY20_UK_Views_Brand_LAL_SiteVisitors' then 'Awareness - Lookalikes (Site Visitors)'
+        when ${adset_name} = 'FY20_UK_Views_Brand_VS' then 'Awareness - Variety Seekers'
+        when ${adset_name} = 'FY20_UK_Conversions_Content_RT' then 'Traffic Content - Retargeting'
+        when ${adset_name} = 'FY20_UK_Conversions_Content_LAL' then 'Traffic Content - Lookalikes (Site Visitors)'
+
+        when ${adset_name} ilike 'FY20_CAN_Views_Content_RT%' then 'Video Content - Retargeting'
+        when ${adset_name} ilike 'FY20_CAN_Views_Content_VS%' then 'Video Content - Variety Seeker'
+        when ${adset_name} ilike 'FY20_CAN_Views_Brand_VS%' then 'Awareness - Variety Seeker'
+        when ${adset_name} ilike 'FY20_CAN_Views_Brand_RT%' then 'Awareness - Retargeting'
+        when ${adset_name} ilike 'FY20_CAN_Clicks_Content_RT%' then 'Traffic Content - Retargeting'
+        when ${adset_name} ilike 'FY20_CAN_Clicks_Content_LAL%' then 'Traffic Content - Lookalikes (Site Visitors)'
+
+        else 'Uncategorized'
+        end
+        ;;
+  }
+
   dimension: creative_name {
     label: "Creative Name"
     group_label: "Client Dimensions"
@@ -600,7 +626,7 @@ view: sdt_fb_view {
     type: number
     group_label: "Video Quartiles"
     label: "Cost/Completed View"
-    sql: ${video_completes}/nullif(${total_spend}, 0);;
+    sql: ${total_spend}/nullif(${video_completes}, 0);;
     value_format_name: usd
   }
 
@@ -619,14 +645,15 @@ view: sdt_fb_view {
     type: number
     group_label: "Video Reporting"
     label: "ThruPlay Rate"
-    sql: 1.0*(${total_thruplays}/nullif(${total_impressions}, 0) ;;
+    sql: 1.0*${total_thruplays}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
   }
 
   measure: cost_per_thruplay {
     type: number
     group_label: "Video Reporting"
     label: "Cost/ThruPlay"
-    sql: ${total_thruplays}/nullif(${total_spend}, 0);;
+    sql: ${total_spend}/nullif(${total_thruplays}, 0);;
     value_format_name: usd
   }
 
