@@ -4,6 +4,7 @@ include: "*.view.lkml"
 include: "/Facebook/*.view"
 include: "/TrueView/*.view"
 include: "/AdWords/*.view"
+include: "/Pinterest/*.view"
 
 datagroup: sdt_content_datagroup {
   sql_trigger: SELECT current_date;;
