@@ -129,6 +129,7 @@ view: pdt_brand_digital_video_campaign {
     type: number
     hidden: yes
     sql: ${TABLE}.total_completes ;;
+    value_format_name: decimal_0
   }
 
   dimension: cost {
@@ -154,6 +155,7 @@ view: pdt_brand_digital_video_campaign {
 
   measure: total_completes {
     type: sum_distinct
+    value_format_name: decimal_0
     sql_distinct_key: ${primary_key} ;;
     sql: ${completes} ;;
   }
