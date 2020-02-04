@@ -24,6 +24,12 @@ view: sdt_dcm_view {
     sql: ${placement_id}||'_'||${date_date} ;;
   }
 
+  dimension: passback_join_ad { ## Ad ID + date ALWAYS
+    type: string
+    hidden: yes
+    sql: ${ad_id}||'_'||${date_date} ;;
+  }
+
 ##### Dimensions added to this table via LookML ######
 
   dimension: fiscal_year {

@@ -13,7 +13,7 @@ view: sdt_fy20_digital_video_hulu {
 
   dimension: passback_join { ## placement ID + date ALWAYS ##
     type: string
-#     hidden: yes
+    hidden: yes
     sql: ${placement_id}||'_'||${date_date} ;;
   }
 
