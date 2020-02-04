@@ -128,43 +128,43 @@ view: ndt_uk_digital_campaign {
 
   ### Goals Below ###
 
-  dimension: impressions_goal {
-    type: number
-    group_label: "Campaign Goals"
-    sql:
-      case
-        when ${fiscal_year} = 'FY 19/20' then 6832747
-        else null
-        end
-        ;;
-  }
+#   dimension: impressions_goal {
+#     type: number
+#     group_label: "Campaign Goals"
+#     sql:
+#       case
+#         when ${fiscal_year} = 'FY 19/20' then 6832747
+#         else null
+#         end
+#         ;;
+#   }
 
-  measure: percent_to_impressions_goal {
-    type: number
-    group_label: "Campaign Goals"
-    label: "% of Impressions Goal"
-    sql: 1.0*${total_impressions}/nullif(${impressions_goal}, 0) ;;
-    value_format_name: percent_0
-  }
+#   measure: percent_to_impressions_goal {
+#     type: number
+#     group_label: "Campaign Goals"
+#     label: "% of Impressions Goal"
+#     sql: 1.0*${total_impressions}/nullif(${impressions_goal}, 0) ;;
+#     value_format_name: percent_0
+#   }
 
-  dimension: spend_goal {
-    type: number
-    group_label: "Campaign Goals"
-    sql:
-      case
-        when ${fiscal_year} = 'FY 19/20' then '75200'
-        else null
-        ;;
-        value_format_name: usd
-  }
+#   dimension: spend_goal {
+#     type: number
+#     group_label: "Campaign Goals"
+#     sql:
+#       case
+#         when ${fiscal_year} = 'FY 19/20' then '75200'
+#         else null
+#         ;;
+#         value_format_name: usd
+#   }
 
-  measure: percent_to_spend_goal {
-    type: number
-    group_label: "Campaign Goals"
-    label: "% of Spend Goal"
-    sql: 1.0*${total_cost}/nullif(${spend_goal}_goal}, 0) ;;
-    value_format_name: percent_0
-  }
+#   measure: percent_to_spend_goal {
+#     type: number
+#     group_label: "Campaign Goals"
+#     label: "% of Spend Goal"
+#     sql: 1.0*${total_cost}/nullif(${spend_goal}_goal}, 0) ;;
+#     value_format_name: percent_0
+#   }
 
 ### All measures go below ###
 
