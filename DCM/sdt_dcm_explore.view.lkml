@@ -18,35 +18,35 @@ explore: sdt_dcm {
   }
 
   join: sdt_fy20_digital_video_cbs {
-    view_label: "FY20 Digital Video Passback - cbs"
+    view_label: "FY20 Digital Video Passback - CBS"
     type: inner
     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_cbs.passback_join} ;;
     relationship: many_to_one
   }
 
   join: sdt_fy20_digital_video_hulu {
-    view_label: "FY20 Digital Video Passback - hulu"
+    view_label: "FY20 Digital Video Passback - Hulu"
     type: inner
     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_hulu.passback_join} ;;
     relationship: many_to_one
   }
 
   join: sdt_fy20_digital_video_amobee {
-    view_label: "FY20 Digital Video Passback - amobee"
+    view_label: "FY20 Digital Video Passback - Amobee"
     type: inner
     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_amobee.passback_join} ;;
     relationship: many_to_one
   }
 
   join: sdt_fy20_digital_video_abc {
-    view_label: "FY20 Digital Video Passback - abc"
+    view_label: "FY20 Digital Video Passback - ABC"
     type: inner
     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_abc.passback_join} ;;
     relationship: many_to_one
   }
 
   join: sdt_fy20_digital_video_nbc {
-    view_label: "FY20 Digital Video Passback - nbc"
+    view_label: "FY20 Digital Video Passback - NBC"
     type: inner
     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_nbc.passback_join} ;;
     relationship: many_to_one
@@ -56,6 +56,13 @@ explore: sdt_dcm {
     view_label: "FY20 Always On Content Passback - StackAdapt"
     type: inner
     sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_content_stackadapt.passback_join} ;;
+    relationship: many_to_one
+  }
+
+  join: sdt_fy20_uk_digital_exponential {
+    view_label: "FY20 UK Digital Passback - Exponential"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_uk_digital_exponential.passback_join} ;;
     relationship: many_to_one
   }
 
