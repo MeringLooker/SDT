@@ -133,7 +133,8 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'StackAdapt_FY20 AlwaysOnContent_Micro_%' then 'Micro Video'
         when ${placement} ILIKE 'StackAdapt_FY20 AlwaysOnContent_Macro_%' then 'Macro Video'
 
-
+        when ${placement} ILIKE 'VDX_FY20 UK Digital_Reach/Storytelling_%' then 'Amplify Reach'
+        when ${placement} ILIKE 'Lastminute_FY20 UK Digital_Content_VS%' then 'Storytelling'
 
         ELSE 'Uncategorized'
         end ;;
@@ -352,6 +353,10 @@ view: sdt_dcm_view {
       when ${placement} ilike 'Expedia_OTA Base_EBP Match_Previous search%' then 'EBP Match'
       when ${placement} ilike 'Expedia_OTA Base_Travelocity Responsive ROS Bundle_%' then 'Travelocity Responsive ROS Bundle'
       when ${placement} ilike 'Expedia_OTA Base_Travelocity ROS Bundle%' then 'Travelocity ROS Bundle'
+
+      when ${placement} ilike 'VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX%' then 'High Impact Video Banners'
+
+      when ${placement} ilike 'Lastminute_FY20 UK Digital_Content_VS A25-54, HHI $100K+_UK_High Impact Display Mobile Skin%' then 'High Impact Display Mobile Skin'
 
       else 'Uncategorized'
     end;;
