@@ -22,6 +22,8 @@ view: pdt_content_pinterest {
         value: "Always On Content"
       }
     }
+    datagroup_trigger: sdt_content_datagroup
+    distribution_style: all
   }
   dimension: publisher {
     type: string

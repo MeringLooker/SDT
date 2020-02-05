@@ -706,7 +706,7 @@ view: sdt_dcm_view {
     group_label: "3rd Party Measures"
     type: number
     label: "CPM"
-    sql: 1.0*${total_clicks}/nullif(${total_impressions}/1000, 0) ;;
+    sql: 1.0*${total_media_cost}/nullif(${total_impressions}/1000, 0) ;;
     value_format_name: usd
   }
 
