@@ -1,11 +1,11 @@
 view: pdt_content_stackadapt {
-derived_table: {
+  derived_table: {
   explore_source: sdt_dcm {
     column: publisher {field: sdt_dcm_view.publisher}
     column: campaign {field: sdt_dcm_view.sdt_campaign}
     column: market {field: sdt_dcm_view.sdt_market}
     column: region {field: sdt_dcm_view.sdt_region}
-    column: layer {field: sdt_dcm_view.sdt_later}
+    column: layer {field: sdt_dcm_view.sdt_layer}
     column: date {field: sdt_dcm_view.date_date}
     column: week {field: sdt_dcm_view.date_week}
     column: month {field: sdt_dcm_view.date_month}
@@ -23,7 +23,7 @@ derived_table: {
     }
     filters: {
       field: sdt_dcm_view.publisher
-      value: "StackAdapt"
+      value: "Stack Adapt"
     }
   }
   datagroup_trigger: sdt_content_datagroup

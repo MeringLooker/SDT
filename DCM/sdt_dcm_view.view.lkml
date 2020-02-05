@@ -129,6 +129,12 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'Sojern\\_PT\\_Display Prospecting%' then 'Pull-Through Base'
         when ${placement} ILIKE 'Sojern\\_PT\\_AV Display Prospecting%' then 'Pull-Through Base'
         when ${placement} ILIKE 'Priceline\\_OTA Base\\_%' then 'OTA Base'
+
+        when ${placement} ILIKE 'StackAdapt_FY20 AlwaysOnContent_Micro_%' then 'Micro Video'
+        when ${placement} ILIKE 'StackAdapt_FY20 AlwaysOnContent_Macro_%' then 'Macro Video'
+
+
+
         ELSE 'Uncategorized'
         end ;;
   }
@@ -270,6 +276,18 @@ view: sdt_dcm_view {
         when ${placement_id} ilike '252701236' then 'National'
 
         when ${campaign} = 'SDT: 004576_01 FY20 Brand Digital Video Campaign' and ${site_dcm} = 'Amobee' then 'National'
+
+        when ${placement} ilike '%RetargetMacro\\_US\\_%' then 'National'
+        when ${placement} ilike '%RetargetMacro\\_PHX\\_%' then 'Phoenix'
+        when ${placement} ilike '%RetargetMacro\\_LA\\_%' then 'Los Angeles'
+
+        when ${placement} ilike '%AlwaysOnContent_Macro_Outdoor_VarietySeeker\\_LA\\_%' then 'Los Angeles'
+        when ${placement} ilike '%AlwaysOnContent_Macro_Outdoor_VarietySeeker\\_PHX\\_%' then 'Phoenix'
+        when ${placement} ilike '%AlwaysOnContent_Macro_Outdoor_VarietySeeker\\_US\\_%' then 'National'
+
+        when ${placement} ilike '%AlwaysOnContent_Macro_NonOutdoor_VarietySeeker\\_LA\\_%' then 'Los Angeles'
+        when ${placement} ilike '%AlwaysOnContent_Macro_NonOutdoor_VarietySeeker\\_PHX\\_%' then 'Phoenix'
+        when ${placement} ilike '%AlwaysOnContent_Macro_NonOutdoor_VarietySeeker\\_US\\_%' then 'National'
 
 
           ELSE 'Uncategorized'
