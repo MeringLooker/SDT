@@ -158,6 +158,10 @@ view: sdt_dcm_view {
         when ${placement_id} = '255163531' then 'Macro Traffic'
         when ${placement_id} = '255163543' then 'Macro Traffic'
 
+        when ${placement_id} = '255163882' then 'Macro Traffic'
+        when ${placement_id} = '255163483' then 'Nano Traffic'
+        when ${placement_id} = '255163888' then 'Macro Video'
+
         ELSE 'Uncategorized'
         end ;;
   }
@@ -333,6 +337,10 @@ view: sdt_dcm_view {
         when ${placement_id} = '255163867' then 'National'
         when ${placement_id} = '255163489' then 'National'
 
+        when ${placement_id} = '255163882' then 'Los Angeles'
+        when ${placement_id} = '255163483' then 'Phoenix'
+        when ${placement_id} = '255163888' then 'Los Angeles'
+
           ELSE 'Uncategorized'
       END;;
   }
@@ -419,9 +427,12 @@ view: sdt_dcm_view {
         when ${placement_id} = '252328262' then 'Find Your Smile in San Diego (:30) - Family'
         when ${placement_id} = '252701236' then 'Find Your Smile in San Diego (:30) - Brand'
 
+        when ${placement_id} = '253236655' then 'Find Your Smile in San Diego (:30) - Family'
+        when ${placement_id} = '253315548' then 'Find Your Smile in San Diego (:30) - Brand'
+
         when ${placement} ilike '%live streaming video added value companion%' then 'Companion Banner'
-        when ${placement} ilike '%30 Happy Today - Family' then 'Happy Today - Family (:30)'
-        when ${placement} ilike '%30 Happy Today - Brand' then 'Happy Today - Brand (:30)'
+        when ${placement} ilike '%30 Happy Today - Family' then 'Happy Today (:30) - Family'
+        when ${placement} ilike '%30 Happy Today - Brand' then 'Happy Today (:30) - Brand'
 
         when ${placement_id} = '252945715' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252530186' then 'Happy Today (:30) - Brand'
@@ -442,6 +453,12 @@ view: sdt_dcm_view {
         when ${placement_id} = '265518918' then 'Happy Today (:30) - Family'
         when ${placement_id} = '265503247' then 'Happy Today (:30) - Family'
         when ${placement_id} = '253217146' then 'Happy Today (:30) - Family'
+        when ${placement_id} = '265499293' then 'Happy Today (:30) - Family'
+
+        when ${placement_id} = '252330719' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252324173' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252868753' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252530312' then 'Happy Today (:30) - Brand'
 
           ELSE 'Uncategorized'
       END;;

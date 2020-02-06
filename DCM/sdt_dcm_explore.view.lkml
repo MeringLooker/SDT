@@ -66,6 +66,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy20_content_inpowered {
+    view_label: "FY20 Always On Content Passback - inPowered"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_content_inpowered.passback_join} ;;
+    relationship: many_to_one
+  }
+
 }
 #
 # explore: sdt_fy20_digital_video_cbs {
