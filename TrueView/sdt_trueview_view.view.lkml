@@ -180,14 +180,14 @@ view: sdt_trueview_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${ad_group_id} = '64714221278' then 'Surfer Sunsets (:30)'
+        when ${ad_group_id} = '64714221278' then 'Surfer Couple (:30)'
         when ${ad_group_id} = '64714221078' then 'Coffee Cup Coastal (:30)'
-        when ${ad_group_id} = '64714221118' then 'Gliderport (:30)'
+        when ${ad_group_id} = '64714221118' then 'Torrey Pines (:30)'
         when ${ad_group_id} = '64714221318' then 'Mister As (:30)'
-        when ${ad_group_id} = '76924755746' then 'Destination (:30)'
+        when ${ad_group_id} = '76924755746' then 'Smiles - Destination (:30)'
 
-        when ${campaign_id} = '1656164085' then 'Find Your Smile in San Diego (:30)'
-        when ${campaign_id} = '1656164088' then 'Share a Smile in San Diego (:30)'
+        when ${campaign_id} = '1656164085' then 'Find Your Smile in San Diego (:30) - Brand'
+        when ${campaign_id} = '1656164088' then 'Find Your Smile in San Diego (:30) - Family'
 
         when ${campaign} ilike '%SDTA - UK - Brand - FY20%' then 'Find Your Smile in San Diego (:30)'
 
