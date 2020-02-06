@@ -136,6 +136,28 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'VDX_FY20 UK Digital_Reach/Storytelling_%' then 'Amplify Reach'
         when ${placement} ILIKE 'Lastminute_FY20 UK Digital_Content_VS%' then 'Storytelling'
 
+        when ${placement_id} = '255163867' then 'Nano Traffic'
+        when ${placement_id} = '255163873' then 'Nano Traffic'
+        when ${placement_id} = '255163879' then 'Nano Traffic'
+
+        when ${placement_id} = '255163489' then 'Micro Traffic'
+        when ${placement_id} = '255163492' then 'Micro Traffic'
+        when ${placement_id} = '255163495' then 'Micro Traffic'
+
+        when ${placement_id} = '255163510' then 'Macro Video'
+        when ${placement_id} = '255163522' then 'Macro Video'
+        when ${placement_id} = '255163534' then 'Macro Video'
+        when ${placement_id} = '255163516' then 'Macro Video'
+        when ${placement_id} = '255163528' then 'Macro Video'
+        when ${placement_id} = '255163540' then 'Macro Video'
+
+        when ${placement_id} = '255163513' then 'Macro Traffic'
+        when ${placement_id} = '255163525' then 'Macro Traffic'
+        when ${placement_id} = '255163537' then 'Macro Traffic'
+        when ${placement_id} = '255163519' then 'Macro Traffic'
+        when ${placement_id} = '255163531' then 'Macro Traffic'
+        when ${placement_id} = '255163543' then 'Macro Traffic'
+
         ELSE 'Uncategorized'
         end ;;
   }
@@ -290,6 +312,26 @@ view: sdt_dcm_view {
         when ${placement} ilike '%AlwaysOnContent_Macro_NonOutdoor_VarietySeeker\\_PHX\\_%' then 'Phoenix'
         when ${placement} ilike '%AlwaysOnContent_Macro_NonOutdoor_VarietySeeker\\_US\\_%' then 'National'
 
+        when ${placement_id} = '255163522' then 'Phoenix'
+        when ${placement_id} = '255163525' then 'Phoenix'
+        when ${placement_id} = '255163531' then 'Phoenix'
+        when ${placement_id} = '255163873' then 'Phoenix'
+        when ${placement_id} = '255163528' then 'Phoenix'
+        when ${placement_id} = '255163492' then 'Phoenix'
+
+        when ${placement_id} = '255163534' then 'Los Angeles'
+        when ${placement_id} = '255163495' then 'Los Angeles'
+        when ${placement_id} = '255163879' then 'Los Angeles'
+        when ${placement_id} = '255163540' then 'Los Angeles'
+        when ${placement_id} = '255163537' then 'Los Angeles'
+        when ${placement_id} = '255163543' then 'Los Angeles'
+
+        when ${placement_id} = '255163516' then 'National'
+        when ${placement_id} = '255163519' then 'National'
+        when ${placement_id} = '255163513' then 'National'
+        when ${placement_id} = '255163510' then 'National'
+        when ${placement_id} = '255163867' then 'National'
+        when ${placement_id} = '255163489' then 'National'
 
           ELSE 'Uncategorized'
       END;;
@@ -368,32 +410,46 @@ view: sdt_dcm_view {
     label: "Creative Name"
     sql:
       case
-        when ${placement_id} = '252937755' then 'Share a Smile in San Diego (:30)'
-        when ${placement_id} = '252509375' then 'Find Your Smile in San Diego (:30)'
+        when ${placement_id} = '252937755' then 'Find Your Smile in San Diego (:30) - Family'
+        when ${placement_id} = '252509375' then 'Find Your Smile in San Diego (:30) - Brand'
 
-        when ${placement_id} = '252866297' then 'Find Your Smile in San Diego (:30)'
-        when ${placement_id} = '252866285' then 'Share Smile in San Diego (:30)'
+        when ${placement_id} = '252866297' then 'Find Your Smile in San Diego (:30) - Brand'
+        when ${placement_id} = '252866285' then 'Find Your Smile in San Diego (:30) - Family'
 
-        when ${placement_id} = '252328262' then 'Share a Smile in San Diego (:30)'
-        when ${placement_id} = '252701236' then 'Find Your Smile in San Diego (:30)'
+        when ${placement_id} = '252328262' then 'Find Your Smile in San Diego (:30) - Family'
+        when ${placement_id} = '252701236' then 'Find Your Smile in San Diego (:30) - Brand'
 
         when ${placement} ilike '%live streaming video added value companion%' then 'Companion Banner'
-        when ${placement} ilike '%30 Happy Today%' then 'Happy Today (:30)'
+        when ${placement} ilike '%30 Happy Today - Family' then 'Happy Today - Family (:30)'
+        when ${placement} ilike '%30 Happy Today - Brand' then 'Happy Today - Brand (:30)'
 
-        when ${placement_id} = '252945715' then 'Something to Smile About (:30)'
-        when ${placement_id} = '252530186' then 'Something to Smile About (:30)'
-        when ${placement_id} = '252530123' then 'Something to Smile About (:30)'
-        when ${placement_id} = '252888028' then 'Something to Smile About (:30)'
-        when ${placement_id} = '252888751' then 'Something to Smile About (:30)'
+        when ${placement_id} = '252945715' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252530186' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252530123' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252888028' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252888751' then 'Happy Today (:30) - Brand'
 
-        when ${placement_id} = '252330719' then 'Happy Today (:30)'
-        when ${placement_id} = '252324173' then 'Happy Today (:30)'
-        when ${placement_id} = '252868753' then 'Happy Today (:30)'
+        when ${placement_id} = '252875912' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '253220767' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '253309155' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '253225471' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '253303128' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252871376' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '253301820' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '253217116' then 'Happy Today (:30) - Brand'
 
+        when ${placement_id} = '265518918' then 'Happy Today (:30) - Family'
+        when ${placement_id} = '265518918' then 'Happy Today (:30) - Family'
+        when ${placement_id} = '265503247' then 'Happy Today (:30) - Family'
+        when ${placement_id} = '253217146' then 'Happy Today (:30) - Family'
 
           ELSE 'Uncategorized'
       END;;
   }
+
+#           when ${placement_id} = '252330719' then 'Happy Today (:30)'
+#         when ${placement_id} = '252324173' then 'Happy Today (:30)'
+#         when ${placement_id} = '252868753' then 'Happy Today (:30)'
 
 #           when ${placement} ilike '%:30 Happy Today - Brand%' then 'Every Day is a Happy Day in San Diego (:30)'
 
