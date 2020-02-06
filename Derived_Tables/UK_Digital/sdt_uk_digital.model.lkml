@@ -5,6 +5,8 @@ include: "/Facebook/*.view"
 include: "/TrueView/*.view"
 include: "/AdWords/*.view"
 include: "/Google_Analytics/*.view"
+include: "/Publisher_Passback/*/*.view"
+include: "/DCM/*.view"
 
 datagroup: sdt_uk_digital_datagroup {
   sql_trigger: SELECT current_date;;

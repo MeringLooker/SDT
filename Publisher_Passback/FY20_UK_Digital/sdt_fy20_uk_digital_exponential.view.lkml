@@ -139,7 +139,7 @@ view: sdt_fy20_uk_digital_exponential {
     value_format_name: percent_2
   }
 
-  measure: total_spend {
+  measure: total_cost {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
     sql: ${media_spend} ;;
@@ -149,14 +149,14 @@ view: sdt_fy20_uk_digital_exponential {
   measure: cost_per_click {
     type: number
     label: "CPC"
-    sql: ${total_spend}/nullif(${total_clicks}, 0) ;;
+    sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
     value_format_name: usd
   }
 
   measure: cost_per_thousand {
     type: number
     label: "CPM"
-    sql: 1.0*${total_spend}/nullif(${total_impressions}/1000, 0) ;;
+    sql: 1.0*${total_cost}/nullif(${total_impressions}/1000, 0) ;;
     value_format_name: usd
   }
 
@@ -169,7 +169,7 @@ view: sdt_fy20_uk_digital_exponential {
   measure: cost_per_view {
     type: number
     label: "CPV"
-    sql: ${total_spend}/nullif(${total_video_views}, 0) ;;
+    sql: ${total_cost}/nullif(${total_video_views}, 0) ;;
     value_format_name: usd
   }
 
