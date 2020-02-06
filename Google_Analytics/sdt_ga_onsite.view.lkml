@@ -27,6 +27,31 @@ view: sdt_ga_onsite {
     sql: ${adwordsadgroupid}||'_'||${date_date} ;;
   }
 
+####### AdRoll Join ID #######
+
+  dimension: adroll_join {
+    type: string
+    hidden: yes
+    sql:
+      case
+        when ${keyword} = 'PT-Facebook-Single-Image' then 'Pull-Through Audience'
+        when ${keyword} = 'PT-Facebook-Single-Image-PT' then 'Pull-Through Audience'
+        when ${keyword} = 'Competitve-Facebook-Single-Image-Retargeting' then 'Competitive Conquesting_Audience'
+        when ${keyword} = 'LA-Facebook-Single-Image-Retargeting' then 'Los Angeles_Audience'
+        when ${keyword} = 'Disneyland-Facebook-Single-Image-Retargeting' then 'Disneyland_Audience'
+        when ${keyword} = 'FacebookSingleImageRetargeting' then 'Pull-Through Audience'
+        when ${keyword} = 'LAFacebookSingleImageRetargeting' then 'Los Angeles_Audience'
+        when ${keyword} = 'CQ-Facebook-Single-Image-Retargeting' then 'Competitive Conquesting_Audience'
+        end
+    ;;
+  }
+
+  dimension: adroll_join_id {
+    type: string
+    hidden: yes
+    sql: ${adroll_join}||'_'||${date_date} ;;
+  }
+
   ####### Dimensions go Below ########
 
   dimension: __sampled {
