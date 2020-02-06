@@ -20,10 +20,6 @@ view: pdt_brand_digital_video_campaign {
     distribution_style: all
   }
 
-#         union
-#         select * from ${pdt_brand_digital_video_amobee.SQL_TABLE_NAME}
-#         union
-#         select * from ${pdt_brand_digital_video_abc.SQL_TABLE_NAME}
 
 #### Primary Key Added ####
 
@@ -171,6 +167,17 @@ view: pdt_brand_digital_video_campaign {
     type: number
     label: "Completion Rate"
     sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: completion_rate_2 {
+    type: number
+    label: "Completion Rate (exc Banners)"
+    sql:
+      case
+        when ${creative_name} = 'Companion Banner' then null
+        else 1.0*${total_completes}/nullif(${total_impressions}, 0)
+        end;;
     value_format_name: percent_2
   }
 
