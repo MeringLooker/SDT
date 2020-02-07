@@ -31,7 +31,7 @@ view: pdt_content_campaign {
 
   dimension: publisher {
     type: string
-    drill_fields: [region,week,month]
+    drill_fields: [layer,region,week,month]
     sql: ${TABLE}.publisher ;;
   }
 
