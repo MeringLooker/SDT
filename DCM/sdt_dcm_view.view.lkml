@@ -391,7 +391,7 @@ view: sdt_dcm_view {
   dimension: sdt_placement {
     type: string
     group_label: "Client Dimensions"
-    label: "Placement"
+    label: "Placement Name"
     sql:
       case
       when ${placement} ilike 'Expedia_OTA Base_ROS Bundle_%' then 'ROS Bundle'
@@ -404,6 +404,13 @@ view: sdt_dcm_view {
       when ${placement} ilike 'Expedia_OTA Base_EBP Match_Previous search%' then 'EBP Match'
       when ${placement} ilike 'Expedia_OTA Base_Travelocity Responsive ROS Bundle_%' then 'Travelocity Responsive ROS Bundle'
       when ${placement} ilike 'Expedia_OTA Base_Travelocity ROS Bundle%' then 'Travelocity ROS Bundle'
+
+      when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting PT site visitors_National%' then 'Display Retargeting - PT Base'
+      when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Competitive site visitors%' then 'Display Retargeting - Competitive Conquesting'
+      when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Los Angeles site visitors%' then 'Display Retargeting - Los Angeles'
+      when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Disneyland site visitors%' then 'Display Retargeting - Disneyland'
+
+
 
       when ${placement} ilike 'VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX%' then 'High Impact Video Banners'
 
