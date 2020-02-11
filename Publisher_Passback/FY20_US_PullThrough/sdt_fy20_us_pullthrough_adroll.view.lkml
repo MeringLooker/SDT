@@ -6,6 +6,7 @@ view: sdt_fy20_us_pullthrough_adroll {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: string
     sql: ${TABLE}.id ;;
   }
@@ -25,22 +26,28 @@ view: sdt_fy20_us_pullthrough_adroll {
 
   dimension: sdt_campaign {
     type: string
+    group_label: "Client Dimensions"
+    label: "Campaign Name"
     sql: 'US Pull-Through' ;;
   }
 
   dimension: sdt_market {
     type: string
+    group_label: "Client Dimensions"
+    label: "Market"
     sql: 'United States' ;;
   }
 
   dimension: sdt_layer {
     type: string
+    label: "Campaign Layer"
+    group_label: "Client Dimensions"
     sql:
       case
-        when ${adgroup} = 'Competitive Conquesting_Audience' then 'Competitive Conquest'
-        when ${adgroup} = 'Disneyland_Audience' then 'Disneyland'
-        when ${adgroup} = 'Los Angeles_Audience' then 'Los Angeles'
-        when ${adgroup} = 'Pull-Through Audience' then 'Pull-Through Base'
+        when ${adgroup} = 'Competitive Conquesting_Audience' then 'Retargeting'
+        when ${adgroup} = 'Disneyland_Audience' then 'Retargeting'
+        when ${adgroup} = 'Los Angeles_Audience' then 'Retargeting'
+        when ${adgroup} = 'Pull-Through Audience' then 'Retargeting'
         end;;
   }
 
@@ -84,6 +91,7 @@ view: sdt_fy20_us_pullthrough_adroll {
 
   dimension: adgroup {
     type: string
+    label: "AdRoll Ad Group"
     sql: ${TABLE}.adgroup ;;
   }
 
@@ -135,10 +143,31 @@ view: sdt_fy20_us_pullthrough_adroll {
     sql: ${clicks} ;;
   }
 
+  measure: click_through_rate {
+    type: number
+    label: "CTR"
+    sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
   measure: total_cost {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
     sql: ${media_cost} ;;
+    value_format_name: usd
+  }
+
+  measure: cost_per_click {
+    type: number
+    label: "CPC"
+    sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
+    value_format_name: usd
+  }
+
+  measure: cost_per_thousand {
+    type: number
+    label: "CPM"
+    sql: 1.0*${total_cost}/nullif(${total_impressions}/1000, 0) ;;
     value_format_name: usd
   }
 
@@ -150,12 +179,29 @@ view: sdt_fy20_us_pullthrough_adroll {
     sql: ${sdt_ga_onsite.sessions} ;;
   }
 
+  measure: cost_per_session {
+    group_label: "GA Reporting"
+    type: number
+    label: "CPS"
+    sql: ${total_cost}/nullif(${ga_sessions}, 0) ;;
+    value_format_name: usd
+  }
+
   measure: ga_total_session_duration {
     group_label: "GA Reporting"
+    hidden: yes
     type: sum_distinct
     sql_distinct_key: ${sdt_ga_onsite.id};;
     label: "Total Session Duration"
     sql: ${sdt_ga_onsite.sessionduration} ;;
+  }
+
+  measure: ga_avg_session_duration {
+    type: number
+    label: "Avg. TOS"
+    group_label: "GA Reporting"
+    sql: (${ga_total_session_duration}/nullif(${ga_sessions}, 0))::float/86400 ;;
+    value_format: "m:ss"
   }
 
   measure: count {
