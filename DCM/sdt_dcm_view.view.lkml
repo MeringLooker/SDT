@@ -114,6 +114,7 @@ view: sdt_dcm_view {
     label: "Campaign Layer"
     sql:
       CASE
+        when ${placement} ILIKE 'AdRoll_Retargeting_Web Display Package_Retargeting%' then 'Retargeting'
         when ${placement} ILIKE '%Anaheim/Disneyland%' then 'Disneyland'
         when ${placement} ILIKE '%Conquesting%' then 'Competitive Conquest'
         when ${placement} ILIKE 'Adara\\_Los Angeles\\_%' then 'Los Angeles'
