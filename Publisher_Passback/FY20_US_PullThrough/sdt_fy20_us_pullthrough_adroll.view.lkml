@@ -51,6 +51,19 @@ view: sdt_fy20_us_pullthrough_adroll {
         end;;
   }
 
+  dimension: sdt_placement {
+    type: string
+    label: "Placement Name"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        when ${adgroup} = 'Competitive Conquesting_Audience' then 'Social Retargeting - Competitive Conquesting'
+        when ${adgroup} = 'Disneyland_Audience' then 'Social Retargeting - Disneyland'
+        when ${adgroup} = 'Los Angeles_Audience' then 'Social Retargeting - Los Angeles'
+        when ${adgroup} = 'Pull-Through Audience' then 'Social Retargeting - PT Base'
+        end;;
+  }
+
 ### Dimensions native to this table ###
 
   dimension_group: __senttime {
