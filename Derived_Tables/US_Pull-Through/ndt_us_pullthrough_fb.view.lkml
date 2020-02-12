@@ -1,6 +1,7 @@
 view: ndt_us_pullthrough_fb {
   derived_table: {
     explore_source: sdt_fb {
+      column: primary_key   {field: sdt_fb_view.id}
       column: publisher {field: sdt_fb_view.publisher}
       column: campaign {field: sdt_fb_view.sdt_campaign}
       column: market {field: sdt_fb_view.sdt_market}

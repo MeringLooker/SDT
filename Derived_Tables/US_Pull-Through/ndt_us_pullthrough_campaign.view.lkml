@@ -29,9 +29,9 @@ view: ndt_us_pullthrough_campaign {
 
   dimension: primary_key {
     type: string
-    hidden: yes
+    hidden: no
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${date} ;;
+    sql: ${TABLE}.primary_key ;;
   }
 
 ### All dimensions go below ###
@@ -209,6 +209,10 @@ view: ndt_us_pullthrough_campaign {
     type: number
     sql: (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400 ;;
     value_format: "m:ss"
+  }
+
+  measure: count {
+    type: count
   }
 
 }

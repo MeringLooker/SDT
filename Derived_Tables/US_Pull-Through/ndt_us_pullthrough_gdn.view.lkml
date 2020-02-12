@@ -1,6 +1,7 @@
 view: ndt_us_pullthrough_gdn {
   derived_table: {
     explore_source: sdt_gdn {
+      column: primary_key {field: sdt_gdn_view.id}
       column: publisher {field: sdt_gdn_view.publisher}
       column: campaign {field: sdt_gdn_view.sdt_campaign}
       column: market {field: sdt_gdn_view.sdt_market}

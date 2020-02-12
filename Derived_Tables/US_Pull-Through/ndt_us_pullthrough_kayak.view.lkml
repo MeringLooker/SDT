@@ -1,6 +1,7 @@
 view: ndt_us_pullthrough_kayak {
   derived_table: {
     explore_source: sdt_dcm {
+      column: primary_key   {field: sdt_dcm_view.id}
       column: publisher {field: sdt_dcm_view.publisher}
       column: campaign {field: sdt_dcm_view.sdt_campaign}
       column: market {field: sdt_dcm_view.sdt_market}

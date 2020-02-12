@@ -1,6 +1,7 @@
 view: ndt_us_pullthrough_adroll_offline {
   derived_table: {
     explore_source: sdt_fy20_us_pullthrough_adroll {
+      column: primary_key {field: sdt_fy20_us_pullthrough_adroll.id}
       column: publisher {field: sdt_fy20_us_pullthrough_adroll.publisher}
       column: campaign {field: sdt_fy20_us_pullthrough_adroll.sdt_campaign}
       column: market {field: sdt_fy20_us_pullthrough_adroll.sdt_market}

@@ -1,6 +1,7 @@
 view: ndt_us_pullthrough_pinterest {
   derived_table: {
     explore_source: sdt_pinterest_ads {
+      column: primary_key { field: sdt_pinterest.id }
       column: publisher { field: sdt_pinterest.publisher }
       column: campaign { field: sdt_pinterest.sdt_campaign }
       column: market { field: sdt_pinterest.sdt_market }
