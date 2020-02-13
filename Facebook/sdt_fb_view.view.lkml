@@ -507,14 +507,16 @@ view: sdt_fb_view {
 #### All Measures go below ####
 
   measure: total_impressions {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Impressions"
     group_label: "Facebook Reporting"
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Clicks"
     group_label: "Facebook Reporting"
     sql: ${inline_link_clicks} ;;
@@ -529,7 +531,8 @@ view: sdt_fb_view {
   }
 
   measure: total_spend {
-    type: sum
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
     label: "Media Spend"
     group_label: "Facebook Reporting"
     sql: ${spend};;
