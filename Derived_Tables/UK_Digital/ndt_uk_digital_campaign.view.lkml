@@ -10,6 +10,8 @@ view: ndt_uk_digital_campaign {
         select * from ${ndt_uk_digital_sem.SQL_TABLE_NAME}
         union
         select * from ${ndt_uk_digital_exponential.SQL_TABLE_NAME}
+        union
+        select * from ${ndt_uk_digital_lastminute.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all

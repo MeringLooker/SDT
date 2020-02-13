@@ -66,6 +66,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy20_uk_digital_lastminute {
+    view_label: "FY20 UK Digital Passback - LastMinute"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_uk_digital_lastminute.passback_join} ;;
+    relationship: many_to_one
+  }
+
   join: sdt_fy20_content_inpowered {
     view_label: "FY20 Always On Content Passback - inPowered"
     type: inner

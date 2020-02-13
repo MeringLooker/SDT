@@ -14,8 +14,14 @@ datagroup: sdt_uk_digital_datagroup {
 }
 
 explore: ndt_uk_digital_campaign {
-  #persist_with: vca_dream365_datagroup
   label: "UK Digital"
+  view_label: "UK Digital"
+  group_label: "San Diego Tourism"
+  hidden: yes
+}
+
+explore: ndt_uk_digital_lastminute {
+  label: "Last minute"
   view_label: "UK Digital"
   group_label: "San Diego Tourism"
   hidden: yes
