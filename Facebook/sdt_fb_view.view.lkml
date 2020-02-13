@@ -590,7 +590,7 @@ view: sdt_fb_view {
     type: number
     group_label: "Video Reporting"
     label: ":03 View Rate"
-    sql: 1.0*(${video_views}/nullif(${total_impressions}, 0) ;;
+    sql: 1.0*${video_views}/nullif(${total_impressions}, 0) ;;
   }
 
   measure: view_to_25_percent {

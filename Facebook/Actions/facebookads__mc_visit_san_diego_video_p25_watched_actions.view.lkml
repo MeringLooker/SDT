@@ -1,5 +1,5 @@
 view: facebookads__mc_visit_san_diego_video_p25_watched_actions {
-  sql_table_name: public.facebookads__mc visit san diego_video_p25_watched_actions ;;
+  sql_table_name: public."facebookads__mc visit san diego_video_p25_watched_actions" ;;
   drill_fields: [id]
 
   dimension: id {
