@@ -341,6 +341,7 @@ view: sdt_fb_view {
 
   dimension: adset_name {
     type: string
+    label: "Ad Set Name"
     group_label: "Facebook Dimensions"
     sql: ${TABLE}.adset_name ;;
   }
@@ -584,8 +585,6 @@ view: sdt_fb_view {
     sql: 1.0*${video_completes}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
   }
-
-#### Joined FB Action Measures #####
 
   measure: view_rate {
     type: number
