@@ -414,9 +414,9 @@ view: sdt_dcm_view {
 
       when ${placement} ilike 'VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX%' then 'High Impact Video Banners'
 
-      when ${placement} ilike '%UK_High Impact Display%' then 'High Impact Display'
+      when ${placement} ilike '%UK_High Impact Display%' then 'Off-Site High Impact Display'
       when ${placement} ilike '%UK_On Site High Impact Display%' then 'On-Site High Impact Display'
-      when ${placement} ilike '%High Impact Native Click Through%' then 'High Impact Native'
+      when ${placement} ilike '%High Impact Native Click Through%' then 'On-Site High Impact Native'
       when ${placement} ilike '%UK_Off site Native Traffic Drivers%' then 'Off-Site High Impact Native'
 
       else 'Uncategorized'
