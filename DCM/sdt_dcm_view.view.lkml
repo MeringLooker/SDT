@@ -55,19 +55,25 @@ view: sdt_dcm_view {
         when ${creative} ILIKE '%728x90%' then '728x90'
         when ${creative} ILIKE '%300x250%' then '300x250'
         when ${creative} ILIKE '%300x600%' then '300x600'
-        when ${creative} ILIKE '%320x50%' then '320x50'
         when ${creative} ILIKE '%160x600%' then '160x600'
         when ${creative} ILIKE '%970x250%' then '970x250'
-        when ${creative} ILIKE '%300x50%' then '300x50'
         when ${placement} ilike '%\\_728x90' then '728x90'
+        when ${placement} ilike '%\\_300x600' then '300x600'
         when ${placement} ilike '%\\_300x250' then '300x250'
+        when ${placement} ilike '%\\_320x50' then '320x50'
+        when ${placement} ilike '%\\_970x250' then '970x250'
         when ${placement} ilike '%\\_160x600' then '160x600'
         when ${placement} ilike '%\\_468x60' then '468x60'
         when ${placement} ilike '%\\_300x50' then '300x50'
         when ${placement} ilike '%\\_970x90' then '970x90'
         when ${placement} ilike '%\\_1320x742' then '1320x742'
 
+        when ${placement} ilike '%Halo Desktop/Tablet%' then 'Halo'
+        when ${placement} ilike '%Halo Mobile%' then 'Halo'
 
+        when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_AT HALO_Travel Interest_020320-041220_1x1' then 'Halo'
+        when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_High Impact Display Portrait_Travel Interest_020320-041220_1x1' then 'Portrait'
+        when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_Cross Screen Scroller_Travel Interest_020320-041220_1x1' then 'Cross Screen Scroller'
 
       ELSE 'Uncategorized'
       END;;
@@ -89,6 +95,8 @@ view: sdt_dcm_view {
         when ${site_dcm} ILIKE 'TripAdvisor%' then 'Trip Advisor'
 
         when ${site_dcm} ILIKE 'Turner Sports%' then 'Turner Sports'
+
+        when ${placement} ILIKE 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL%' then 'Travel + Leisure'
         when ${site_dcm} ILIKE 'Meredith%' then 'Meredith'
 
         when ${site_dcm} ILIKE 'Lastminute%' then 'Lastminute'
@@ -410,14 +418,31 @@ view: sdt_dcm_view {
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Los Angeles site visitors%' then 'Display Retargeting - Los Angeles'
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Disneyland site visitors%' then 'Display Retargeting - Disneyland'
 
-
-
       when ${placement} ilike 'VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX%' then 'High Impact Video Banners'
 
       when ${placement} ilike '%UK_High Impact Display%' then 'Off-Site High Impact Display'
       when ${placement} ilike '%UK_On Site High Impact Display%' then 'On-Site High Impact Display'
       when ${placement} ilike '%High Impact Native Click Through%' then 'On-Site High Impact Native'
       when ${placement} ilike '%UK_Off site Native Traffic Drivers%' then 'Off-Site High Impact Native'
+
+      when ${placement} ilike 'Conde Nast_FY20 Prem. Digital_Awareness_NTL_HPTO/First Impression Takeover%' then 'CN Traveler - Homepage/First Impression Takeover'
+      when ${placement} ilike 'Conde Nast_FY20 Prem. Digital_Awareness_NTL_Sitewide Rotation_CN Traveler Display%' then 'CN Traveler - Rotaional Display'
+      when ${placement} ilike 'Conde Nast_FY20 Prem. Digital_Awareness_NTL_Contextually Targeted Display_CN Portfolio%' then 'CN Portfolio - Contextual Display'
+      when ${placement} ilike 'Conde Nast_FY20 Prem. Digital_Awareness_NTL_Contextually Targeted Display AV_CN Traveler AV%' then 'CN Traveler - Contextual Display AV'
+
+      when ${placement} ilike 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_AV_Lux Group%' then 'Meredith - AV Display'
+      when ${placement} ilike 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_Lux Group & InStyle_Travel Content%' then 'Meredith - ROS Display'
+      when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_High Impact Display Portrait_Travel Interest_020320-041220_1x1' then 'Meredith - Portrait High Impact Display'
+      when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_AT HALO_Travel Interest_020320-041220_1x1' then 'Meredith - Halo Unit'
+      when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_Cross Screen Scroller_Travel Interest_020320-041220_1x1' then 'Meredith - Cross Screen Scroller'
+
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_Editorial Sponsorship%' then 'T+L - Editorial Sponsorship'
+      when ${placement} = 'T+L_FY20 Prem. Digital_Awareness_NTL_Social Amplification_Editorial Spons. _020320-022920_1x1' then 'T+L - Social Amplification'
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship 1%' then 'T+L - Homepage/First Impression Takeover (2/3 - 2/9)'
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship 2%' then 'T+L - Homepage/First Impression Takeover (2/24 - 3/1)'
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship 3%' then 'T+L - Homepage/First Impression Takeover (3/16 - 3/22)'
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship3%' then 'T+L - Homepage/First Impression Takeover (3/16 - 3/22)'
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship 4%' then 'T+L - Homepage/First Impression Takeover (3/30 - 4/5)'
 
       else 'Uncategorized'
     end;;
