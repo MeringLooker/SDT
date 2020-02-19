@@ -80,6 +80,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy20_ta_uk_audext_video {
+    view_label: "FY20 TripAdvisor UK Passback - AudExt Video"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_uk_audext_video.passback_join};;
+    relationship: many_to_one
+  }
+
 }
 #
 # explore: sdt_fy20_digital_video_cbs {

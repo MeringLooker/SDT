@@ -417,8 +417,20 @@ view: sdt_dcm_view {
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Competitive site visitors%' then 'Display Retargeting - Competitive Conquesting'
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Los Angeles site visitors%' then 'Display Retargeting - Los Angeles'
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Disneyland site visitors%' then 'Display Retargeting - Disneyland'
+      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_Editorial Sponsorship%' then 'T+L - Editorial Sponsorship'
 
-      when ${placement} ilike 'VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX%' then 'High Impact Video Banners'
+      when ${placement} ilike 'Sojern_PT_Display Prospecting_Active Travel Intenders%' then 'Display Prospecting'
+      when ${placement} ilike 'Sojern_PT_AV Display Prospecting_Active Travel Intenders%' then 'Display Prospecting - AV'
+
+      when ${placement} ilike 'Adara_Anaheim/Disneyland_Display Prospecting Package%' then 'Display Prospecting - Disneyland'
+      when ${placement} ilike 'Adara_AV Anaheim/Disneyland_Display Prospecting Package%' then 'Display Prospecting AV - Disneyland'
+      when ${placement} ilike 'Adara_Conquesting_Display Prospecting Package%' then 'Display Prospecting - Competitive Conquest'
+      when ${placement} ilike 'Adara_AV Conquesting_Display Prospecting Package%' then 'Display Prospecting AV - Competitive Conquest'
+      when ${placement} ilike 'Adara_Los Angeles_Display Prospecting Package%' then 'Display Prospecting - Los Angeles'
+      when ${placement} ilike 'Adara_Los Angeles_AV Display Prospecting Package%' then 'Display Prospecting AV - Los Angeles'
+      when ${placement} ilike 'Adara_PT_Display Prospecting Package%' then 'Display Prospecting - Base'
+      when ${placement} ilike 'Adara_PT_AV Display Prospecting Package%' then 'Display Prospecting AV - Base'
+
 
       when ${placement} ilike '%UK_High Impact Display%' then 'Off-Site High Impact Display'
       when ${placement} ilike '%UK_On Site High Impact Display%' then 'On-Site High Impact Display'
@@ -582,7 +594,7 @@ view: sdt_dcm_view {
 
   dimension: ad_id {
     type: string
-    hidden: yes
+    group_label: "DCM IDs"
     sql: ${TABLE}."ad id" ;;
   }
 
@@ -624,7 +636,7 @@ view: sdt_dcm_view {
 
   dimension: campaign_id {
     type: number
-    hidden: yes
+    group_label: "DCM IDs"
     sql: ${TABLE}."campaign id" ;;
   }
 
@@ -654,7 +666,7 @@ view: sdt_dcm_view {
 
   dimension: creative_id {
     type: string
-    hidden: yes
+    group_label: "DCM IDs"
     sql: ${TABLE}."creative id" ;;
   }
 
