@@ -238,6 +238,10 @@ view: sdt_gdn_view {
         when ${campaign} = 'SDTA - UK - Traffic - GDN Responsive - FY19' then 'Responsive Display'
         when ${campaign} = 'SDTA - UK - Impressions - GDN Display - FY19' then 'Static Display'
 
+        when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Responsive Display'
+
+
+
         ELSE 'Uncategorized'
         end
         ;;
