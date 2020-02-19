@@ -232,6 +232,9 @@ view: sdt_fb_view {
         when ${adset_name} ilike 'FY20_CAN_Clicks_Content_RT%' then 'Traffic Content - Retargeting'
         when ${adset_name} ilike 'FY20_CAN_Clicks_Content_LAL%' then 'Traffic Content - Lookalikes (Site Visitors)'
 
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National' then 'Social - Adara Audience'
+        when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National_Adara' then 'Social - Adara Audience'
+
         else 'Uncategorized'
         end
         ;;
