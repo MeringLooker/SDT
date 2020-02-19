@@ -1,7 +1,6 @@
 view: ndt_premium_display_travel {
   derived_table: {
     explore_source: sdt_dcm {
-      column: primary_key   {field: sdt_dcm_view.id}
       column: publisher {field: sdt_dcm_view.publisher}
       column: campaign {field: sdt_dcm_view.sdt_campaign}
       column: placement {field: sdt_dcm_view.sdt_placement}

@@ -15,7 +15,7 @@ view: sdt_ga_onsite {
 
   dimension: join_id {
     type: string
-    hidden: yes
+    hidden: no
     sql: ${keyword}||'_'||${date_date} ;;
   }
 
@@ -121,7 +121,7 @@ view: sdt_ga_onsite {
 
   dimension: keyword {
     type: string
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.keyword ;;
   }
 

@@ -15,7 +15,7 @@ view: ndt_premium_display_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${TABLE}.primary_key ;;
+    sql: ${publisher}||'_'||${campaign}||'_'||${placement}||'_'||${ad_size}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -41,7 +41,7 @@ view: ndt_premium_display_campaign {
   dimension: ad_size {
     type: string
     drill_fields: [date,week,month]
-    sql: ${TABLE}.placement ;;
+    sql: ${TABLE}.ad_size ;;
   }
 
   dimension: fiscal_year {
