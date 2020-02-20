@@ -1,6 +1,5 @@
-view: sdt_fy20_ta_uk_hub_traffic_drivers {
-  sql_table_name: public.sdt_fy20_ta_uk_hub_traffic_drivers ;;
-  drill_fields: [id]
+view: sdt_fy20_ta_uk_destination_sponsorship {
+  sql_table_name: public.sdt_fy20_ta_uk_destination_sponsorship ;;
 
   ### Primary Key ###
 
@@ -103,8 +102,8 @@ view: sdt_fy20_ta_uk_hub_traffic_drivers {
 
   dimension_group: date {
     type: time
-    group_label: "Date Periods"
     label: ""
+    group_label: "Date Periods"
     timeframes: [
       raw,
       time,
@@ -121,6 +120,12 @@ view: sdt_fy20_ta_uk_hub_traffic_drivers {
     type: number
     hidden: yes
     sql: ${TABLE}.impressions ;;
+  }
+
+  dimension: leads {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.leads ;;
   }
 
   dimension: media_cost {
@@ -153,6 +158,12 @@ view: sdt_fy20_ta_uk_hub_traffic_drivers {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
     sql: ${clicks} ;;
+  }
+
+  measure: total_leads {
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
+    sql: ${leads} ;;
   }
 
   measure: click_through_rate {

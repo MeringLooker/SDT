@@ -20,16 +20,33 @@ view: sdt_fy20_ta_uk_audext_video {
 
   dimension: placement {
     type: string
+    group_label: "DCM Dimensions"
     sql: ${sdt_dcm_view.placement} ;;
+  }
+
+  dimension: sdt_placement {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Placement Name"
+    sql: ${sdt_dcm_view.sdt_placement} ;;
+  }
+
+  dimension: sdt_pillar {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Pillar"
+    sql: ${sdt_dcm_view.sdt_pillar} ;;
   }
 
   dimension: ad {
     type: string
+    group_label: "DCM Dimensions"
     sql: ${sdt_dcm_view.ad} ;;
   }
 
   dimension: publisher {
     type: string
+    group_label: "DCM Dimensions"
     sql: 'TripAdvisor' ;;
   }
 
@@ -73,6 +90,7 @@ view: sdt_fy20_ta_uk_audext_video {
 
   dimension: ad_id {
     type: number
+    group_label: "DCM Dimensions"
     sql: ${TABLE}.ad_id ;;
   }
 
@@ -171,6 +189,7 @@ view: sdt_fy20_ta_uk_audext_video {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
     sql: ${media_cost} ;;
+    value_format_name: usd
   }
 
   measure: cost_per_click {
@@ -289,12 +308,9 @@ view: sdt_fy20_ta_uk_audext_video {
   measure: completion_rate {
     type: number
     group_label: "Video Rates"
-    sql: 1.0*${total_views}/nullif(${total_impressions}, 0) ;;
+    sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
   }
-
-
-
 
   measure: count {
     type: count

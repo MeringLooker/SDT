@@ -60,6 +60,7 @@ view: sdt_dcm_view {
         when ${placement} ilike '%\\_728x90' then '728x90'
         when ${placement} ilike '%\\_300x600' then '300x600'
         when ${placement} ilike '%\\_300x250' then '300x250'
+        when ${placement_id} = '257577555' then 'Native'
         when ${placement} ilike '%\\_320x50' then '320x50'
         when ${placement} ilike '%\\_970x250' then '970x250'
         when ${placement} ilike '%\\_160x600' then '160x600'
@@ -67,6 +68,7 @@ view: sdt_dcm_view {
         when ${placement} ilike '%\\_300x50' then '300x50'
         when ${placement} ilike '%\\_970x90' then '970x90'
         when ${placement} ilike '%\\_1320x742' then '1320x742'
+        when ${placement} ilike '%\\_2560x500' then '2560x500'
 
         when ${placement} ilike '%Halo Desktop/Tablet%' then 'Halo'
         when ${placement} ilike '%Halo Mobile%' then 'Halo'
@@ -74,6 +76,15 @@ view: sdt_dcm_view {
         when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_AT HALO_Travel Interest_020320-041220_1x1' then 'Halo'
         when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_High Impact Display Portrait_Travel Interest_020320-041220_1x1' then 'Portrait'
         when ${placement} = 'T+L_Meredith_FY20 Prem. Digital_Awareness_NTL excl. SD_Cross Screen Scroller_Travel Interest_020320-041220_1x1' then 'Cross Screen Scroller'
+
+        when ${placement_id} = '257565459' then 'N/A'
+        when ${placement_id} = '257132603' then 'N/A'
+        when ${placement_id} = '257571681' then 'N/A'
+        when ${placement_id} = '257132600' then 'N/A'
+        when ${placement_id} = '257133410' then 'N/A'
+
+        when ${placement_id} = '257580111' then 'Native'
+        when ${placement_id} = '257456647' then 'Native'
 
       ELSE 'Uncategorized'
       END;;
@@ -144,6 +155,11 @@ view: sdt_dcm_view {
 
         when ${placement} ILIKE 'VDX_FY20 UK Digital_Reach/Storytelling_%' then 'Amplify Reach'
         when ${placement} ILIKE 'Lastminute_FY20 UK Digital_Content_VS%' then 'Storytelling'
+
+        when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
+        when ${ad} ILIKE 'TripAdvisor_Storytelling_Native Hub%' then 'Storytelling'
+        when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Reach_Homepage Hero%' then 'Amplify Reach'
+        when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Destination Sponsorship%' then 'Impact'
 
         when ${placement_id} = '255163867' then 'Nano Traffic'
         when ${placement_id} = '255163873' then 'Nano Traffic'
@@ -456,9 +472,64 @@ view: sdt_dcm_view {
       when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship3%' then 'T+L - Homepage/First Impression Takeover (3/16 - 3/22)'
       when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship 4%' then 'T+L - Homepage/First Impression Takeover (3/30 - 4/5)'
 
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Outstream Video Banner%' then 'Dynamic Video Banner'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Dynamic Video Banner%' then 'Dynamic Video Banner'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver (in-kind)%' then 'Content Hub Traffic Driver (In-Kind)'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver_Outdoor%' then 'Content Hub Traffic Driver'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver_Culinary%' then 'Content Hub Traffic Driver'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Audience Extension - Video%' then 'Audience Extension - Video'
+      when ${placement} ilike 'TripAdvisor_Reach_Homepage Hero%' then 'HomePage Hero'
+      when ${placement} ilike 'TripAdvisor_Destination Sponsorship%' then 'Destination Sponsorship'
+      when ${placement} ilike 'TripAdvisor_SDTA Content Hub Promotional Click Out' then 'Content Hub Promotional Click Out'
+
       else 'Uncategorized'
     end;;
 }
+
+  dimension: sdt_pillar {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Pillar"
+    sql:
+      case
+        when ${ad} ilike '%(in-kind)_Outdoor_%' then 'Outdoor'
+        when ${ad} ilike '%(in-kind)_Entertainment_%' then 'Entertainment'
+        when ${ad} ilike '%(in-kind)_Culture_%' then 'Culture'
+        when ${ad} ilike '%(in-kind)_Culinary_%' then 'Culinary'
+        when ${ad} ilike '%(in-kind)_Attractions_%' then 'Attractions'
+
+        when ${ad} ilike '%Native Outstream Video Banner_Outdoor%' then 'Outdoor'
+
+        when ${ad} ilike '%Native Hub Traffic Driver_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%Native Hub Traffic Driver_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%Native Hub Traffic Driver_Culture%' then 'Culture'
+        when ${ad} ilike '%Native Hub Traffic Driver_Culinary%' then 'Culinary'
+        when ${ad} ilike '%Native Hub Traffic Driver_Attractions%' then 'Attractions'
+
+        when ${ad} ilike '%Dynamic Video Banner_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%Dynamic Video Banner_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%Dynamic Video Banner_Culture%' then 'Culture'
+        when ${ad} ilike '%Dynamic Video Banner_Culinary%' then 'Culinary'
+        when ${ad} ilike '%Dynamic Video Banner_Attractions%' then 'Attractions'
+
+        when ${ad} ilike '%Audience Extension - Video_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%Audience Extension - Video_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%Audience Extension - Video_Culture%' then 'Culture'
+        when ${ad} ilike '%Audience Extension - Video_Culinary%' then 'Culinary'
+        when ${ad} ilike '%Audience Extension - Video_Attractions%' then 'Attractions'
+
+        when ${ad} ilike '%Click Out_Attractions%' then 'Attractions'
+        when ${ad} ilike '%Click Out_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%Click Out_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%Click Out_Culture%' then 'Culture'
+        when ${ad} ilike '%Click Out_Culinary%' then 'Culinary'
+
+        when ${placement_id} = '257563080' then 'N/A'
+        when ${placement_id} = '257459206' then 'N/A'
+
+          ELSE 'Uncategorized'
+      END;;
+  }
 
   dimension: creative_name {
     type: string
@@ -706,7 +777,7 @@ view: sdt_dcm_view {
 
   dimension: placement_id {
     type: number
-#     hidden: yes
+    group_label: "DCM IDs"
     sql: ${TABLE}."placement id" ;;
   }
 
