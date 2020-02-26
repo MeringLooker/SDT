@@ -171,4 +171,32 @@ view: ndt_ta_can_campaign {
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
   }
+
+  measure: view_rate {
+    type: number
+    label: "View Rate"
+    sql: 1.0*${total_views}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: completion_rate {
+    type: number
+    label: "Completion Rate"
+    sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: cost_per_view {
+    type: number
+    label: "CPV"
+    value_format_name: usd
+    sql: ${total_cost}/nullif(${total_views}, 0) ;;
+  }
+
+  measure: cost_per_complete {
+    type: number
+    label: "CPcV"
+    value_format_name: usd
+    sql: ${total_cost}/nullif(${total_completes}, 0) ;;
+  }
 }

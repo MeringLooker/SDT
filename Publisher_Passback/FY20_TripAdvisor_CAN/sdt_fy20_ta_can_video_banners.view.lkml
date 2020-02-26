@@ -234,7 +234,6 @@ view: sdt_fy20_ta_can_video_banners {
 
   measure: total_interactions {
     type: sum_distinct
-    hidden: yes
     group_label: "Video Stats"
     sql_distinct_key: ${id} ;;
     sql: ${interactions} ;;
@@ -242,7 +241,6 @@ view: sdt_fy20_ta_can_video_banners {
 
   measure: total_interaction_time {
     type: sum_distinct
-    hidden: yes
     group_label: "Video Stats"
     sql_distinct_key: ${id} ;;
     sql: ${interaction_time} ;;
