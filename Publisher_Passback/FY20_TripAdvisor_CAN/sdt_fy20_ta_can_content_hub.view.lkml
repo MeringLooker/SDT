@@ -1,7 +1,6 @@
-view: sdt_fy20_ta_uk_content_hub {
-  sql_table_name: public.sdt_fy20_ta_uk_content_hub ;;
+view: sdt_fy20_ta_can_content_hub {
+  sql_table_name: public.sdt_fy20_ta_can_content_hub ;;
   drill_fields: [id]
-
 ### Primary Key ###
 
   dimension: id {
@@ -32,7 +31,7 @@ view: sdt_fy20_ta_uk_content_hub {
     type: string
     group_label: "Client Dimensions"
     label: "Campaign Name"
-    sql: 'UK TripAdvisor Program' ;;
+    sql: 'CAN TripAdvisor Program' ;;
   }
 
   dimension: publisher {
@@ -46,7 +45,7 @@ view: sdt_fy20_ta_uk_content_hub {
     type: string
     group_label: "Client Dimensions"
     label: "Market"
-    sql: 'United Kingdom' ;;
+    sql: 'Canada' ;;
   }
 
 ### Dimensions native to this table ###

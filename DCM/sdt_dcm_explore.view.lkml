@@ -122,6 +122,48 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy20_ta_can_audext_video {
+    view_label: "FY20 TripAdvisor CAN Passback - AudExt Video"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_can_audext_video.passback_join};;
+    relationship: many_to_one
+  }
+
+  join: sdt_fy20_ta_can_homepage_hero {
+    view_label: "FY20 TripAdvisor CAN Passback - HomePage Hero"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_can_homepage_hero.passback_join};;
+    relationship: many_to_one
+  }
+
+  join: sdt_fy20_ta_can_hub_traffic_drivers {
+    view_label: "FY20 TripAdvisor CAN Passback - Hub Traffic Drivers"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_can_hub_traffic_drivers.passback_join};;
+    relationship: many_to_one
+  }
+
+  join: sdt_fy20_ta_can_video_banners {
+    view_label: "FY20 TripAdvisor CAN Passback - Video Banners"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_can_video_banners.passback_join};;
+    relationship: many_to_one
+  }
+
+  join: sdt_fy20_ta_can_outstream_video_banners {
+    view_label: "FY20 TripAdvisor CAN Passback - Outstream Video Banners"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_can_outstream_video_banners.passback_join};;
+    relationship: many_to_one
+  }
+
+  join: sdt_fy20_ta_can_destination_sponsorship {
+    view_label: "FY20 TripAdvisor CAN Passback - Dest. Sponsorship"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_ta_can_destination_sponsorship.passback_join};;
+    relationship: many_to_one
+  }
+
 }
 #
 # explore: sdt_fy20_digital_video_cbs {

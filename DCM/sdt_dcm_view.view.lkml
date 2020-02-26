@@ -82,9 +82,31 @@ view: sdt_dcm_view {
         when ${placement_id} = '257571681' then 'N/A'
         when ${placement_id} = '257132600' then 'N/A'
         when ${placement_id} = '257133410' then 'N/A'
-
         when ${placement_id} = '257580111' then 'Native'
         when ${placement_id} = '257456647' then 'Native'
+
+        when ${placement_id} = '256904522' then 'N/A'
+        when ${placement_id} = '256902170' then 'N/A'
+        when ${placement_id} = '257219080' then 'N/A'
+        when ${placement_id} = '256833626' then 'N/A'
+        when ${placement_id} = '257219077' then 'N/A'
+        when ${placement_id} = '257364207' then 'Native'
+        when ${placement_id} = '257365923' then 'Native'
+        when ${placement_id} = '256913039' then 'Native'
+
+        when ${placement_id} = '254378108' then 'Native'
+        when ${placement_id} = '254378081' then 'Native'
+        when ${placement_id} = '254378165' then 'Native'
+        when ${placement_id} = '254378066' then 'Native'
+        when ${placement_id} = '254378135' then 'Native'
+        when ${placement_id} = '254378051' then 'Native'
+        when ${placement_id} = '254378105' then 'Native'
+        when ${placement_id} = '254378156' then 'N/A'
+        when ${placement_id} = '254378168' then 'N/A'
+        when ${placement_id} = '254378150' then 'N/A'
+        when ${placement_id} = '254378162' then 'N/A'
+
+        when ${ad} ilike '%SDTA Content Hub Promotional Click Out%' then 'N/A'
 
       ELSE 'Uncategorized'
       END;;
@@ -157,9 +179,26 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'Lastminute_FY20 UK Digital_Content_VS%' then 'Storytelling'
 
         when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
+        when ${ad} ILIKE 'Trip Advisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
         when ${ad} ILIKE 'TripAdvisor_Storytelling_Native Hub%' then 'Storytelling'
         when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Reach_Homepage Hero%' then 'Amplify Reach'
         when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Destination Sponsorship%' then 'Impact'
+
+        when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
+        when ${ad} ILIKE 'Trip Advisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
+        when ${ad} ILIKE 'TripAdvisor_Storytelling_Native Hub%' then 'Storytelling'
+        when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Reach_Homepage Hero%' then 'Amplify Reach'
+        when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Destination Sponsorship%' then 'Impact'
+
+        when ${placement} ilike 'TripAdvisor_Native Outstream Video Banner - Storytelling_Outdoor%' then 'Storytelling'
+        when ${placement} ilike 'TripAdvisor_Native Outstream Dynamic Video Banner - Storytelling%' then 'Storytelling'
+        when ${placement} ilike 'TripAdvisor_Native Hub Traffic Driver - Storytelling%' then 'Storytelling'
+        when ${placement} ilike 'TripAdvisor_Audience Extension - Video - Storytelling%' then 'Storytelling'
+        when ${placement} ilike 'TripAdvisor_Homepage Hero - Display - Reach%' then 'Amplify Reach'
+        when ${placement} ilike 'TripAdvisor_Dynamic Video Banner - Storytelling%' then 'Storytelling'
+        when ${placement} ilike 'TripAdvisor_DF Retargeting - Impact%' then 'Impact'
+        when ${placement} ilike 'TripAdvisor_Destination Sponsorship - Impact%' then 'Impact'
+
 
         when ${placement_id} = '255163867' then 'Nano Traffic'
         when ${placement_id} = '255163873' then 'Nano Traffic'
@@ -472,15 +511,25 @@ view: sdt_dcm_view {
       when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship3%' then 'T+L - Homepage/First Impression Takeover (3/16 - 3/22)'
       when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_HPTO & First Impression Sponsorship 4%' then 'T+L - Homepage/First Impression Takeover (3/30 - 4/5)'
 
-      when ${placement} ilike 'TripAdvisor_Storytelling_Native Outstream Video Banner%' then 'Dynamic Video Banner'
-      when ${placement} ilike 'TripAdvisor_Storytelling_Dynamic Video Banner%' then 'Dynamic Video Banner'
-      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver (in-kind)%' then 'Content Hub Traffic Driver (In-Kind)'
-      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver_Outdoor%' then 'Content Hub Traffic Driver'
-      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver_Culinary%' then 'Content Hub Traffic Driver'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Outstream Video Banner%' then 'Native Outstream Dynamic Video Banner'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Dynamic Video Banner%' then 'Dynamic Video Banners'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver (in-kind)%' then 'Content Hub Traffic Drivers (In-Kind)'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver_Outdoor%' then 'Content Hub Traffic Drivers'
+      when ${placement} ilike 'TripAdvisor_Storytelling_Native Hub Traffic Driver_Culinary%' then 'Content Hub Traffic Drivers'
       when ${placement} ilike 'TripAdvisor_Storytelling_Audience Extension - Video%' then 'Audience Extension - Video'
       when ${placement} ilike 'TripAdvisor_Reach_Homepage Hero%' then 'HomePage Hero'
       when ${placement} ilike 'TripAdvisor_Destination Sponsorship%' then 'Destination Sponsorship'
       when ${placement} ilike 'TripAdvisor_SDTA Content Hub Promotional Click Out' then 'Content Hub Promotional Click Out'
+
+      when ${placement_id} = '254378108' then 'Native Outstream Dynamic Video Banner'
+      when ${placement_id} = '254378081' then 'Native Outstream Dynamic Video Banner'
+      when ${placement} ilike 'TripAdvisor_Native Hub Traffic Driver - Storytelling%' then 'Content Hub Traffic Drivers'
+      when ${placement} ilike 'TripAdvisor_Homepage Hero - Display - Reach%' then 'HomePage Hero'
+      when ${placement} ilike 'TripAdvisor_Dynamic Video Banner - Storytelling%' then 'Dynamic Video Banners'
+      when ${placement} ilike 'TripAdvisor_Destination Sponsorship%' then 'Destination Sponsorship'
+      when ${placement} ilike 'TripAdvisor_DF Retargeting - Impact%' then 'DF Retargeting'
+      when ${placement} ilike 'TripAdvisor_Audience Extension - Video - Storytelling%' then 'Audience Extension - Video'
+
 
       else 'Uncategorized'
     end;;
@@ -526,6 +575,40 @@ view: sdt_dcm_view {
 
         when ${placement_id} = '257563080' then 'N/A'
         when ${placement_id} = '257459206' then 'N/A'
+
+        when ${placement_id} = '256942838' then 'N/A'
+        when ${placement_id} = '257262213' then 'N/A'
+
+        when ${ad} ilike '%TripAdvisor_Native Outstream Video Banner - Storytelling_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%TripAdvisor_Native Outstream Dynamic Video Banner - Storytelling_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%TripAdvisor_Native Hub Traffic Driver - Storytelling_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%TripAdvisor_Native Hub Traffic Driver - Storytelling_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%TripAdvisor_Native Hub Traffic Driver - Storytelling_Culture%' then 'Culture'
+        when ${ad} ilike '%TripAdvisor_Native Hub Traffic Driver - Storytelling_Culinary%' then 'Culinary'
+        when ${ad} ilike '%TripAdvisor_Native Hub Traffic Driver - Storytelling_Attractions%' then 'Attractions'
+
+        when ${ad} ilike '%TripAdvisor_Dynamic Video Banner - Storytelling_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%TripAdvisor_Dynamic Video Banner - Storytelling_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%TripAdvisor_Dynamic Video Banner - Storytelling_Culture%' then 'Culture'
+        when ${ad} ilike '%TripAdvisor_Dynamic Video Banner - Storytelling_Culinary%' then 'Culinary'
+        when ${ad} ilike '%TripAdvisor_Dynamic Video Banner - Storytelling_Attractions%' then 'Attractions'
+
+        when ${ad} ilike '%TripAdvisor_Audience Extension - Video - Storytelling_Outdoor%' then 'Outdoor'
+        when ${ad} ilike '%TripAdvisor_Audience Extension - Video - Storytelling_Entertainment%' then 'Entertainment'
+        when ${ad} ilike '%TripAdvisor_Audience Extension - Video - Storytelling_Culture%' then 'Culture'
+        when ${ad} ilike '%TripAdvisor_Audience Extension - Video - Storytelling_Culinary%' then 'Culinary'
+        when ${ad} ilike '%TripAdvisor_Audience Extension - Video - Storytelling_Attractions%' then 'Attractions'
+
+        when ${placement_id} = '254378105' then 'N/A'
+        when ${placement_id} = '254378129' then 'N/A'
+        when ${placement_id} = '254378111' then 'N/A'
+        when ${placement_id} = '254378123' then 'N/A'
+        when ${placement_id} = '254378117' then 'N/A'
+        when ${placement_id} = '254378099' then 'N/A'
+        when ${placement_id} = '254374502' then 'N/A'
+        when ${placement_id} = '254380277' then 'N/A'
+
+
 
           ELSE 'Uncategorized'
       END;;
