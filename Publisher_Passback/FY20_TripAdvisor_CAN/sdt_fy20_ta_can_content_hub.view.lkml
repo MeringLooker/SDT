@@ -1,6 +1,6 @@
 view: sdt_fy20_ta_can_content_hub {
   sql_table_name: public.sdt_fy20_ta_can_content_hub ;;
-  drill_fields: [id]
+
 ### Primary Key ###
 
   dimension: id {
