@@ -22,6 +22,7 @@ view: sdt_pinterest {
 
  dimension: publisher {
     type: string
+  group_label: "Pinterest Dimensions"
     sql: 'Pinterest' ;;
   }
 
@@ -129,6 +130,109 @@ view: sdt_pinterest {
     type: string
     label: "Campaign Placement"
     group_label: "Client Dimensions"
+  }
+
+  dimension: sdt_pillar {
+    type: string
+    label: "Pillar"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        when ${sdt_layer} = 'Nano Traffic' then 'N/A'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor%' then 'Outdoor'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary%' then 'Culinary'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions%' then 'Attractions'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood%' then 'Neighborhood'
+
+        else 'Uncategorized'
+      end;;
+  }
+
+  dimension: creative_name {
+    type: string
+    label: "Creative Name"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        when ${promoted_pin_name} ilike '%PlanYourEscape' then 'Plan Your Escape'
+        when ${promoted_pin_name} ilike '%PlanNowPlan' then 'Plan Now Plan'
+        when ${promoted_pin_name} ilike '%PlanNowHappyPlace' then 'Plan Now Happy Place'
+
+        when ${promoted_pin_name} ilike '%BookYourTrip' then 'Book Your Trip'
+        when ${promoted_pin_name} ilike '%BookNowPlan' then 'Book Now Plan'
+        when ${promoted_pin_name} ilike '%BookNowHappyPlace' then 'Book Now Happy Place'
+
+        when ${promoted_pin_name} ilike '%KidsFree' then 'KidsFree'
+        when ${promoted_pin_name} ilike '%Flight1_Holidays' then 'Holidays'
+        when ${promoted_pin_name} ilike '%Flight1_GeneralEvents' then 'General Events'
+        when ${promoted_pin_name} ilike '%Flight1_CarouselNextGetaway' then 'Next Getaway Carousel'
+
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_WhereToSurf%' then 'Where To Surf'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_WhaleWatching%' then 'Whale Watching'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_WaterSports%' then 'Water Sports'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_Sunsets%' then 'Sunsets'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Splash%' then 'Water Sports'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_ScenicHighway%' then 'Scenic Highway'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sailing%' then 'Sailing'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Play%' then 'Play'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_MelesFaves%' then 'Mele''s Faves'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_MakeASplash%' then 'Make A Splash'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_LaJollaKayak%' then 'La Jolla Kayak'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_HistoricHighway101%' then 'Historic Highway 101'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Explore%' then 'Explore'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_EnjoyWater%' then 'Enjoy Water'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_DiveIn%' then 'Dive In'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Discover%' then 'Discover'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Cruise%' then 'Cruise'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_CoastalHikes%' then 'Coastal Hikes'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_BoatRides%' then 'Boat Rides'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_BayshoreBikeway%' then 'Bayshore Bikeway'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_G2GS_AlanasFaves%' then 'Alana''s Faves'
+
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_UTC%' then 'UTC'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_SoCalVibe%' then 'SoCal Vibe'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_NorthInland%' then 'North Inland'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_NorthCoastal%' then 'North Coastal'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_MissionValleyOldTown%' then 'Mission Valley Old Town'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_MissionBay%' then 'Mission Bay'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_LittleItaly%' then 'Little Italy'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Kensington%' then 'Kensington'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Gaslamp%' then 'Gaslamp'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_DiveIne%' then 'Dive In'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_CharasmaticNeighborhoods%' then 'Charismatic Neighborhoods'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Sunny7_CharasmaticNeighborhoods%' then 'Charismatic Neighborhoods'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_BarrioLogan%' then 'Barrio Logan'
+
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_TacoJoints%' then 'Taco Joints'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_FiresideMeal%' then 'Fireside Meal'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_DigIn%' then 'Dig In'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_Explore%' then 'Explore'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_CulinaryEpicenter%' then 'Culinary Epicenter'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_BestSeafood%' then 'Best Seafood'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_BestBurgers%' then 'Best Burgers'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_BarrioDogg%' then 'Barrio Dogg'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_AwardWinningChefs%' then 'Award-Winning Chefs'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_Animae%' then 'Animae'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_KillerTacos%' then 'Killer Tacos'
+
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_Learn%' then 'Learn'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_HistoryAdventures%' then 'History Adventures'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_HiddenGems%' then 'Hidden Gems'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_GoBig%' then 'Go Big'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_OldTown%' then 'OldTown'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_FamilyTravel%' then 'Family Travel'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_Escape%' then 'Escape'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_Embark%' then 'Embark'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_Embarcadero%' then 'Embarcadero'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_BehindTheScenesTours%' then 'Behind The Scenes Tours'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_BalboaParkCulturalHeart%' then 'Balboa Park Cultural Heart'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_AwesomeViewpoints%' then 'Awesome Viewpoints'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_ArchitectureWonders%' then 'Architecture Wonders'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_7NaturalWonders%' then '7 Natural Wonders'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_59MileScenicDrive%' then '59 Mile Scenic Drive'
+
+        else 'Uncategorized'
+      end;;
   }
 
 ### Dimensions native to this table ###
