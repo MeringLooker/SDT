@@ -608,7 +608,15 @@ view: sdt_dcm_view {
         when ${placement_id} = '254374502' then 'N/A'
         when ${placement_id} = '254380277' then 'N/A'
 
+        when ${placement} ilike '%Video Completes_Outdoor' then 'Outdoor'
+        when ${placement} ilike '%Video Completes_Neighborhoods' then 'Neighborhoods'
+        when ${placement} ilike '%Video Completes_Culinary' then 'Culinary'
+        when ${placement} ilike '%Video Completes_Attractions' then 'Attractions'
 
+        when ${placement} ilike '%Impressions_Outdoor' then 'Outdoor'
+        when ${placement} ilike '%Impressions_Neighborhoods' then 'Neighborhoods'
+        when ${placement} ilike '%Impressions_Culinary' then 'Culinary'
+        when ${placement} ilike '%Impressions_Attractions' then 'Attractions'
 
           ELSE 'Uncategorized'
       END;;
@@ -661,6 +669,18 @@ view: sdt_dcm_view {
         when ${placement_id} = '252324173' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252868753' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252530312' then 'Happy Today (:30) - Brand'
+
+        when ${ad} ilike '%Torrey Pines Golf :60' then 'Torrey Pines Golf :60'
+        when ${ad} ilike '%Coastal Yoga :60' then 'Coastal Yoga :60'
+        when ${ad} ilike '%Boardwalk Cruising :60' then 'Boardwalk Cruising :60'
+        when ${ad} ilike '%Tiki OBI :60' then 'Tiki :60'
+        when ${ad} ilike '%Liberty Station OBI :60' then 'Liberty Station :60'
+        when ${ad} ilike '%Barrio Logan G2GS :60' then 'Barrio Logan :60'
+        when ${ad} ilike '%Barrio Dogg Longform' then 'Barrio Dogg Longform'
+        when ${ad} ilike '%Animae Longform' then 'Animae Longform'
+        when ${ad} ilike '%USS Midway OBI :60' then 'USS Midway :60'
+        when ${ad} ilike '%Stuart Collection OBI :60' then 'Stuart Collection :60'
+        when ${ad} ilike '%Live Music G2GS :60' then 'Live Music :60'
 
           ELSE 'Uncategorized'
       END;;
