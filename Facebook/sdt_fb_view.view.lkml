@@ -240,19 +240,64 @@ view: sdt_fb_view {
         ;;
   }
 
+  dimension: sdt_pillar {
+    label: "Pillar"
+    group_label: "Client Dimensions"
+    type: string
+    sql:
+    CASE
+      when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'N/A'
+      when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Outdoor%' then 'Outdoor'
+      when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Neighborhood%' then 'Neighborhood'
+      when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Culinary%' then 'Culinary'
+      when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Attractions%' then 'Attractions'
+      when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Conversions_Outdoor%' then 'Outdoor'
+
+      when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Outdoor%' then 'Outdoor'
+      when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Neighborhood%' then 'Neighborhood'
+      when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Culinary%' then 'Culinary'
+      when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Attractions%' then 'Attractions'
+
+      when ${ad_name} ilike '%Stories_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%Stories_Attractions%' then 'Attractions'
+      when ${ad_name} ilike '%InStream_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%InStream_Attractions%' then 'Attractions'
+
+      when ${ad_name} ilike '%Instagram_Attractions%' then 'Attractions'
+      when ${ad_name} ilike '%Instagram_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%Instagram_Neighborhood%' then 'Neighborhood'
+
+      when ${ad_name} ilike '%FacebookAudienceNetwork_Attractions%' then 'Attractions'
+      when ${ad_name} ilike '%FacebookAudienceNetwork_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%FacebookAudienceNetwork_Neighborhood%' then 'Neighborhood'
+
+      when ${ad_name} ilike '%Slideshow_Attractions%' then 'Attractions'
+      when ${ad_name} ilike '%Slideshow_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%Slideshow_Neighborhood%' then 'Neighborhood'
+
+      when ${ad_name} ilike '%Carousel_Attractions%' then 'Attractions'
+      when ${ad_name} ilike '%Carousel_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%Carousel_Neighborhood%' then 'Neighborhood'
+
+      when ${ad_name} ilike '%SingleImage_Attractions%' then 'Attractions'
+      when ${ad_name} ilike '%SingleImage_Culinary%' then 'Culinary'
+      when ${ad_name} ilike '%SingleImage_Neighborhood%' then 'Neighborhood'
+
+
+
+      else 'Uncategorized'
+        end
+        ;;
+
+  }
+
+
   dimension: creative_name {
     label: "Creative Name"
     group_label: "Client Dimensions"
     type: string
     sql:
       CASE
-        when ${ad_name} ilike '%\\_SingleImage\\_DadDaughter' then 'Dad & Daughter'
-        when ${ad_name} ilike '%\\_SingleImage\\_PoolParty' then 'Pool Party'
-        when ${ad_name} ilike '%\\_SingleImage\\_FamilyBeach' then 'Beach Family'
-        when ${ad_name} ilike '%\\_SingleImage\\_Dinner' then 'Dinner'
-        when ${ad_name} ilike '%\\_SingleImage\\_FriendsBeach' then 'Beach Friends'
-        when ${ad_name} ilike '%\\_SingleImage\\_RollerGirls' then 'Roller Girls'
-
         when ${ad_id} = '6145540612895' then 'Smiles - Destination (:15)'
         when ${ad_id} = '6145465999895' then 'Find Your Smile in San Diego (:15) - Brand'
 
@@ -274,6 +319,248 @@ view: sdt_fb_view {
         when ${ad_id} = '6161411295295' then 'Surfer Couple (:15)'
         when ${ad_id} = '6161411294695' then 'Torrey Pines (:15)'
         when ${ad_id} = '6161411294095' then 'Coffee Cup Coastal (:15)'
+
+        when ${ad_name} ilike '%Outdoor_OBI_CoastalYoga_15Seconds' then 'Coastal Yoga (:15)'
+        when ${ad_name} ilike '%Outdoor_OBI_CoastalYoga_60Seconds' then 'Coastal Yoga (:60)'
+        when ${ad_name} ilike '%Outdoor_OBI_BoardwalkCruising_15Seconds' then 'Boardwalk Cruising (:15)'
+        when ${ad_name} ilike '%Outdoor_OBI_BoardwalkCruising_60Seconds' then 'Boardwalk Cruising (:60)'
+        when ${ad_name} ilike '%Outdoor_BlissBreak_SunsetYoga_15Seconds' then 'Sunset Yoga (:15)'
+        when ${ad_name} ilike '%Outdoor_BlissBreak_Paragliding_15Seconds_Landscape' then 'Paragliding (:15) - Landscape'
+        when ${ad_name} ilike '%Outdoor_BlissBreak_CoupleSUP_15Seconds' then 'Couple SUP (:15)'
+        when ${ad_name} ilike '%Outdoor_BlissBreak_CoffeeCup_15Seconds_Landscape' then 'Coffee Cup Coastal (:15) - Landscape'
+        when ${ad_name} ilike '%Outdoor_BlissBreak_BeachForTwo_15Seconds_Landscape' then 'Beach For Two (:15) - Landscape'
+        when ${ad_name} ilike '%Outdoor_TripAdvisor_TAOutdoor_60Seconds' then 'TripAdvisor Outdoor (:60)'
+        when ${ad_name} ilike '%Outdoor_G2GS_SurfingSanDiego_60Seconds_Landscape' then 'Surfing San Diego (:60) - Landscape'
+        when ${ad_name} ilike '%Outdoor_G2GS_MissionBay_60Seconds_Landscape' then 'Mission Bay (:60) - Landscape'
+        when ${ad_name} ilike '%Outdoor_G2GS_LaJolla_60Seconds_Landscape' then 'La Jolla (:60) - Landscape'
+
+        when ${ad_name} ilike '%Neighborhood_OBI_Tiki_15Seconds' then 'Tiki (:15)'
+        when ${ad_name} ilike '%Neighborhood_OBI_Tiki_60Seconds' then 'Tiki (:60)'
+        when ${ad_name} ilike '%Neighborhood_OBI_LibertyStation_15Seconds' then 'Liberty Station (:15)'
+        when ${ad_name} ilike '%Neighborhood_OBI_LibertyStation_60Seconds' then 'Liberty Station (:60)'
+        when ${ad_name} ilike '%Culinary_OBI_OldTownMexican_15Seconds_Vertical' then 'Old Town Mexican (:15) - Vertical'
+        when ${ad_name} ilike '%Culinary_OBI_OldTownMexican_15Seconds_Landscape' then 'Old Town Mexican (:15) - Landscape'
+        when ${ad_name} ilike '%Culinary_OBI_ConvoyDistrict_15Seconds_Vertical' then 'Convoy District (:15) - Vertical'
+        when ${ad_name} ilike '%Culinary_OBI_ConvoyDistrict_15Seconds_Landscape' then 'Convoy District (:15) - Landscape'
+        when ${ad_name} ilike '%Culinary_OBI_OldTownMexican_60Seconds_Vertical' then 'Old Town Mexican (:60) - Vertical'
+        when ${ad_name} ilike '%Culinary_OBI_OldTownMexican_60Seconds_Landscape' then 'Old Town Mexican (:60) - Landscape'
+        when ${ad_name} ilike '%Culinary_OBI_ConvoyDistrict_60Seconds_Vertical' then 'Convoy District (:60) - Vertical'
+        when ${ad_name} ilike '%Culinary_OBI_ConvoyDistrict_60Seconds_Landscape' then 'Convoy District (:60) - Landscape'
+        when ${ad_name} ilike '%Culinary_DH_BarrioDogg_15Seconds' then 'Barrio Dogg (:15)'
+        when ${ad_name} ilike '%Culinary_DH_Animae_15Seconds' then 'Animae (:15)'
+        when ${ad_name} ilike '%Culinary_DH_BarrioDogg_30Seconds' then 'Barrio Dogg (:30)'
+        when ${ad_name} ilike '%Culinary_DH_Animae_30Seconds' then 'Animae (:30)'
+        when ${ad_name} ilike '%Attractions_OBI_USSMidway_15Seconds' then 'USS Midway (:15)'
+        when ${ad_name} ilike '%Attractions_OBI_StuartCollection_15Seconds' then 'Stuart Collection (:15)'
+        when ${ad_name} ilike '%Attractions_OBI_USSMidway_60Seconds' then 'USS Midway (:60)'
+        when ${ad_name} ilike '%Attractions_OBI_StuartCollection_60Seconds' then 'Stuart Collection (:60)'
+        when ${ad_name} ilike '%Attractions_G2GS_LiveMusic_60Seconds' then 'Live Music (:60)'
+        when ${ad_name} ilike '%Neighborhood_G2GS_BarrioLogan_60Seconds' then 'Barrio Logan (:60)'
+
+        when ${ad_name} ilike '%Attractions_OBI_Legoland_15Seconds_Vertical' then 'LegoLand (:15) - Vertical'
+        when ${ad_name} ilike '%Attractions_OBI_Legoland_15Seconds_Square' then 'LegoLand (:15) - Square'
+        when ${ad_name} ilike '%Attractions_OBI_Legoland_15Seconds_Landscape' then 'LegoLand (:15) - Landscape'
+        when ${ad_name} ilike '%Attractions_OBI_Legoland_60Seconds_Landscape' then 'LegoLand (:60) - Landscape'
+        when ${ad_name} ilike '%Attractions_OBI_AfricaRocks_15Seconds_Landscape' then 'Africa Rocks (:15) - Landscape'
+        when ${ad_name} ilike '%Attractions_OBI_AfricaRocks_60Seconds_Landscape' then 'Africa Rocks (:60) - Landscape'
+        when ${ad_name} ilike '%Neighborhood_G2GS_AaronCheng_60Seconds_Landscape' then 'Picture Perfect Spots (:60) - Landscape'
+        when ${ad_name} ilike '%Neighborhood_G2GS_PicturePerfectSpots_60Seconds_Landscape' then 'Picture Perfect Spots (:60)'
+        when ${ad_name} ilike '%Attractions_G2GS_PicturePerfectSpots_60Seconds_Landscape' then 'Picture Perfect Spots (:60)'
+        when ${ad_name} ilike '%Attractions_G2GS_PicturePerfectSpots_60Seconds' then 'Picture Perfect Spots (:60)'
+
+        when ${ad_name} ilike '%Neighborhood_TA_OldTown_60Seconds_Landscape w/TA' then 'Old Town Mexican (w/ TA) (:60) - Landscape'
+        when ${ad_name} ilike '%Neighborhood_TA_OldTown_60Seconds_Landscape w/oTA' then 'Old Town Mexican (w/o TA) (:60) - Landscape'
+
+        when ${ad_name} ilike '%Slideshow_Outdoor_WhaleWatching' then 'Whale Watching Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_Sunny7_Sunsets' then 'Sunsets Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_Sunny7_ScenicHighway' then 'Scenic Highway Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_Sunny7_MakeASplash' then 'Make A Splash Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_LaJollaKayak' then 'La Jolla Kayak Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_G2GS_AlanasFavorites' then 'Alana''s Favorites Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_EnjoyTheWater' then 'Enjoy The Water Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_CoastalHikes' then 'Coastal Hikes Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_BoatRides' then 'Boat Rides Slideshow'
+
+        when ${ad_name} ilike '%SingleImage_Outdoor_WhaleWatching' then 'Whale Watching Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_Sunny7_Sunsets' then 'Sunsets Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_Sunny7_ScenicHighway' then 'Scenic Highway Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_Sunny7_MakeASplash' then 'Make A Splash Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_LaJollaKayak' then 'La Jolla Kayak Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_G2GS_AlanasFavorites' then 'Alana''s Favorites Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_EnjoyTheWater' then 'Enjoy The Water Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_CoastalHikes' then 'Coastal Hikes Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_BoatRides' then 'Boat Rides Single Image'
+
+        when ${ad_name} ilike '%Carousel_Outdoor_WhaleWatching' then 'Whale Watching Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_Sunny7_Sunsets' then 'Sunsets Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_Sunny7_ScenicHighway' then 'Scenic Highway Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_Sunny7_MakeASplash' then 'Make A Splash Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_LaJollaKayak' then 'La Jolla Kayak Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_G2GS_AlanasFavorites' then 'Alana''s Favorites Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_EnjoyTheWater' then 'Enjoy The Water Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_CoastalHikes' then 'Coastal Hikes Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_BoatRides' then 'Boat Rides Carousel'
+
+        when ${ad_name} ilike '%Slideshow_Neighborhood_UTC' then 'UTC Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_Sunny7_PointLoma' then 'Point Loma Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_Sunny7_Kensington' then 'Kensington Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_MissionBay' then 'Mission Bay Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_BarrioLogan' then 'Barrio Logan Slideshow'
+
+        when ${ad_name} ilike '%Slideshow_Culinary_Sunny7_RooftopRestaurants%' then 'Rooftop Restaurants Slideshow'
+        when ${ad_name} ilike '%Slideshow_Culinary_Sunny7_FemalePowerhouses%' then 'Female Powerhouses Slideshow'
+        when ${ad_name} ilike '%Slideshow_Culinary_Sunny7_ChefsTableDinigExperience' then 'Chef''s Table Slideshow'
+        when ${ad_name} ilike '%Slideshow_Culinary_CulinaryEpicenter' then 'Culinary Epicenter Slideshow'
+        when ${ad_name} ilike '%Slideshow_Culinary_BarrioDogg' then 'Barrio Dogg Slideshow'
+        when ${ad_name} ilike '%Slideshow_Culinary_Animae' then 'Animae Slideshow'
+        when ${ad_name} ilike '%Slideshow_Culinary_CulinaryEpicenter' then 'Culinary Epicenter Slideshow'
+
+        when ${ad_name} ilike '%Slideshow_Attractions_Sunny7_BehindTheScenesTours' then 'Behind The Scenes Tours Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_Sunny7_BalboaParkHiddenGems' then 'Balboa Park Hidden Gems Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_BalboaParkCulturalHeart' then 'Balboa Park Cultural Heart Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_7NaturalWonders' then '7 Natural Wonders Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_59MileScenicDrive' then '59 Mile Scenic Drive Slideshow'
+
+        when ${ad_name} ilike '%SingleImage_Neighborhood_UTC' then 'UTC Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_Sunny7_PointLoma' then 'Point Loma Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_Sunny7_Kensington' then 'Kensington Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_MissionBay' then 'Mission Bay Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_BarrioLogan' then 'Barrio Logan Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_Sunny7_CharismaticNeighborhoods' then 'Charismatic Neighborhoods Single Image'
+
+        when ${ad_name} ilike '%SingleImage_Culinary_Sunny7_RooftopRestaurants%' then 'Rooftop Restaurants Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_Sunny7_FemalePowerhouses%' then 'Female Powerhouses Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_Sunny7_ChefsTableDinigExperience' then 'Chef''s Table Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_CulinaryEpicenter' then 'Culinary Epicenter Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_BarrioDogg' then 'Barrio Dogg Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_Animae' then 'Animae Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_CulinaryEpicenter' then 'Culinary Epicenter Single Image'
+
+        when ${ad_name} ilike '%SingleImage_Attractions_Sunny7_BehindTheScenesTours' then 'Behind The Scenes Tours Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_Sunny7_BalboaParkHiddenGems' then 'Balboa Park Hidden Gems Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_BalboaParkCulturalHeart' then 'Balboa Park Cultural Heart Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_7NaturalWonders' then '7 Natural Wonders Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_59MileScenicDrive' then '59 Mile Scenic Drive Single Image'
+
+        when ${ad_name} ilike '%Carousel_Neighborhood_UTC' then 'UTC Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_Sunny7_PointLoma' then 'Point Loma Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_Sunny7_Kensington' then 'Kensington Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_MissionBay' then 'Mission Bay Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_BarrioLogan' then 'Barrio Logan Carousel'
+
+        when ${ad_name} ilike '%Carousel_Culinary_Sunny7_RooftopRestaurants' then 'Rooftop Restaurants Carousel'
+        when ${ad_name} ilike '%Carousel_Culinary_Sunny7_FemalePowerhouses' then 'Female Powerhouses Carousel'
+        when ${ad_name} ilike '%Carousel_Culinary_Sunny7_ChefsTableDinigExperience' then 'Chef''s Table Carousel'
+        when ${ad_name} ilike '%Carousel_Culinary_CulinaryEpicenter' then 'Culinary Epicenter Carousel'
+        when ${ad_name} ilike '%Carousel_Culinary_BarrioDogg' then 'Barrio Dogg Carousel'
+        when ${ad_name} ilike '%Carousel_Culinary_Animae' then 'Animae Carousel'
+        when ${ad_name} ilike '%Carousel_Culinary_CulinaryEpicenter' then 'Culinary Epicenter Carousel'
+
+        when ${ad_name} ilike '%Carousel_Attractions_Sunny7_BehindTheScenesTours' then 'Behind The Scenes Tours Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_Sunny7_BalboaParkHiddenGems' then 'Balboa Park Hidden Gems Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_BalboaParkCulturalHeart' then 'Balboa Park Cultural Heart Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_7NaturalWonders' then '7 Natural Wonders Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_59MileScenicDrive' then '59 Mile Scenic Drive Carousel'
+
+        when ${ad_name} ilike '%Slideshow_Outdoor_WhereToSurf' then 'Where To Surf Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_Watersports' then 'Watersports Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_Sailing' then 'Sailing Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_MelesSurfFaves' then 'Mele''s Surf Faves Slideshow'
+        when ${ad_name} ilike '%Slideshow_Outdoor_HistoricHighway101' then 'Historic Highway 101 Slideshow'
+
+        when ${ad_name} ilike '%Slideshow_Neighborhood_MissionValleyOldTown' then 'Mission Valley Old Town Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_LittleItaly' then 'Little Italy Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_Gaslamp' then 'Gaslamp Slideshow'
+        when ${ad_name} ilike '%Slideshow_Neighborhood_3BeachNeighborhoods' then '3 Beach Neighborhoods Slideshow'
+
+        when ${ad_name} ilike '%Slideshow_Culinary_FiresideMeal' then 'Fireside Meal Slideshow'
+
+        when ${ad_name} ilike '%Slideshow_Attractions_HistoryAdventures' then 'History Adventures Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_Embarcadero' then 'Embarcadero Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_AwesomeViewpoints' then 'Awesome Viewpoints Slideshow'
+        when ${ad_name} ilike '%Slideshow_Attractions_ArchitectureWonders' then 'Architecture Wonders Slideshow'
+
+        when ${ad_name} ilike '%SingleImage_Outdoor_WhereToSurf' then 'Where To Surf Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_Watersports' then 'Watersports Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_Sailing' then 'Sailing Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_MelesSurfFaves' then 'Mele''s Surf Faves Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_HistoricHighway101' then 'Historic Highway 101 Single Image'
+        when ${ad_name} ilike '%SingleImage_Outdoor_BayshoreBikeway' then 'Bayshore Bikeway Single Image'
+
+        when ${ad_name} ilike '%SingleImage_Neighborhood_MissionValleyOldTown' then 'Mission Valley Old Town Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_LittleItaly' then 'Little Italy Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_Gaslamp' then 'Gaslamp Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhood_3BeachNeighborhoods' then '3 Beach Neighborhoods Single Image'
+
+        when ${ad_name} ilike '%SingleImage_Culinary_FiresideMeal' then 'Fireside Meal Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_TacoJoints' then 'Taco Joints Single Image'
+        when ${ad_name} ilike '%SingleImage_Culinary_BestBurgers' then 'Best Burgers Single Image'
+
+        when ${ad_name} ilike '%SingleImage_Attractions_HistoryAdventures' then 'History Adventures Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_Embarcadero' then 'Embarcadero Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_AwesomeViewpoints' then 'Awesome Viewpoints Single Image'
+        when ${ad_name} ilike '%SingleImage_Attractions_ArchitectureWonders' then 'Architecture Wonders Single Image'
+
+        when ${ad_name} ilike '%Carousel_Outdoor_WhereToSurf' then 'Where To Surf Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_Watersports' then 'Watersports Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_Sailing' then 'Sailing Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_MelesSurfFaves' then 'Mele''s Surf Faves Carousel'
+        when ${ad_name} ilike '%Carousel_Outdoor_HistoricHighway101' then 'Historic Highway 101 Carousel'
+
+        when ${ad_name} ilike '%Carousel_Neighborhood_MissionValleyOldTown' then 'Mission Valley Old Town Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_LittleItaly' then 'Little Italy Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_Gaslamp' then 'Gaslamp Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhood_3BeachNeighborhoods' then '3 Beach Neighborhoods Carousel'
+
+        when ${ad_name} ilike '%Carousel_Culinary_FiresideMeal' then 'Fireside Meal Carousel'
+
+        when ${ad_name} ilike '%Carousel_Attractions_HistoryAdventures' then 'History Adventures Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_Embarcadero' then 'Embarcadero Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_AwesomeViewpoints' then 'Awesome Viewpoints Carousel'
+        when ${ad_name} ilike '%Carousel_Attractions_ArchitectureWonders' then 'Architecture Wonders Carousel'
+
+        when ${ad_name} ilike '%SingleImage_TorreyPinesNaturalReserve' then 'Torrey Pines Natural Reserve Single Image'
+        when ${ad_name} ilike '%SingleImage_TidePools' then 'Tide Pools Single Image'
+        when ${ad_name} ilike '%SingleImage_SDSurfScene' then 'SD Surf Scene Single Image'
+        when ${ad_name} ilike '%SingleImage_MissionBayBikePath' then 'Mission Bay Bike Path Single Image'
+        when ${ad_name} ilike '%SingleImage_MissionBay' then 'Mission Bay Single Image'
+        when ${ad_name} ilike '%SingleImage_BestKidBeaches' then 'Best Kid Beaches Single Image'
+
+        when ${ad_name} ilike '%Slideshow_NorthInland' then 'North Inland Slideshow'
+        when ${ad_name} ilike '%Slideshow_NorthCoastal' then 'North Coastal Slideshow'
+        when ${ad_name} ilike '%SingleImage_NorthInland' then 'North Inland Single Image'
+        when ${ad_name} ilike '%SingleImage_NorthCoastal' then 'North Coastal Single Image'
+        when ${ad_name} ilike '%SingleImage_LaJolla' then 'La Jolla Single Image'
+
+        when ${ad_name} ilike '%Slideshow_CaliBaja' then 'Cali Baja Slideshow'
+        when ${ad_name} ilike '%Slideshow_BestSeafood' then 'Best Seafood Slideshow'
+        when ${ad_name} ilike '%Slideshow_AwardWinningChefs' then 'Award Winning Chefs Slideshow'
+
+        when ${ad_name} ilike '%SingleImage_Convoy' then 'Convoy Single Image'
+        when ${ad_name} ilike '%SingleImage_BestSeafood' then 'Best Seafood Single Image'
+        when ${ad_name} ilike '%SingleImage_AwardWinningChefs' then 'Award Winning Chefs Single Image'
+
+        when ${ad_name} ilike '%SingleImage_MaritimeHeritage' then 'Maritime Heritage Single Image'
+        when ${ad_name} ilike '%SingleImage_FamilyTravel' then 'Family Travel Single Image'
+        when ${ad_name} ilike '%SingleImage_AwesomeAttractions' then 'Awesome Attractions Single Image'
+        when ${ad_name} ilike '%SingleImage_OldTown' then 'Old Town Single Image'
+        when ${ad_name} ilike '%SingleImage_BalboaPark' then 'Balboa Park Single Image'
+
+        when ${ad_name} ilike '%Carousel_BestSeafood' then 'Best Seafood Carousel'
+        when ${ad_name} ilike '%Carousel_AwardWinningChefs' then 'Award Winning Chefs Carousel'
+
+        when ${ad_name} ilike '%SingleImage_SpringVersion%_Plan' then 'Plan Single Image'
+        when ${ad_name} ilike '%SingleImage_SpringVersion%_HappinessAwaits' then 'Happiness Awaits Single Image'
+
+        when ${ad_name} ilike '%\\_SingleImage\\_DadDaughter' then 'Dad & Daughter Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_PoolParty' then 'Pool Party Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_FamilyBeach' then 'Beach Family Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_Dinner' then 'Dinner Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_FriendBeach' then 'Beach Friends Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_RollerGirls' then 'Roller Girls Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_KidsFree' then 'Kids Free Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_Holiday' then 'Holiday Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_FallEventsGeneral%' then 'Fall Events Single Image'
 
         else 'Uncategorized'
         end
