@@ -226,6 +226,10 @@ view: sdt_dcm_view {
         when ${placement_id} = '255163483' then 'Nano Traffic'
         when ${placement_id} = '255163888' then 'Macro Video'
 
+        when ${placement} ilike 'Taboola_FY20 Family Content_Macro%' then 'Macro Video'
+        when ${placement} ilike 'Taboola_FY20 Family Content_Micro%' then 'Micro Traffic'
+        when ${placement} ilike 'Taboola_FY20 Family Content_Nano%' then 'Nano Traffic'
+
         ELSE 'Uncategorized'
         end ;;
   }
@@ -292,7 +296,6 @@ view: sdt_dcm_view {
         when ${campaign_id} = '22169957' then 'Canada'
         when ${campaign_id} = '23350539' then 'Canada'
 
-
         when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor US Campaign' then 'United States'
         when ${campaign} = 'SDT FY19 TripAdvisor Program- US' then 'United States'
         when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor UK Campaign' then 'United Kingdom'
@@ -319,6 +322,7 @@ view: sdt_dcm_view {
         when ${campaign} = '003392_01_FY18_SDTA_Digital Video' then 'United States'
         when ${campaign} = '003220_01 FY18 Foundational Travel Intender Pull-Through Digital' then 'United States'
         when ${campaign} = '003076_01 FY18 San Diego Kids Free Digital' then 'United States'
+        when ${campaign} = 'SDT: 004928_01 FY20 Family Content Campaign' then 'United States'
 
           ELSE 'Uncategorized'
       END;;
@@ -357,7 +361,6 @@ view: sdt_dcm_view {
         when ${placement} ilike 'NBC National Sports Live Streaming%' then 'National'
         when ${placement} ilike 'NBC Chicago Sports Live Streaming%' then 'Chicago'
         when ${placement} ilike 'NBC New York Sports Live Streaming%' then 'New York City'
-
 
         when ${placement_id} ilike '252324176' then 'National'
         when ${placement_id} ilike '252324173' then 'National'
@@ -530,6 +533,9 @@ view: sdt_dcm_view {
       when ${placement} ilike 'TripAdvisor_DF Retargeting - Impact%' then 'DF Retargeting'
       when ${placement} ilike 'TripAdvisor_Audience Extension - Video - Storytelling%' then 'Audience Extension - Video'
 
+      when ${placement} ilike 'Taboola_FY20 Family Content_Macro%' then 'Native :60 Video - Family Variety Seeker'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Micro%' then 'Native Static - Retargeting Macro'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Nano%' then 'Native Static - Retargeting Micro'
 
       else 'Uncategorized'
     end;;
@@ -670,21 +676,80 @@ view: sdt_dcm_view {
         when ${placement_id} = '252868753' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252530312' then 'Happy Today (:30) - Brand'
 
-        when ${ad} ilike '%Torrey Pines Golf :60' then 'Torrey Pines Golf :60'
-        when ${ad} ilike '%Coastal Yoga :60' then 'Coastal Yoga :60'
-        when ${ad} ilike '%Boardwalk Cruising :60' then 'Boardwalk Cruising :60'
-        when ${ad} ilike '%Tiki OBI :60' then 'Tiki :60'
-        when ${ad} ilike '%Liberty Station OBI :60' then 'Liberty Station :60'
-        when ${ad} ilike '%Barrio Logan G2GS :60' then 'Barrio Logan :60'
+        when ${ad} ilike '%Torrey Pines Golf :60' then 'Torrey Pines Golf (:60)'
+        when ${ad} ilike '%Coastal Yoga :60' then 'Coastal Yoga (:60)'
+        when ${ad} ilike '%Boardwalk Cruising :60' then 'Boardwalk Cruising (:60)'
+        when ${ad} ilike '%Tiki OBI :60' then 'Tiki (:60)'
+        when ${ad} ilike '%Liberty Station OBI :60' then 'Liberty Station (:60)'
+        when ${ad} ilike '%Barrio Logan G2GS :60' then 'Barrio Logan (:60)'
         when ${ad} ilike '%Barrio Dogg Longform' then 'Barrio Dogg Longform'
         when ${ad} ilike '%Animae Longform' then 'Animae Longform'
-        when ${ad} ilike '%USS Midway OBI :60' then 'USS Midway :60'
-        when ${ad} ilike '%Stuart Collection OBI :60' then 'Stuart Collection :60'
-        when ${ad} ilike '%Live Music G2GS :60' then 'Live Music :60'
+        when ${ad} ilike '%USS Midway OBI :60' then 'USS Midway (:60)'
+        when ${ad} ilike '%Stuart Collection OBI :60' then 'Stuart Collection (:60)'
+        when ${ad} ilike '%Live Music G2GS :60' then 'Live Music (:60)'
+
+        when ${ad} ilike '%SD_OBI_Lego Movie World :60' then 'Lego Movie World (:60)'
+        when ${ad} ilike '%SD_OBI_Birch Aquarium :60' then 'Birch Aquarium (:60)'
+        when ${ad} ilike '%SD_OBI_Learn to Surf :60' then 'Learn to Surf (:60)'
+        when ${ad} ilike '%SD_OBI_Whale Watching :60' then 'Whale Watching (:60)'
+        when ${ad} ilike '%SD_Socks_Star of India' then 'Star of India Longform'
+        when ${ad} ilike '%SD_Socks_Tidepools' then 'Tidepools Longform'
+        when ${ad} ilike '%SD_Socks_Torrey Pines' then 'Torrey Pines Longform'
+        when ${ad} ilike '%SD_OBI_Caravan Safari :60' then 'Caravan Safari (:60)'
+        when ${ad} ilike '%SD_OBI_Seaworld :60' then 'Seaworld (:60)'
+
+        when ${ad} ilike '%SD_Native Static_Legoland Listicle' then 'LegoLand Listicle'
+        when ${ad} ilike '%SD_Native Static_7 Reasons to Bring the Family to San Diego' then '7 Reasons to Bring the Family to San Diego'
+        when ${ad} ilike '%SD_Native Static_A One-Day Kid-Focused Tour' then 'A One-Day Kid-Focused Tour'
+        when ${ad} ilike '%SD_Native Static_Education Disguised as Entertainment' then 'Education Disguised as Entertainment'
+        when ${ad} ilike '%SD_Native Static_Family Fun in San Diego' then 'Family Fun in San Diego'
+
+        when ${ad} ilike '%SD_Native Static_San Diego Zoo Listicle' then 'San Diego Zoo Listicle'
+        when ${ad} ilike '%SD_Native Static_Seaworld Listicle' then 'SeaWorld Listicle'
+        when ${ad} ilike '%SD_Native Static_Awesome Awaits' then 'Awesome Awaits'
+        when ${ad} ilike '%SD_Native Static_Buy Online and Save' then 'Buy Online and Save'
+        when ${ad} ilike '%SD_Native Static_The Lego Movie World' then 'The Lego Movie World'
+        when ${ad} ilike '%SD_Native Static_Hotels & Resorts' then 'Hotels & Resorts'
+        when ${ad} ilike '%SD_Native Static_Plan - Family Travel' then 'Plan - Family Travel'
+        when ${ad} ilike '%SD_Native Static_Save Big with San Diego Passes' then 'Save Big with San Diego Passes'
+        when ${ad} ilike '%SD_Native Static_Choose Your Caravan Safari' then 'Choose Your Caravan Safari'
+        when ${ad} ilike '%SD_Native Static_Experience Jungle Ropes Safari' then 'Experience Jungle Ropes Safari'
+        when ${ad} ilike '%SD_Native Static_Soar on Flightline Safari' then 'Soar on Flightline Safari'
+        when ${ad} ilike '%SD_Native Static_Get Up Close with Dolphins' then 'Get Up Close with Dolphins'
+        when ${ad} ilike '%SD_Native Static_Save $20 Online' then 'Save $20 Online'
 
           ELSE 'Uncategorized'
       END;;
   }
+
+  dimension: family_content_partner {
+    type: string
+    group_label: "Client Dimensions"
+    label: "SDT Partner"
+    sql:
+    case
+      when ${placement} ilike 'Taboola_FY20 Family Content_Macro\\_LL\\_%' then 'LegoLand'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Macro\\_SD\\_%' then 'San Diego Tourism'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Macro\\_SDZ\\_%' then 'San Diego Zoo'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Macro\\_SW\\_%' then 'SeaWorld'
+
+      when ${placement} ilike 'Taboola_FY20 Family Content_Micro\\_LL\\_Macro RTG%' then 'LegoLand'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Nano\\_LL\\_Micro RTG%' then 'LegoLand'
+
+      when ${placement} ilike 'Taboola_FY20 Family Content_Micro\\_SD\\_Macro RTG%' then 'San Diego Tourism'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Nano\\_SD\\_Micro RTG%' then 'San Diego Tourism'
+
+      when ${placement} ilike 'Taboola_FY20 Family Content_Micro\\_SDZ\\_Macro RTG%' then 'San Diego Zoo'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Nano\\_SDZ\\_Micro RTG%' then 'San Diego Zoo'
+
+      when ${placement} ilike 'Taboola_FY20 Family Content_Micro\\_SW\\_Macro RTG%' then 'SeaWorld'
+      when ${placement} ilike 'Taboola_FY20 Family Content_Nano\\_SW\\_Micro RTG%' then 'SeaWorld'
+
+      ELSE null
+      END;;
+  }
+
+
 
 #           when ${placement_id} = '252330719' then 'Happy Today (:30)'
 #         when ${placement_id} = '252324173' then 'Happy Today (:30)'
