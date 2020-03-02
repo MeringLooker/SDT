@@ -77,6 +77,7 @@ view: sdt_fb_view {
         WHEN ${campaign_name} ILIKE 'FY19_Content%' then 'United States'
         WHEN ${campaign_name} ILIKE '1718_Content%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY19_AAY%' then 'United States'
+        WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'United States'
 
 
         else 'Uncategorized'
@@ -105,7 +106,6 @@ view: sdt_fb_view {
         when ${campaign_name} ilike '%_Traffic\\_LA\\_%' then 'Los Angeles'
         when ${campaign_name} ilike '%_Video\\_LA\\_%' then 'Los Angeles'
         when ${adset_name} ilike '%_Stage3\\_Video\\_LA\\_%' then 'Los Angeles'
-
 
         when ${campaign_name} ilike 'PHX\\_%' then 'Phoenix'
         when ${campaign_name} ilike 'National\\_%' then 'National'
@@ -144,6 +144,7 @@ view: sdt_fb_view {
         WHEN ${campaign_name} ILIKE 'SDT_FY20_UK_%' then 'United Kingdom Digital'
         WHEN ${campaign_name} ILIKE 'FY19_UK_%' then 'United Kingdom Digital'
         WHEN ${campaign_name} ILIKE 'FY19_GER_%' then 'Germany Digital'
+        WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'Family Content'
 
         else 'Uncategorized'
         end
@@ -184,6 +185,10 @@ view: sdt_fb_view {
         when ${campaign_name} ilike 'SDT_FY20_CAN_Views_Brand%' then 'Amplify Reach'
         when ${campaign_name} ilike 'SDT_FY20_UK_Views_Brand%' then 'Amplify Reach'
         when ${campaign_name} = 'FY19_UK_BrandVideo' then 'Amplify Reach'
+
+        when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Macro%' then 'Macro Video'
+        when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Micro%' then 'Micro Traffic'
+        when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Nano%' then 'Nano Traffic'
 
         else 'Uncategorized'
         end
@@ -235,6 +240,33 @@ view: sdt_fb_view {
         when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National' then 'Social - Adara Audience'
         when ${campaign_name} = 'SDT_FY20_PullThrough_Conversions_National_Adara' then 'Social - Adara Audience'
 
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_Legoland_15Video%' then ':15 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_Legoland_60Video%' then ':60 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video%' then ':15 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_60Video%' then ':60 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoZoo_15Video%' then ':15 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoZoo_60Video%' then ':60 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld_15Video%' then ':15 Video - Family Variety Seeker'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld_60Video%' then ':60 Video - Family Variety Seeker'
+
+        when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Nano%' then 'Single Image - Micro Retargeting'
+
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_Legoland_Slideshow%' then 'Slideshow - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_Legoland_SingleImage%' then 'Single Image - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_Legoland_Carousel%' then 'Carousel - Macro Retargeting'
+
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoTourismAuthority_Slideshow%' then 'Slideshow - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoTourismAuthority_SingleImage%' then 'Single Image - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoTourismAuthority_Carousel%' then 'Carousel - Macro Retargeting'
+
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoZoo_Slideshow%' then 'Slideshow - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoZoo_SingleImage%' then 'Single Image - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoZoo_Carousel%' then 'Carousel - Macro Retargeting'
+
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SeaWorld_Slideshow%' then 'Slideshow - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SeaWorld_SingleImage%' then 'Single Image - Macro Retargeting'
+        when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SeaWorld_Carousel%' then 'Carousel - Macro Retargeting'
+
         else 'Uncategorized'
         end
         ;;
@@ -282,8 +314,6 @@ view: sdt_fb_view {
       when ${ad_name} ilike '%SingleImage_Attractions%' then 'Attractions'
       when ${ad_name} ilike '%SingleImage_Culinary%' then 'Culinary'
       when ${ad_name} ilike '%SingleImage_Neighborhood%' then 'Neighborhood'
-
-
 
       else 'Uncategorized'
         end
@@ -562,10 +592,92 @@ view: sdt_fb_view {
         when ${ad_name} ilike '%\\_SingleImage\\_Holiday' then 'Holiday Single Image'
         when ${ad_name} ilike '%\\_SingleImage\\_FallEventsGeneral%' then 'Fall Events Single Image'
 
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_Legoland_60Video_OBI_LegoMovieWorld' then 'Lego Movie World (:60)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_Legoland_15Video_OBI_LegoMovieWorld' then 'Lego Movie World (:15)'
+
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_OBI_BirchAquarium' then 'Birch Aquarium (:15)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_OBI_LearnToSurf' then 'Learn to Surf (:15)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_60Video_OBI_BirchAquarium' then 'Birch Aquarium (:60)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_60Video_OBI_LearnToSurf' then 'Learn to Surf (:60)'
+
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoZoo_15Video_OBI_CaravanSafari' then 'Caravan Safari (:15)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoZoo_60Video_OBI_CaravanSafari' then 'Caravan Safari (:60)'
+
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld_60Video_OBI_SeaWorld' then 'SeaWorld (:60)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld_15Video_OBI_SeaWorld' then 'SeaWorld (:15)'
+
+        when ${ad_name} ilike '%\\_Slideshow\\_LegoLandListicle%' then 'LegoLand Listicle Slideshow'
+        when ${ad_name} ilike '%\\_Carousel\\_LegoLandListicle%' then 'LegoLand Listicle Carousel'
+        when ${ad_name} ilike '%\\_SingleImage\\_LegoLandListicle%' then 'LegoLand Listicle Single Image'
+
+        when ${ad_name} ilike '%\\_Slideshow\\_SeaWorldListicle%' then 'SeaWorld Listicle Slideshow'
+        when ${ad_name} ilike '%\\_Carousel\\_SeaWorldListicle%' then 'SeaWorld Listicle Carousel'
+        when ${ad_name} ilike '%\\_SingleImage\\_SeaWorldListicle%' then 'SeaWorld Listicle Single Image'
+
+        when ${ad_name} ilike '%\\_Slideshow\\_SanDiegoZooListicle%' then 'San Diego Zoo Listicle Slideshow'
+        when ${ad_name} ilike '%\\_Carousel\\_SanDiegoZooListicle%' then 'San Diego Zoo Listicle Carousel'
+        when ${ad_name} ilike '%\\_SingleImage\\_SanDiegoZooListicle%' then 'San Diego Zoo Listicle Single Image'
+
+        when ${ad_name} ilike '%\\_Slideshow\\_7Reasons%' then '7 Reasons Slideshow'
+        when ${ad_name} ilike '%\\_Slideshow\\_KidFocused%' then 'Kid Focused Slideshow'
+        when ${ad_name} ilike '%\\_Slideshow\\_FamilyFun%' then 'Family Fun Slideshow'
+        when ${ad_name} ilike '%\\_Slideshow\\_EducationDisguised%' then 'Education Disguised Slideshow'
+
+        when ${ad_name} ilike '%\\_SingleImage\\_7Reasons%' then '7 Reasons Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_KidFocused%' then 'Kid Focused Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_FamilyFun%' then 'Family Fun Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_EducationDisguised%' then 'Education Disguised Single Image'
+
+        when ${ad_name} ilike '%\\_Carousel\\_7Reasons%' then '7 Reasons Carousel'
+        when ${ad_name} ilike '%\\_Carousel\\_KidFocused%' then 'Kid Focused Carousel'
+        when ${ad_name} ilike '%\\_Carousel\\_FamilyFun%' then 'Family Fun Carousel'
+        when ${ad_name} ilike '%\\_Carousel\\_EducationDisguised%' then 'Education Disguised Carousel'
+
+        when ${ad_name} ilike '%\\_SingleImage\\_AwesomeAwaits%' then 'Awesome Awaits Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_BuyOnline%' then 'Buy Online Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_Dolphins%' then 'Dolphins Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_SaveOnline%' then 'Save Online Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_LegoMovieWorld%' then 'Lego Movie World Single Image'
+
+        when ${ad_name} ilike '%\\_SingleImage\\_HotelsResorts%' then 'Hotels & Resorts Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_SaveBig%' then 'Save Big Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_CaravanSafari%' then 'Caravan Safari Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_FlightlineSafari%' then 'Flightline Safari Single Image'
+        when ${ad_name} ilike '%\\_SingleImage\\_JungleRopesSafari%' then 'Jungle Ropes Safari Single Image'
+
+
+
         else 'Uncategorized'
         end
         ;;
   }
+
+  dimension: sdt_partner {
+    type: string
+    group_label: "Client Dimensions"
+    label: "SDT Partner (Fam. Content)"
+    sql:
+    case
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Nano_Conversions_SeaWorld' then 'SeaWorld'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Nano_Conversions_SanDiegoZoo' then 'San Diego Zoo'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Nano_Conversions_SanDiegoTourismAuthority' then 'San Diego Tourism'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Nano_Conversions_Legoland' then 'LegoLand'
+
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Micro_Conversions_SeaWorld' then 'SeaWorld'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoZoo' then 'San Diego Zoo'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Micro_Conversions_SanDiegoTourismAuthority' then 'San Diego Tourism'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Micro_Conversions_Legoland' then 'LegoLand'
+
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld' then 'SeaWorld'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoZoo' then 'San Diego Zoo'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority' then 'San Diego Tourism'
+      when ${campaign_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_Legoland' then 'LegoLand'
+
+      ELSE null
+      END;;
+  }
+
+
 
 ##### All Dimensions go below #####
 

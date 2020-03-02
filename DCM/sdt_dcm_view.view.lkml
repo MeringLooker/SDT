@@ -722,10 +722,10 @@ view: sdt_dcm_view {
       END;;
   }
 
-  dimension: family_content_partner {
+  dimension: sdt_partner {
     type: string
     group_label: "Client Dimensions"
-    label: "SDT Partner"
+    label: "SDT Partner (Fam. Content)"
     sql:
     case
       when ${placement} ilike 'Taboola_FY20 Family Content_Macro\\_LL\\_%' then 'LegoLand'
