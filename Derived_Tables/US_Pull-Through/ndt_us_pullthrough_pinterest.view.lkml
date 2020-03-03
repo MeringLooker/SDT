@@ -1,11 +1,11 @@
 view: ndt_us_pullthrough_pinterest {
   derived_table: {
     explore_source: sdt_pinterest_ads {
-      column: primary_key { field: sdt_pinterest.id }
       column: publisher { field: sdt_pinterest.publisher }
       column: campaign { field: sdt_pinterest.sdt_campaign }
       column: market { field: sdt_pinterest.sdt_market }
       column: layer { field: sdt_pinterest.sdt_layer }
+      column: placement { field: sdt_pinterest.sdt_placement }
       column: date { field: sdt_pinterest.date_date }
       column: week { field: sdt_pinterest.date_week }
       column: month { field: sdt_pinterest.date_month }
@@ -35,6 +35,10 @@ view: ndt_us_pullthrough_pinterest {
   }
 
   dimension: layer {
+    type: string
+  }
+
+  dimension: placement {
     type: string
   }
 

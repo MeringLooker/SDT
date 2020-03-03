@@ -1,11 +1,11 @@
 view: ndt_us_pullthrough_adroll_offline {
   derived_table: {
     explore_source: sdt_fy20_us_pullthrough_adroll {
-      column: primary_key {field: sdt_fy20_us_pullthrough_adroll.id}
       column: publisher {field: sdt_fy20_us_pullthrough_adroll.publisher}
       column: campaign {field: sdt_fy20_us_pullthrough_adroll.sdt_campaign}
       column: market {field: sdt_fy20_us_pullthrough_adroll.sdt_market}
       column: layer {field: sdt_fy20_us_pullthrough_adroll.sdt_layer}
+      column: placement {field: sdt_fy20_us_pullthrough_adroll.sdt_placement}
       column: date {field: sdt_fy20_us_pullthrough_adroll.day_date}
       column: week {field: sdt_fy20_us_pullthrough_adroll.day_week}
       column: month {field: sdt_fy20_us_pullthrough_adroll.day_month}
@@ -33,6 +33,10 @@ view: ndt_us_pullthrough_adroll_offline {
   }
 
   dimension: layer {
+    type: string
+  }
+
+  dimension: placement {
     type: string
   }
 

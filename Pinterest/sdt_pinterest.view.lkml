@@ -130,6 +130,17 @@ view: sdt_pinterest {
     type: string
     label: "Campaign Placement"
     group_label: "Client Dimensions"
+    sql:
+      case
+        when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting_Carousels%' then 'Carousel Pins'
+        when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting_Standard%' then 'Standard Pins'
+
+        when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim_Carousels%' then 'Carousel Pins'
+        when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim_Standard%' then 'Standard Pins'
+
+      else 'Uncategorized'
+    end;;
+
   }
 
   dimension: sdt_pillar {

@@ -168,6 +168,7 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'Expedia\\_OTA Base\\_%' then 'OTA Base'
         when ${placement} ILIKE 'Kayak\\_Los Angeles\\_%' then 'Los Angeles'
         when ${placement} ILIKE 'Expedia\\_Los Angeles\\_%' then 'Los Angeles'
+        when ${placement} ILIKE 'Expedia\\_Phoenix\\_%' then 'Phoenix'
         when ${placement} ILIKE 'Sojern\\_PT\\_Display Prospecting%' then 'Pull-Through Base'
         when ${placement} ILIKE 'Sojern\\_PT\\_AV Display Prospecting%' then 'Pull-Through Base'
         when ${placement} ILIKE 'Priceline\\_OTA Base\\_%' then 'OTA Base'
@@ -475,7 +476,6 @@ view: sdt_dcm_view {
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Competitive site visitors%' then 'Display Retargeting - Competitive Conquesting'
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Los Angeles site visitors%' then 'Display Retargeting - Los Angeles'
       when ${placement} ilike 'AdRoll_Retargeting_Web Display Package_Retargeting Disneyland site visitors%' then 'Display Retargeting - Disneyland'
-      when ${placement} ilike 'T+L_FY20 Prem. Digital_Awareness_NTL_Editorial Sponsorship%' then 'T+L - Editorial Sponsorship'
 
       when ${placement} ilike 'Sojern_PT_Display Prospecting_Active Travel Intenders%' then 'Display Prospecting'
       when ${placement} ilike 'Sojern_PT_AV Display Prospecting_Active Travel Intenders%' then 'Display Prospecting - AV'
@@ -486,9 +486,64 @@ view: sdt_dcm_view {
       when ${placement} ilike 'Adara_AV Conquesting_Display Prospecting Package%' then 'Display Prospecting AV - Competitive Conquest'
       when ${placement} ilike 'Adara_Los Angeles_Display Prospecting Package%' then 'Display Prospecting - Los Angeles'
       when ${placement} ilike 'Adara_Los Angeles_AV Display Prospecting Package%' then 'Display Prospecting AV - Los Angeles'
+      when ${placement_id} = '254553726' then 'Display Prospecting AV - Los Angeles'
+      when ${placement_id} = '254553723' then 'Display Prospecting AV - Los Angeles'
+      when ${placement_id} = '254449423' then 'Display Prospecting AV - Los Angeles'
       when ${placement} ilike 'Adara_PT_Display Prospecting Package%' then 'Display Prospecting - Base'
       when ${placement} ilike 'Adara_PT_AV Display Prospecting Package%' then 'Display Prospecting AV - Base'
 
+      when ${placement} ilike 'Priceline_OTA Base_ROS: Audience Targeting%' then 'ROS: Audience Targeting - Base'
+      when ${placement} ilike 'Priceline_OTA Base_Product Home Page: Native%' then 'Product Home Page: Native - Base'
+
+      when ${placement} ilike 'Priceline_Competitive Conquesting_Search Results_Competing destinations%' then 'Search Results - Competitive Destinations'
+      when ${placement} ilike 'Priceline_Anaheim/Disneyland_ROS: Audience Targeting_Disneyland Intenders%' then 'ROS: Audience Targeting (Disneyland) - Disneyland'
+      when ${placement} ilike 'Priceline_Anaheim/Disneyland_ROS: Audience Targeting_Anaheim Intenders%' then 'ROS: Audience Targeting (Anaheim) - Disneyland'
+
+      when ${placement} ilike 'Kayak_Los Angeles_Results Page Takeover%' then 'Results Page Takeover - Los Angeles'
+      when ${placement} ilike 'Kayak_Los Angeles_Native Mobile Inline Ad%' then 'Native Mobile Inline Ad - Los Angeles'
+      when ${placement} ilike 'Kayak_Los Angeles_Native Desktop Inline Ad%' then 'Native Desktop Inline Ad - Los Angeles'
+
+      when ${placement} ilike 'Kayak_Competitive Conquesting_Results Page Takeover%' then 'Results Page Takeover - Competitive Conquesting'
+      when ${placement} ilike 'Kayak_Competitive Conquesting_Native Mobile Inline Ad%' then 'Native Mobile Inline Ad - Competitive Conquesting'
+      when ${placement} ilike 'Kayak_Competitive Conquesting_Native Desktop Inline Ad%' then 'Native Desktop Inline Ad - Competitive Conquesting'
+
+      when ${placement} ilike 'Kayak_Anaheim/Disneyland_Results Page Takeover%' then 'Results Page Takeover - Disneyland'
+      when ${placement} ilike 'Kayak_Anaheim/Disneyland_Native Mobile Inline Ad%' then 'Native Mobile Inline Ad - Disneyland'
+      when ${placement} ilike 'Kayak_Anaheim/Disneyland_Native Desktop Inline Ad%' then 'Native Desktop Inline Ad - Disneyland'
+
+      when ${placement} ilike 'Expedia_OTA Base_Hotels.com: Native Marquee%' then 'Hotels.com Native Marquee - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_Hotels.com: Infosite/Results L1%' then 'Hotels.com Infosite/Results L1 - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_Hotels.com Results R1%' then 'Hotels.com Results R1 - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_Hotels.com Home Page CT Banner%' then 'Hotels.com HomePage CT Banner - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_Expedia: Search Center Top%' then 'Expedia Search Center Top - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_Expedia: Results R1- Flights/Hotels/VacationsPKG%' then 'Expedia: Results R1 Flight/Hotels/PKG - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_Expedia: Results R1- Flights/Hotels/PKG%' then 'Expedia: Results R1 Flight/Hotels/PKG - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_EBP Premium%' then 'EBP Premium - OTA Base'
+      when ${placement} ilike 'Expedia_OTA Base_EBP Native Marquee%' then 'EBP Native Marquee - OTA Base'
+
+      when ${placement} ilike 'Expedia_Los Angeles_Hotels.com: Native Marquee%' then 'Hotels.com Native Marquee - Los Angeles'
+      when ${placement} ilike 'Expedia_Los Angeles_Hotels.com: Results R1%' then 'Hotels.com Results R1 -Los Angeles'
+      when ${placement} ilike 'Expedia_Los Angeles_Hotels.com Home Page CT Banner%' then 'Hotels.com HomePage CT Banner - Los Angeles'
+
+      when ${placement} ilike 'Expedia_Los Angeles_Expedia: Results R1- Hotels/Vacations/PKG%' then 'Expedia: Results R1 Flight/Hotels/PKG - Los Angeles'
+      when ${placement} ilike 'Expedia_Los Angeles_Expedia: Results R1- Flights/Hotels/PKG%' then 'Expedia: Results R1 Flight/Hotels/PKG - Los Angeles'
+      when ${placement} ilike 'Expedia_Los Angeles_EBP Premium%' then 'EBP Premium - Los Angeles'
+      when ${placement} ilike 'Expedia_Los Angeles_EBP Native Marquee%' then 'EBP Native Marquee - Los Angeles'
+
+      when ${placement} ilike 'Expedia_Disneyland/Anaheim_Travelocity: Expedia: Results R1%' then 'Travelocity Results R1 - Disneyland'
+      when ${placement} ilike 'Expedia_Disneyland/Anaheim_Hotels.com: ROS%' then 'Hotels.com ROS - Disneyland'
+      when ${placement} ilike 'Expedia_Disneyland/Anaheim_Hotels.com: Homepage Marquee%' then 'Hotels.com HomePage Marquee - Disneyland'
+      when ${placement} ilike 'Expedia_Disneyland/Anaheim_Expedia: Results R1/2 - Flights/Hotels/PKG%' then 'Expedia Results R1/2 - Flights/Hotels/PKG - Disneyland'
+      when ${placement} ilike 'Expedia_Disneyland/Anaheim_EBP Native Marquee%' then 'EBP Native Marquee - Disneyland'
+
+      when ${placement} ilike 'Expedia_Competitive Conquesting_Travelocity: Expedia: Results R1%' then 'Travelocity Results R1 - Competitive Conquesting'
+      when ${placement} ilike 'Expedia_Competitive Conquesting_Hotels.com: Results R1/2 - Flights/Hotels/PKG%' then 'Hotels.com: Results R1/2 - Flights/Hotels/PKG - Competitive Conquesting'
+      when ${placement} ilike 'Expedia_Competitive Conquesting_Expedia: Results R1- Flights/Hotels/PKG%' then 'Expedia Results R1 - Flights/Hotels/PKG - Competitive Conquesting'
+
+      when ${placement} ilike 'Expedia_Phoenix_Expedia: Flights/Hotels/Vacations/PKG Center Top%' then 'Expedia: Flights/Hotels/PKG Center Top - Phoenix'
+      when ${placement} ilike 'Expedia_Phoenix_EBP Premium%' then 'EBP Premium - Phoenix'
+      when ${placement} ilike 'Expedia_Phoenix_EBP Native Marquee%' then 'EBP Native Marquee - Phoenix'
+      when ${placement} ilike 'Expedia_Phoenix_Expedia: Flights/Hotels/Vacations/PKG R1%' then 'Expedia: Flights/Hotels/PKG R1 - Phoenix'
 
       when ${placement} ilike '%UK_High Impact Display%' then 'Off-Site High Impact Display'
       when ${placement} ilike '%UK_On Site High Impact Display%' then 'On-Site High Impact Display'
