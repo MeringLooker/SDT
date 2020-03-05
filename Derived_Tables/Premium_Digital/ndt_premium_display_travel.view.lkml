@@ -23,6 +23,11 @@ view: ndt_premium_display_travel {
         field: sdt_dcm_view.publisher
         value: "Travel + Leisure"
       }
+      filters: {
+        field: sdt_dcm_view.sdt_placement
+        value: "-T+L - Social Amplification"
+      }
+
     }
     datagroup_trigger: sdt_premium_digital_datagroup
     distribution_style: all

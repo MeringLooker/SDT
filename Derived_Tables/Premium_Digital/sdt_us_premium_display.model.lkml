@@ -3,6 +3,7 @@ connection: "mc_panoply"
 include: "*.view.lkml"
 include: "/Google_Analytics/*.view"
 include: "/DCM/*.view"
+include: "/Publisher_Passback/**/*.view"
 
 datagroup: sdt_premium_digital_datagroup {
   sql_trigger: SELECT current_date;;

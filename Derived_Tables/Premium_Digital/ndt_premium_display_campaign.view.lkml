@@ -4,6 +4,8 @@ view: ndt_premium_display_campaign {
           select * from ${ndt_premium_display_conde.SQL_TABLE_NAME}
           union
           select * from ${ndt_premium_display_travel.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_premium_display_socialamp.SQL_TABLE_NAME}
             ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
