@@ -350,15 +350,29 @@ view: sdt_dcm_view {
 
         when ${placement} ilike 'ABC Seattle LFV%' then 'Seattle'
         when ${placement} ilike 'ABC New York LFV%' then 'New York City'
+        when ${placement} ilike 'ABC New York SFV%' then 'New York City'
         when ${placement} ilike 'ABC Chicago LFV%' then 'Chicago'
         when ${placement} ilike 'ABC Chicago SFV%' then 'Chicago'
+        when ${placement} ilike 'ABC Phoenix SFV%' then 'Phoenix'
+        when ${placement} ilike 'ABC Phoenix LFV%' then 'Phoenix'
+        when ${placement} ilike 'ABC Dallas LFV%' then 'Dallas'
+        when ${placement} ilike 'ABC Sacramento SFV%' then 'Sacramento'
+        when ${placement} ilike 'ABC San Francisco SFV%' then 'San Francisco'
+        when ${placement} ilike 'ABC San Francisco LFV%' then 'San Francisco'
 
         when ${placement} ilike 'CBS Chicago Cross Platform%' then 'Chicago'
         when ${placement} ilike 'CBS National Cross Platform%' then 'National'
+        when ${placement} ilike 'CBS Dallas Cross Platform%' then 'Dallas'
         when ${placement} ilike 'CBS New York City Cross Platform%' then 'New York City'
         when ${placement} ilike 'CBS Seattle Cross Platform%' then 'Seattle'
+        when ${placement} ilike 'CBS San Francisco Cross Platform%' then 'San Francisco'
+        when ${placement} ilike 'CBS Sacramento Cross Platform%' then 'Sacramento'
+        when ${placement} ilike 'CBS Phoenix Cross Platform%' then 'Phoenix'
 
         when ${placement} ilike 'NBC Seattle Sports Live Streaming%' then 'Seattle'
+        when ${placement} ilike 'NBC Dallas Sports Live Streaming%' then 'Dallas'
+        when ${placement} ilike 'NBC Sacramento Sports Live Streaming%' then 'Sacramento'
+        when ${placement} ilike 'NBC Phoenix Sports Live Streaming%' then 'Phoenix'
         when ${placement} ilike 'NBC National Sports Live Streaming%' then 'National'
         when ${placement} ilike 'NBC Chicago Sports Live Streaming%' then 'Chicago'
         when ${placement} ilike 'NBC New York Sports Live Streaming%' then 'New York City'
@@ -434,6 +448,9 @@ view: sdt_dcm_view {
 
         when ${placement} ilike '%\\:30 Happy Today - Family' then 'Family'
         when ${placement} ilike '%\\:30 Happy Today - Brand' then 'Brand'
+
+        when ${placement_id} = '252934278' then 'Brand'
+        when ${placement_id} = '252937650' then 'Brand'
 
         when ${placement_id} = '252871376' then 'Brand'
         when ${placement_id} = '253303128' then 'Brand'
@@ -719,6 +736,7 @@ view: sdt_dcm_view {
         when ${placement_id} = '252871376' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '253301820' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '253217116' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252888799' then 'Happy Today (:30) - Brand'
 
         when ${placement_id} = '265518918' then 'Happy Today (:30) - Family'
         when ${placement_id} = '265518918' then 'Happy Today (:30) - Family'
@@ -730,6 +748,9 @@ view: sdt_dcm_view {
         when ${placement_id} = '252324173' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252868753' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252530312' then 'Happy Today (:30) - Brand'
+
+        when ${placement_id} = '252934278' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252937650' then 'Happy Today (:30) - Brand'
 
         when ${ad} ilike '%Torrey Pines Golf :60' then 'Torrey Pines Golf (:60)'
         when ${ad} ilike '%Coastal Yoga :60' then 'Coastal Yoga (:60)'
