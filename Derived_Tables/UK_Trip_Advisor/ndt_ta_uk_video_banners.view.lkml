@@ -30,6 +30,14 @@ view: ndt_ta_uk_video_banners {
     type: string
   }
 
+  dimension: pillar {
+    type: string
+  }
+
+  dimension: ad_size {
+    type: string
+  }
+
   dimension: date {
     type: date
   }

@@ -1,4 +1,4 @@
-view: ndt_ta_uk_audext_video {
+ view: ndt_ta_uk_audext_video {
   derived_table: {
     explore_source: sdt_dcm {
       column: layer {field: sdt_dcm_view.sdt_layer}
@@ -27,6 +27,14 @@ view: ndt_ta_uk_audext_video {
   }
 
   dimension: placement {
+    type: string
+  }
+
+  dimension: pillar {
+    type: string
+  }
+
+  dimension: ad_size {
     type: string
   }
 

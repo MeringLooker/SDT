@@ -16,3 +16,11 @@ explore: ndt_ta_uk_campaign {
   group_label: "San Diego Tourism"
   hidden: yes
 }
+
+explore: ndt_ta_uk_audext_video {
+  #persist_with: vca_dream365_datagroup
+  label: "audext video"
+  view_label: "audext video"
+  group_label: "San Diego Tourism"
+  hidden: yes
+}

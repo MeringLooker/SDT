@@ -25,7 +25,7 @@ derived_table: {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${layer}||'_'||${placement}||'_'||${pillar}||'_'||${ad_size}||'_'||${date} ;;
+    sql: ${layer}||'_'||${placement}||'_'||${pillar}||'_'||${ad_size}||'_'||${impressions}||'_'||${clicks}||'_'||${cost}||'_'||${views}||'_'||${completes}||'_'||${date} ;;
   }
 
 
@@ -198,5 +198,9 @@ derived_table: {
     label: "CPcV"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_completes}, 0) ;;
+  }
+
+  measure: count {
+    type: count
   }
 }
