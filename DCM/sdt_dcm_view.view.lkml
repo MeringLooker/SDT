@@ -106,6 +106,9 @@ view: sdt_dcm_view {
         when ${placement_id} = '254378150' then 'N/A'
         when ${placement_id} = '254378162' then 'N/A'
 
+        when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_Newsletters%' then 'Newsletter'
+        when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_High Impact Halo Unit%' then 'Halo Unit'
+
         when ${ad} ilike '%SDTA Content Hub Promotional Click Out%' then 'N/A'
 
       ELSE 'Uncategorized'
@@ -143,6 +146,7 @@ view: sdt_dcm_view {
         when ${site_dcm} ILIKE 'travelocity.ca/ca%' then 'Travelocity'
 
         when ${site_dcm} ILIKE 'TravelandLeisure' then 'Travel + Leisure'
+        when ${site_dcm} ILIKE 'Sunset%' then 'Sunset'
 
         ELSE ${site_dcm}
 
@@ -199,7 +203,6 @@ view: sdt_dcm_view {
         when ${placement} ilike 'TripAdvisor_Dynamic Video Banner - Storytelling%' then 'Storytelling'
         when ${placement} ilike 'TripAdvisor_DF Retargeting - Impact%' then 'Impact'
         when ${placement} ilike 'TripAdvisor_Destination Sponsorship - Impact%' then 'Impact'
-
 
         when ${placement_id} = '255163867' then 'Nano Traffic'
         when ${placement_id} = '255163873' then 'Nano Traffic'
@@ -324,6 +327,7 @@ view: sdt_dcm_view {
         when ${campaign} = '003220_01 FY18 Foundational Travel Intender Pull-Through Digital' then 'United States'
         when ${campaign} = '003076_01 FY18 San Diego Kids Free Digital' then 'United States'
         when ${campaign} = 'SDT: 004928_01 FY20 Family Content Campaign' then 'United States'
+        when ${campaign} = 'SDT: 004660_01 FY20 Balboa Park Campaign' then 'United States'
 
           ELSE 'Uncategorized'
       END;;
@@ -608,6 +612,10 @@ view: sdt_dcm_view {
       when ${placement} ilike 'Taboola_FY20 Family Content_Macro%' then 'Native :60 Video - Family Variety Seeker'
       when ${placement} ilike 'Taboola_FY20 Family Content_Micro%' then 'Native Static - Retargeting Macro'
       when ${placement} ilike 'Taboola_FY20 Family Content_Nano%' then 'Native Static - Retargeting Micro'
+
+      when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_Run of Site%' then 'Sunset.com Run of Site'
+      when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_Newsletters%' then 'Weekly Newsletters'
+      when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_High Impact Halo Unit%' then 'High Impact Halo Unit'
 
       else 'Uncategorized'
     end;;
