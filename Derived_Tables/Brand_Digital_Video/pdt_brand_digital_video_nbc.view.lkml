@@ -11,10 +11,11 @@ view: pdt_brand_digital_video_nbc {
       column: week {field: sdt_dcm_view.date_week}
       column: month {field: sdt_dcm_view.date_month}
       column: quarter {field: sdt_dcm_view.date_quarter}
-      column: total_impressions {field: sdt_fy20_digital_video_nbc.total_impressions}
-      column: total_views {field: sdt_fy20_digital_video_nbc.total_video_views}
-      column: total_completes {field: sdt_fy20_digital_video_nbc.total_video_completes}
-      column: total_cost {field: sdt_fy20_digital_video_nbc.total_media_cost}
+      column: total_impressions {field: sdt_fy20_digitalvideo_dcm_view.total_impressions}
+      column: total_clicks {field: sdt_fy20_digitalvideo_dcm_view.total_clicks}
+      column: total_views {field: sdt_fy20_digitalvideo_dcm_view.total_video_views}
+      column: total_completes {field: sdt_fy20_digitalvideo_dcm_view.total_video_completes}
+      column: total_cost {field: sdt_fy20_digitalvideo_dcm_view.total_media_cost}
 
       filters: {
         field: sdt_dcm_view.sdt_campaign

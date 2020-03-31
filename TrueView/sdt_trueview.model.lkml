@@ -5,5 +5,13 @@ include: "/Google_Analytics/*.view.lkml"
 
 explore: sdt_trueview_extended {
   extends: [sdt_trueview]
+  hidden: yes
+}
+
+explore: sdt_yt_extended {
+  extends: [sdt_yt]
   hidden: no
+  label: "YouTube"
+  view_label: "YouTube"
+  group_label: "San Diego Tourism"
 }

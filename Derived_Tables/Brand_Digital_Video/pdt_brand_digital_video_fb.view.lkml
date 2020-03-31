@@ -12,6 +12,7 @@ view: pdt_brand_digital_video_fb {
       column: month {field: sdt_fb_view.date_start_month}
       column: quarter {field: sdt_fb_view.date_start_quarter}
       column: total_impressions {field: sdt_fb_view.total_impressions}
+      column: total_clicks {field: sdt_fb_view.total_clicks}
       column: total_views {field: sdt_fb_view.total_thruplays}
       column: total_completes {field: sdt_fb_view.video_completes}
       column: total_cost {field: sdt_fb_view.total_spend}

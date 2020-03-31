@@ -361,6 +361,7 @@ view: sdt_dcm_view {
         when ${placement} ilike 'ABC Phoenix LFV%' then 'Phoenix'
         when ${placement} ilike 'ABC Dallas LFV%' then 'Dallas'
         when ${placement} ilike 'ABC Sacramento SFV%' then 'Sacramento'
+        when ${placement} ilike 'ABC Sacramento LFV%' then 'Sacramento'
         when ${placement} ilike 'ABC San Francisco SFV%' then 'San Francisco'
         when ${placement} ilike 'ABC San Francisco LFV%' then 'San Francisco'
 
@@ -380,6 +381,7 @@ view: sdt_dcm_view {
         when ${placement} ilike 'NBC National Sports Live Streaming%' then 'National'
         when ${placement} ilike 'NBC Chicago Sports Live Streaming%' then 'Chicago'
         when ${placement} ilike 'NBC New York Sports Live Streaming%' then 'New York City'
+        when ${placement} ilike 'NBC San Francisco Sports Live Streaming%' then 'New York City'
 
         when ${placement_id} ilike '252324176' then 'National'
         when ${placement_id} ilike '252324173' then 'National'
@@ -466,6 +468,7 @@ view: sdt_dcm_view {
         when ${placement_id} = '253225471' then 'Brand'
         when ${placement_id} = '253220767' then 'Brand'
         when ${placement_id} = '252868753' then 'Brand'
+        when ${placement_id} = '252937671' then 'Brand'
 
         when ${placement_id} = '265518918' then 'Family'
         when ${placement_id} = '265499293' then 'Family'
@@ -735,6 +738,7 @@ view: sdt_dcm_view {
         when ${placement_id} = '252530123' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252888028' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252888751' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252888157' then 'Happy Today (:30) - Brand'
 
         when ${placement_id} = '252875912' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '253220767' then 'Happy Today (:30) - Brand'
@@ -759,6 +763,7 @@ view: sdt_dcm_view {
 
         when ${placement_id} = '252934278' then 'Happy Today (:30) - Brand'
         when ${placement_id} = '252937650' then 'Happy Today (:30) - Brand'
+        when ${placement_id} = '252937671' then 'Happy Today (:30) - Brand'
 
         when ${ad} ilike '%Torrey Pines Golf :60' then 'Torrey Pines Golf (:60)'
         when ${ad} ilike '%Coastal Yoga :60' then 'Coastal Yoga (:60)'

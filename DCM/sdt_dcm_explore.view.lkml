@@ -17,40 +17,47 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
-  join: sdt_fy20_digital_video_cbs {
-    view_label: "FY20 Digital Video Passback - CBS"
+  join: sdt_fy20_digitalvideo_dcm_view {
+    view_label: "FY20 Digital Video Passback"
     type: inner
-    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_cbs.passback_join} ;;
+    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digitalvideo_dcm_view.passback_join} ;;
     relationship: many_to_one
   }
 
-  join: sdt_fy20_digital_video_hulu {
-    view_label: "FY20 Digital Video Passback - Hulu"
-    type: inner
-    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_hulu.passback_join} ;;
-    relationship: many_to_one
-  }
+#   join: sdt_fy20_digital_video_cbs {
+#     view_label: "FY20 Digital Video Passback - CBS"
+#     type: inner
+#     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_cbs.passback_join} ;;
+#     relationship: many_to_one
+#   }
 
-  join: sdt_fy20_digital_video_amobee {
-    view_label: "FY20 Digital Video Passback - Amobee"
-    type: inner
-    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_amobee.passback_join} ;;
-    relationship: many_to_one
-  }
+#   join: sdt_fy20_digital_video_hulu {
+#     view_label: "FY20 Digital Video Passback - Hulu"
+#     type: inner
+#     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_hulu.passback_join} ;;
+#     relationship: many_to_one
+#   }
 
-  join: sdt_fy20_digital_video_abc {
-    view_label: "FY20 Digital Video Passback - ABC"
-    type: inner
-    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_abc.passback_join} ;;
-    relationship: many_to_one
-  }
+#   join: sdt_fy20_digital_video_amobee {
+#     view_label: "FY20 Digital Video Passback - Amobee"
+#     type: inner
+#     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_amobee.passback_join} ;;
+#     relationship: many_to_one
+#   }
 
-  join: sdt_fy20_digital_video_nbc {
-    view_label: "FY20 Digital Video Passback - NBC"
-    type: inner
-    sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_nbc.passback_join} ;;
-    relationship: many_to_one
-  }
+#   join: sdt_fy20_digital_video_abc {
+#     view_label: "FY20 Digital Video Passback - ABC"
+#     type: inner
+#     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_abc.passback_join} ;;
+#     relationship: many_to_one
+#   }
+
+#   join: sdt_fy20_digital_video_nbc {
+#     view_label: "FY20 Digital Video Passback - NBC"
+#     type: inner
+#     sql_on: ${sdt_dcm_view.passback_join} = ${sdt_fy20_digital_video_nbc.passback_join} ;;
+#     relationship: many_to_one
+#   }
 
   join: sdt_fy20_content_stackadapt {
     view_label: "FY20 Always On Content Passback - StackAdapt"
