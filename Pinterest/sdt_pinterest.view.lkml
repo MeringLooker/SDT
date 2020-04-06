@@ -22,8 +22,24 @@ view: sdt_pinterest {
 
  dimension: publisher {
     type: string
-  group_label: "Pinterest Dimensions"
+      group_label: "Pinterest Dimensions"
     sql: 'Pinterest' ;;
+  }
+
+  dimension: ad_size {
+    type: string
+    group_label: "Pinterest Dimensions"
+    label: "Pin Size"
+    sql:
+      CASE
+        WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim_Standard%' then 'Standard Pin'
+        WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim_Carousels%' then 'Carousel Pin'
+
+        WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting_Carousels%' then 'Carousel Pin'
+        WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting_Standard%' then 'Standard Pin'
+        ELSE 'Uncategorized'
+        END
+        ;;
   }
 
   dimension: fiscal_year {

@@ -6,6 +6,7 @@ view: ndt_us_pullthrough_priceline {
       column: market {field: sdt_dcm_view.sdt_market}
       column: layer {field: sdt_dcm_view.sdt_layer}
       column: placement {field: sdt_dcm_view.sdt_placement}
+      column: ad_size {field: sdt_dcm_view.ad_size}
       column: date {field: sdt_dcm_view.date_date}
       column: week {field: sdt_dcm_view.date_week}
       column: month {field: sdt_dcm_view.date_month}
@@ -16,8 +17,8 @@ view: ndt_us_pullthrough_priceline {
       column: total_sessions {field: sdt_dcm_view.ga_sessions}
       column: total_session_duration {field: sdt_dcm_view.ga_total_session_duration}
       filters: {
-        field: sdt_dcm_view.sdt_campaign
-        value: "US Pull-Through"
+        field: sdt_dcm_view.campaign
+        value: "SDT: 004762_01 FY20 Pull-Through Campaign"
       }
       filters: {
         field: sdt_dcm_view.publisher

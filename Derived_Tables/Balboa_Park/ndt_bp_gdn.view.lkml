@@ -4,12 +4,10 @@ view: ndt_bp_gdn {
       column: publisher {field: sdt_gdn_view.publisher}
       column: campaign {field: sdt_gdn_view.sdt_campaign}
       column: placement {field: sdt_gdn_view.sdt_placement}
-      column: ad_size {field: sdt_gdn_view.sdt_layer}
-      column: placement {field: sdt_gdn_view.sdt_placement}
+      column: ad_size {field: sdt_gdn_view.ad_size}
       column: date {field: sdt_gdn_view.day_date}
       column: week {field: sdt_gdn_view.day_week}
       column: month {field: sdt_gdn_view.day_month}
-      column: quarter {field: sdt_gdn_view.day_quarter}
       column: total_impressions {field: sdt_gdn_view.total_impressions}
       column: total_clicks {field: sdt_gdn_view.total_clicks}
       column: total_cost {field: sdt_gdn_view.total_cost}
@@ -17,7 +15,7 @@ view: ndt_bp_gdn {
       column: total_session_duration {field: sdt_gdn_view.ga_total_session_duration}
       filters: {
         field: sdt_gdn_view.sdt_campaign
-        value: "US Pull-Through"
+        value: "Balboa Park Digital"
       }
     }
     datagroup_trigger: sdt_bp_datagroup
@@ -33,10 +31,6 @@ view: ndt_bp_gdn {
   }
 
   dimension: market {
-    type: string
-  }
-
-  dimension: layer {
     type: string
   }
 

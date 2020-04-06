@@ -3,6 +3,7 @@ connection: "mc_panoply"
 include: "*.view.lkml"
 include: "/Google_Analytics/*.view"
 include: "/DCM/*.view"
+include: "/AdWords/*.view"
 include: "/Publisher_Passback/**/*.view"
 
 datagroup: sdt_bp_datagroup {

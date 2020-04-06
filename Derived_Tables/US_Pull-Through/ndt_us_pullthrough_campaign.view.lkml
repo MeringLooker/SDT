@@ -31,7 +31,7 @@ view: ndt_us_pullthrough_campaign {
     type: string
     hidden: no
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${ad_size}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -65,6 +65,12 @@ view: ndt_us_pullthrough_campaign {
     type: string
     drill_fields: [date,week,month,quarter]
     sql: ${TABLE}.placement ;;
+  }
+
+  dimension: ad_size {
+    type: string
+    drill_fields: [date,week,month,quarter]
+    sql: ${TABLE}.ad_size ;;
   }
 
   dimension: fiscal_year {

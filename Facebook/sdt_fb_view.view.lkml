@@ -57,6 +57,36 @@ view: sdt_fb_view {
     drill_fields: [campaign_name]
   }
 
+  dimension: ad_type {
+    type: string
+    group_label: "Facebook Dimensions"
+    label: "Ad Type"
+    sql:
+      CASE
+        WHEN ${ad_name} ilike '%SingleImage%' then 'Single Image'
+        WHEN ${ad_name} ilike '%Carousel%' then 'Carousel'
+        WHEN ${ad_name} ilike '%Story%' then 'Story'
+        WHEN ${ad_name} ilike '%Phase2\\_Single' then 'Single Image'
+        WHEN ${ad_name} ilike '%ActivePlanning\\_Phase1' then 'Single Image'
+        WHEN ${ad_name} ilike '%FBTarget\\_Phase1' then 'Single Image'
+        ELSE 'Uncategorized'
+        END
+        ;;
+  }
+
+  dimension: ad_size {
+    type: string
+    group_label: "Facebook Dimensions"
+    label: "Ad Size"
+    sql:
+      CASE
+        WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough%' then 'Landscape Image'
+
+        ELSE 'Uncategorized'
+        END
+        ;;
+  }
+
   dimension: sdt_market {
     label: "Market"
     group_label: "Client Dimensions"

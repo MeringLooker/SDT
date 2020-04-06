@@ -1,7 +1,9 @@
 view: ndt_bp_campaign {
   derived_table: {
     sql:
-          select * from ${ndt_bp_sunset.SQL_TABLE_NAME}
+        select * from ${ndt_bp_sunset.SQL_TABLE_NAME}
+          union
+        select * from ${ndt_bp_gdn.SQL_TABLE_NAME}
             ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all

@@ -6,6 +6,7 @@ view: ndt_us_pullthrough_fb {
       column: market {field: sdt_fb_view.sdt_market}
       column: layer {field: sdt_fb_view.sdt_layer}
       column: placement {field: sdt_fb_view.sdt_placement}
+      column: ad_size {field: sdt_fb_view.ad_size}
       column: date {field: sdt_fb_view.date_start_date}
       column: week {field: sdt_fb_view.date_start_week}
       column: month {field: sdt_fb_view.date_start_month}

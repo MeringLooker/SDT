@@ -6,6 +6,7 @@ view: ndt_us_pullthrough_pinterest {
       column: market { field: sdt_pinterest.sdt_market }
       column: layer { field: sdt_pinterest.sdt_layer }
       column: placement { field: sdt_pinterest.sdt_placement }
+      column: ad_size { field: sdt_pinterest.ad_size }
       column: date { field: sdt_pinterest.date_date }
       column: week { field: sdt_pinterest.date_week }
       column: month { field: sdt_pinterest.date_month }

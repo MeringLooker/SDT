@@ -24,6 +24,11 @@ view: sdt_fy20_us_pullthrough_adroll {
     sql: 'AdRoll' ;;
   }
 
+  dimension: ad_size {
+    type: string
+    sql: 'Social Ad' ;;
+  }
+
   dimension: sdt_campaign {
     type: string
     group_label: "Client Dimensions"

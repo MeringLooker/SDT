@@ -65,6 +65,20 @@ view: sdt_gdn_view {
       ;;
   }
 
+  dimension: ad_size {
+    type: string
+    label: "Ad Size"
+    group_label: "AdWords Dimensions"
+    sql:
+      case
+        when ${campaign} = 'SDTA - Balboa - Cultural VS - GDN Responsive' then 'Responsive Display'
+        when ${campaign} = 'SDTA - Balboa - Retargeting - GDN Responsive' then 'Responsive Display'
+        when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Responsive Display'
+        else null
+        end
+      ;;
+  }
+
   dimension: publisher {
     type: string
     label: "Publisher"
@@ -85,6 +99,7 @@ view: sdt_gdn_view {
         when ${account} = 'SDTA Content GDN US' then 'United States'
         when ${account} = 'SDTA Content GDN PHX' then 'United States'
         when ${account} = 'SDTA Content GDN LA' then 'United States'
+        when ${account} = 'SDTA Balboa Park GDN' then 'United States'
 
         ELSE 'Uncategorized'
         end
@@ -178,6 +193,8 @@ view: sdt_gdn_view {
         when ${campaign_id} = '1382958146' then 'Always On Content'
         when ${campaign_id} = '1382957996' then 'Always On Content'
 
+        when ${account} = 'SDTA Balboa Park GDN' then 'Balboa Park Digital'
+
         ELSE 'Uncategorized'
         end
         ;;
@@ -239,6 +256,9 @@ view: sdt_gdn_view {
         when ${campaign} = 'SDTA - UK - Impressions - GDN Display - FY19' then 'Static Display'
 
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Responsive Display'
+
+        when ${campaign} = 'SDTA - Balboa - Cultural VS - GDN Responsive' then 'Responsive Display - Cultural Variety Seeker'
+        when ${campaign} = 'SDTA - Balboa - Retargeting - GDN Responsive' then 'Responsive Display - Website Retargeting'
 
 
 

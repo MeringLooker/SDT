@@ -69,6 +69,13 @@ view: sdt_dcm_view {
         when ${placement} ilike '%\\_970x90' then '970x90'
         when ${placement} ilike '%\\_1320x742' then '1320x742'
         when ${placement} ilike '%\\_2560x500' then '2560x500'
+        when ${placement} ilike '%\\_474x250' then '474x250'
+
+        when ${placement} ilike '%\\_491x872' then '491x872'
+        when ${placement} ilike '%\\_990x1320' then '990x1320'
+
+        when ${placement} ilike '%Native Desktop Inline Ad%' then 'Inline Ad'
+        when ${placement} ilike '%Native Mobile Inline Ad%' then 'Inline Ad'
 
         when ${placement} ilike '%Halo Desktop/Tablet%' then 'Halo'
         when ${placement} ilike '%Halo Mobile%' then 'Halo'
@@ -381,7 +388,7 @@ view: sdt_dcm_view {
         when ${placement} ilike 'NBC National Sports Live Streaming%' then 'National'
         when ${placement} ilike 'NBC Chicago Sports Live Streaming%' then 'Chicago'
         when ${placement} ilike 'NBC New York Sports Live Streaming%' then 'New York City'
-        when ${placement} ilike 'NBC San Francisco Sports Live Streaming%' then 'New York City'
+        when ${placement} ilike 'NBC San Francisco Sports Live Streaming%' then 'San Francisco'
 
         when ${placement_id} ilike '252324176' then 'National'
         when ${placement_id} ilike '252324173' then 'National'

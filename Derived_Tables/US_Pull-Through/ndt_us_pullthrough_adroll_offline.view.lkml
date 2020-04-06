@@ -6,6 +6,7 @@ view: ndt_us_pullthrough_adroll_offline {
       column: market {field: sdt_fy20_us_pullthrough_adroll.sdt_market}
       column: layer {field: sdt_fy20_us_pullthrough_adroll.sdt_layer}
       column: placement {field: sdt_fy20_us_pullthrough_adroll.sdt_placement}
+      column: ad_size {field: sdt_fy20_us_pullthrough_adroll.ad_size}
       column: date {field: sdt_fy20_us_pullthrough_adroll.day_date}
       column: week {field: sdt_fy20_us_pullthrough_adroll.day_week}
       column: month {field: sdt_fy20_us_pullthrough_adroll.day_month}

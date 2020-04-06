@@ -6,6 +6,7 @@ view: ndt_us_pullthrough_gdn {
       column: market {field: sdt_gdn_view.sdt_market}
       column: layer {field: sdt_gdn_view.sdt_layer}
       column: placement {field: sdt_gdn_view.sdt_placement}
+      column: ad_size {field: sdt_gdn_view.ad_size}
       column: date {field: sdt_gdn_view.day_date}
       column: week {field: sdt_gdn_view.day_week}
       column: month {field: sdt_gdn_view.day_month}
