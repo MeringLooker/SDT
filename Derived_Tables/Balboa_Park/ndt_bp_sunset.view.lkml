@@ -8,9 +8,9 @@ view: ndt_bp_sunset {
       column: date {field: sdt_dcm_view.date_date}
       column: week {field: sdt_dcm_view.date_week}
       column: month {field: sdt_dcm_view.date_month}
-      column: total_impressions {field: sdt_dcm_view.total_impressions}
-      column: total_clicks {field: sdt_dcm_view.total_clicks}
-      column: total_cost {field: sdt_dcm_view.total_media_cost}
+      column: total_impressions {field: sdt_fy20_balboapark_sunset.total_impressions}
+      column: total_clicks {field:sdt_fy20_balboapark_sunset.total_clicks}
+      column: total_cost {field: sdt_fy20_balboapark_sunset.total_media_cost}
       column: total_sessions {field: sdt_dcm_view.ga_sessions}
       column: total_session_duration {field: sdt_dcm_view.ga_total_session_duration}
       filters: {
