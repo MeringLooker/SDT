@@ -15,8 +15,8 @@ view: pdt_content_gdn {
       column: total_views {field: sdt_gdn_view.total_views}
       column: total_completes {field: sdt_gdn_view.total_completes}
       column: total_cost {field: sdt_gdn_view.total_cost}
-      column: total_sessions {field: sdt_gdn_view.ga_sessions}
-      column: total_session_duration {field: sdt_gdn_view.ga_total_session_duration}
+      column: total_sessions {field: sdt_gdn_view.total_sessions}
+      column: total_session_duration {field: sdt_gdn_view.total_session_duration}
       filters: {
         field: sdt_gdn_view.sdt_campaign
         value: "Always On Content"

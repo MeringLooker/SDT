@@ -5,12 +5,6 @@ include: "/Google_Analytics/**/*.view"
 explore: sdt_sem {
   hidden: yes
   view_name: sdt_sem_view
-#   always_filter: {
-#     filters: {
-#       field: advertising_channel
-#       value: "Search"
-#     }
-#   }
   label: "AdWords Search"
   view_label: "AdWords Search"
   group_label: "San Diego Tourism"
