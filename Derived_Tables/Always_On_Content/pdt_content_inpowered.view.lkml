@@ -6,6 +6,9 @@ view: pdt_content_inpowered {
     column: market {field: sdt_dcm_view.sdt_market}
     column: region {field: sdt_dcm_view.sdt_region}
     column: layer {field: sdt_dcm_view.sdt_layer}
+    column: placement {field: sdt_dcm_view.sdt_placement}
+    column: pillar {field: sdt_dcm_view.sdt_pillar}
+    column: creative_name {field: sdt_dcm_view.creative_name}
     column: date {field: sdt_dcm_view.date_date}
     column: week {field: sdt_dcm_view.date_week}
     column: month {field: sdt_dcm_view.date_month}

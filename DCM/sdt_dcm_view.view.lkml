@@ -627,9 +627,34 @@ view: sdt_dcm_view {
       when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_Newsletters%' then 'Weekly Newsletters'
       when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_High Impact Halo Unit%' then 'High Impact Halo Unit'
 
+      when ${placement} ilike 'inPowered_Native_Nano%' then 'Native Traffic - Nano'
+      when ${placement_id} = '255163489' then 'Native Traffic - Micro'
+      when ${placement_id} = '255163492' then 'Native Traffic - Micro'
+      when ${placement_id} = '255163495' then 'Native Traffic - Micro'
+      when ${placement_id} = '255163510' then 'Native Video - Macro Outdoor'
+      when ${placement_id} = '255163522' then 'Native Video - Macro Outdoor'
+      when ${placement_id} = '255163534' then 'Native Video - Macro Outdoor'
+      when ${placement_id} = '255163516' then 'Native Video - Macro NonOutdoor'
+      when ${placement_id} = '255163528' then 'Native Video - Macro NonOutdoor'
+      when ${placement_id} = '255163540' then 'Native Video - Macro NonOutdoor'
+      when ${placement_id} = '255163888' then 'Native Video - Macro NonOutdoor'
+      when ${placement_id} = '255163513' then 'Native Traffic - Macro Outdoor'
+      when ${placement_id} = '255163525' then 'Native Traffic - Macro Outdoor'
+      when ${placement_id} = '255163537' then 'Native Traffic - Macro Outdoor'
+      when ${placement_id} = '255163882' then 'Native Traffic - Macro Outdoor'
+      when ${placement_id} = '255163519' then 'Native Traffic - Macro NonOutdoor'
+      when ${placement_id} = '255163531' then 'Native Traffic - Macro NonOutdoor'
+      when ${placement_id} = '255163543' then 'Native Traffic - Macro NonOutdoor'
+
+      when ${placement} ilike 'StackAdapt_FY20 AlwaysOnContent_Macro_Outdoor%' then 'Native Video - Macro Outdoor'
+      when ${placement} ilike 'StackAdapt_FY20 AlwaysOnContent_Macro_NonOutdoor%' then 'Native Video - Macro NonOutdoor'
+      when ${placement} ilike 'StackAdapt_FY20 AlwaysOnContent_Micro%' then 'Native Video - Micro Mixed'
+
       else 'Uncategorized'
     end;;
 }
+
+
 
   dimension: sdt_pillar {
     type: string
@@ -713,6 +738,22 @@ view: sdt_dcm_view {
         when ${placement} ilike '%Impressions_Neighborhoods' then 'Neighborhoods'
         when ${placement} ilike '%Impressions_Culinary' then 'Culinary'
         when ${placement} ilike '%Impressions_Attractions' then 'Attractions'
+
+        when ${placement} ilike 'inPowered_Native_Nano%' then 'N/A'
+      when ${placement_id} = '255163510' then 'Outdoor'
+      when ${placement_id} = '255163522' then 'Outdoor'
+      when ${placement_id} = '255163534' then 'Outdoor'
+      when ${placement_id} = '255163516' then 'NonOutdoor'
+      when ${placement_id} = '255163528' then 'NonOutdoor'
+      when ${placement_id} = '255163540' then 'NonOutdoor'
+      when ${placement_id} = '255163888' then 'NonOutdoor'
+      when ${placement_id} = '255163513' then 'Outdoor'
+      when ${placement_id} = '255163525' then 'Outdoor'
+      when ${placement_id} = '255163537' then 'Outdoor'
+      when ${placement_id} = '255163882' then 'Outdoor'
+      when ${placement_id} = '255163519' then 'NonOutdoor'
+      when ${placement_id} = '255163531' then 'NonOutdoor'
+      when ${placement_id} = '255163543' then 'NonOutdoor'
 
           ELSE 'Uncategorized'
       END;;

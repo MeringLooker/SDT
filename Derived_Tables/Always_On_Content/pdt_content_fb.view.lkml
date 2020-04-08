@@ -6,6 +6,9 @@ view: pdt_content_fb {
       column: market {field: sdt_fb_view.sdt_market}
       column: region {field: sdt_fb_view.sdt_region}
       column: layer {field: sdt_fb_view.sdt_layer}
+      column: placement {field: sdt_fb_view.sdt_placement}
+      column: pillar {field: sdt_fb_view.sdt_pillar}
+      column: creative_name {field: sdt_fb_view.creative_name}
       column: date {field: sdt_fb_view.date_start_date}
       column: week {field: sdt_fb_view.date_start_week}
       column: month {field: sdt_fb_view.date_start_month}

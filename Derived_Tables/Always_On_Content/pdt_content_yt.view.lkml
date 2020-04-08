@@ -6,6 +6,9 @@ view: pdt_content_yt {
       column: market {field: sdt_quartiles_yt_view.sdt_market}
       column: region {field: sdt_quartiles_yt_view.sdt_region}
       column: layer {field: sdt_quartiles_yt_view.sdt_layer}
+      column: placement {field: sdt_quartiles_yt_view.sdt_placement}
+      column: pillar {field: sdt_quartiles_yt_view.sdt_pillar}
+      column: creative_name {field: sdt_quartiles_yt_view.creative_name}
       column: date {field: sdt_quartiles_yt_view.day_date}
       column: week {field: sdt_quartiles_yt_view.day_week}
       column: month {field: sdt_quartiles_yt_view.day_month}

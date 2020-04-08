@@ -24,7 +24,7 @@ view: pdt_content_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${region}||'_'||${layer}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${region}||'_'||${layer}||'_'||${placement}||'_'||${pillar}||'_'||${creative_name}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -57,6 +57,21 @@ view: pdt_content_campaign {
     type: string
     drill_fields: [region,publisher,week,month]
     sql: ${TABLE}.layer ;;
+  }
+
+  dimension: placement {
+    type: string
+    sql: ${TABLE}.placement ;;
+  }
+
+  dimension: pillar {
+    type: string
+    sql: ${TABLE}.pillar ;;
+  }
+
+  dimension: creative_name {
+    type: string
+    sql: ${TABLE}.creative_name ;;
   }
 
   dimension: fiscal_year {
@@ -175,6 +190,7 @@ view: pdt_content_campaign {
     type: sum_distinct
     sql_distinct_key: ${primary_key} ;;
     sql: ${completes} ;;
+    value_format_name: decimal_0
   }
 
   measure: total_cost {
@@ -182,6 +198,22 @@ view: pdt_content_campaign {
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
+  }
+
+  measure: view_rate {
+    type: number
+    drill_fields: [publisher,layer,week,month,quarter]
+    label: "View Rate"
+    sql: 1.0*${total_views}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: completion_rate {
+    type: number
+    drill_fields: [publisher,layer,week,month,quarter]
+    label: "Completion Rate"
+    sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
   }
 
   measure: cost_per_thousand {
@@ -199,6 +231,13 @@ view: pdt_content_campaign {
     sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
   }
 
+  measure: cost_per_view {
+    type: number
+    label: "CPV"
+    value_format_name: usd
+    sql: ${total_cost}/nullif(${total_views}, 0) ;;
+  }
+
   measure: total_sessions {
     type: sum_distinct
     sql_distinct_key: ${primary_key} ;;
@@ -214,6 +253,7 @@ view: pdt_content_campaign {
 
   measure: total_session_duration {
     type: sum_distinct
+    hidden: yes
     sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
   }

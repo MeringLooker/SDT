@@ -233,7 +233,36 @@ view: sdt_gdn_view {
         when ${campaign} = 'SDTA - Balboa - Cultural VS - GDN Responsive' then 'Responsive Display - Cultural Variety Seeker'
         when ${campaign} = 'SDTA - Balboa - Retargeting - GDN Responsive' then 'Responsive Display - Website Retargeting'
 
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Nano_GDN%' then 'Responsive Display - Retargeting'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Outdoor%' then 'Responsive Display - Micro Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Neighborhood%' then 'Responsive Display - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Culinary%' then 'Responsive Display - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Attractions%' then 'Responsive Display - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_Outdoor%' then 'Responsive Display - Macro Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor%' then 'Responsive Display - Macro NonOutdoor'
 
+        ELSE 'Uncategorized'
+        end
+        ;;
+  }
+
+  dimension: sdt_pillar {
+    type: string
+    label: "Pillar"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Nano_GDN%' then 'N/A'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Outdoor%' then 'Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Neighborhood%' then 'Neighborhood'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Culinary%' then 'Culinary'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Attractions%' then 'Attractions'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_Outdoor%' then 'Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor_Neighborhood%' then 'Neighborhood'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor_Culinary%' then 'Culinary'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor_Attractions%' then 'Attractions'
+
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor%' then 'Non-Outdoor'
 
         ELSE 'Uncategorized'
         end

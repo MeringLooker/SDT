@@ -297,6 +297,23 @@ view: sdt_fb_view {
         when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SeaWorld_SingleImage%' then 'Single Image - Macro Retargeting'
         when ${ad_name} ilike 'SDT_FY20_FamilyContent_Micro_Conversions_SeaWorld_Carousel%' then 'Carousel - Macro Retargeting'
 
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'Traffic - Nano'
+
+        when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Attractions%' then 'Traffic - Micro NonOutdoor'
+        when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Neighborhood%' then 'Traffic - Micro NonOutdoor'
+        when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Culinary%' then 'Traffic - Micro NonOutdoor'
+        when ${adset_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Conversions_Outdoor%' then 'Traffic - Micro Outdoor'
+
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Outdoor%' then 'Video - Macro Outdoor'
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_NonOutdoor%' then 'Video - Macro NonOutdoor'
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Neighborhood%' then 'Video - Macro NonOutdoor'
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Culinary%' then 'Video - Macro NonOutdoor'
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Attractions%' then 'Video - Macro NonOutdoor'
+
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Conversions_Outdoor%' then 'Traffic - Macro Outdoor'
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Conversions_NonOutdoor%' then 'Traffic - Macro NonOutdoor'
+
+
         else 'Uncategorized'
         end
         ;;
@@ -430,6 +447,11 @@ view: sdt_fb_view {
 
         when ${ad_name} ilike '%Neighborhood_TA_OldTown_60Seconds_Landscape w/TA' then 'Old Town Mexican (w/ TA) (:60) - Landscape'
         when ${ad_name} ilike '%Neighborhood_TA_OldTown_60Seconds_Landscape w/oTA' then 'Old Town Mexican (w/o TA) (:60) - Landscape'
+
+        when ${ad_name} ilike '%Outdoor_OBI_TorreyPinesGolf_15seconds' then 'Torrey Pines Golf (:15)'
+        when ${ad_name} ilike '%Outdoor_OBI_TorreyPinesGolf_60seconds' then 'Torrey Pines Golf (:60)'
+        when ${ad_name} ilike '%Culinary_DH_Azucar_15seconds' then 'Azucar (:15)'
+        when ${ad_name} ilike '%Culinary_DH_Azucar_30seconds' then 'Azucar (:30)'
 
         when ${ad_name} ilike '%Slideshow_Outdoor_WhaleWatching' then 'Whale Watching Slideshow'
         when ${ad_name} ilike '%Slideshow_Outdoor_Sunny7_Sunsets' then 'Sunsets Slideshow'

@@ -6,6 +6,9 @@ view: pdt_content_pinterest {
       column: market { field: sdt_pinterest.sdt_market }
       column: region { field: sdt_pinterest.sdt_region }
       column: layer { field: sdt_pinterest.sdt_layer }
+      column: placement { field: sdt_pinterest.sdt_placement }
+      column: pillar { field: sdt_pinterest.sdt_pillar }
+      column: creative_name { field: sdt_pinterest.creative_name }
       column: date { field: sdt_pinterest.date_date }
       column: week { field: sdt_pinterest.date_week }
       column: month { field: sdt_pinterest.date_month }

@@ -154,6 +154,19 @@ view: sdt_pinterest {
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim_Carousels%' then 'Carousel Pins'
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim_Standard%' then 'Standard Pins'
 
+        when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Nano_Traffic%' then 'Standard Pins - Nano Traffic'
+
+        when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Traffic_Outdoor%' then 'Standard Pins - Micro Outdoor Traffic'
+        when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Traffic_Neighborhood%' then 'Standard Pins - Micro NonOutdoor Traffic'
+        when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Traffic_Attractions%' then 'Standard Pins - Micro NonOutdoor Traffic'
+        when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Micro_Traffic_Culinary%' then 'Standard Pins - Micro NonOutdoor Traffic'
+
+        when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Traffic_Outdoor%' then 'Standard Pins - Macro Outdoor Traffic'
+        when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Traffic_NonOutdoor%' then 'Standard Pins - Macro NonOutdoor Traffic'
+
+
+
+
       else 'Uncategorized'
     end;;
 
@@ -198,12 +211,15 @@ view: sdt_pinterest {
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_WhaleWatching%' then 'Whale Watching'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_WaterSports%' then 'Water Sports'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_Sunsets%' then 'Sunsets'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunsets%' then 'Sunsets'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Splash%' then 'Water Sports'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_ScenicHighway%' then 'Scenic Highway'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_ScenicHighway%' then 'Scenic Highway'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sailing%' then 'Sailing'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Play%' then 'Play'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_MelesFaves%' then 'Mele''s Faves'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_MakeASplash%' then 'Make A Splash'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_MakeASplash%' then 'Make A Splash'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_LaJollaKayak%' then 'La Jolla Kayak'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_HistoricHighway101%' then 'Historic Highway 101'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_Explore%' then 'Explore'
@@ -215,6 +231,7 @@ view: sdt_pinterest {
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_BoatRides%' then 'Boat Rides'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_BayshoreBikeway%' then 'Bayshore Bikeway'
         when ${promoted_pin_name} ilike '%Flight1_Outdoor_G2GS_AlanasFaves%' then 'Alana''s Faves'
+        when ${promoted_pin_name} ilike '%Flight1_Outdoor_AlanasFaves%' then 'Alana''s Faves'
 
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_UTC%' then 'UTC'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_SoCalVibe%' then 'SoCal Vibe'
@@ -224,11 +241,15 @@ view: sdt_pinterest {
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_MissionBay%' then 'Mission Bay'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_LittleItaly%' then 'Little Italy'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Kensington%' then 'Kensington'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Sunny7_Kensignton%' then 'Kensington'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Sunny7_Kensington%' then 'Kensington'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Gaslamp%' then 'Gaslamp'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_DiveIne%' then 'Dive In'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_CharasmaticNeighborhoods%' then 'Charismatic Neighborhoods'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_Sunny7_CharasmaticNeighborhoods%' then 'Charismatic Neighborhoods'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_CharismaticNeighborhoods%' then 'Charismatic Neighborhoods'
         when ${promoted_pin_name} ilike '%Flight1_Neighborhood_BarrioLogan%' then 'Barrio Logan'
+        when ${promoted_pin_name} ilike '%Flight1_Neighborhood_LaJolla%' then 'La Jolla'
 
         when ${promoted_pin_name} ilike '%Flight1_Culinary_TacoJoints%' then 'Taco Joints'
         when ${promoted_pin_name} ilike '%Flight1_Culinary_FiresideMeal%' then 'Fireside Meal'
@@ -239,12 +260,17 @@ view: sdt_pinterest {
         when ${promoted_pin_name} ilike '%Flight1_Culinary_BestBurgers%' then 'Best Burgers'
         when ${promoted_pin_name} ilike '%Flight1_Culinary_BarrioDogg%' then 'Barrio Dogg'
         when ${promoted_pin_name} ilike '%Flight1_Culinary_AwardWinningChefs%' then 'Award-Winning Chefs'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_AwardWinning%' then 'Award-Winning Chefs'
         when ${promoted_pin_name} ilike '%Flight1_Culinary_Animae%' then 'Animae'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_Sunny7_RooftopRestaurants%' then 'Rooftop Restaurants'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_Sunny7_FemalePowerhouses%' then 'Female Powerhouses'
+        when ${promoted_pin_name} ilike '%Flight1_Culinary_Sunny7_DiningExperiences%' then 'Dining Experiences'
         when ${promoted_pin_name} ilike '%Flight1_Culinary_KillerTacos%' then 'Killer Tacos'
 
         when ${promoted_pin_name} ilike '%Flight1_Attractions_Learn%' then 'Learn'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_HistoryAdventures%' then 'History Adventures'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_HiddenGems%' then 'Hidden Gems'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_Sunny7_HiddenGems%' then 'Hidden Gems'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_GoBig%' then 'Go Big'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_OldTown%' then 'OldTown'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_FamilyTravel%' then 'Family Travel'
@@ -252,11 +278,15 @@ view: sdt_pinterest {
         when ${promoted_pin_name} ilike '%Flight1_Attractions_Embark%' then 'Embark'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_Embarcadero%' then 'Embarcadero'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_BehindTheScenesTours%' then 'Behind The Scenes Tours'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_Sunny7_BehindTheScenesTours%' then 'Behind The Scenes Tours'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_BalboaParkCulturalHeart%' then 'Balboa Park Cultural Heart'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_AwesomeViewpoints%' then 'Awesome Viewpoints'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_ArchitectureWonders%' then 'Architecture Wonders'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_7NaturalWonders%' then '7 Natural Wonders'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_MaritimeHeritage%' then 'Maritime Heritage'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_AwesomeAttractions%' then 'Awesome Attractions'
         when ${promoted_pin_name} ilike '%Flight1_Attractions_59MileScenicDrive%' then '59 Mile Scenic Drive'
+        when ${promoted_pin_name} ilike '%Flight1_Attractions_BalboaParkTours%' then 'Balboa Park Tours'
 
         else 'Uncategorized'
       end;;
@@ -324,6 +354,12 @@ view: sdt_pinterest {
     sql: ${TABLE}.campaign_name ;;
   }
 
+  dimension: campaign_objective {
+    type: string
+    group_label: "Pinterest Dimensions"
+    sql: ${TABLE}.campaign_objective ;;
+  }
+
   dimension_group: date {
     type: time
     label: ""
@@ -338,6 +374,72 @@ view: sdt_pinterest {
       year
     ]
     sql: ${TABLE}.date ;;
+  }
+
+  dimension: earned_clicks {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.earned_clicks ;;
+  }
+
+  dimension: earned_impressions {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.earned_impressions ;;
+  }
+
+  dimension: earned_saves {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.earned_saves ;;
+  }
+
+  dimension: earned_video_views {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.earned_video_views ;;
+  }
+
+  dimension: earned_views_at_100 {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.earned_views_at_100 ;;
+  }
+
+  dimension: lead_conversions {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.lead_conversions ;;
+  }
+
+  dimension: paid_clicks {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.paid_clicks ;;
+  }
+
+  dimension: paid_impressions {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.paid_impressions ;;
+  }
+
+  dimension: paid_saves {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.paid_saves ;;
+  }
+
+  dimension: paid_video_views {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.paid_video_views ;;
+  }
+
+  dimension: paid_views_at_100 {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.paid_views_at_100 ;;
   }
 
   dimension: pin_description {
@@ -436,11 +538,11 @@ view: sdt_pinterest {
     sql: ${TABLE}.total_views_at_95 ;;
   }
 
-### All measures go below ###
+  #### All Measures go Below ###
 
   measure: total_spend {
     type: sum_distinct
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql_distinct_key: ${id} ;;
     sql: ${spend} ;;
     value_format_name: usd
@@ -448,14 +550,14 @@ view: sdt_pinterest {
 
   measure: total_impressions {
     type: sum_distinct
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql_distinct_key: ${id} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql_distinct_key: ${id} ;;
     sql: ${clicks} ;;
   }
@@ -463,7 +565,7 @@ view: sdt_pinterest {
   measure: click_through_rate  {
     label: "CTR"
     type: number
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql: ${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
   }
@@ -471,7 +573,7 @@ view: sdt_pinterest {
   measure: cost_per_click {
     label: "CPC"
     type: number
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql: ${total_spend}/nullif(${total_clicks}, 0) ;;
     value_format_name: usd
   }
@@ -479,20 +581,35 @@ view: sdt_pinterest {
   measure: cost_per_thousand  {
     label: "CPM"
     type: number
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql: ${total_spend}/nullif(${total_impressions}/1000, 0) ;;
     value_format_name: usd
   }
 
   measure: total_conversions {
     type: sum_distinct
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     sql_distinct_key: ${id} ;;
     sql: ${conversions} ;;
   }
 
+  measure: total_lead_conversions {
+    type: sum_distinct
+    group_label: "Total Delivery"
+    sql_distinct_key: ${id} ;;
+    sql: ${lead_conversions} ;;
+  }
+
+  measure: lead_conversion_rate  {
+    label: "Lead Conversion Rate"
+    type: number
+    group_label: "Total Delivery"
+    sql: ${total_lead_conversions}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
   measure: total_saves {
-    group_label: "Pinterest Delivery"
+    group_label: "Total Delivery"
     type: sum_distinct
     sql_distinct_key: ${id} ;;
     sql: ${saves} ;;
@@ -500,51 +617,203 @@ view: sdt_pinterest {
 
   measure: total_video_starts {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${video_starts} ;;
   }
 
   measure: total_video_views {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${video_views} ;;
   }
 
+  measure: total_view_rate  {
+    label: "View Rate"
+    type: number
+    group_label: "Total Video Metrics"
+    sql: ${total_video_views}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: total_completion_rate  {
+    label: "VCR"
+    type: number
+    group_label: "Total Video Metrics"
+    sql: ${total_views_at_100}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
   measure: total_views_at_100 {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${views_at_100} ;;
   }
 
   measure: total_views_at_25 {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${views_at_25} ;;
   }
 
   measure: total_views_at_50 {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${views_at_50} ;;
   }
 
   measure: total_views_at_75 {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${views_at_75} ;;
   }
 
   measure: total_views_at_95 {
     type: sum_distinct
-    group_label: "Video Metrics"
+    group_label: "Total Video Metrics"
     sql_distinct_key: ${id} ;;
     sql: ${views_at_95} ;;
+  }
+
+  ### Paid Measures ###
+
+  measure: total_paid_impressions {
+    type: sum_distinct
+    group_label: "Paid Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${paid_impressions} ;;
+  }
+
+  measure: total_paid_clicks {
+    type: sum_distinct
+    group_label: "Paid Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${paid_clicks} ;;
+  }
+
+  measure: paid_ctr  {
+    label: "Paid CTR"
+    type: number
+    group_label: "Paid Metrics"
+    sql: ${total_paid_clicks}/nullif(${total_paid_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: total_paid_saves {
+    type: sum_distinct
+    group_label: "Paid Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${paid_saves} ;;
+  }
+
+  measure: total_paid_views_at_100 {
+    type: sum_distinct
+    group_label: "Paid Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${paid_views_at_100} ;;
+  }
+
+  measure: total_paid_video_views {
+    type: sum_distinct
+    group_label: "Paid Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${paid_video_views} ;;
+  }
+
+  measure: paid_cpc {
+    label: "Paid CPC"
+    type: number
+    group_label: "Paid Metrics"
+    sql: ${total_spend}/nullif(${total_paid_clicks}, 0) ;;
+    value_format_name: usd
+  }
+
+  measure: paid_cpm  {
+    label: "Paid CPM"
+    type: number
+    group_label: "Paid Metrics"
+    sql: ${total_spend}/nullif(${total_paid_impressions}/1000, 0) ;;
+    value_format_name: usd
+  }
+
+  measure: total_paid_view_rate  {
+    type: number
+    group_label: "Paid Metrics"
+    sql: ${total_paid_video_views}/nullif(${total_paid_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: total_paid_completion_rate  {
+    label: "Paid VCR"
+    type: number
+    group_label: "Paid Metrics"
+    sql: ${total_earned_video_views}/nullif(${total_paid_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  ### Earned Measures ###
+
+  measure: total_earned_impressions {
+    type: sum_distinct
+    group_label: "Earned Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${earned_impressions} ;;
+  }
+
+  measure: total_earned_clicks {
+    type: sum_distinct
+    group_label: "Earned Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${earned_clicks} ;;
+  }
+
+  measure: earned_ctr  {
+    label: "Earned CTR"
+    type: number
+    group_label: "Earned Metrics"
+    sql: ${total_earned_clicks}/nullif(${total_earned_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: total_earned_saves {
+    type: sum_distinct
+    group_label: "Earned Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${earned_saves} ;;
+  }
+
+  measure: total_earned_views_at_100 {
+    type: sum_distinct
+    group_label: "Earned Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${earned_views_at_100} ;;
+  }
+
+  measure: total_earned_video_views {
+    type: sum_distinct
+    group_label: "Earned Metrics"
+    sql_distinct_key: ${id} ;;
+    sql: ${earned_video_views} ;;
+  }
+
+  measure: total_earned_view_rate  {
+    type: number
+    group_label: "Earned Metrics"
+    sql: ${total_earned_video_views}/nullif(${total_earned_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: total_earned_completion_rate  {
+    label: "Earned VCR"
+    type: number
+    group_label: "Earned Metrics"
+    sql: ${total_earned_video_views}/nullif(${total_earned_impressions}, 0) ;;
+    value_format_name: percent_2
   }
 
   #### Joined GA Measures ####

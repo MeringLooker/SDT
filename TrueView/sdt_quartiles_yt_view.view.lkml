@@ -137,7 +137,45 @@ view: sdt_quartiles_yt_view {
 
         when ${ad_group} ilike 'SDTA - Content - VS - Combined Audience' then 'Content - Variety Seeker'
         when ${ad_group} ilike 'SDTA - Content - Retargeting - Content Video Viewers%' then 'Content - Retargeting Content'
-        when ${ad_group} ilike 'SDTA - Content - Retargeting - Brand Video Viewers%' then 'Content - Retargeting Brand '
+        when ${ad_group} ilike 'SDTA - Content - Retargeting - Brand Video Viewers%' then 'Content - Retargeting Brand'
+
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Outdoor%' then 'YouTube TrueView - Macro Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_NonOutdoor%' then 'YouTube TrueView - Macro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_NonOutdoor%' then 'YouTube TrueView - Macro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Attractions%' then 'YouTube TrueView - Macro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Neighborhood%' then 'YouTube TrueView - Macro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Culinary%' then 'YouTube TrueView - Macro NonOutdoor'
+
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Outdoor%' then 'YouTube TrueView - Micro Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_NonOutdoor%' then 'YouTube TrueView - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_NonOutdoor%' then 'YouTube TrueView - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Attractions%' then 'YouTube TrueView - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Neighborhood%' then 'YouTube TrueView - Micro NonOutdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Culinary%' then 'YouTube TrueView - Micro NonOutdoor'
+
+
+        ELSE 'Uncategorized'
+        end
+        ;;
+  }
+
+  dimension: sdt_pillar {
+    type: string
+    label: "Pillar"
+    group_label: "Client Dimensions"
+    sql:
+      case
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Outdoor%' then 'Outdoor'
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_NonOutdoor%' then 'Non-Outdoor'
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Attractions%' then 'Attractions'
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Neighborhood%' then 'Neighborhood'
+        when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Culinary%' then 'Culinary'
+
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Outdoor%' then 'Outdoor'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Attractions%' then 'Attractions'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Neighborhood%' then 'Neighborhood'
+        when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Culinary%' then 'Culinary'
+
 
         ELSE 'Uncategorized'
         end
