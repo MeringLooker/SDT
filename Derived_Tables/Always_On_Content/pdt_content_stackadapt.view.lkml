@@ -12,8 +12,8 @@ view: pdt_content_stackadapt {
     column: quarter {field: sdt_dcm_view.date_quarter}
     column: total_impressions {field: sdt_fy20_content_stackadapt.total_impressions}
     column: total_clicks {field: sdt_fy20_content_stackadapt.total_clicks}
-    column: total_views {field: sdt_fy20_content_stackadapt.total_video_started}
-    column: total_completes {field: sdt_fy20_content_stackadapt.total_video_completes}
+    column: total_views {field: sdt_fy20_content_stackadapt.total_video_views}
+    column: total_completes {field: sdt_fy20_content_stackadapt.total_video_completions}
     column: total_cost {field: sdt_fy20_content_stackadapt.total_cost}
     column: total_sessions {field: sdt_dcm_view.ga_sessions}
     column: total_session_duration {field: sdt_dcm_view.ga_total_session_duration}

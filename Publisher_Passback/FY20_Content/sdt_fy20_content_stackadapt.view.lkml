@@ -106,40 +106,22 @@ view: sdt_fy20_content_stackadapt {
     sql: ${TABLE}.impressions ;;
   }
 
-  dimension: media_cost {
+  dimension: cost {
     type: number
     hidden: yes
-    sql: ${TABLE}.media_cost ;;
+    sql: ${TABLE}.cost ;;
   }
 
-  dimension: video_complete {
+  dimension: video_completions {
     type: number
     hidden: yes
-    sql: ${TABLE}.video_complete ;;
+    sql: ${TABLE}.video_completions ;;
   }
 
-  dimension: video_started {
+  dimension: video_views {
     type: number
     hidden: yes
-    sql: ${TABLE}.video_started ;;
-  }
-
-  dimension: view_to_25 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.view_to_25 ;;
-  }
-
-  dimension: view_to_50 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.view_to_50 ;;
-  }
-
-  dimension: view_to_75 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.view_to_75 ;;
+    sql: ${TABLE}.video_views ;;
   }
 
   #### All Measures go below ####
@@ -166,7 +148,7 @@ view: sdt_fy20_content_stackadapt {
   measure: total_cost {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
-    sql: ${media_cost} ;;
+    sql: ${cost} ;;
   }
 
   measure: cost_per_click {
@@ -183,54 +165,30 @@ view: sdt_fy20_content_stackadapt {
     value_format_name: usd
   }
 
-  measure: total_video_completes {
+  measure: total_video_completions {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
-    sql: ${video_complete} ;;
+    sql: ${video_completions} ;;
   }
 
-  measure: total_video_started {
+  measure: total_video_views {
     type: sum_distinct
     sql_distinct_key: ${id} ;;
-    sql: ${video_started} ;;
+    sql: ${video_views} ;;
   }
 
   measure: cost_per_view {
     type: number
     label: "CPV"
-    sql: ${total_cost}/nullif(${total_video_started}, 0) ;;
+    sql: ${total_cost}/nullif(${total_video_views}, 0) ;;
     value_format_name: usd
   }
 
   measure: cost_per_complete {
     type: number
     label: "CPcV"
-    sql: ${total_cost}/nullif(${total_video_completes}, 0) ;;
+    sql: ${total_cost}/nullif(${total_video_completions}, 0) ;;
     value_format_name: usd
-  }
-
-  measure: total_view_to_25 {
-    type: sum_distinct
-    label: "Views to 25%"
-    group_label: "Quartile Reporting"
-    sql_distinct_key: ${id} ;;
-    sql: ${view_to_25} ;;
-  }
-
-  measure: total_view_to_50 {
-    type: sum_distinct
-    label: "Views to 50%"
-    group_label: "Quartile Reporting"
-    sql_distinct_key: ${id} ;;
-    sql: ${view_to_50} ;;
-  }
-
-  measure: total_view_to_75 {
-    type: sum_distinct
-    label: "Views to 75%"
-    group_label: "Quartile Reporting"
-    sql_distinct_key: ${id} ;;
-    sql: ${view_to_75} ;;
   }
 
   measure: count {
