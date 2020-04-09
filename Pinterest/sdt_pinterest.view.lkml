@@ -164,9 +164,6 @@ view: sdt_pinterest {
         when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Traffic_Outdoor%' then 'Standard Pins - Macro Outdoor Traffic'
         when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Traffic_NonOutdoor%' then 'Standard Pins - Macro NonOutdoor Traffic'
 
-
-
-
       else 'Uncategorized'
     end;;
 
@@ -406,12 +403,6 @@ view: sdt_pinterest {
     sql: ${TABLE}.earned_views_at_100 ;;
   }
 
-  dimension: lead_conversions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.lead_conversions ;;
-  }
-
   dimension: paid_clicks {
     type: number
     hidden: yes
@@ -591,21 +582,6 @@ view: sdt_pinterest {
     group_label: "Total Delivery"
     sql_distinct_key: ${id} ;;
     sql: ${conversions} ;;
-  }
-
-  measure: total_lead_conversions {
-    type: sum_distinct
-    group_label: "Total Delivery"
-    sql_distinct_key: ${id} ;;
-    sql: ${lead_conversions} ;;
-  }
-
-  measure: lead_conversion_rate  {
-    label: "Lead Conversion Rate"
-    type: number
-    group_label: "Total Delivery"
-    sql: ${total_lead_conversions}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
   }
 
   measure: total_saves {
