@@ -492,6 +492,10 @@ view: sdt_dcm_view {
     label: "Placement Name"
     sql:
       case
+
+      when ${placement} ilike '%Sports Live Streaming Video Flight%' then 'Live Streaming Video'
+      when ${placement} ilike '%Sports Live Streaming Video Added Value Companion%' then 'Companion Banner'
+
       when ${placement} ilike 'Expedia_OTA Base_ROS Bundle_%' then 'ROS Bundle'
       when ${placement} ilike 'Expedia_OTA Base_ROS 160x600_%' then 'ROS 160x600'
       when ${placement} ilike 'Expedia_OTA Base_Hotels.com Responsive ROS Bundle_%' then 'Hotels.com Responsive ROS Bundle'
