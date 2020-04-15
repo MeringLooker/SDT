@@ -219,10 +219,10 @@ view: sdt_quartiles_yt_view {
         when ${ad_group_id} = '64714221318' then 'Mister As (:30)'
         when ${ad_group_id} = '76924755746' then 'Smiles - Destination (:30)'
 
-        when ${campaign_id} = '1656164085' then 'Find Your Smile in San Diego (:30) - Brand'
-        when ${campaign_id} = '1656164088' then 'Find Your Smile in San Diego (:30) - Family'
+        when ${campaign_id} = '1656164085' then 'Happy Today (:30) - Brand'
+        when ${campaign_id} = '1656164088' then 'Happy Today (:30) - Family'
 
-        when ${campaign} ilike '%SDTA - UK - Brand - FY20%' then 'Find Your Smile in San Diego (:30)'
+        when ${campaign} ilike '%SDTA - UK - Brand - FY20%' then 'Happy Today (:30)'
 
         ELSE 'Uncategorized'
         end

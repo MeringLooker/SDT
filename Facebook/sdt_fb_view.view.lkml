@@ -376,20 +376,20 @@ view: sdt_fb_view {
     sql:
       CASE
         when ${ad_id} = '6145540612895' then 'Smiles - Destination (:15)'
-        when ${ad_id} = '6145465999895' then 'Find Your Smile in San Diego (:15) - Brand'
+        when ${ad_id} = '6145465999895' then 'Happy Today (:15) - Brand'
 
         when ${ad_id} = '6145468600295' then 'Mister As (:15)'
         when ${ad_id} = '6145472201095' then 'Surfer Couple (:15)'
         when ${ad_id} = '6145471718695' then 'Torrey Pines (:15)'
         when ${ad_id} = '6145471963495' then 'Coffee Cup Coastal (:15)'
-        when ${ad_id} = '6145468172895' then 'Find Your Smile in San Diego (:15) - Family'
+        when ${ad_id} = '6145468172895' then 'Happy Today (:15) - Family'
         when ${ad_id} = '6125364617895' then 'Torrey Pines (:15)'
         when ${ad_id} = '6125364617295' then 'Surfer Couple (:15)'
         when ${ad_id} = '6125364619295' then 'Coffee Cup Coastal (:15)'
         when ${ad_id} = '6125364811695' then 'Mister As (:15)'
-        when ${ad_id} = '6124965692695' then 'Find Your Smile in San Diego (:15) - Family'
-        when ${ad_id} = '6161410795695' then 'Find Your Smile in San Diego (:15) - Family'
-        when ${ad_id} = '6124964015495' then 'Find Your Smile in San Diego (:15) - Brand'
+        when ${ad_id} = '6124965692695' then 'Happy Today (:15) - Family'
+        when ${ad_id} = '6161410795695' then 'Happy Today (:15) - Family'
+        when ${ad_id} = '6124964015495' then 'Happy Today (:15) - Brand'
         when ${ad_id} = '6161411294495' then 'Smiles - Destination (:15)'
         when ${ad_id} = '6162106088495' then 'Happy Today (:15) - Brand'
         when ${ad_id} = '6161411295095' then 'Mister As (:15)'
@@ -696,8 +696,6 @@ view: sdt_fb_view {
         when ${ad_name} ilike '%\\_SingleImage\\_CaravanSafari%' then 'Caravan Safari Single Image'
         when ${ad_name} ilike '%\\_SingleImage\\_FlightlineSafari%' then 'Flightline Safari Single Image'
         when ${ad_name} ilike '%\\_SingleImage\\_JungleRopesSafari%' then 'Jungle Ropes Safari Single Image'
-
-
 
         else 'Uncategorized'
         end
