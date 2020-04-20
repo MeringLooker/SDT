@@ -203,7 +203,7 @@ view: ndt_can_digital_campaign {
     type: number
     label: "CPS"
     value_format_name: usd
-    sql: ${total_cost}/nullif(${total_sessions}/1000, 0) ;;
+    sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
   }
 
   measure: total_session_duration {
