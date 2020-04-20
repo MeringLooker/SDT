@@ -98,19 +98,19 @@ view: pdt_content_campaign {
   }
 
   dimension: week {
-    type: date
+    type: date_week
     group_label: "Date Periods"
     sql: ${TABLE}.week ;;
   }
 
   dimension: month {
-    type: date
+    type: date_month
     group_label: "Date Periods"
     sql: ${TABLE}.month ;;
   }
 
   dimension: quarter {
-    type: date
+    type: date_quarter
     group_label: "Date Periods"
     sql: ${TABLE}.quarter ;;
   }
