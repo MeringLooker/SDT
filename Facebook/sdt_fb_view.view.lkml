@@ -264,6 +264,7 @@ view: sdt_fb_view {
         when ${adset_name} ilike 'FY20_CAN_Views_Content_VS%' then 'Video Content - Variety Seeker'
         when ${adset_name} ilike 'FY20_CAN_Views_Brand_VS%' then 'Awareness - Variety Seeker'
         when ${adset_name} ilike 'FY20_CAN_Views_Brand_RT%' then 'Awareness - Retargeting'
+        when ${adset_name} ilike 'FY20_CAN_Views_Brand_LAL%' then 'Awareness - Lookalikes'
         when ${adset_name} ilike 'FY20_CAN_Clicks_Content_RT%' then 'Traffic Content - Retargeting'
         when ${adset_name} ilike 'FY20_CAN_Clicks_Content_LAL%' then 'Traffic Content - Lookalikes (Site Visitors)'
 

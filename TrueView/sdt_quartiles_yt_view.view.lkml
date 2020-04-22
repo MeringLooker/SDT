@@ -133,7 +133,13 @@ view: sdt_quartiles_yt_view {
     sql:
       case
         when ${campaign} ilike 'SDTA - UK - Brand - Retargeting - FY20%' then 'Awareness - Retargeting'
-        when ${campaign} ilike 'SDTA - UK - Brand - FY20 %' then 'Awareness - Variety Seeker'
+        when ${campaign} ilike 'SDTA - UK - Brand - FY20%' then 'Awareness - Variety Seeker'
+
+        when ${campaign} ilike 'SDTA - CAN - Brand - Retargeting - FY20%' then 'Brand Skippable Pre-Roll Video - Retargeting'
+        when ${campaign} ilike 'SDTA - CAN - Brand - FY20%' then 'Brand Skippable Pre-Roll Video - Variety Seeker'
+
+        when ${campaign} ilike 'SDTA - CAN - Content - Retargeting - FY20%' then 'Content Skippable Pre-Roll Video - Retargeting'
+        when ${campaign} ilike 'SDTA - CAN - Content - FY20%' then 'Content Skippable Pre-Roll Video - Variety Seeker'
 
         when ${ad_group} ilike 'SDTA - Content - VS - Combined Audience' then 'Content - Variety Seeker'
         when ${ad_group} ilike 'SDTA - Content - Retargeting - Content Video Viewers%' then 'Content - Retargeting Content'

@@ -5,6 +5,7 @@ view: ndt_can_digital_yt {
       column: campaign {field: sdt_quartiles_yt_view.sdt_campaign}
       column: market {field: sdt_quartiles_yt_view.sdt_market}
       column: layer {field: sdt_quartiles_yt_view.sdt_layer}
+      column: placement {field: sdt_quartiles_yt_view.sdt_placement}
       column: date {field: sdt_quartiles_yt_view.day_date}
       column: week {field: sdt_quartiles_yt_view.day_week}
       column: month {field: sdt_quartiles_yt_view.day_month}
