@@ -6,12 +6,14 @@ view: ndt_can_digital_gdn {
       column: market {field: sdt_gdn_view.sdt_market}
       column: layer {field: sdt_gdn_view.sdt_layer}
       column: placement {field: sdt_gdn_view.sdt_placement}
+      column: creative_name {field: sdt_gdn_view.creative_name}
       column: date {field: sdt_gdn_view.day_date}
       column: week {field: sdt_gdn_view.day_week}
       column: month {field: sdt_gdn_view.day_month}
       column: total_impressions {field: sdt_gdn_view.total_impressions}
       column: total_clicks {field: sdt_gdn_view.total_clicks}
       column: total_views {field: sdt_gdn_view.total_views}
+      column: total_completes {field: sdt_gdn_view.total_completes}
       column: total_cost {field: sdt_gdn_view.total_cost}
       column: total_sessions {field: sdt_gdn_view.total_sessions}
       column: total_session_duration {field: sdt_gdn_view.total_session_duration}

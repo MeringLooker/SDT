@@ -24,6 +24,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy20_can_dcm_view {
+    view_label: "FY20 Canada Digital Passback"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_can_dcm_view.passback_join} ;;
+    relationship: many_to_one
+  }
+
   join: sdt_fy20_balboapark_sunset {
     view_label: "FY20 Balboa Digital Passback"
     type: inner

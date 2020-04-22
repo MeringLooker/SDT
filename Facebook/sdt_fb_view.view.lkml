@@ -32,7 +32,7 @@ view: sdt_fb_view {
 #      CASE
 #        when ${ad_name} ilike '%SingleImage%' then 'Single Image'
 #        when ${ad_name} ilike '%Carousel%' then 'Carousel'
-#        when ${ad_name} ilike '%Video%' then 'Video'
+#        when ${ad_name} ilike '%Video%' then 'Video'y
 #        when ${ad_name} ilike '%Stories%' then 'Story'
 #        when ${ad_name} ilike '%Canvas%' then 'Canvas'
 #        ELSE 'Uncategorized'
@@ -81,6 +81,33 @@ view: sdt_fb_view {
     sql:
       CASE
         WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough%' then 'Landscape Image'
+        when ${ad_name} ilike '%Carousel_7BoatRides%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_7BTS%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_7HiddenGems%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_7Rooftops%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_7Splash%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_7Sunsets%' then 'Carousel'
+
+        when ${ad_name} ilike '%SingleImage_7BoatRides%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_7BTS%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_7HiddenGems%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_7Rooftops%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_7Splash%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_7Sunsets%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_7Wonders%' then 'Landscape Image'
+
+        when ${ad_name} ilike '%SingleImage_DishingHappiness_Animae%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_DishingHappiness_BarioDogg%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_DishingHappiness_BarrioDogg%' then 'Landscape Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhoods' then 'Landscape Image'
+
+        when ${ad_name} ilike '%Carousel_DishingHappiness_Animae%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_DishingHappiness_BarioDogg%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_DishingHappiness_BarrioDogg%' then 'Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhoods' then 'Carousel'
+
+        when ${ad_name} ilike '%FY20_UK_Views%' then 'Landscape Video'
+        when ${ad_name} ilike '%FY20_CAN_Views%' then 'Landscape Video'
 
         ELSE 'Uncategorized'
         END
@@ -697,6 +724,59 @@ view: sdt_fb_view {
         when ${ad_name} ilike '%\\_SingleImage\\_CaravanSafari%' then 'Caravan Safari Single Image'
         when ${ad_name} ilike '%\\_SingleImage\\_FlightlineSafari%' then 'Flightline Safari Single Image'
         when ${ad_name} ilike '%\\_SingleImage\\_JungleRopesSafari%' then 'Jungle Ropes Safari Single Image'
+
+        when ${ad_name} ilike '%Carousel_7BoatRides%' then 'Boat Rides Carousel'
+        when ${ad_name} ilike '%Carousel_7BTS%' then 'Behind The Scenes Tours Carousel'
+        when ${ad_name} ilike '%Carousel_7HiddenGems%' then 'Balboa Park Hidden Gems Carousel'
+        when ${ad_name} ilike '%Carousel_7Rooftops%' then 'Rooftop Restaurants Carousel'
+        when ${ad_name} ilike '%Carousel_7Splash%' then 'Make A Splash Carousel'
+        when ${ad_name} ilike '%Carousel_7Sunsets%' then 'Sunsets Carousel'
+
+        when ${ad_name} ilike '%Carousel_DishingHappiness_Animae%' then 'Animae Carousel'
+        when ${ad_name} ilike '%Carousel_DishingHappiness_BarioDogg%' then 'Barrio Dogg Carousel'
+        when ${ad_name} ilike '%Carousel_DishingHappiness_BarrioDogg%' then 'Barrio Dogg Carousel'
+        when ${ad_name} ilike '%Carousel_Neighborhoods' then 'Neighborhoods Carousel'
+
+        when ${ad_name} ilike '%SingleImage_7BoatRides%' then 'Boat Rides Single Image'
+        when ${ad_name} ilike '%SingleImage_7BTS%' then 'Behind The Scenes Tours Single Image'
+        when ${ad_name} ilike '%SingleImage_7HiddenGems%' then 'Balboa Park Hidden Gems Single Image'
+        when ${ad_name} ilike '%SingleImage_7Rooftops%' then 'Rooftop Restaurants Single Image'
+        when ${ad_name} ilike '%SingleImage_7Splash%' then 'Make A Splash Single Image'
+        when ${ad_name} ilike '%SingleImage_7Sunsets%' then 'Sunsets Single Image'
+        when ${ad_name} ilike '%SingleImage_7Wonders%' then '7 Wonders Single Image'
+
+        when ${ad_name} ilike '%SingleImage_DishingHappiness_Animae%' then 'Animae Single Image'
+        when ${ad_name} ilike '%SingleImage_DishingHappiness_BarioDogg%' then 'Barrio Dogg Single Image'
+        when ${ad_name} ilike '%SingleImage_DishingHappiness_BarrioDogg%' then 'Barrio Dogg Single Image'
+        when ${ad_name} ilike '%SingleImage_Neighborhoods' then 'Neighborhoods Single Image'
+
+        when ${ad_name} = 'FY20_CAN_Views_Brand_LAL_SomethingToSmileAbout' then 'Something To Smile About (:15)'
+        when ${ad_name} = 'FY20_CAN_Views_Brand_VS_SomethingToSmileAbout' then 'Something To Smile About (:15)'
+
+        when ${ad_name} = 'FY20_CAN_Views_Content_RT_OBI_CoastalYoga' then 'Coastal Yoga (:15)'
+        when ${ad_name} = 'FY20_CAN_Views_Content_RT_OBI_OldTown' then 'Old Town Mexican (:15)'
+        when ${ad_name} = 'FY20_CAN_Views_Content_VS_OBI_CoastalYoga' then 'Coastal Yoga (:15)'
+        when ${ad_name} = 'FY20_CAN_Views_Content_VS_OBI_OldTown' then 'Old Town Mexican (:15)'
+
+        when ${ad_name} = 'FY20_UK_Views_Content_RT_DishingHappiness_Animae_15s' then 'Animae (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_VS_DishingHappiness_Animae_15s' then 'Animae (:15)'
+
+        when ${ad_name} = 'FY20_UK_Views_Content_RT_DishingHappiness_BarrioDogg_15s' then 'Barrio Dogg (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_VS_DishingHappiness_BarrioDogg_15s' then 'Barrio Dogg (:15)'
+
+        when ${ad_name} = 'FY20_UK_Views_Content_RT_CoastalYoga' then 'Coastal Yoga (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_RT_LibertyStation' then 'Liberty Station (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_RT_OldTown' then 'Old Town Mexican (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_RT_USSMidway' then 'USS Midway (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_VS_CoastalYoga' then 'Coastal Yoga (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_VS_LibertyStation' then 'Liberty Station (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_VS_OldTown' then 'Old Town Mexican (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Content_VS_USSMidway' then 'USS Midway (:15)'
+
+
+        when ${ad_name} = 'FY20_UK_Views_Brand_LAL_SiteVisitors_HappyToday' then 'Happy Today (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Brand_VS_HappyToday' then 'Happy Today (:15)'
+        when ${ad_name} = 'FY20_UK_Views_Brand_LAL_USContentViewers_HappyToday' then 'Happy Today (:15)'
 
         else 'Uncategorized'
         end

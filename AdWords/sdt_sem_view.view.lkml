@@ -125,6 +125,13 @@ view: sdt_sem_view {
         ;;
   }
 
+  dimension: creative_name {
+    type: string
+    group_label: "Client Dimensions"
+    sql: 'Text Ad'
+      ;;
+  }
+
   dimension: advertising_channel {
     type: string
     label: "Channel"
@@ -302,7 +309,13 @@ view: sdt_sem_view {
   dimension: views {
     type: number
     hidden: yes
-    sql: '0' ;;
+    sql: 0 ;;
+  }
+
+  dimension: completes {
+    type: number
+    hidden: yes
+    sql: 0 ;;
   }
 
   ###### All Measures go Below #######
@@ -381,6 +394,13 @@ view: sdt_sem_view {
     hidden: yes
     sql_distinct_key: ${id} ;;
     sql: ${views} ;;
+  }
+
+  measure: total_completes {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${id} ;;
+    sql: ${completes} ;;
   }
 
 ###### All Measures go Below ###### Joined to User Info instead of onsite because that's where device currently resides

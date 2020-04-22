@@ -190,6 +190,10 @@ view: sdt_dcm_view {
         when ${placement} ILIKE 'VDX_FY20 UK Digital_Reach/Storytelling_%' then 'Amplify Reach'
         when ${placement} ILIKE 'Lastminute_FY20 UK Digital_Content_VS%' then 'Storytelling'
 
+        when ${placement} ilike 'Bell Media_Awareness/Reach%' then 'Amplify Reach'
+        when ${placement} ilike 'Global TV_Awareness/Reach%' then 'Amplify Reach'
+        when ${placement} ilike 'StackAdapt_Content_RON%' then 'Storytelling'
+
         when ${ad} ILIKE 'TripAdvisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
         when ${ad} ILIKE 'Trip Advisor Tracker-TripAdvisor_Storytelling%' then 'Storytelling'
         when ${ad} ILIKE 'TripAdvisor_Storytelling_Native Hub%' then 'Storytelling'
@@ -654,11 +658,25 @@ view: sdt_dcm_view {
       when ${placement} ilike 'StackAdapt_FY20 AlwaysOnContent_Macro_NonOutdoor%' then 'Native Video - Macro NonOutdoor'
       when ${placement} ilike 'StackAdapt_FY20 AlwaysOnContent_Micro%' then 'Native Video - Micro Mixed'
 
+      when ${placement} ilike 'Bell Media_Awareness/Reach_Custom Package%' then 'Pre-Roll Video - Custom Package'
+      when ${placement} ilike 'Bell Media_Awareness/Reach_TSN%' then 'Pre-Roll Video - TSN'
+
+      when ${placement} ilike 'Global TV_Awareness/Reach_Companion Banner%' then 'Video Companion Banner'
+      when ${placement} ilike 'Global TV_Awareness/Reach_HGTV.ca%' then 'Pre-Roll Video - HGTV'
+      when ${placement} ilike 'Global TV_Awareness/Reach_Food Network%' then 'Pre-Roll Video - Food Network'
+      when ${placement} ilike 'Global TV_Awareness/Reach_GlobalTV.ca%' then 'Pre-Roll Video - Global TV'
+      when ${placement} ilike 'Global TV_Awareness/Reach_Global Go%' then 'Pre-Roll Video - Global Go'
+
+      when ${placement} ilike 'StackAdapt_Content_RON - Video - Behavioral%' then 'Native Video - Behavior Targeting'
+      when ${placement} ilike 'StackAdapt_Content_RON - Video - Contextual%' then 'Native Video - Contextual Targeting'
+      when ${placement} ilike 'StackAdapt_Content_RON - Video - Lookalike%' then 'Native Video - Lookalike Targeting'
+      when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Behavioral%' then 'Native Traffic - Behavior Targeting'
+      when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Contextual%' then 'Native Traffic - Contextual Targeting'
+      when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Lookalike%' then 'Native Traffic - Lookalike Targeting'
+
       else 'Uncategorized'
     end;;
 }
-
-
 
   dimension: sdt_pillar {
     type: string
@@ -858,6 +876,65 @@ view: sdt_dcm_view {
         when ${ad} ilike '%SD_Native Static_Soar on Flightline Safari' then 'Soar on Flightline Safari'
         when ${ad} ilike '%SD_Native Static_Get Up Close with Dolphins' then 'Get Up Close with Dolphins'
         when ${ad} ilike '%SD_Native Static_Save $20 Online' then 'Save $20 Online'
+
+        when ${ad} ilike '%Video - Lookalike_Alana La Jolla%' then 'La Jolla (:60)'
+        when ${ad} ilike '%Video - Lookalike_Ron Machado%' then 'Surfing San Diego (:60)'
+        when ${ad} ilike '%Video - Lookalike_Aaron Picture Perfect%' then 'Picture Perfect Spots (:60)'
+        when ${ad} ilike '%Video - Lookalike_Alana Mission Bay%' then 'Mission Bay (:60)'
+        when ${ad} ilike '%Video - Lookalike_OBI: Old Town Mexican%' then 'Old Town Mexican (:60)'
+        when ${ad} ilike '%Video - Lookalike_OBI: Coastal Yoga%' then 'Coastal Yoga (:60)'
+
+        when ${ad} ilike '%Video - Contextual_Alana La Jolla%' then 'La Jolla (:60)'
+        when ${ad} ilike '%Video - Contextual_Rob Machado%' then 'Surfing San Diego (:60)'
+        when ${ad} ilike '%Video - Contextual_Aaron Picture Perfect%' then 'Picture Perfect Spots (:60)'
+        when ${ad} ilike '%Video - Contextual_Alana Mission Bay%' then 'Mission Bay (:60)'
+        when ${ad} ilike '%Video - Contextual_OBI: Old Town Mexican%' then 'Old Town Mexican (:60)'
+        when ${ad} ilike '%Video - Contextual_OBI: Coastal Yoga%' then 'Coastal Yoga (:60)'
+
+        when ${ad} ilike '%Video - Behavioral_Alana La Jolla%' then 'La Jolla (:60)'
+        when ${ad} ilike '%Video - Behavioral_Rob Machado%' then 'Surfing San Diego (:60)'
+        when ${ad} ilike '%Video - Behavioral_Aaron Picture Perfect%' then 'Picture Perfect Spots (:60)'
+        when ${ad} ilike '%Video - Behavioral_Alana Mission Bay%' then 'Mission Bay (:60)'
+        when ${ad} ilike '%Video - Behavioral_OBI: Old Town Mexican%' then 'Old Town Mexican (:60)'
+        when ${ad} ilike '%Video - Behavioral_OBI: Coastal Yoga%' then 'Coastal Yoga (:60)'
+
+        when ${ad} ilike '%Traffic - Behavioral_Sunsets%' then 'Sunsets'
+        when ${ad} ilike '%Traffic - Behavioral_Rooftop Restaurants%' then 'Rooftop Restaurants'
+        when ${ad} ilike '%Traffic - Behavioral_Make a splash%' then '7 Ways to Make a Splash'
+        when ${ad} ilike '%Traffic - Behavioral_BP Hidden Gems%' then 'Balboa Park Hidden Gems'
+        when ${ad} ilike '%Traffic - Behavioral_Boat Rides%' then 'Boat Rides'
+        when ${ad} ilike '%Traffic - Behavioral_Behind The Scenes%' then 'Behind The Scenes Tours'
+
+        when ${ad} ilike '%Traffic - Contextual_Sunsets%' then 'Sunsets'
+        when ${ad} ilike '%Traffic - Contextual_Rooftop Restaurants%' then 'Rooftop Restaurants'
+        when ${ad} ilike '%Traffic - Contextual_Make a splash%' then '7 Ways to Make a Splash'
+        when ${ad} ilike '%Traffic - Contextual_BP Hidden Gems%' then 'Balboa Park Hidden Gems'
+        when ${ad} ilike '%Traffic - Contextual_Boat Rides%' then 'Boat Rides'
+        when ${ad} ilike '%Traffic - Contextual_Behind The Scenes%' then 'Behind The Scenes Tours'
+
+        when ${ad} ilike '%Traffic - Lookalike_Sunsets%' then 'Sunsets'
+        when ${ad} ilike '%Traffic - Lookalike_Rooftop Restaurants%' then 'Rooftop Restaurants'
+        when ${ad} ilike '%Traffic - Lookalike_Make a splash%' then '7 Ways to Make a Splash'
+        when ${ad} ilike '%Traffic - Lookalike_Hidden Gems%' then 'Balboa Park Hidden Gems'
+        when ${ad} ilike '%Traffic - Lookalike_Boat Rides%' then 'Boat Rides'
+        when ${ad} ilike '%Traffic - Lookalike_Behind The Scenes%' then 'Behind The Scenes Tours'
+
+        when ${placement} ilike 'Global TV_Awareness/Reach_Companion Banner%' then 'Video Companion Banner'
+        when ${placement_id} = '252937671' then 'Find Your Smile in San Diego (:30)'
+
+        when ${placement} ilike 'Bell Media_Awareness/Reach_Custom Package%' then 'Find Your Smile in San Diego (:30)'
+        when ${placement} ilike 'Bell Media_Awareness/Reach_TSN%' then 'Find Your Smile in San Diego (:30)'
+
+        when ${placement} ilike 'Global TV_Awareness/Reach_Companion Banner%' then 'Video Companion Banner'
+        when ${placement} ilike 'Global TV_Awareness/Reach_HGTV.ca%' then 'Find Your Smile in San Diego (:30)'
+        when ${placement} ilike 'Global TV_Awareness/Reach_Food Network%' then 'Find Your Smile in San Diego (:30)'
+        when ${placement} ilike 'Global TV_Awareness/Reach_GlobalTV.ca%' then 'Find Your Smile in San Diego (:30)'
+        when ${placement} ilike 'Global TV_Awareness/Reach_Global Go%' then 'Find Your Smile in San Diego (:30)'
+
+
+
+
+
 
           ELSE 'Uncategorized'
       END;;
@@ -1108,7 +1185,7 @@ view: sdt_dcm_view {
 
   dimension: platform_type {
     type: string
-#     hidden: yes
+    hidden: yes
     sql: ${TABLE}."platform type" ;;
   }
 

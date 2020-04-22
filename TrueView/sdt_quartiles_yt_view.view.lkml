@@ -229,6 +229,10 @@ view: sdt_quartiles_yt_view {
         when ${campaign_id} = '1656164088' then 'Happy Today (:30) - Family'
 
         when ${campaign} ilike '%SDTA - UK - Brand - FY20%' then 'Happy Today (:30)'
+        when ${campaign} ilike '%SDTA - UK - Brand - Retargeting - FY20%' then 'Smiles - Destination (:40)'
+
+        when ${campaign} ilike 'SDTA - CAN - Brand - FY20' then 'Find Your Smile in San Diego (:30)'
+        when ${campaign} ilike 'SDTA - CAN - Brand - Retargeting - FY20' then 'Smiles - Destination (:40)'
 
         ELSE 'Uncategorized'
         end
