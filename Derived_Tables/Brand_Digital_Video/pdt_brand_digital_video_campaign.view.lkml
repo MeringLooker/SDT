@@ -182,17 +182,6 @@ view: pdt_brand_digital_video_campaign {
     value_format_name: percent_2
   }
 
-  measure: completion_rate_2 {
-    type: number
-    label: "Completion Rate (exc Banners)"
-    sql:
-      case
-        when ${creative_name} = 'Companion Banner' then null
-        else 1.0*${total_completes}/nullif(${total_impressions}, 0)
-        end;;
-    value_format_name: percent_2
-  }
-
   measure: total_cost {
     type: sum_distinct
     sql_distinct_key: ${primary_key} ;;
@@ -207,11 +196,23 @@ view: pdt_brand_digital_video_campaign {
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
 }
 
+  measure: video_cost {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${cost}
+        else null
+        end
+        ;;
+  }
+
   measure: cost_per_view {
     type: number
     label: "CPV"
     value_format_name: usd
-    sql: ${total_cost}/nullif(${total_views}, 0) ;;
+    sql: ${video_cost}/nullif(${total_views}, 0) ;;
   }
 
   measure: cost_per_complete {
