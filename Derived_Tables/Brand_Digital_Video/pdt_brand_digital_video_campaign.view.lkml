@@ -156,17 +156,29 @@ view: pdt_brand_digital_video_campaign {
     sql: ${completes} ;;
   }
 
+  measure: video_impressions {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${impressions}
+        else null
+        end
+        ;;
+  }
+
   measure: view_rate {
     type: number
     label: "View Rate"
-    sql: 1.0*${total_views}/nullif(${total_impressions}, 0) ;;
+    sql: 1.0*${total_views}/nullif(${video_impressions}, 0) ;;
     value_format_name: percent_2
   }
 
   measure: completion_rate {
     type: number
     label: "Completion Rate"
-    sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
+    sql: 1.0*${total_completes}/nullif(${video_impressions}, 0) ;;
     value_format_name: percent_2
   }
 

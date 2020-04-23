@@ -13,7 +13,7 @@ view: ndt_can_pullthrough_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${ad_size}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -48,6 +48,12 @@ view: ndt_can_pullthrough_campaign {
     type: string
     drill_fields: [date,week,month,quarter]
     sql: ${TABLE}.placement ;;
+  }
+
+  dimension: ad_size {
+    type: string
+    drill_fields: [date,week,month,quarter]
+    sql: ${TABLE}.ad_size ;;
   }
 
   dimension: fiscal_year {
@@ -126,21 +132,18 @@ view: ndt_can_pullthrough_campaign {
 
   measure: total_impressions {
     type: sum_distinct
-#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
-#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
 
   measure: click_through_rate {
     type: number
-#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CTR"
     sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
@@ -148,7 +151,6 @@ view: ndt_can_pullthrough_campaign {
 
   measure: total_cost {
     type: sum_distinct
-#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
@@ -156,7 +158,6 @@ view: ndt_can_pullthrough_campaign {
 
   measure: cost_per_click {
     type: number
-#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CPC"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
@@ -164,7 +165,6 @@ view: ndt_can_pullthrough_campaign {
 
   measure: cost_per_thousand {
     type: number
-#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CPM"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
@@ -172,14 +172,12 @@ view: ndt_can_pullthrough_campaign {
 
   measure: total_sessions {
     type: sum_distinct
-#     drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
   measure: cost_per_session {
     type: number
-#     drill_fields: [publisher,layer,week,month,quarter]
     label: "CPS"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
@@ -194,7 +192,6 @@ view: ndt_can_pullthrough_campaign {
 
   measure: avg_session_duration {
     label: "Avg. TOS"
-#     drill_fields: [publisher,layer,week,month,quarter]
     type: number
     sql: (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400 ;;
     value_format: "m:ss"
