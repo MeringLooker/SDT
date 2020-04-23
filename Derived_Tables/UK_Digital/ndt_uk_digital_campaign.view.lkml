@@ -23,14 +23,14 @@ view: ndt_uk_digital_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${creative_name}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
 
   dimension: publisher {
     type: string
-    drill_fields: [placement,date,week,month]
+    drill_fields: [layer,placement,date]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -48,14 +48,20 @@ view: ndt_uk_digital_campaign {
 
   dimension: layer {
     type: string
-    drill_fields: [publisher,placement,date,week,month]
+    drill_fields: [publisher,date]
     sql: ${TABLE}.layer ;;
   }
 
   dimension: placement {
     type: string
-    drill_fields: [date,week,month]
+    drill_fields: [creative_name,date]
     sql: ${TABLE}.placement ;;
+  }
+
+  dimension: creative_name {
+    type: string
+    drill_fields: [date]
+    sql: ${TABLE}.creative_name ;;
   }
 
   dimension: fiscal_year {
@@ -109,6 +115,12 @@ view: ndt_uk_digital_campaign {
     type: number
     hidden: yes
     sql: ${TABLE}.total_views ;;
+  }
+
+  dimension: completes {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.total_completes ;;
   }
 
   dimension: cost {
@@ -197,11 +209,43 @@ view: ndt_uk_digital_campaign {
     sql: ${views} ;;
   }
 
+  measure: total_completes {
+    type: sum_distinct
+    sql_distinct_key: ${primary_key} ;;
+    sql: ${completes} ;;
+  }
+
   measure: total_cost {
     type: sum_distinct
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
+  }
+
+  measure: video_impressions {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${impressions}
+        else null
+        end
+        ;;
+  }
+
+  measure: view_rate {
+    type: number
+    label: "View Rate"
+    sql: 1.0*${total_views}/nullif(${video_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: completion_rate {
+    type: number
+    label: "Completion Rate"
+    sql: 1.0*${total_completes}/nullif(${video_impressions}, 0) ;;
+    value_format_name: percent_2
   }
 
   measure: cost_per_thousand {
@@ -216,6 +260,25 @@ view: ndt_uk_digital_campaign {
     label: "CPC"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
+  }
+
+  measure: video_cost {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${cost}
+        else null
+        end
+        ;;
+  }
+
+  measure: cost_per_view {
+    type: number
+    label: "CPV"
+    value_format_name: usd
+    sql: ${video_cost}/nullif(${total_views}, 0) ;;
   }
 
   measure: total_sessions {

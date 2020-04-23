@@ -674,6 +674,16 @@ view: sdt_dcm_view {
       when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Contextual%' then 'Native Traffic - Contextual Targeting'
       when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Lookalike%' then 'Native Traffic - Lookalike Targeting'
 
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Rectangle%' then 'In-Frame High Impact Video Banners - Rectangle'
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Halfpage%' then 'In-Frame High Impact Video Banners - Halfpage'
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Billboard%' then 'In-Frame High Impact Video Banners - Billboard'
+
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX Expandable Rectangle%' then 'Expandable High Impact Video Banners - Rectangle'
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX Expandable Halfpage%' then 'Expandable High Impact Video Banners - Halfpage'
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX Expandable Billboard%' then 'Expandable High Impact Video Banners - Billboard'
+
+      when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX InStream%' then 'InStream High Impact Video Banners'
+
       else 'Uncategorized'
     end;;
 }
@@ -930,6 +940,15 @@ view: sdt_dcm_view {
         when ${placement} ilike 'Global TV_Awareness/Reach_Food Network%' then 'Find Your Smile in San Diego (:30)'
         when ${placement} ilike 'Global TV_Awareness/Reach_GlobalTV.ca%' then 'Find Your Smile in San Diego (:30)'
         when ${placement} ilike 'Global TV_Awareness/Reach_Global Go%' then 'Find Your Smile in San Diego (:30)'
+
+        when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX Instream%' then 'Find Your Smile in San Diego (:30)'
+        when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame%%' then 'Find Your Smile in San Diego (:30)'
+        when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX Expandable%%' then 'Find Your Smile in San Diego (:30)'
+
+        when ${ad} ilike '%010620-033020_Neighborhoods%' then 'Neighborhoods'
+        when ${ad} ilike '%010620-033020_Generic%' then 'Generic'
+        when ${ad} ilike '%010620-033020_Coastal Happiness%' then 'Coastal Happiness'
+        when ${ad} ilike '%010620-033020_5Days%' then '5 Days'
 
 
 
