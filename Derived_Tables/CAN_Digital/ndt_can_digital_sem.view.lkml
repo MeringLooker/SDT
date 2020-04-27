@@ -15,8 +15,8 @@ view: ndt_can_digital_sem {
       column: total_views {field: sdt_sem_view.total_views}
       column: total_completes {field: sdt_sem_view.total_completes}
       column: total_cost {field: sdt_sem_view.total_cost}
-      column: total_sessions {field: sdt_sem_view.ga_sessions}
-      column: total_session_duration {field: sdt_sem_view.ga_total_session_duration}
+      column: total_sessions {field: sdt_sem_view.total_sessions}
+      column: total_session_duration {field: sdt_sem_view.total_session_duration}
       filters: {
         field: sdt_sem_view.sdt_campaign
         value: "Canada Digital"

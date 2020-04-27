@@ -24,18 +24,6 @@ view: sdt_sem_view {
     sql: ${ad_group_id}||'_'||${day_date} ;;
   }
 
-  dimension: join_id_userInfo {
-    type: string
-    hidden: yes
-    sql: ${ad_group_id}||'_'||${device_formatted}||'_'||${day_date} ;;
-  }
-
-  dimension: join_id_pageInfo {
-    type: string
-    hidden: yes
-    sql: ${ad_group_id}||'_'||${device_formatted}||'_'||${day_date} ;;
-  }
-
 ###### Dimensions added to this table via LookML #######
 
   dimension: fiscal_year {
@@ -150,36 +138,6 @@ view: sdt_sem_view {
 
 ###### All dimensions go below #######
 
-  dimension_group: __senttime {
-    hidden: yes
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.__senttime ;;
-  }
-
-  dimension_group: __updatetime {
-    hidden: yes
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.__updatetime ;;
-  }
-
   dimension: account {
     type: string
     group_label: "AdWords Dimensions"
@@ -194,21 +152,8 @@ view: sdt_sem_view {
 
   dimension: ad_group_id {
     type: number
-    #hidden: yes
     group_label: "AdWords IDs"
     sql: ${TABLE}."ad group id" ;;
-  }
-
-  dimension: ad_group_state {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."ad group state" ;;
-  }
-
-  dimension: avg__position {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."avg. position" ;;
   }
 
   dimension: campaign {
@@ -219,15 +164,8 @@ view: sdt_sem_view {
 
   dimension: campaign_id {
     type: number
-    #hidden: yes
     group_label: "AdWords IDs"
     sql: ${TABLE}."campaign id" ;;
-  }
-
-  dimension: campaign_state {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."campaign state" ;;
   }
 
   dimension: clicks {
@@ -264,46 +202,40 @@ view: sdt_sem_view {
     sql: ${TABLE}.day ;;
   }
 
-  dimension: device {
-    type: string
-    group_label: "AdWords Dimensions"
-    sql: ${TABLE}.device ;;
-  }
-
-  dimension: device_formatted {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.device_formatted ;;
-  }
-
   dimension: impressions {
     type: number
     hidden: yes
     sql: ${TABLE}.impressions ;;
   }
 
-  dimension: reportname {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.reportname ;;
-  }
-
-  dimension: search_impr__share {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."search impr. share" ;;
-  }
-
-  dimension: search_lost_is_rank {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."search lost is (rank)" ;;
-  }
-
-  dimension: total_conv__value {
+  dimension: total_conv_value {
     type: number
     hidden: yes
-    sql: ${TABLE}."total conv. value" ;;
+    sql: ${TABLE}.total_conv_vale ;;
+  }
+
+  dimension: sessions {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.sessions ;;
+  }
+
+  dimension: sessionduration {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.sessionduration ;;
+  }
+
+  dimension: bounces {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.bounces ;;
+  }
+
+  dimension: pageviews {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.pageviews ;;
   }
 
   dimension: views {
@@ -323,21 +255,21 @@ view: sdt_sem_view {
   measure: total_impressions {
     type: sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${id} ;;
+    sql_distinct_key: ${comp_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${id} ;;
+    sql_distinct_key: ${comp_key} ;;
     sql: ${clicks} ;;
   }
 
   measure: total_cost {
     type:  sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${id} ;;
+    sql_distinct_key: ${comp_key} ;;
     sql:${cost}/1000000.00  ;;
     value_format_name: usd
   }
@@ -345,7 +277,7 @@ view: sdt_sem_view {
   measure: total_conversions {
     type: sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${id} ;;
+    sql_distinct_key: ${comp_key} ;;
     sql: ${conversions} ;;
   }
 
@@ -392,49 +324,81 @@ view: sdt_sem_view {
   measure: total_views {
     type: sum_distinct
     hidden: yes
-    sql_distinct_key: ${id} ;;
+    sql_distinct_key: ${comp_key} ;;
     sql: ${views} ;;
   }
 
   measure: total_completes {
     type: sum_distinct
     hidden: yes
-    sql_distinct_key: ${id} ;;
+    sql_distinct_key: ${comp_key} ;;
     sql: ${completes} ;;
   }
 
 ###### All Measures go Below ###### Joined to User Info instead of onsite because that's where device currently resides
 
-  measure: ga_sessions {
+  measure: total_sessions {
     group_label: "GA Reporting"
     type: sum_distinct
     label: "Sessions"
-    sql_distinct_key: ${sdt_ga_userinfo.id} ;;
-    sql: ${sdt_ga_userinfo.sessions} ;;
+    sql_distinct_key: ${comp_key} ;;
+    sql: ${sessions} ;;
   }
 
   measure: cost_per_session {
     group_label: "GA Reporting"
     type: number
     label: "CPS"
-    sql: ${total_cost}/nullif(${ga_sessions}, 0) ;;
+    sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
     value_format_name: usd
   }
 
-  measure: ga_total_session_duration {
+  measure: total_session_duration {
     hidden: yes
     type: sum_distinct
     label: "Total Session Duration"
-    sql_distinct_key: ${sdt_ga_userinfo.id};;
-    sql: ${sdt_ga_userinfo.sessionduration};;
+    sql_distinct_key: ${comp_key};;
+    sql: ${sessionduration};;
   }
 
   measure: avg_time_on_site {
     group_label: "GA Reporting"
     label: "Avg. TOS"
     type: number
-    sql:  (${sdt_ga_userinfo.total_session_duration}/nullif(${sdt_ga_userinfo.total_sessions}, 0))::float/86400  ;;
+    sql:  (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400  ;;
     value_format: "m:ss"
+  }
+
+  measure: total_pageviews {
+    group_label: "GA Reporting"
+    type: sum_distinct
+    label: "Pageviews"
+    sql_distinct_key: ${comp_key} ;;
+    sql: ${sessions} ;;
+  }
+
+  measure: pages_per_session {
+    group_label: "GA Reporting"
+    type: number
+    label: "Pages/Session"
+    sql: ${total_pageviews}/nullif(${total_sessions}, 0) ;;
+    value_format_name: decimal_2
+  }
+
+  measure: total_bounces {
+    group_label: "GA Reporting"
+    type: sum_distinct
+    label: "Bounces"
+    sql_distinct_key: ${comp_key} ;;
+    sql: ${bounces} ;;
+  }
+
+  measure: total_bounce_rate  {
+    label: "Bounce Rate"
+    group_label: "GA Reporting"
+    type: number
+    sql: ${total_bounces}/nullif(${total_sessions}, 0) ;;
+    value_format_name: percent_2
   }
 
   measure: count {
