@@ -9,8 +9,6 @@ view: ndt_ta_us_campaign {
         union
         select * from ${ndt_ta_us_homepage_hero.SQL_TABLE_NAME}
         union
-        select * from ${ndt_ta_us_hub_traffic_drivers.SQL_TABLE_NAME}
-        union
         select * from ${ndt_ta_us_lure.SQL_TABLE_NAME}
         union
         select * from ${ndt_ta_us_outstream_video_banners.SQL_TABLE_NAME}
@@ -30,6 +28,8 @@ view: ndt_ta_us_campaign {
     sql: ${layer}||'_'||${placement}||'_'||${pillar}||'_'||${ad_size}||'_'||${date} ;;
   }
 
+#         union
+#         select * from ${ndt_ta_us_hub_traffic_drivers.SQL_TABLE_NAME}
 
 ### All dimensions go below ###
 
