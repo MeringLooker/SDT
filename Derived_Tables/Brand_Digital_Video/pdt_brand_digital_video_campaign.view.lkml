@@ -219,7 +219,7 @@ view: pdt_brand_digital_video_campaign {
     type: number
     label: "CPcV"
     value_format_name: usd
-    sql: ${total_cost}/nullif(${total_completes}, 0) ;;
+    sql: ${video_cost}/nullif(${total_completes}, 0) ;;
   }
 
   measure: count {

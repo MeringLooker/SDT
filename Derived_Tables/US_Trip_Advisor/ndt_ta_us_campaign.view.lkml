@@ -7,6 +7,8 @@ view: ndt_ta_us_campaign {
         union
         select * from ${ndt_ta_us_destination_sponsorship.SQL_TABLE_NAME}
         union
+        select * from ${ndt_ta_us_hub_traffic_drivers.SQL_TABLE_NAME}
+        union
         select * from ${ndt_ta_us_homepage_hero.SQL_TABLE_NAME}
         union
         select * from ${ndt_ta_us_lure.SQL_TABLE_NAME}
@@ -28,8 +30,7 @@ view: ndt_ta_us_campaign {
     sql: ${layer}||'_'||${placement}||'_'||${pillar}||'_'||${ad_size}||'_'||${date} ;;
   }
 
-#         union
-#         select * from ${ndt_ta_us_hub_traffic_drivers.SQL_TABLE_NAME}
+
 
 ### All dimensions go below ###
 
@@ -159,11 +160,30 @@ view: ndt_ta_us_campaign {
     sql: ${completes} ;;
   }
 
-  measure: cost_per_click {
+  measure: video_impressions {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${impressions}
+        else null
+        end
+        ;;
+  }
+
+  measure: view_rate {
     type: number
-    label: "CPC"
-    value_format_name: usd
-    sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
+    label: "View Rate"
+    sql: 1.0*${total_views}/nullif(${video_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: completion_rate {
+    type: number
+    label: "Completion Rate"
+    sql: 1.0*${total_completes}/nullif(${video_impressions}, 0) ;;
+    value_format_name: percent_2
   }
 
   measure: cost_per_thousand {
@@ -173,32 +193,37 @@ view: ndt_ta_us_campaign {
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
   }
 
-  measure: view_rate {
-    type: number
-    label: "View Rate"
-    sql: 1.0*${total_views}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
-
-  measure: completion_rate {
-    type: number
-    label: "Completion Rate"
-    sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
+  measure: video_cost {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${cost}
+        else null
+        end
+        ;;
   }
 
   measure: cost_per_view {
     type: number
     label: "CPV"
     value_format_name: usd
-    sql: ${total_cost}/nullif(${total_views}, 0) ;;
+    sql: ${video_cost}/nullif(${total_views}, 0) ;;
   }
 
   measure: cost_per_complete {
     type: number
     label: "CPcV"
     value_format_name: usd
-    sql: ${total_cost}/nullif(${total_completes}, 0) ;;
+    sql: ${video_cost}/nullif(${total_completes}, 0) ;;
+  }
+
+  measure: cost_per_click {
+    type: number
+    label: "CPC"
+    value_format_name: usd
+    sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
   }
 
   measure: count {
