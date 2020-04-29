@@ -21,6 +21,18 @@ view: sdt_fy20_uk_dcm_view {
     sql: ${TABLE}.clicks ;;
   }
 
+  dimension: content_views {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.content_views ;;
+  }
+
+  dimension: dwell_time {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.total_dwell_time ;;
+  }
+
   dimension: cost {
     type: number
     hidden: yes
@@ -102,6 +114,27 @@ view: sdt_fy20_uk_dcm_view {
     type: sum_distinct
     sql_distinct_key: ${passback_join} ;;
     sql: ${video_completions} ;;
+  }
+
+  measure: total_content_views {
+    label: "Total Content Views"
+    type: sum_distinct
+    sql_distinct_key: ${passback_join} ;;
+    sql: ${content_views} ;;
+  }
+
+  measure: total_dwell_time {
+    label: "Total Dwell Time"
+    hidden: yes
+    type: sum_distinct
+    sql_distinct_key: ${passback_join} ;;
+    sql: ${dwell_time} ;;
+  }
+
+  measure: avg_dwell_time {
+    type: number
+    sql: (${total_dwell_time}/nullif(${total_content_views}, 0))::float/86400 ;;
+    value_format: "m:ss"
   }
 
   measure: view_rate {

@@ -13,7 +13,7 @@ view: sdt_fy20_uk_digital_lastminute {
   dimension: passback_join { ## placement ID + date ALWAYS ##
     type: string
     hidden: yes
-    sql: ${placement_id}||'_'||${date_date} ;;
+    sql: ${ad_id}||'_'||${date_date} ;;
   }
 
 ######## Dimensions from DCM that join to this table #######
@@ -80,28 +80,40 @@ view: sdt_fy20_uk_digital_lastminute {
     sql: ${TABLE}.date ;;
   }
 
-  dimension: placement_id {
+  dimension: ad_id {
     type: number
     hidden: yes
-    sql: ${TABLE}.placement_id ;;
+    sql: ${TABLE}.ad_id ;;
   }
 
   dimension: clicks {
     type: number
     hidden: yes
-    sql: ${TABLE}.publisher_clicks ;;
+    sql: ${TABLE}.clicks ;;
+  }
+
+  dimension: content_views {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.content_views ;;
+  }
+
+  dimension: dwell_time {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.total_dwell_time ;;
   }
 
   dimension: media_spend {
     type: number
     hidden: yes
-    sql: ${TABLE}.publisher_cost ;;
+    sql: ${TABLE}.cost ;;
   }
 
   dimension: impressions {
     type: number
     hidden: yes
-    sql: ${TABLE}.publisher_impressions ;;
+    sql: ${TABLE}.impressions ;;
   }
 
   dimension: video_views {
@@ -157,6 +169,18 @@ view: sdt_fy20_uk_digital_lastminute {
     sql_distinct_key: ${id} ;;
     sql: ${video_views} ;;
     value_format_name: usd
+  }
+
+  measure: total_content_views {
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
+    sql: ${content_views} ;;
+  }
+
+  measure: total_dwell_time {
+    type: sum_distinct
+    sql_distinct_key: ${id} ;;
+    sql: ${dwell_time} ;;
   }
 
   measure: count {

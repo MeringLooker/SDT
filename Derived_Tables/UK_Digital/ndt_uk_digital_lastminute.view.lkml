@@ -15,8 +15,8 @@ view: ndt_uk_digital_lastminute {
       column: total_views {field: sdt_fy20_uk_dcm_view.total_video_views}
       column: total_completes {field: sdt_fy20_uk_dcm_view.total_video_completes}
       column: total_cost {field: sdt_fy20_uk_dcm_view.total_media_cost}
-      column: total_sessions {field: sdt_dcm_view.ga_sessions}
-      column: total_session_duration {field: sdt_dcm_view.ga_total_session_duration}
+      column: total_sessions {field: sdt_fy20_uk_dcm_view.total_content_views}
+      column: total_session_duration {field: sdt_fy20_uk_dcm_view.total_dwell_time}
       filters: {
         field: sdt_dcm_view.campaign
         value: "SDT: 004877_01 FY20 UK Digital Campaign"
