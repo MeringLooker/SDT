@@ -146,6 +146,7 @@ view: sdt_ta_dest_spon_elements {
     label: "CTR"
     type: number
     sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
+    value_format_name: percent_2
   }
 
   measure: count {
