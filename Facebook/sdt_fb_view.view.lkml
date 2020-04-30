@@ -686,6 +686,14 @@ view: sdt_fb_view {
         when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld_60Video_OBI_SeaWorld' then 'SeaWorld (:60)'
         when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SeaWorld_15Video_OBI_SeaWorld' then 'SeaWorld (:15)'
 
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_Socks_TorreyPines' then 'SFTSD: Torrey Pines (:15)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_60Video_OBI_WhaleWatching' then 'OBI: Whale Watching  (:60)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_Socks_TidePools' then 'SFTSD: Tidepools (:15)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_OBI_WhaleWatching' then 'OBI: Whale Watching (:15)'
+        when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_Socks_StarOfIndia' then 'SFTSD: Star of India (:15)'
+
+
+
         when ${ad_name} ilike '%\\_Slideshow\\_LegoLandListicle%' then 'LegoLand Listicle Slideshow'
         when ${ad_name} ilike '%\\_Carousel\\_LegoLandListicle%' then 'LegoLand Listicle Carousel'
         when ${ad_name} ilike '%\\_SingleImage\\_LegoLandListicle%' then 'LegoLand Listicle Single Image'

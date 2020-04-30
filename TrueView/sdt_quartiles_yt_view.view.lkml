@@ -121,6 +121,8 @@ view: sdt_quartiles_yt_view {
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro%' then 'Macro Video'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Micro%' then 'Micro Video'
 
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView%' then 'Macro Video'
+
         ELSE 'Uncategorized'
         end
         ;;
@@ -158,6 +160,8 @@ view: sdt_quartiles_yt_view {
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Attractions%' then 'YouTube TrueView - Micro NonOutdoor'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Neighborhood%' then 'YouTube TrueView - Micro NonOutdoor'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Culinary%' then 'YouTube TrueView - Micro NonOutdoor'
+
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView%' then 'Skippable Pre-Roll Video'
 
 
         ELSE 'Uncategorized'
@@ -233,6 +237,12 @@ view: sdt_quartiles_yt_view {
 
         when ${campaign} ilike 'SDTA - CAN - Brand - FY20' then 'Find Your Smile in San Diego (:30)'
         when ${campaign} ilike 'SDTA - CAN - Brand - Retargeting - FY20' then 'Smiles - Destination (:40)'
+
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_Legoland' then 'Lego Movie World (:60)'
+
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_Legoland' then 'Lego Movie World (:60)'
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_SanDiegoZoo' then 'Caravan Safari (:60)'
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_Seaworld' then 'SeaWorld (:60)'
 
         ELSE 'Uncategorized'
         end

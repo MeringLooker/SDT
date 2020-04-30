@@ -14,7 +14,6 @@ datagroup: sdt_fam_content_datagroup {
 }
 
 explore: pdt_fam_content_campaign {
-  #persist_with: vca_dream365_datagroup
   label: "Family Content"
   view_label: "Family Content"
   group_label: "San Diego Tourism"

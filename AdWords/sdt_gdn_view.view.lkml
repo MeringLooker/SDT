@@ -73,6 +73,10 @@ view: sdt_gdn_view {
         when ${account} = 'SDTA Content GDN PHX' then 'United States'
         when ${account} = 'SDTA Content GDN LA' then 'United States'
         when ${account} = 'SDTA Balboa Park GDN' then 'United States'
+        when ${account} ilike '%Family Content Seaworld' then 'United States'
+        when ${account} ilike '%Family Content San Diego Zoo' then 'United States'
+        when ${account} ilike '%Family Content San Diego Tourism' then 'United States'
+        when ${account} ilike '%Family Content Legoland' then 'United States'
 
         ELSE 'Uncategorized'
         end
@@ -166,6 +170,11 @@ view: sdt_gdn_view {
         when ${campaign_id} = '1382958146' then 'Always On Content'
         when ${campaign_id} = '1382957996' then 'Always On Content'
 
+        when ${account} ilike '%Family Content Seaworld' then 'Family Content'
+        when ${account} ilike '%Family Content San Diego Zoo' then 'Family Content'
+        when ${account} ilike '%Family Content San Diego Tourism' then 'Family Content'
+        when ${account} ilike '%Family Content Legoland' then 'Family Content'
+
         when ${account} = 'SDTA Balboa Park GDN' then 'Balboa Park Digital'
 
         ELSE 'Uncategorized'
@@ -194,6 +203,9 @@ view: sdt_gdn_view {
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'Nano Traffic'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro%' then 'Macro Traffic'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Micro%' then 'Micro Traffic'
+
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano%' then 'Nano Traffic'
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Micro%' then 'Micro Traffic'
 
         ELSE 'Uncategorized'
         end
@@ -240,6 +252,10 @@ view: sdt_gdn_view {
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Attractions%' then 'Responsive Display - Micro NonOutdoor'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_Outdoor%' then 'Responsive Display - Macro Outdoor'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor%' then 'Responsive Display - Macro NonOutdoor'
+
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Micro_GDisco%' then 'Micro - Google Discover Display'
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano_GDisco%' then 'Nano - Google Discover Display'
+        when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano_GDN%' then 'Micro - GDN Display'
 
         ELSE 'Uncategorized'
         end
@@ -307,9 +323,29 @@ view: sdt_gdn_view {
         when ${campaign} ilike 'Beach Family%' then 'Beach Family'
         when ${campaign} ilike 'Beach People%' then 'Beach People'
 
+        when ${account} ilike '%Family Content Seaworld' then 'Seaworld Display'
+        when ${account} ilike '%Family Content San Diego Zoo' then 'San Diego Zoo Display'
+        when ${account} ilike '%Family Content San Diego Tourism' then 'San Diego Tourism Display'
+        when ${account} ilike '%Family Content Legoland' then 'Legoland Display'
+
         ELSE 'Uncategorized'
         end
         ;;
+  }
+
+  dimension: sdt_partner {
+    type: string
+    group_label: "Client Dimensions"
+    label: "SDT Partner (Fam. Content)"
+    sql:
+    case
+      when ${account} ilike '%Family Content Seaworld' then 'SeaWorld'
+      when ${account} ilike '%Family Content San Diego Zoo' then 'San Diego Zoo'
+      when ${account} ilike '%Family Content San Diego Tourism' then 'San Diego Tourism'
+      when ${account} ilike '%Family Content Legoland' then 'LegoLand'
+
+      ELSE null
+      END;;
   }
 
 ###### All dimensions go below #######

@@ -2,6 +2,10 @@ view: pdt_fam_content_campaign {
   derived_table: {
     sql:
         select * from ${pdt_fam_content_fb.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fam_content_yt.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fam_content_gdn.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
@@ -149,7 +153,6 @@ view: pdt_fam_content_campaign {
 
   measure: click_through_rate {
     type: number
-    drill_fields: [publisher,layer,week,month]
     label: "CTR"
     sql: 1.0*${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
@@ -163,6 +166,7 @@ view: pdt_fam_content_campaign {
 
   measure: total_completes {
     type: sum_distinct
+    value_format_name: decimal_0
     sql_distinct_key: ${primary_key} ;;
     sql: ${completes} ;;
   }
@@ -172,13 +176,6 @@ view: pdt_fam_content_campaign {
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
-  }
-
-  measure: cost_per_thousand {
-    type: number
-    label: "CPM"
-    value_format_name: usd
-    sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
   }
 
   measure: cost_per_click {
@@ -204,6 +201,7 @@ view: pdt_fam_content_campaign {
 
   measure: total_session_duration {
     type: sum_distinct
+    hidden: yes
     sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
   }
@@ -216,8 +214,68 @@ view: pdt_fam_content_campaign {
     value_format: "m:ss"
   }
 
+  measure: video_impressions {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${impressions}
+        else null
+        end
+        ;;
+  }
+
+  measure: view_rate {
+    type: number
+    label: "View Rate"
+    sql: 1.0*${total_views}/nullif(${video_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: completion_rate {
+    type: number
+    label: "Completion Rate"
+    sql: 1.0*${total_completes}/nullif(${video_impressions}, 0) ;;
+    value_format_name: percent_2
+  }
+
+  measure: cost_per_thousand {
+    type: number
+    label: "CPM"
+    value_format_name: usd
+    sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
+  }
+
+  measure: video_cost {
+    type: sum_distinct
+    hidden: yes
+    sql_distinct_key: ${primary_key} ;;
+    sql:
+      case
+        when ${views} > 0 then ${cost}
+        else null
+        end
+        ;;
+  }
+
+  measure: cost_per_view {
+    type: number
+    label: "CPV"
+    value_format_name: usd
+    sql: ${video_cost}/nullif(${total_views}, 0) ;;
+  }
+
+  measure: cost_per_complete {
+    type: number
+    label: "CPcV"
+    value_format_name: usd
+    sql: ${video_cost}/nullif(${total_completes}, 0) ;;
+  }
+
   measure: count {
     type: count
+    hidden: yes
   }
 
 }

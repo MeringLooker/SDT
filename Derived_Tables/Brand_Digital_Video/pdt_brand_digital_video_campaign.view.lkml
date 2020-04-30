@@ -194,7 +194,7 @@ view: pdt_brand_digital_video_campaign {
     label: "CPM"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
-}
+  }
 
   measure: video_cost {
     type: sum_distinct
