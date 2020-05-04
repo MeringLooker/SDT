@@ -1,5 +1,6 @@
 connection: "mc_panoply"
 include: "/Publisher_Passback/TA_Destination_Sponsorship/*.view"
+include: "/Publisher_Passback/**/*.view"
 
 explore: sdt_ta_dest_spon_elements {
   hidden: no
@@ -20,4 +21,18 @@ explore: sdt_ta_dest_spon_elements {
     sql_on: ${sdt_ta_dest_spon_overview.overview_pk} = ${sdt_ta_dest_spon_content.overview_pk} ;;
     relationship: many_to_one
   }
+}
+
+explore: sdt_fy20_ta_uk_content_hub {
+  hidden: yes
+  label: "TripAdvisor UK - Content Hub"
+  view_label: "TripAdvisor - Content Hub"
+  group_label: "San Diego Tourism"
+}
+
+explore: sdt_fy20_ta_can_content_hub {
+  hidden: yes
+  label: "TripAdvisor CAN - Content Hub"
+  view_label: "TripAdvisor - Content Hub"
+  group_label: "San Diego Tourism"
 }

@@ -7,9 +7,9 @@ explore: sdt_fy20_ta_can_audext_social {
   group_label: "San Diego Tourism"
 }
 
-explore: sdt_fy20_ta_can_content_hub {
-  hidden: yes
-  label: "TripAdvisor - Content Hub"
-  view_label: "TripAdvisor - Content Hub"
-  group_label: "San Diego Tourism"
-}
+# explore: sdt_fy20_ta_can_content_hub {
+#   hidden: yes
+#   label: "TripAdvisor - Content Hub"
+#   view_label: "TripAdvisor - Content Hub"
+#   group_label: "San Diego Tourism"
+# }
