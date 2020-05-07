@@ -24,6 +24,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy20_family_content_taboola {
+    view_label: "FY20 Family Content Passback"
+    type: inner
+    sql_on: ${sdt_dcm_view.passback_join_ad} = ${sdt_fy20_family_content_taboola.passback_join_ad} ;;
+    relationship: many_to_one
+  }
+
   join: sdt_fy20_can_dcm_view {
     view_label: "FY20 Canada Digital Passback"
     type: inner

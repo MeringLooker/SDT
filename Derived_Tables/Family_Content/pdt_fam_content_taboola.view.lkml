@@ -10,11 +10,11 @@ view: pdt_fam_content_taboola {
       column: date {field: sdt_dcm_view.date_date}
       column: week {field: sdt_dcm_view.date_week}
       column: month {field: sdt_dcm_view.date_month}
-      column: total_impressions {field: sdt_fy20_content_inpowered.total_impressions}
-      column: total_clicks {field: sdt_fy20_content_inpowered.total_clicks}
-      column: total_views {field: sdt_fy20_content_inpowered.total_video_views}
-      column: total_completes {field: sdt_fy20_content_inpowered.total_video_completes}
-      column: total_cost {field: sdt_fy20_content_inpowered.total_cost}
+      column: total_impressions {field: sdt_fy20_family_content_taboola.total_impressions}
+      column: total_clicks {field: sdt_fy20_family_content_taboola.total_clicks}
+      column: total_views {field: sdt_fy20_family_content_taboola.total_video_views}
+      column: total_completes {field: sdt_fy20_family_content_taboola.total_video_completes}
+      column: total_cost {field: sdt_fy20_family_content_taboola.total_media_cost}
       column: total_sessions {field: sdt_dcm_view.ga_sessions}
       column: total_session_duration {field: sdt_dcm_view.ga_total_session_duration}
       filters: {
