@@ -21,17 +21,17 @@ view: sdt_fy20_content_inpowered {
 
   dimension: placement {
     type: string
-    sql: ${sdt_dcm_view.placement} ;;
+    sql: ${sdt_dcm_ga_view.placement} ;;
   }
 
   dimension: publisher {
     type: string
-    sql: ${sdt_dcm_view.publisher} ;;
+    sql: ${sdt_dcm_ga_view.publisher} ;;
   }
 
   dimension: creative_name {
     type: string
-    sql: ${sdt_dcm_view.ad} ;;
+    sql: ${sdt_dcm_ga_view.ad} ;;
   }
 
 ######## Dimensions native to passback file #######

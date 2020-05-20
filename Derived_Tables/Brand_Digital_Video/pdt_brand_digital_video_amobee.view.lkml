@@ -1,16 +1,16 @@
 view: pdt_brand_digital_video_amobee {
   derived_table: {
     explore_source: sdt_dcm {
-      column: publisher {field: sdt_dcm_view.publisher}
-      column: campaign {field: sdt_dcm_view.sdt_campaign}
-      column: market {field: sdt_dcm_view.sdt_market}
-      column: region {field: sdt_dcm_view.sdt_region}
-      column: audience {field: sdt_dcm_view.sdt_audience}
-      column: creative_name {field: sdt_dcm_view.creative_name}
-      column: date {field: sdt_dcm_view.date_date}
-      column: week {field: sdt_dcm_view.date_week}
-      column: month {field: sdt_dcm_view.date_month}
-      column: quarter {field: sdt_dcm_view.date_quarter}
+      column: publisher {field: sdt_dcm_ga_view.publisher}
+      column: campaign {field: sdt_dcm_ga_view.sdt_campaign}
+      column: market {field: sdt_dcm_ga_view.sdt_market}
+      column: region {field: sdt_dcm_ga_view.sdt_region}
+      column: audience {field: sdt_dcm_ga_view.sdt_audience}
+      column: creative_name {field: sdt_dcm_ga_view.creative_name}
+      column: date {field: sdt_dcm_ga_view.date_date}
+      column: week {field: sdt_dcm_ga_view.date_week}
+      column: month {field: sdt_dcm_ga_view.date_month}
+      column: quarter {field: sdt_dcm_ga_view.date_quarter}
       column: total_impressions {field: sdt_fy20_digitalvideo_dcm_view.total_impressions}
       column: total_clicks {field: sdt_fy20_digitalvideo_dcm_view.total_clicks}
       column: total_views {field: sdt_fy20_digitalvideo_dcm_view.total_video_views}
@@ -18,11 +18,11 @@ view: pdt_brand_digital_video_amobee {
       column: total_cost {field: sdt_fy20_digitalvideo_dcm_view.total_media_cost}
 
       filters: {
-        field: sdt_dcm_view.sdt_campaign
+        field: sdt_dcm_ga_view.sdt_campaign
         value: "Brand Digital Video"
       }
       filters: {
-        field: sdt_dcm_view.publisher
+        field: sdt_dcm_ga_view.publisher
         value: "Amobee"
       }
     }

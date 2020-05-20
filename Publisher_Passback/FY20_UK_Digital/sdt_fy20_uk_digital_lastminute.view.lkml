@@ -20,12 +20,12 @@ view: sdt_fy20_uk_digital_lastminute {
 
   dimension: placement {
     type: string
-    sql: ${sdt_dcm_view.placement} ;;
+    sql: ${sdt_dcm_ga_view.placement} ;;
   }
 
   dimension: publisher {
     type: string
-    sql: ${sdt_dcm_view.publisher} ;;
+    sql: ${sdt_dcm_ga_view.publisher} ;;
   }
 
   dimension_group: __senttime {

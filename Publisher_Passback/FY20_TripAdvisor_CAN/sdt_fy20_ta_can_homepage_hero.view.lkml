@@ -22,27 +22,27 @@ dimension: passback_join { ## placement ID + date ALWAYS ##
 dimension: placement {
   type: string
   group_label: "DCM Dimensions"
-  sql: ${sdt_dcm_view.placement} ;;
+  sql: ${sdt_dcm_ga_view.placement} ;;
 }
 
 dimension: sdt_placement {
   type: string
   group_label: "Client Dimensions"
   label: "Placement Name"
-  sql: ${sdt_dcm_view.sdt_placement} ;;
+  sql: ${sdt_dcm_ga_view.sdt_placement} ;;
 }
 
 dimension: sdt_pillar {
   type: string
   group_label: "Client Dimensions"
   label: "Pillar"
-  sql: ${sdt_dcm_view.sdt_pillar} ;;
+  sql: ${sdt_dcm_ga_view.sdt_pillar} ;;
 }
 
 dimension: ad {
   type: string
   group_label: "DCM Dimensions"
-  sql: ${sdt_dcm_view.ad} ;;
+  sql: ${sdt_dcm_ga_view.ad} ;;
 }
 
 dimension: publisher {
