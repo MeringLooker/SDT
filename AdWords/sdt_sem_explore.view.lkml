@@ -23,4 +23,5 @@ explore: sdt_sem {
 #     sql_on: ${sdt_sem_view.join_id_pageInfo} = ${sdt_ga_pageinfo.adwords_join_id} ;;
 #     relationship: many_to_one
 #   }
+
 }

@@ -15,4 +15,5 @@ explore: sdt_pinterest {
 #     sql_on: ${sdt_pinterest.pinterest_ga_join} = ${sdt_ga_onsite.join_id} ;;
 #     relationship: one_to_many
 #   }
+
 }
