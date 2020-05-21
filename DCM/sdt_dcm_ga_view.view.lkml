@@ -1317,7 +1317,7 @@ view: sdt_dcm_ga_view {
   ### GA Measures ###
 
   measure: total_sessions {
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Sessions"
     sql_distinct_key: ${comp_key} ;;
@@ -1325,7 +1325,7 @@ view: sdt_dcm_ga_view {
   }
 
   measure: cost_per_session {
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     type: number
     label: "CPS"
     sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
@@ -1341,7 +1341,7 @@ view: sdt_dcm_ga_view {
   }
 
   measure: avg_time_on_site {
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     label: "Avg. TOS"
     type: number
     sql:  (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400  ;;
@@ -1349,7 +1349,7 @@ view: sdt_dcm_ga_view {
   }
 
   measure: total_pageviews {
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Pageviews"
     sql_distinct_key: ${comp_key} ;;
@@ -1357,7 +1357,7 @@ view: sdt_dcm_ga_view {
   }
 
   measure: pages_per_session {
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     type: number
     label: "Pages/Session"
     sql: ${total_pageviews}/nullif(${total_sessions}, 0) ;;
@@ -1365,7 +1365,7 @@ view: sdt_dcm_ga_view {
   }
 
   measure: total_bounces {
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Bounces"
     sql_distinct_key: ${comp_key} ;;
@@ -1374,7 +1374,7 @@ view: sdt_dcm_ga_view {
 
   measure: total_bounce_rate  {
     label: "Bounce Rate"
-    group_label: "GA Reporting"
+    group_label: "Google Analytics Metrics"
     type: number
     sql: ${total_bounces}/nullif(${total_sessions}, 0) ;;
     value_format_name: percent_2
