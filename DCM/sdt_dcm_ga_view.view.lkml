@@ -1461,10 +1461,4 @@ view: sdt_dcm_ga_view {
     sql: ${total_tos_above_120s}/nullif(${total_sessions}, 0) ;;
     value_format_name: percent_2
   }
-
-
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

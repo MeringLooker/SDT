@@ -437,21 +437,21 @@ view: sdt_yt_ga_view {
 
   measure: total_impressions {
     type: sum_distinct
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     sql_distinct_key: ${comp_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     sql_distinct_key: ${comp_key} ;;
     sql: ${clicks} ;;
   }
 
   measure: total_cost {
     type:  sum_distinct
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     sql_distinct_key: ${comp_key} ;;
     sql:${cost}/1000000.00  ;;
     value_format_name: usd
@@ -459,14 +459,14 @@ view: sdt_yt_ga_view {
 
   measure: total_conversions {
     type: sum_distinct
-    group_label: "Trueview Reporting"
+    group_label: "Conversion Reporting"
     sql_distinct_key: ${comp_key} ;;
     sql: ${conversions} ;;
   }
 
   measure: click_through_rate  {
     label: "CTR"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     type: number
     sql: ${total_clicks}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
@@ -474,7 +474,7 @@ view: sdt_yt_ga_view {
 
   measure: cost_per_click {
     label: "CPC"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     type: number
     sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
     value_format_name: usd
@@ -482,7 +482,7 @@ view: sdt_yt_ga_view {
 
   measure: cost_per_thousand  {
     label: "CPM"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     type: number
     sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
     value_format_name: usd
@@ -490,7 +490,7 @@ view: sdt_yt_ga_view {
 
   measure: total_conversion_rate  {
     label: "CVR"
-    group_label: "Trueview Reporting"
+    group_label: "Conversion Reporting"
     type: number
     sql: ${total_conversions}/nullif(${total_clicks}, 0) ;;
     value_format_name: percent_2
@@ -498,7 +498,7 @@ view: sdt_yt_ga_view {
 
   measure: cost_per_conversion {
     label: "CPA"
-    group_label: "Trueview Reporting"
+    group_label: "Conversion Reporting"
     type: number
     sql: ${total_cost}/nullif(${total_conversions} ,0);;
     value_format_name: usd
@@ -507,14 +507,14 @@ view: sdt_yt_ga_view {
   measure: total_views {
     type: sum_distinct
     label: "Video Views"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     sql_distinct_key: ${comp_key} ;;
     sql: ${views} ;;
   }
 
   measure: cost_per_view {
     label: "CPV"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     type: number
     sql: ${total_cost}/nullif(${total_views}, 0) ;;
     value_format_name: usd
@@ -554,7 +554,7 @@ view: sdt_yt_ga_view {
     type: sum_distinct
     value_format_name: decimal_0
     label: "Video Completes"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     hidden: no
     sql_distinct_key: ${comp_key} ;;
     sql: ${views_to_q100} ;;
@@ -586,7 +586,7 @@ view: sdt_yt_ga_view {
 
   measure: view_rate  {
     label: "View Rate"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     type: number
     sql: ${total_views}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
@@ -594,7 +594,7 @@ view: sdt_yt_ga_view {
 
   measure: completion_rate  {
     label: "Completion Rate"
-    group_label: "Trueview Reporting"
+    group_label: "Delivery Metrics"
     type: number
     sql: ${total_video_completes}/nullif(${total_impressions}, 0) ;;
     value_format_name: percent_2
@@ -746,11 +746,5 @@ view: sdt_yt_ga_view {
     type: number
     sql: ${total_tos_above_120s}/nullif(${total_sessions}, 0) ;;
     value_format_name: percent_2
-  }
-
-
-  measure: count {
-    type: count
-    drill_fields: []
   }
 }
