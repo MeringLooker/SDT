@@ -7,13 +7,4 @@ explore: sdt_fb {
   label: "Facebook"
   view_label: "Facebook"
   group_label: "San Diego Tourism"
-
-#   join: facebookads__mc_visit_san_diego_actions {
-#     type: left_outer
-#     fields: []
-#     sql_on: ${sdt_fb_view.id} =${facebookads__mc_visit_san_diego_actions.facebookads__mc_visit_san_diego_id} ;;
-#     relationship: many_to_one
-#   }
-#
-
 }

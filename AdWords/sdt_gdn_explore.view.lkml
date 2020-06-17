@@ -9,12 +9,4 @@ explore: sdt_gdn {
   view_label: "AdWords Display"
   group_label: "San Diego Tourism"
 
-#
-#   join: sdt_ga_pageinfo {
-#     view_label: "Google Analytics - Page Info"
-#     type: left_outer
-#     sql_on: ${sdt_gdn_view.join_id_pageInfo} = ${sdt_ga_pageinfo.adwords_join_id} ;;
-#     relationship: many_to_one
-#   }
-
 }
