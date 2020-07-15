@@ -274,7 +274,7 @@ view: sdt_yt_ga_view {
   }
 
   dimension: ad_group_id {
-    type: number
+    type: string
     group_label: "Trueview IDs"
     sql: ${TABLE}."ad group id" ;;
   }

@@ -24,6 +24,12 @@ view: sdt_dcm_ga_view {
     sql: ${ad_id}||'_'||${date_date} ;;
   }
 
+  dimension: dcm_id { ## placement ID + date ALWAYS
+    type: string
+    hidden: yes
+    sql: ${placement_id}||';'||${creative_id}||';'||${ad_id} ;;
+  }
+
   ##### Dimensions added to this table via LookML ######
 
     dimension: fiscal_year {
@@ -35,6 +41,7 @@ view: sdt_dcm_ga_view {
           WHEN ${date_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 18/18'
           WHEN ${date_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
           WHEN ${date_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+          WHEN ${date_date} BETWEEN '2020-07-01' AND '2021-06-30' THEN 'FY 19/20'
           ELSE 'Uncategorized'
           END
           ;;
@@ -64,6 +71,10 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%\\_1320x742' then '1320x742'
           when ${placement} ilike '%\\_2560x500' then '2560x500'
           when ${placement} ilike '%\\_474x250' then '474x250'
+
+          when ${ad} ilike '%\\_500x1100_%' then '500x1100'
+
+          when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness_HPTODisplay_Pushdown Skin_1x1%' then 'Pushdown Skin'
 
           when ${placement} ilike '%\\_491x872' then '491x872'
           when ${placement} ilike '%\\_990x1320' then '990x1320'
@@ -239,6 +250,8 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'Taboola_FY20 Family Content_Micro%' then 'Micro Traffic'
           when ${placement} ilike 'Taboola_FY20 Family Content_Nano%' then 'Nano Traffic'
 
+          when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness%' then 'Awareness'
+
           ELSE 'Uncategorized'
           end ;;
     }
@@ -259,6 +272,8 @@ view: sdt_dcm_ga_view {
           when ${campaign} = 'SDT FY19 TripAdvisor Program- US' then 'US TripAdvisor Program'
           when ${campaign} = 'SDT: 004676_01 FY20 TripAdvisor UK Campaign' then 'UK TripAdvisor Program'
           when ${campaign} = 'SDT FY19 TripAdvisor Program- UK' then 'UK TripAdvisor Program'
+
+          when ${campaign} ilike 'SDT: FY21 Local Market Recovery%' then 'Locals Recovery'
 
           when ${campaign} ILIKE '%Brand Digital Video%' then 'Brand Digital Video'
           when ${campaign} ILIKE '%Canada Digital%' then 'Canada Digital'
@@ -333,6 +348,8 @@ view: sdt_dcm_ga_view {
           when ${campaign} = '003076_01 FY18 San Diego Kids Free Digital' then 'United States'
           when ${campaign} = 'SDT: 004928_01 FY20 Family Content Campaign' then 'United States'
           when ${campaign} = 'SDT: 004660_01 FY20 Balboa Park Campaign' then 'United States'
+
+          when ${campaign} ilike 'SDT: FY21 Local Market Recovery%' then 'United States'
 
             ELSE 'Uncategorized'
         END;;
@@ -678,6 +695,10 @@ view: sdt_dcm_ga_view {
 
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX InStream%' then 'InStream High Impact Video Banners'
 
+        when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness_HPTODisplay%' then 'Homepage Takeover Display'
+
+        when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness_ROSDisplay%' then 'ROS Display'
+
         else 'Uncategorized'
       end;;
     }
@@ -943,6 +964,14 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%010620-033020_Generic%' then 'Generic'
           when ${ad} ilike '%010620-033020_Coastal Happiness%' then 'Coastal Happiness'
           when ${ad} ilike '%010620-033020_5Days%' then '5 Days'
+
+          when ${ad} ilike '%ROSdisplay_StayDiego_728x90%' then 'StayDiego_728x90'
+          when ${ad} ilike '%ROSdisplay_StayDiego_300x250%' then 'StayDiego_300x250'
+          when ${ad} ilike '%ROSdisplay_StayDiego_300x600%' then 'StayDiego_300x600'
+          when ${ad} ilike '%ROSdisplay_StayDiego_970x90%' then 'StayDiego_970x90'
+
+          when ${ad} ilike '%ROSdisplay_StayDiego_StayClose_320x50%' then 'StayClose_320x50'
+          when ${ad} ilike '%ROSdisplay_StayDiego_CloseBy_320x50%' then 'CloseBy_320x50'
 
             ELSE 'Uncategorized'
         END;;

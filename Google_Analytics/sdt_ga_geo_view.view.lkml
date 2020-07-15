@@ -12,23 +12,29 @@ view: sdt_ga_geo_view {
 
   ## Dimensions joined from Ads Lookup File ##
 
-#   dimension: ad_name {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${sdt_ga_ads_lookup.ad_name};;
-#   }
-#
-#   dimension: creative_name {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${sdt_ga_ads_lookup.creative_name};;
-#   }
-#
-#   dimension: publisher {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${sdt_ga_ads_lookup.publisher};;
-#   }
+  dimension: ad_name {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_ads_lookup.ad_name};;
+  }
+
+  dimension: creative_name {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_ads_lookup.creative_name};;
+  }
+
+  dimension: publisher {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_ads_lookup.publisher};;
+  }
+
+  dimension: campaign {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_campaigns_lookup.campaign};;
+  }
 
   ## Dimensions added to this Table ##
 
@@ -139,6 +145,21 @@ view: sdt_ga_geo_view {
     group_label: "Locations"
     description: "Returns values for DMAs."
     sql: ${TABLE}.metro ;;
+  }
+
+  dimension: state {
+    type: string
+    group_label: "Locations"
+    description: "Returns values for States."
+    map_layer_name: us_states
+    sql:
+      case
+        when ${metro} = 'Washington DC (Hagerstown MD)' then 'MD'
+        when ${metro} = 'Greenville-Spartanburg-Asheville-Anderson' then 'NC'
+        else right(${metro},2)
+        end
+        ;;
+        drill_fields: [metro]
   }
 
   dimension: newsletter_sign_ups {

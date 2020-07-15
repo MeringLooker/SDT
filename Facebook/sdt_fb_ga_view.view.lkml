@@ -834,7 +834,7 @@ view: sdt_fb_ga_view {
   }
 
   dimension: ad_id {
-    type: number
+    type: string
     group_label: "Facebook IDs"
     sql: ${TABLE}.ad_id ;;
   }

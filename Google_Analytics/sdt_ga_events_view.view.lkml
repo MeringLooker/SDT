@@ -12,23 +12,30 @@ view: sdt_ga_events_view {
 
   ## Dimensions joined from Ads Lookup File ##
 
-#   dimension: ad_name {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${tna_ga_ads_lookup.ad_name};;
-#   }
-#
-#   dimension: creative_name {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${tna_ga_ads_lookup.creative_name};;
-#   }
-#
-#   dimension: publisher {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${tna_ga_ads_lookup.publisher};;
-#   }
+  dimension: ad_name {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_ads_lookup.ad_name};;
+  }
+
+  dimension: creative_name {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_ads_lookup.creative_name};;
+  }
+
+  dimension: publisher {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_ads_lookup.publisher};;
+  }
+
+  dimension: campaign {
+    type: string
+    group_label: "Paid Traffic Info"
+    sql: ${sdt_ga_campaigns_lookup.campaign};;
+  }
+
 #
 #   ## Dimensions added to this Table ##
 #

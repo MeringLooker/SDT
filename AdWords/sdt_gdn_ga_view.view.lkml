@@ -363,7 +363,7 @@ view: sdt_gdn_ga_view {
   }
 
   dimension: ad_group_id {
-    type: number
+    type: string
     group_label: "AdWords IDs"
     sql: ${TABLE}."ad group id" ;;
   }

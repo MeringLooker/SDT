@@ -59,7 +59,7 @@ view: sdt_pinterest_ga_view {
       case
         when ${campaign_name} ilike 'SDTA_FY19_Holiday%' then 'SD For The Holidays'
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National%' then 'US Pull-Through'
-        when ${campaign_name} ilike 'SDT_FY20_FallPromo%' then 'Fall Promos'
+        when ${campaign_name} ilike 'SDT_FY20_FallPromo%' then 'Fall Promo'
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent%' then 'Always On Content'
         else 'Uncategorized'
         end;;

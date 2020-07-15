@@ -3,7 +3,12 @@ include: "/TrueView/*.view"
 include: "/Facebook/*.view"
 include: "/DCM/*.view"
 include: "/AdWords/*.view"
+include: "/Pinterest/*.view"
 
+datagroup: sdt_ga_datagroup {
+  sql_trigger: SELECT current_date;;
+  max_cache_age: "24 hours"
+}
 
 explore: sdt_ga {
   hidden:  yes
@@ -27,6 +32,22 @@ explore: sdt_ga {
   join: sdt_ga_events_view {
     view_label: "Events"
     sql_on: ${sdt_ga_events_view.acq_join_id} = ${sdt_ga_acq_view.acq_join_id} ;;
+    relationship: many_to_one
+  }
+
+  join: sdt_ga_ads_lookup {
+    view_label: "Ads Lookup"
+    sql_on: ${sdt_ga_ads_lookup.ad_platform_id} = ${sdt_ga_acq_view.ga_ads_lookup_id} ;;
+    fields: []
+    type: inner
+    relationship: many_to_one
+  }
+
+  join: sdt_ga_campaigns_lookup {
+    view_label: "Campaign Lookup"
+    sql_on: ${sdt_ga_campaigns_lookup.ad_id} = ${sdt_ga_acq_view.ga_ads_lookup_id} ;;
+    fields: []
+    type: inner
     relationship: many_to_one
   }
 
