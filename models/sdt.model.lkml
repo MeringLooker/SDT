@@ -3,7 +3,7 @@ include: "/Publisher_Passback/TA_Destination_Sponsorship/*.view"
 include: "/Publisher_Passback/**/*.view"
 
 explore: sdt_ta_dest_spon_elements {
-  hidden: no
+  hidden: yes
   view_label: "Elements Overview"
   label: "TripAdvisor Destination Sponsorship"
   group_label: "San Diego Tourism"

@@ -3,7 +3,7 @@ view: sdt_gdn_ga_view {
 
 ###### Primary Key #######
 
-  dimension: comp_key {
+  dimension: ga_join_id {
     type: string
     primary_key: yes
     hidden: yes
@@ -47,6 +47,7 @@ view: sdt_gdn_ga_view {
         when ${campaign} = 'SDTA - Balboa - Cultural VS - GDN Responsive' then 'Responsive Display'
         when ${campaign} = 'SDTA - Balboa - Retargeting - GDN Responsive' then 'Responsive Display'
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Responsive Display'
+        when ${campaign} = 'SDT - FY21 - Locals Recovery - Awareness' then 'Responsive Display'
         else null
         end
       ;;
@@ -77,6 +78,8 @@ view: sdt_gdn_ga_view {
         when ${account} ilike '%Family Content San Diego Zoo' then 'United States'
         when ${account} ilike '%Family Content San Diego Tourism' then 'United States'
         when ${account} ilike '%Family Content Legoland' then 'United States'
+
+        when ${account} ilike 'SDTA Locals GDN' then 'United States'
 
         ELSE 'Uncategorized'
         end
@@ -140,6 +143,8 @@ view: sdt_gdn_ga_view {
         when ${account} = 'SDTA Content GDN US' then 'Always On Content'
         when ${account} = 'SDTA Content GDN PHX' then 'Always On Content'
         when ${account} = 'SDTA Content GDN LA' then 'Always On Content'
+
+        when ${campaign} ilike 'SDT - FY21 - Locals Recovery - Awareness%' then 'Locals Recovery'
 
         when ${campaign_id} = '1628518746' then 'US Pull-Through'
         when ${campaign_id} = '1627895647' then 'US Pull-Through'
@@ -207,6 +212,8 @@ view: sdt_gdn_ga_view {
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano%' then 'Nano Traffic'
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Micro%' then 'Micro Traffic'
 
+        when ${campaign} ilike 'SDT - FY21 - Locals Recovery - Awareness%' then 'Awareness'
+
         ELSE 'Uncategorized'
         end
         ;;
@@ -257,6 +264,11 @@ view: sdt_gdn_ga_view {
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano_GDisco%' then 'Nano - Google Discover Display'
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano_GDN%' then 'Micro - GDN Display'
 
+        when ${ad_group} ilike 'SDT - Coast - VS Custom Intent' then 'Responsive Display - Variety Seeker'
+        when ${ad_group} ilike 'SDT - Hotel - VS Custom Intent' then 'Responsive Display - Variety Seeker'
+        when ${ad_group} ilike 'SDT - Coast - Site LAL' then 'Responsive Display - Site Lookalikes'
+        when ${ad_group} ilike 'SDT - Hotel - Site LAL' then 'Responsive Display - Site Lookalikes'
+
         ELSE 'Uncategorized'
         end
         ;;
@@ -302,6 +314,11 @@ view: sdt_gdn_ga_view {
         when ${ad_group_id} = '82341756678' then 'Variety Seeker'
         when ${ad_group_id} = '82341756438' then 'Variety Seeker'
 
+        when ${ad_group} ilike 'SDT - Coast - VS Custom Intent' then 'Variety Seeker'
+        when ${ad_group} ilike 'SDT - Hotel - VS Custom Intent' then 'Variety Seeker'
+        when ${ad_group} ilike 'SDT - Coast - Site LAL' then 'Site Lookalikes'
+        when ${ad_group} ilike 'SDT - Hotel - Site LAL' then 'Site Lookalikes'
+
         ELSE 'Uncategorized'
         end
         ;;
@@ -327,6 +344,11 @@ view: sdt_gdn_ga_view {
         when ${account} ilike '%Family Content San Diego Zoo' then 'San Diego Zoo Display'
         when ${account} ilike '%Family Content San Diego Tourism' then 'San Diego Tourism Display'
         when ${account} ilike '%Family Content Legoland' then 'Legoland Display'
+
+        when ${ad_group} ilike 'SDT - Coast - VS Custom Intent' then 'Coast Creative'
+        when ${ad_group} ilike 'SDT - Hotel - VS Custom Intent' then 'Hotel Creative'
+        when ${ad_group} ilike 'SDT - Coast - Site LAL' then 'Coast Creative'
+        when ${ad_group} ilike 'SDT - Hotel - Site LAL' then 'Hotel Creative'
 
         ELSE 'Uncategorized'
         end
@@ -509,21 +531,21 @@ view: sdt_gdn_ga_view {
   measure: total_impressions {
     type: sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${clicks} ;;
   }
 
   measure: total_cost {
     type:  sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql:${cost}/1000000.00  ;;
     value_format_name: usd
   }
@@ -531,7 +553,7 @@ view: sdt_gdn_ga_view {
   measure: total_conversions {
     type: sum_distinct
     group_label: "AdWords Reporting"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${conversions} ;;
   }
 
@@ -578,14 +600,14 @@ view: sdt_gdn_ga_view {
   measure: total_views {
     type: sum_distinct
     hidden: yes
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${views} ;;
   }
 
   measure: total_completes {
     type: sum_distinct
     hidden: yes
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${completes} ;;
   }
 
@@ -595,7 +617,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Sessions"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${sessions} ;;
   }
 
@@ -611,7 +633,7 @@ view: sdt_gdn_ga_view {
     hidden: yes
     type: sum_distinct
     label: "Total Session Duration"
-    sql_distinct_key: ${comp_key};;
+    sql_distinct_key: ${ga_join_id};;
     sql: ${sessionduration};;
   }
 
@@ -627,7 +649,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Pageviews"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${pageviews} ;;
   }
 
@@ -643,7 +665,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Bounces"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${bounces} ;;
   }
 
@@ -661,7 +683,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Wheel Interactions"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${wheel_interactions} ;;
   }
 
@@ -677,7 +699,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Video Starts"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${ga_video_starts} ;;
   }
 
@@ -693,7 +715,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Newsletter Sign-Ups"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${newsletter_sign_up} ;;
   }
 
@@ -709,7 +731,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Avg. TOS >30s"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${tos_above_30s} ;;
   }
 
@@ -725,7 +747,7 @@ view: sdt_gdn_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Avg. TOS >120s"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${tos_above_30s} ;;
   }
 

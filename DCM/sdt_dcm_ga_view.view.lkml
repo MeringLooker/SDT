@@ -262,6 +262,7 @@ view: sdt_dcm_ga_view {
       label: "Campaign Name"
       sql:
         CASE
+          when ${ad_id} = '470013971' then 'Uncategorized'
           when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park Digital'
           when ${campaign} ILIKE '%Family Content%' then 'Family Content'
           when ${campaign} ILIKE '%SD For The Holidays%' then 'SD For The Holidays'
@@ -971,7 +972,12 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%ROSdisplay_StayDiego_970x90%' then 'StayDiego_970x90'
 
           when ${ad} ilike '%ROSdisplay_StayDiego_StayClose_320x50%' then 'StayClose_320x50'
+          when ${ad} ilike '%Pushdown Skin_1x1%' then 'StayDiego_Pushdown'
+
           when ${ad} ilike '%ROSdisplay_StayDiego_CloseBy_320x50%' then 'CloseBy_320x50'
+
+          when ${ad} ilike '%Rail_Beach_500x1100%' then 'Beach_500x1100'
+          when ${ad} ilike '%Rail_BikePath_500x1100%' then 'BikePath_500x1100'
 
             ELSE 'Uncategorized'
         END;;
