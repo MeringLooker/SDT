@@ -263,6 +263,9 @@ view: sdt_dcm_ga_view {
       sql:
         CASE
           when ${ad_id} = '470013971' then 'Uncategorized'
+
+          when ${ad} = '(not set)' then 'Uncategorized'
+
           when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park Digital'
           when ${campaign} ILIKE '%Family Content%' then 'Family Content'
           when ${campaign} ILIKE '%SD For The Holidays%' then 'SD For The Holidays'
