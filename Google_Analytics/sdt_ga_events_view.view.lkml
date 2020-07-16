@@ -208,6 +208,24 @@ view: sdt_ga_events_view {
     sql: ${TABLE}.visitor_planning_guide ;;
   }
 
+  dimension: spin_wheel_button {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.spin_wheel_button ;;
+  }
+
+  dimension: wheel_drag {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.wheel_drag ;;
+  }
+
+  dimension: wheel_click {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.wheel_click ;;
+  }
+
   ### All Measures go Below ###
 
   measure: total_events {
@@ -240,6 +258,30 @@ view: sdt_ga_events_view {
     label: "Discover SD Boards"
     sql_distinct_key: ${events_join_id} ;;
     sql: ${discover_sd} ;;
+  }
+
+  measure: total_wheel_drag {
+    group_label: "Client Events"
+    type: sum_distinct
+    label: "Wheel Drags"
+    sql_distinct_key: ${events_join_id} ;;
+    sql: ${wheel_drag} ;;
+  }
+
+  measure: total_wheel_click {
+    group_label: "Client Events"
+    type: sum_distinct
+    label: "Wheel Clicks"
+    sql_distinct_key: ${events_join_id} ;;
+    sql: ${wheel_click} ;;
+  }
+
+  measure: total_spin_wheel_button {
+    group_label: "Client Events"
+    type: sum_distinct
+    label: "Wheel Spins"
+    sql_distinct_key: ${events_join_id} ;;
+    sql: ${spin_wheel_button} ;;
   }
 
   measure: total_plan_your_vacation {

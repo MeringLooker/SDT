@@ -3,7 +3,7 @@ view: sdt_yt_ga_view {
 
 ###### Primary Key #######
 
-  dimension: comp_key {
+  dimension: ga_join_id {
     type: string
     primary_key: yes
     hidden: yes
@@ -433,26 +433,83 @@ view: sdt_yt_ga_view {
     sql: ${TABLE}.wheel_interactions ;;
   }
 
+  ## Dimensions for GA Events ##
+
+  dimension: discover_sd {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.discover_sd ;;
+  }
+
+  dimension: plan_your_vacation {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.plan_your_vacation ;;
+  }
+
+  dimension: spin_wheel_button {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.spin_wheel_button ;;
+  }
+
+  dimension: wheel_drag {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.wheel_drag ;;
+  }
+
+  dimension: wheel_click {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.wheel_click ;;
+  }
+
+  dimension: visitor_planning_guide {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.visitor_planning_guide ;;
+  }
+
+  dimension: staying_in_touch {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.staying_in_touch ;;
+  }
+
+  dimension: hotel_search {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.hotel_search ;;
+  }
+
+  dimension: purchases {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.purchases ;;
+  }
+
+
 ###### All Measures go Below #######
 
   measure: total_impressions {
     type: sum_distinct
     group_label: "Delivery Metrics"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
     group_label: "Delivery Metrics"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${clicks} ;;
   }
 
   measure: total_cost {
     type:  sum_distinct
     group_label: "Delivery Metrics"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql:${cost}/1000000.00  ;;
     value_format_name: usd
   }
@@ -460,7 +517,7 @@ view: sdt_yt_ga_view {
   measure: total_conversions {
     type: sum_distinct
     group_label: "Conversion Reporting"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${conversions} ;;
   }
 
@@ -508,7 +565,7 @@ view: sdt_yt_ga_view {
     type: sum_distinct
     label: "Video Views"
     group_label: "Delivery Metrics"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${views} ;;
   }
 
@@ -526,7 +583,7 @@ view: sdt_yt_ga_view {
     label: "Views To 25%"
     value_format_name: decimal_0
     hidden: no
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${views_to_q25} ;;
   }
 
@@ -536,7 +593,7 @@ view: sdt_yt_ga_view {
     label: "Views To 50%"
     value_format_name: decimal_0
     hidden: no
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${views_to_q50} ;;
   }
 
@@ -546,7 +603,7 @@ view: sdt_yt_ga_view {
     label: "Views To 75%"
     value_format_name: decimal_0
     hidden: no
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${views_to_q75} ;;
   }
 
@@ -556,7 +613,7 @@ view: sdt_yt_ga_view {
     label: "Video Completes"
     group_label: "Delivery Metrics"
     hidden: no
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${views_to_q100} ;;
   }
 
@@ -606,7 +663,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Sessions"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${sessions} ;;
   }
 
@@ -622,7 +679,7 @@ view: sdt_yt_ga_view {
     hidden: yes
     type: sum_distinct
     label: "Total Session Duration"
-    sql_distinct_key: ${comp_key};;
+    sql_distinct_key: ${ga_join_id};;
     sql: ${sessionduration};;
   }
 
@@ -638,7 +695,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Pageviews"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${sessions} ;;
   }
 
@@ -654,7 +711,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Metrics"
     type: sum_distinct
     label: "Bounces"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${bounces} ;;
   }
 
@@ -672,7 +729,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Wheel Interactions"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${wheel_interactions} ;;
   }
 
@@ -688,7 +745,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Video Starts"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${ga_video_starts} ;;
   }
 
@@ -704,7 +761,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Newsletter Sign-Ups"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${newsletter_sign_up} ;;
   }
 
@@ -720,7 +777,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Avg. TOS >30s"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${tos_above_30s} ;;
   }
 
@@ -736,7 +793,7 @@ view: sdt_yt_ga_view {
     group_label: "Google Analytics Goals"
     type: sum_distinct
     label: "Avg. TOS >120s"
-    sql_distinct_key: ${comp_key} ;;
+    sql_distinct_key: ${ga_join_id} ;;
     sql: ${tos_above_30s} ;;
   }
 
@@ -746,5 +803,79 @@ view: sdt_yt_ga_view {
     type: number
     sql: ${total_tos_above_120s}/nullif(${total_sessions}, 0) ;;
     value_format_name: percent_2
+  }
+
+  ## SDT Google Analytics Events ##
+
+  measure: total_discover_sd {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Discover SD Boards"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${discover_sd} ;;
+  }
+
+  measure: total_plan_your_vacation {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Plan Your Vacation"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${plan_your_vacation} ;;
+  }
+
+  measure: total_spin_wheel_button {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Wheel Spins"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${spin_wheel_button} ;;
+  }
+
+  measure: total_wheel_drag {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Wheel Drags"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${wheel_drag} ;;
+  }
+
+  measure: total_wheel_click {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Wheel Clicks"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${wheel_click} ;;
+  }
+
+  measure: total_visitor_planning_guide {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Visitor Planning Guide"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${visitor_planning_guide} ;;
+  }
+
+  measure: total_staying_in_touch {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Staying In Touch"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${staying_in_touch} ;;
+  }
+
+  measure: total_hotel_search {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Hotel Searches"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${hotel_search} ;;
+  }
+
+  measure: total_purchases {
+    group_label: "Google Analytics Events"
+    type: sum_distinct
+    label: "Purchases"
+    sql_distinct_key: ${ga_join_id} ;;
+    sql: ${purchases} ;;
   }
 }

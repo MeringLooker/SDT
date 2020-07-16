@@ -552,6 +552,62 @@ view: sdt_pinterest_ga_view {
     sql: ${TABLE}.wheel_interactions ;;
   }
 
+  ## Dimensions for GA Events ##
+
+  dimension: discover_sd {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.discover_sd ;;
+  }
+
+  dimension: plan_your_vacation {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.plan_your_vacation ;;
+  }
+
+  dimension: spin_wheel_button {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.spin_wheel_button ;;
+  }
+
+  dimension: wheel_drag {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.wheel_drag ;;
+  }
+
+  dimension: wheel_click {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.wheel_click ;;
+  }
+
+  dimension: visitor_planning_guide {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.visitor_planning_guide ;;
+  }
+
+  dimension: staying_in_touch {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.staying_in_touch ;;
+  }
+
+  dimension: hotel_search {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.hotel_search ;;
+  }
+
+  dimension: purchases {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.purchases ;;
+  }
+
 #### All Measures go Below ###
 
   measure: total_spend {

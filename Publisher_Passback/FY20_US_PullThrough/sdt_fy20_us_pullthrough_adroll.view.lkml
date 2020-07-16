@@ -193,8 +193,8 @@ view: sdt_fy20_us_pullthrough_adroll {
     group_label: "GA Reporting"
     type: sum_distinct
     label: "Sessions"
-    sql_distinct_key: ${sdt_ga_onsite.id};;
-    sql: ${sdt_ga_onsite.sessions} ;;
+    sql_distinct_key: ${sdt_ga_acq_view.acq_join_id};;
+    sql: ${sdt_ga_acq_view.sessions} ;;
   }
 
   measure: cost_per_session {
@@ -209,9 +209,9 @@ view: sdt_fy20_us_pullthrough_adroll {
     group_label: "GA Reporting"
     hidden: yes
     type: sum_distinct
-    sql_distinct_key: ${sdt_ga_onsite.id};;
+    sql_distinct_key: ${sdt_ga_acq_view.acq_join_id};;
     label: "Total Session Duration"
-    sql: ${sdt_ga_onsite.sessionduration} ;;
+    sql: ${sdt_ga_acq_view.sessionduration} ;;
   }
 
   measure: ga_avg_session_duration {
