@@ -304,6 +304,8 @@ view: sdt_dcm_ga_view {
           when ${campaign} = '003220_01 FY18 Foundational Travel Intender Pull-Through Digital' then 'US Pull-Through'
           when ${campaign} = 'SDT: 004978_01 FY20 Premium Digital Display Campaign' then 'Premium Digital Display'
 
+          when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'US Pull-Through'
+
 
         ELSE ${campaign}
         END;;
@@ -354,6 +356,7 @@ view: sdt_dcm_ga_view {
           when ${campaign} = 'SDT: 004660_01 FY20 Balboa Park Campaign' then 'United States'
 
           when ${campaign} ilike 'SDT: FY21 Local Market Recovery%' then 'United States'
+          when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'United States'
 
             ELSE 'Uncategorized'
         END;;
@@ -1447,7 +1450,7 @@ view: sdt_dcm_ga_view {
     type: sum_distinct
     label: "Pageviews"
     sql_distinct_key: ${ga_join_id} ;;
-    sql: ${sessions} ;;
+    sql: ${pageviews} ;;
   }
 
   measure: pages_per_session {
