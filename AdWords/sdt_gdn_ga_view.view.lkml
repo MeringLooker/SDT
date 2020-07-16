@@ -390,6 +390,13 @@ view: sdt_gdn_ga_view {
     sql: ${TABLE}."ad group id" ;;
   }
 
+  dimension: ad_group_id_string {
+    type: string
+    hidden: yes
+    group_label: "AdWords IDs"
+    sql: ${TABLE}."ad group id" ;;
+  }
+
   dimension: bounces {
     type: number
     hidden: yes

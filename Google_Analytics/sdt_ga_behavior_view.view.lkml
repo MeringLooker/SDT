@@ -12,17 +12,17 @@ view: sdt_ga_behavior_view {
 
   ## Dimensions joined from Ads Lookup File ##
 
-  dimension: ad_name {
-    type: string
-    group_label: "Paid Traffic Info"
-    sql: ${sdt_ga_ads_lookup.ad_name};;
-  }
-
-  dimension: creative_name {
-    type: string
-    group_label: "Paid Traffic Info"
-    sql: ${sdt_ga_ads_lookup.creative_name};;
-  }
+#   dimension: ad_name {
+#     type: string
+#     group_label: "Paid Traffic Info"
+#     sql: ${sdt_ga_ads_lookup.ad_name};;
+#   }
+#
+#   dimension: creative_name {
+#     type: string
+#     group_label: "Paid Traffic Info"
+#     sql: ${sdt_ga_ads_lookup.creative_name};;
+#   }
 
   dimension: publisher {
     type: string
