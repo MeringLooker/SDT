@@ -72,6 +72,8 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%\\_2560x500' then '2560x500'
           when ${placement} ilike '%\\_474x250' then '474x250'
 
+          when ${placement} ilike '%Travel Intender_OnSiteDisplay_Native%' then 'Native'
+
           when ${ad} ilike '%\\_500x1100_%' then '500x1100'
 
           when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness_HPTODisplay_Pushdown Skin_1x1%' then 'Pushdown Skin'
@@ -251,6 +253,7 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'Taboola_FY20 Family Content_Nano%' then 'Nano Traffic'
 
           when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness%' then 'Awareness'
+          when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'Intent'
 
           ELSE 'Uncategorized'
           end ;;
@@ -305,6 +308,7 @@ view: sdt_dcm_ga_view {
           when ${campaign} = 'SDT: 004978_01 FY20 Premium Digital Display Campaign' then 'Premium Digital Display'
 
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'US Pull-Through'
+          when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'Fall Drive Market'
 
 
         ELSE ${campaign}
@@ -357,6 +361,7 @@ view: sdt_dcm_ga_view {
 
           when ${campaign} ilike 'SDT: FY21 Local Market Recovery%' then 'United States'
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'United States'
+          when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'United States'
 
             ELSE 'Uncategorized'
         END;;
@@ -457,6 +462,22 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '255163882' then 'Los Angeles'
           when ${placement_id} = '255163483' then 'Phoenix'
           when ${placement_id} = '255163888' then 'Los Angeles'
+
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_California%' then 'California'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona%' then 'Arizona'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_California%' then 'California'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_Arizona%' then 'Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_California%' then 'California'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_CA,AZ%' then 'California/Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_Arizona%' then 'Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion%' then 'Western Region'
+
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion%' then 'Western Region'
+
+
 
             ELSE 'Uncategorized'
         END;;
@@ -691,6 +712,34 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Behavioral%' then 'Native Traffic - Behavior Targeting'
         when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Contextual%' then 'Native Traffic - Contextual Targeting'
         when ${placement} ilike 'StackAdapt_Content_RON - Native Traffic - Lookalike%' then 'Native Traffic - Lookalike Targeting'
+
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_AVDisplay%' then 'AV - Display Prospecting'
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_RTGDisplay%' then 'Display Retargeting'
+
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_Arizona_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_CA,AZ_AVDisplay%' then 'AV - Display Prospecting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_Arizona_AVDisplay%' then 'AV - Display Prospecting'
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_CA,AZ_RTGDisplay%' then 'Display Retargeting'
+
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_California_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_RTGDisplay%' then 'Display Retargeting'
+
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_California_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_WesternRegion_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_WesternRegion_RTGDisplay%' then 'Display Retargeting'
+
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona_Travel Intender_OnSiteDisplay_Native' then 'TripAdvisor OnSite Native Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_California_Travel Intender_OnSiteDisplay_Native' then 'TripAdvisor OnSite Native Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_Travel Intender_OnSiteDisplay_Native' then 'TripAdvisor OnSite Native Display'
+
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_California_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
+
+
+
 
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Rectangle%' then 'In-Frame High Impact Video Banners - Rectangle'
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Halfpage%' then 'In-Frame High Impact Video Banners - Halfpage'
@@ -984,6 +1033,23 @@ view: sdt_dcm_ga_view {
 
           when ${ad} ilike '%Rail_Beach_500x1100%' then 'Beach_500x1100'
           when ${ad} ilike '%Rail_BikePath_500x1100%' then 'BikePath_500x1100'
+
+          when ${ad} ilike '%Plan Now_300x250' then 'PlanNow_300x250'
+          when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
+          when ${ad} ilike '%Plan Now_300x600' then 'PlanNow_300x600'
+          when ${ad} ilike '%Plan Now_160x600' then 'PlanNow_160x600'
+
+          when ${ad} ilike '%Book Hotel_300x250' then 'BookHotel_300x250'
+          when ${ad} ilike '%Book Hotel_728x90' then 'BookHotel_728x90'
+          when ${ad} ilike '%Book Hotel_300x600' then 'BookHotel_300x600'
+          when ${ad} ilike '%Book Hotel_160x600' then 'BookHotel_160x600'
+
+          when ${ad} ilike '%HICYB_970x250%' then 'Co-Branded_970x250'
+          when ${ad} ilike '%HICYB_728x90%' then 'Co-Branded_728x90'
+          when ${ad} ilike '%HICYB_320x50%' then 'Co-Branded_320x50'
+          when ${ad} ilike '%HICYB_300x600%' then 'Co-Branded_300x600'
+          when ${ad} ilike '%HICYB_300x250%' then 'Co-Branded_300x250'
+          when ${ad} ilike '%HICYB_Native%' then 'Co-Branded_Native'
 
             ELSE 'Uncategorized'
         END;;
