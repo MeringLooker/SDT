@@ -9,6 +9,13 @@ explore: sdt_dcm {
   view_label: "DoubleClick"
   group_label: "San Diego Tourism"
 
+  join: sdt_fy21_locals_view {
+    view_label: "FY21 Locals Recovery Passback"
+    type: inner
+    sql_on: ${sdt_dcm_ga_view.passback_join_ad} = ${sdt_fy21_locals_view.comp_key} ;;
+    relationship: many_to_one
+  }
+
   join: sdt_fy20_digitalvideo_dcm_view {
     view_label: "FY20 Digital Video Passback"
     type: inner
