@@ -1,22 +1,29 @@
-view: pdt_content_campaign {
+view: ndt_us_pullthrough_campaign {
   derived_table: {
     sql:
-        select * from ${pdt_content_yt.SQL_TABLE_NAME}
-        union
-        select * from ${pdt_content_gdn.SQL_TABLE_NAME}
-        union
-        select * from ${pdt_content_fb.SQL_TABLE_NAME}
-        union
-        select * from ${pdt_content_pinterest.SQL_TABLE_NAME}
-        union
-        select * from ${pdt_content_stackadapt.SQL_TABLE_NAME}
-        union
-        select * from ${pdt_content_inpowered.SQL_TABLE_NAME}
-        ;;
+          select * from ${ndt_us_pullthrough_fb.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_gdn.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_adara.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_expedia.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_kayak.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_priceline.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_sojern.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_pinterest.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_adroll_dcm.SQL_TABLE_NAME}
+          union
+          select * from ${ndt_us_pullthrough_adroll_offline.SQL_TABLE_NAME}
+            ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
   }
-
 
 #### Primary Key Added ####
 
@@ -24,14 +31,14 @@ view: pdt_content_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${region}||'_'||${layer}||'_'||${placement}||'_'||${pillar}||'_'||${creative_name}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${placement}||'_'||${ad_size}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
 
   dimension: publisher {
     type: string
-    drill_fields: [layer,region,week,month]
+    drill_fields: [layer,placement,week,month,quarter]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -44,34 +51,26 @@ view: pdt_content_campaign {
   dimension: market {
     type: string
     hidden: yes
+    drill_fields: [publisher,layer,week,month,quarter]
     sql: ${TABLE}.market ;;
-  }
-
-  dimension: region {
-    type: string
-    drill_fields: [publisher,week,month]
-    sql: ${TABLE}.region ;;
   }
 
   dimension: layer {
     type: string
-    drill_fields: [region,publisher,week,month]
+    drill_fields: [publisher,week,month,quarter]
     sql: ${TABLE}.layer ;;
   }
 
   dimension: placement {
     type: string
+    drill_fields: [date,week,month,quarter]
     sql: ${TABLE}.placement ;;
   }
 
-  dimension: pillar {
+  dimension: ad_size {
     type: string
-    sql: ${TABLE}.pillar ;;
-  }
-
-  dimension: creative_name {
-    type: string
-    sql: ${TABLE}.creative_name ;;
+    drill_fields: [date,week,month,quarter]
+    sql: ${TABLE}.ad_size ;;
   }
 
   dimension: fiscal_year {
@@ -127,18 +126,6 @@ view: pdt_content_campaign {
     sql: ${TABLE}.total_clicks ;;
   }
 
-  dimension: views {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_views ;;
-  }
-
-  dimension: completes {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_completes ;;
-  }
-
   dimension: cost {
     type: number
     hidden: yes
@@ -162,12 +149,14 @@ view: pdt_content_campaign {
 
   measure: total_impressions {
     type: sum_distinct
+    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
+    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
@@ -180,47 +169,12 @@ view: pdt_content_campaign {
     value_format_name: percent_2
   }
 
-  measure: total_views {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
-    sql: ${views} ;;
-  }
-
-  measure: total_completes {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
-    sql: ${completes} ;;
-    value_format_name: decimal_0
-  }
-
   measure: total_cost {
     type: sum_distinct
+    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
-  }
-
-  measure: view_rate {
-    type: number
-    drill_fields: [publisher,layer,week,month,quarter]
-    label: "View Rate"
-    sql: 1.0*${total_views}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
-
-  measure: completion_rate {
-    type: number
-    drill_fields: [publisher,layer,week,month,quarter]
-    label: "Completion Rate"
-    sql: 1.0*${total_completes}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
-
-  measure: cost_per_thousand {
-    type: number
-    label: "CPM"
-    value_format_name: usd
-    sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
   }
 
   measure: cost_per_click {
@@ -231,21 +185,24 @@ view: pdt_content_campaign {
     sql: ${total_cost}/nullif(${total_clicks}, 0) ;;
   }
 
-  measure: cost_per_view {
+  measure: cost_per_thousand {
     type: number
-    label: "CPV"
+    drill_fields: [publisher,layer,week,month,quarter]
+    label: "CPM"
     value_format_name: usd
-    sql: ${total_cost}/nullif(${total_views}, 0) ;;
+    sql: ${total_cost}/nullif(${total_impressions}/1000, 0) ;;
   }
 
   measure: total_sessions {
     type: sum_distinct
+    drill_fields: [publisher,layer,week,month,quarter]
     sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
   measure: cost_per_session {
     type: number
+    drill_fields: [publisher,layer,week,month,quarter]
     label: "CPS"
     value_format_name: usd
     sql: ${total_cost}/nullif(${total_sessions}, 0) ;;
@@ -253,9 +210,9 @@ view: pdt_content_campaign {
 
   measure: total_session_duration {
     type: sum_distinct
-    hidden: yes
     sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
+    hidden: yes
   }
 
   measure: avg_session_duration {

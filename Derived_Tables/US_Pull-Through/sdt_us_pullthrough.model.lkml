@@ -1,6 +1,7 @@
 connection: "mc_panoply"
 
-include: "*.view.lkml"
+include: "/Derived_Tables/US_Pull-Through/FY_20_21/*.view.lkml"
+include: "/Derived_Tables/US_Pull-Through/FY_19_20/*.view.lkml"
 include: "/Google_Analytics/*.view"
 include: "/AdWords/*.view"
 include: "/DCM/*.view"
@@ -13,9 +14,15 @@ datagroup: sdt_us_pullthrough_datagroup {
 }
 
 explore: ndt_us_pullthrough_campaign {
-  #persist_with: vca_dream365_datagroup
-  label: "US Pull-Through"
-  view_label: "US Pull-Through"
+  label: "FY20 US Pull-Through"
+  view_label: "FY20 US Pull-Through"
   group_label: "San Diego Tourism"
   hidden: yes
+}
+
+explore: pdt_fy21_pullthrough_campaign {
+  label: "FY21 US Pull-Through"
+  view_label: "FY21 US Pull-Through"
+  group_label: "San Diego Tourism"
+  hidden: no
 }

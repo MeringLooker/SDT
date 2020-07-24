@@ -6,6 +6,7 @@ view: sdt_dcm_ga_view {
   dimension: ga_join_id {
     type: string
     primary_key: yes
+    hidden: yes
     group_label: "DCM IDs"
     sql: ${TABLE}.ga_join_id ;;
   }
@@ -309,6 +310,7 @@ view: sdt_dcm_ga_view {
 
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'US Pull-Through'
           when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'Fall Drive Market'
+          when ${campaign} ilike 'SDT: FY21 Always On Recovery - 005402_01' then 'Always On Content'
 
 
         ELSE ${campaign}

@@ -36,8 +36,15 @@ view: sdt_yt_ga_view {
     hidden: yes
     label: "Channel"
     group_label: "TrueView Dimensions"
-    sql: 'Video'
-      ;;
+    sql: 'Video' ;;
+  }
+
+  dimension: ad_size {
+    type: string
+    hidden: yes
+    label: "Ad Size"
+    group_label: "TrueView Dimensions"
+    sql: 'Video' ;;
   }
 
   dimension: publisher {
