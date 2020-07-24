@@ -124,6 +124,9 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_Newsletters%' then 'Newsletter'
           when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_High Impact Halo Unit%' then 'Halo Unit'
 
+          when ${ad} ilike '%Halo_Mobile_1x1%' then 'Halo Unit (Mobile_768x768)'
+          when ${ad} ilike '%Halo_Desktop_1x1%' then 'Halo Unit (Desktop_1920x480)'
+
           when ${ad} ilike '%SDTA Content Hub Promotional Click Out%' then 'N/A'
 
         ELSE 'Uncategorized'
@@ -162,6 +165,7 @@ view: sdt_dcm_ga_view {
 
           when ${site_dcm} ILIKE 'TravelandLeisure' then 'Travel + Leisure'
           when ${site_dcm} ILIKE 'Sunset%' then 'Sunset'
+          when ${site_dcm} ILIKE 'Conde Nast%' then 'Condé Nast'
 
           ELSE ${site_dcm}
 
@@ -269,6 +273,7 @@ view: sdt_dcm_ga_view {
           when ${ad_id} = '470013971' then 'Uncategorized'
 
           when ${ad} = '(not set)' then 'Uncategorized'
+          when ${ad} ilike '%Default Web Ad%' then 'Uncategorized'
 
           when ${campaign} ILIKE '%Balboa Park%' then 'Balboa Park Digital'
           when ${campaign} ILIKE '%Family Content%' then 'Family Content'
@@ -479,7 +484,15 @@ view: sdt_dcm_ga_view {
 
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion%' then 'Western Region'
 
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California%' then 'California'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California%' then 'California'
 
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_US_AV%' then 'National'
+
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson%' then 'Tucson'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Phoenix%' then 'Phoenix'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Las Vegas%' then 'Las Vegas'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California%' then 'California'
 
             ELSE 'Uncategorized'
         END;;
@@ -740,9 +753,6 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_California_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
 
-
-
-
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Rectangle%' then 'In-Frame High Impact Video Banners - Rectangle'
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Halfpage%' then 'In-Frame High Impact Video Banners - Halfpage'
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Billboard%' then 'In-Frame High Impact Video Banners - Billboard'
@@ -756,6 +766,9 @@ view: sdt_dcm_ga_view {
         when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness_HPTODisplay%' then 'Homepage Takeover Display'
 
         when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness_ROSDisplay%' then 'ROS Display'
+
+        when ${ad} ilike '%Halo_Mobile_1x1%' then 'High Impact Halo Unit (Mobile)'
+        when ${ad} ilike '%Halo_Desktop_1x1%' then 'High Impact Halo Unit (Desktop)'
 
         else 'Uncategorized'
       end;;
@@ -1052,6 +1065,18 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%HICYB_300x600%' then 'Co-Branded_300x600'
           when ${ad} ilike '%HICYB_300x250%' then 'Co-Branded_300x250'
           when ${ad} ilike '%HICYB_Native%' then 'Co-Branded_Native'
+
+          when ${ad} ilike '%Halo_Mobile_1x1%' then 'High Impact Halo Unit (Mobile)'
+          when ${ad} ilike '%Halo_Desktop_1x1%' then 'High Impact Halo Unit (Desktop)'
+
+          when ${ad} ilike '%Halo_Mobile_1x1%' then 'MobileHalo_768x768'
+          when ${ad} ilike '%Halo_Desktop_1x1%' then 'DesktopHalo_1920x480'
+          when ${ad} ilike '%Mobile_Book Hotel%' then 'Mobile_Book Hotel'
+          when ${ad} ilike '%Mobile_Plan Now%' then 'Mobile_Plan Now'
+          when ${ad} ilike '%Desktop_Book Hotel%' then 'Desktop_Book Hotel'
+          when ${ad} ilike '%Desktop_Plan Now%' then 'Desktop_Plan Now'
+
+          when ${ad} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Desktop_Portrait'
 
             ELSE 'Uncategorized'
         END;;

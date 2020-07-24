@@ -1,14 +1,17 @@
-view: pdt_locals_campaign {
+view: pdt_fy21_drivemarket_campaign {
   derived_table: {
     sql:
-        select * from ${pdt_locals_gdn.SQL_TABLE_NAME}
-        union
-        select * from ${pdt_locals_sdut.SQL_TABLE_NAME}
-        ;;
+          select * from ${pdt_fy21_drivemarket_pin.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_fb.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_meredith.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_cn.SQL_TABLE_NAME}
+            ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
   }
-
 
 #### Primary Key Added ####
 
@@ -16,14 +19,13 @@ view: pdt_locals_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${layer}||'_'||${placement}||'_'||${ad_size}||'_'||${creative_name}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${region}||'_'||${placement}||'_'||${creative_name}||'_'||${ad_size}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
 
   dimension: publisher {
     type: string
-    drill_fields: [layer,week,month]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -33,20 +35,26 @@ view: pdt_locals_campaign {
     sql: ${TABLE}.campaign ;;
   }
 
+  dimension: market {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.market ;;
+  }
+
   dimension: layer {
     type: string
-    drill_fields: [publisher,week,month]
     sql: ${TABLE}.layer ;;
+  }
+
+  dimension: region {
+    type: string
+    sql: ${TABLE}.region ;;
   }
 
   dimension: placement {
     type: string
+    label: "Campaign Placement"
     sql: ${TABLE}.placement ;;
-  }
-
-  dimension: ad_size {
-    type: string
-    sql: ${TABLE}.ad_size ;;
   }
 
   dimension: creative_name {
@@ -54,11 +62,17 @@ view: pdt_locals_campaign {
     sql: ${TABLE}.creative_name ;;
   }
 
+  dimension: ad_size {
+    type: string
+    sql: ${TABLE}.ad_size ;;
+  }
+
   dimension: fiscal_year {
     type:  string
     group_label: "Date Periods"
     sql:
       CASE
+      WHEN ${date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
       WHEN ${date} BETWEEN '2020-07-01' AND '2021-06-30' THEN 'FY 20/21'
       ELSE 'Uncategorized'
       END
@@ -95,10 +109,11 @@ view: pdt_locals_campaign {
     sql: ${TABLE}.total_clicks ;;
   }
 
-  dimension: views {
+  dimension: cost {
     type: number
     hidden: yes
-    sql: ${TABLE}.total_views ;;
+    sql:  ${TABLE}.total_cost ;;
+    value_format_name: usd
   }
 
   dimension: completes {
@@ -107,11 +122,10 @@ view: pdt_locals_campaign {
     sql: ${TABLE}.total_completes ;;
   }
 
-  dimension: cost {
+  dimension: views {
     type: number
     hidden: yes
-    sql:  ${TABLE}.total_cost ;;
-    value_format_name: usd
+    sql: ${TABLE}.total_views ;;
   }
 
   dimension: sessions {
