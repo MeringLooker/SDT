@@ -21,8 +21,8 @@ view: pdt_fy21_content_yt {
       column: total_sessions {field: sdt_yt_ga_view.total_sessions}
       column: total_session_duration {field: sdt_yt_ga_view.total_session_duration}
       filters: {
-        field: sdt_yt_ga_view.sdt_campaign
-        value: "Always On Content"
+        field: sdt_yt_ga_view.campaign
+        value: "%FY21^_SDT^_AlwaysOnContent%"
       }
     }
     datagroup_trigger: sdt_content_datagroup

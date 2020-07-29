@@ -26,6 +26,7 @@ view: sdt_yt_ga_view {
         WHEN ${day_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
         WHEN ${day_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
         WHEN ${day_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+        WHEN ${day_date} BETWEEN '2020-07-01' AND '2021-06-30' THEN 'FY 20/21'
         ELSE 'Uncategorized'
         END
         ;;
@@ -78,15 +79,18 @@ view: sdt_yt_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tuscon'
+        when ${campaign} ilike '%LADMA' then 'Los Angeles'
+        when ${campaign} ilike '%TrueView_California' then 'California'
 
-        when ${account} = 'SDTA Content TrueView US' then 'National'
-        when ${account} = 'SDTA Content TrueView PHX' then 'Phoenix'
-        when ${account} = 'SDTA Content TrueView LA' then 'Los Angeles'
+        when ${account} ilike 'SDTA Content TrueView US' then 'National'
+        when ${account} ilike 'SDTA Content TrueView PHX' then 'Phoenix'
+        when ${account} ilike 'SDTA Content TrueView LA' then 'Los Angeles'
 
-        when ${account} = 'SDTA CAN TrueView' then 'National'
-        when ${account} = 'SDTA UK TrueView' then 'National'
+        when ${account} ilike 'SDTA CAN TrueView' then 'National'
+        when ${account} ilike 'SDTA UK TrueView' then 'National'
         when ${account} ilike 'SDTA Family Content%' then 'National'
-        when ${account} = 'SDTA Digital Video TrueView' then 'National'
+        when ${account} ilike 'SDTA Digital Video TrueView' then 'National'
 
         ELSE 'Uncategorized'
         end
@@ -95,7 +99,7 @@ view: sdt_yt_ga_view {
 
   dimension: sdt_campaign {
     type: string
-    label: "Campaign"
+    label: "Campaign Name"
     group_label: "Client Dimensions"
     sql:
       case
@@ -124,6 +128,9 @@ view: sdt_yt_ga_view {
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Micro%' then 'Micro Video'
 
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView%' then 'Macro Video'
+
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro%' then 'Micro Video'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro%' then 'Macro Video'
 
         ELSE 'Uncategorized'
         end
@@ -163,6 +170,13 @@ view: sdt_yt_ga_view {
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Neighborhood%' then 'YouTube TrueView - Micro NonOutdoor'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_TrueView_Culinary%' then 'YouTube TrueView - Micro NonOutdoor'
 
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro_Outdoor_TrueView%' then 'YouTube Skippable Video - Micro Outdoor'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_Outdoor_TrueView%' then 'YouTube Skippable Video - Macro Outdoor'
+
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro_NonOutdoor_TrueView%' then 'YouTube Skippable Video - Micro Non-Outdoor'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_TrueView%' then 'YouTube Skippable Video - Macro Non-Outdoor'
+
+
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView%' then 'Skippable Pre-Roll Video'
 
 
@@ -177,6 +191,17 @@ view: sdt_yt_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Outdoor%' then 'Outdoor'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro_Outdoor%' then 'Outdoor'
+        when ${ad_group} ilike '%_Micro_Outdoor%' then 'Outdoor'
+        when ${ad_group} ilike '%_Macro_Outdoor%' then 'Outdoor'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_Outdoor%' then 'Outdoor'
+
+        when ${ad_group} ilike '%_Attractions' then 'Attractions'
+        when ${ad_group} ilike '%_Neighborhood' then 'Neighborhood'
+        when ${ad_group} ilike '%_Culinary' then 'Culinary'
+        when ${ad_group} ilike '%_Family' then 'Family'
+
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Outdoor%' then 'Outdoor'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_NonOutdoor%' then 'Non-Outdoor'
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Macro_TrueView_Attractions%' then 'Attractions'
@@ -245,6 +270,52 @@ view: sdt_yt_ga_view {
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_Legoland' then 'Lego Movie World (:60)'
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_SanDiegoZoo' then 'Caravan Safari (:60)'
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Macro_TrueView_Seaworld' then 'SeaWorld (:60)'
+
+        when ${ad_group} ilike '%TAOutdoor60' then 'Co-Branded TripAdvisor Outdoor Pillar Video (:60)'
+        when ${ad_group} ilike '%OBICoastalYoga60' then 'OBI: Coastal Yoga (:60)'
+        when ${ad_group} ilike '%OBIBoardwalk60' then 'OBI: Boardwalk Cruising (:60)'
+
+        when ${ad_group} ilike '%G2GSSurfing60' then 'G2GS: Surfing San Diego (:60)'
+        when ${ad_group} ilike '%G2GSMissionBay60' then 'G2GS: Mission Bay (:60)'
+        when ${ad_group} ilike '%G2GSLaJolla60' then 'G2GS: La Jolla (:60)'
+
+        when ${ad_group} ilike '%BBYoga15' then 'BB: Yoga (:15)'
+        when ${ad_group} ilike '%BBParagliding30' then 'BB: Paragliding (:30)'
+        when ${ad_group} ilike '%BBPaddleBoard15' then 'BB: Paddle Board (:15)'
+        when ${ad_group} ilike '%BBCoffee30' then 'BB: Coffee Cup Coastal (:30)'
+        when ${ad_group} ilike '%BBBeach30' then 'BB: Beach For 2 (:30)'
+
+        when ${ad_group} ilike '%TACulinary60%' then 'TripAdvisor Culinary (:60)'
+        when ${ad_group} ilike '%TABalboaPark60%' then 'TripAdvisor: Balboa Park Culture (:60)'
+        when ${ad_group} ilike '%SocksTorreyPines60%' then 'Socks: Torrey Pines (:60)'
+        when ${ad_group} ilike '%SocksTidepools60%' then 'Socks: Tidepooling (:60)'
+        when ${ad_group} ilike '%SockStarofIndia60%' then 'Socks: Star of India (:60)'
+        when ${ad_group} ilike '%SocksSeaWorld60%' then 'Socks: SeaWorld (:60)'
+        when ${ad_group} ilike '%SocksSafariPark60%' then 'Socks: Safari Park (:60)'
+        when ${ad_group} ilike '%SocksLegoland60%' then 'Socks: LEGOLAND (:60)'
+
+        when ${ad_group} ilike '%OBITortillasMargs60%' then 'OBI: Tortillas and Margs (:60)'
+        when ${ad_group} ilike '%OBIStuart60%' then 'OBI: Stuart Collection (:60)'
+        when ${ad_group} ilike '%OBIMidway60%' then 'OBI: USS Midway (:60)'
+        when ${ad_group} ilike '%OBILibertyStation60%' then 'OBI: Liberty Station (:60)'
+        when ${ad_group} ilike '%OBILegoSub60%' then 'OBI: LEGO Submarine (:60)'
+        when ${ad_group} ilike '%OBILearnToSurf60%' then 'OBI: Learn to Surf (:60)'
+        when ${ad_group} ilike '%OBIGolf60%' then 'OBI: Torrey Pines Golf (:60)'
+        when ${ad_group} ilike '%OBIConvoyDesserts60%' then 'OBI: Convoy District Desserts (:60)'
+        when ${ad_group} ilike '%OBICaliforniaTower60%' then 'OBI: California Tower (:60)'
+        when ${ad_group} ilike '%OBIBirchAquarium60%' then 'OBI: Birch Aquarium (:60)'
+        when ${ad_group} ilike '%OBIAfricaRocks60%' then 'OBI: Africa Rocks (:60)'
+        when ${ad_group} ilike '%OBISafariPark60%' then 'OBI: Safari Park (:60)'
+
+        when ${ad_group} ilike '%G2GSPicturePerfect60%' then 'G2GS: Picture Perfect Spots (:60)'
+        when ${ad_group} ilike '%G2GSBarrioLogan60%' then 'G2GS: Barrio Logan (:60)'
+
+        when ${ad_group} ilike '%DHRealm30%' then 'DH: Realm of the 52 Remedies (:30)'
+        when ${ad_group} ilike '%DHMantra%' then 'DH: Mantra (Longform)'
+        when ${ad_group} ilike '%DHBarrioDogg60%' then 'DH: Barrio Dogg (:60)'
+        when ${ad_group} ilike '%DHBarrioDogg30%' then 'DH: Barrio Dogg (:30)'
+        when ${ad_group} ilike '%DHAzucar30%' then 'DH: Azucar (:30)'
+        when ${ad_group} ilike '%DHAnimae30%' then 'DH: Animae (:30)'
 
         ELSE 'Uncategorized'
         end
