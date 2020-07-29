@@ -72,6 +72,11 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%\\_1320x742' then '1320x742'
           when ${placement} ilike '%\\_2560x500' then '2560x500'
           when ${placement} ilike '%\\_474x250' then '474x250'
+          when ${placement} ilike '%\\_970x550' then '970x550'
+          when ${placement} ilike '%\\_680x320' then '680x320'
+
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery%' then 'Native_1000x600'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery%' then 'Video'
 
           when ${placement} ilike '%Travel Intender_OnSiteDisplay_Native%' then 'Native'
 
@@ -99,6 +104,8 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '257133410' then 'N/A'
           when ${placement_id} = '257580111' then 'Native'
           when ${placement_id} = '257456647' then 'Native'
+          when ${placement_id} = '276884083' then 'Native'
+
 
           when ${placement_id} = '256904522' then 'N/A'
           when ${placement_id} = '256902170' then 'N/A'
@@ -257,6 +264,14 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'Taboola_FY20 Family Content_Micro%' then 'Micro Traffic'
           when ${placement} ilike 'Taboola_FY20 Family Content_Nano%' then 'Nano Traffic'
 
+          when ${placement} ilike '%AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic%' then 'Micro Traffic'
+          when ${placement} ilike '%AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic%' then 'Macro Traffic'
+          when ${placement} ilike '%AlwaysOnRecovery_Nano_RetargetMicro%' then 'Nano Traffic'
+
+          when ${placement} ilike '%AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo%' then 'Macro Video'
+          when ${placement} ilike '%AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo%' then 'Macro Video'
+          when ${placement} ilike '%AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo%' then 'Macro Video'
+
           when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness%' then 'Awareness'
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'Intent'
 
@@ -369,6 +384,7 @@ view: sdt_dcm_ga_view {
           when ${campaign} ilike 'SDT: FY21 Local Market Recovery%' then 'United States'
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'United States'
           when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'United States'
+          when ${campaign} ilike 'SDT: FY21 Always On Recovery - 005402_01' then 'United States'
 
             ELSE 'Uncategorized'
         END;;
@@ -473,6 +489,31 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion%' then 'Western Region'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_California%' then 'California'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona%' then 'Arizona'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_Arizona%' then 'Arizona'
+
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_California%' then 'California'
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_Arizona%' then 'Arizona'
+
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Results Right_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Hotels+Vacation Packages_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Hotels.com_ROS_WesternRegion%' then 'Western Region'
+
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Hotels+Vacation Packages Center Top_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Homepage Center Top_WesternRegion%' then 'Western Region'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Homepage Center Top_California%' then 'California'
+
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_California%' then 'California'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_Arizona%' then 'Arizona'
+
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_California%' then 'California'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_Arizona%' then 'Arizona'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Native Marquee+Carousel_Arizona%' then 'Arizona'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Native Marquee+Carousel_California%' then 'California'
+
+
           when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_WesternRegion%' then 'Western Region'
           when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_California%' then 'California'
           when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_Arizona%' then 'Arizona'
@@ -493,6 +534,12 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Phoenix%' then 'Phoenix'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Las Vegas%' then 'Las Vegas'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California%' then 'California'
+
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC%' then 'Phoenix/Tuscon'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA%' then 'Los Angeles'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA%' then 'California'
+
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery%' then 'Combined (CA/AZ)'
 
             ELSE 'Uncategorized'
         END;;
@@ -731,10 +778,15 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_AVDisplay%' then 'AV - Display Prospecting'
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_Display%' then 'Display Prospecting'
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerSD_WesternRegion_RTGDisplay%' then 'Display Retargeting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_California_RTGDisplay%' then 'Display Retargeting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_Arizona_RTGDisplay%' then 'Display Retargeting'
 
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_Arizona_Display%' then 'Display Prospecting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_Arizona_Display%' then 'Display Prospecting'
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_CA,AZ_AVDisplay%' then 'AV - Display Prospecting'
         when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_Arizona_AVDisplay%' then 'AV - Display Prospecting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_California_AVDisplay%' then 'AV - Display Prospecting'
+        when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_Intent_ActiveTravelPlannersUS_WesternRegion_AVDisplay%' then 'AV - Display Prospecting'
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_CA,AZ_RTGDisplay%' then 'Display Retargeting'
 
         when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_In-marketLeisureTravelerUS_California_Display%' then 'Display Prospecting'
@@ -752,6 +804,40 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_California_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_Travel Intender_OffSiteDisplay%' then 'TripAdvisor OffSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona_Travel Intender_OffSiteDisplay%' then 'TripAdvisor OffSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_Arizona_Travel Intender_OffSiteDisplay_Native%' then 'TripAdvisor ROVE OffSite Native Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_Arizona_Travel Intender_OffSiteDisplay%' then 'TripAdvisor ROVE OffSite Display'
+
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_SD Intenders+Not Booked_OnSiteDisplay%' then 'Priceline OnSite Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_SD Intenders+Not Booked_EmailDisplay%' then 'Priceline Email Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_California_Active Travel Intenders+Not Booked_OnSiteDisplay%' then 'Priceline OnSite Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_California_Active Travel Intenders+Not Booked_EmailDisplay%' then 'Priceline Email Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_Arizona_Active Travel Intenders+Not Booked_OnSiteDisplay%' then 'Priceline OnSite Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_Arizona_Active Travel Intenders+Not Booked_EmailDisplay%' then 'Priceline Email Display'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Hotels.com_ROS_WesternRegion_SD Intenders_ResponsiveDisplay%' then 'Hotels.com ROS Responsive - SD Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Hotels.com_ROS_WesternRegion_SD Intenders_Display%' then 'Hotels.com ROS - SD Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_California_Travel Intenders_Display%' then 'Expedia ROS Search Tiles - Travel Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_Arizona_Travel Intenders_Display%' then 'Expedia ROS Search Tiles - Travel Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_WesternRegion_SD Intenders_Display%' then 'Expedia ROS Search Center Top - SD Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_California_Travel Intenders_Display%' then 'Expedia ROS Search Center Top - Travel Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_Arizona_Travel Intenders_Display%' then 'Expedia ROS Search Center Top - Travel Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Native Marquee+Carousel_California_Travel Intenders_Display%' then 'Expedia ROS Search Native Marquee+Carousel - Travel Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Native Marquee+Carousel_Arizona_Travel Intenders_Display%' then 'Expedia ROS Search Native Marquee+Carousel - Travel Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Results Right_WesternRegion_SD Intenders_Display%' then 'Expedia ROS Results Right - SD Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_WesternRegion_SD Intenders_Display%' then 'EBP Display - SD Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Hotels+Vacation Packages_WesternRegion_SD Intenders_Display%' then 'EBP Hotels+Vacation Packages Display - SD Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Hotels+Vacation Packages Center Top_WesternRegion_SD Intenders_Display%' then 'EBP Hotels+Vacation Packages Center Top - SD Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Homepage Center Top_WesternRegion_SD Intenders_Display%' then 'EBP Homepage Center Top - SD Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Homepage Center Top_California_Travel Intenders_Display%' then 'EBP Homepage Center Top - Travel Intenders'
+
 
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Rectangle%' then 'In-Frame High Impact Video Banners - Rectangle'
         when ${ad} ilike 'VDX Tracker-VDX_FY20 UK Digital_Reach/Storytelling_SD Custom Audience_UK_VDX In-Frame Halfpage%' then 'In-Frame High Impact Video Banners - Halfpage'
@@ -769,6 +855,46 @@ view: sdt_dcm_ga_view {
 
         when ${ad} ilike '%Halo_Mobile_1x1%' then 'High Impact Halo Unit (Mobile)'
         when ${ad} ilike '%Halo_Desktop_1x1%' then 'High Impact Halo Unit (Desktop)'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Outdoor' then 'Macro Native Video - Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Neighborhood' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Family' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Culinary' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Attractions' then 'Macro Native Video - Non-Outdoor'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Outdoor' then 'Macro Native Video - Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Neighborhood' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Family' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Culinary' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Attractions' then 'Macro Native Video - Non-Outdoor'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Outdoor' then 'Macro Native Video - Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Neighborhood' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Family' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Culinary' then 'Macro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Attractions' then 'Macro Native Video - Non-Outdoor'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Outdoor_' then 'Macro Native Traffic - Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Neighborhood' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Family' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions' then 'Macro Native Traffic - Non-Outdoor'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Outdoor' then 'Micro Native Traffic - Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Neighborhood' then 'Micro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Family' then 'Micro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary' then 'Micro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions' then 'Micro Native Traffic - Non-Outdoor'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Nano_RetargetMicro_NativePromo' then 'Nano Native Traffic - Native Promo'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Outdoor_IMPRESSION TRACKER' then 'Macro Native Traffic - Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Neighborhood__IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Family_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+
+
 
         else 'Uncategorized'
       end;;
@@ -873,6 +999,20 @@ view: sdt_dcm_ga_view {
         when ${placement_id} = '255163531' then 'Non-Outdoor'
         when ${placement_id} = '255163543' then 'Non-Outdoor'
 
+        when ${placement} ilike '%_Outdoor' then 'Outdoor'
+        when ${placement} ilike '%_Outdoor_' then 'Outdoor'
+        when ${placement} ilike '%_Neighborhood' then 'Neighborhood'
+        when ${placement} ilike '%_Family' then 'Family'
+        when ${placement} ilike '%_Culinary' then 'Culinary'
+        when ${placement} ilike '%_Attractions' then 'Attractions'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Nano_RetargetMicro_NativePromo' then 'N/A'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Outdoor_IMPRESSION TRACKER' then 'Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Neighborhood__IMPRESSION TRACKER' then 'Neighborhood'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Family_IMPRESSION TRACKER' then 'Family'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Culinary'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Attractions'
+
             ELSE 'Uncategorized'
         END;;
     }
@@ -933,7 +1073,9 @@ view: sdt_dcm_ga_view {
 
           when ${ad} ilike '%Torrey Pines Golf :60' then 'OBI: Torrey Pines Golf (:60)'
           when ${ad} ilike '%Coastal Yoga :60' then 'OBI: Coastal Yoga (:60)'
+          when ${ad} ilike '%Coastal Yoga :15' then 'OBI: Coastal Yoga (:15)'
           when ${ad} ilike '%Boardwalk Cruising :60' then 'OBI: Boardwalk Cruising (:60)'
+          when ${ad} ilike '%Boardwalk Cruising :15' then 'OBI: Boardwalk Cruising (:15)'
           when ${ad} ilike '%Tiki OBI :60' then 'OBI: Tiki (:60)'
           when ${ad} ilike '%Liberty Station OBI :60' then 'OBI: Liberty Station (:60)'
           when ${ad} ilike '%Barrio Logan G2GS :60' then 'G2GS: Barrio Logan (:60)'
@@ -974,11 +1116,85 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%SD_Native Static_Save $20 Online' then 'Save $20 Online'
 
           when ${ad} ilike '%Video - Lookalike_Alana La Jolla%' then 'G2GS: La Jolla (:60)'
+          when ${ad} ilike '%G2GS: La Jolla on the Water :60%' then 'G2GS: La Jolla (:60)'
+          when ${ad} ilike '%G2GS: Barrio Logan :60%' then 'G2GS: Barrio Logan (:60)'
           when ${ad} ilike '%Video - Lookalike_Ron Machado%' then 'G2GS: Surfing San Diego (:60)'
+          when ${ad} ilike '%G2GS Surfing :60%' then 'G2GS: Surfing San Diego (:60)'
           when ${ad} ilike '%Video - Lookalike_Aaron Picture Perfect%' then 'G2GS: Picture Perfect Spots (:60)'
           when ${ad} ilike '%Video - Lookalike_Alana Mission Bay%' then 'G2GS: Mission Bay (:60)'
+          when ${ad} ilike '%G2GS Mission Bay :60%' then 'G2GS: Mission Bay (:60)'
           when ${ad} ilike '%Video - Lookalike_OBI: Old Town Mexican%' then 'OBI: Old Town Mexican (:60)'
           when ${ad} ilike '%Video - Lookalike_OBI: Coastal Yoga%' then 'OBI: Coastal Yoga (:60)'
+          when ${ad} ilike '%Co-Branded TripAdvisor Outdoor Pillar Video :60' then 'Co-Branded TripAdvisor Outdoor Pillar Video (:60)'
+
+          when ${ad} ilike '%Bliss Break: Yoga :15' then 'BB: Yoga (:15)'
+          when ${ad} ilike '%Bliss Break: Paragliding :15' then 'BB: Paragliding (:15)'
+          when ${ad} ilike '%Bliss Break: Paddle Board :15' then 'BB: Paddle Board (:15)'
+          when ${ad} ilike '%Bliss Break: Coffee Cup Coastal :15' then 'BB: Coffee Cup Coastal (:15)'
+          when ${ad} ilike '%Bliss Break: Beach For 2 :15' then 'BB: Beach For 2 (:15)'
+
+          when ${ad} ilike '%OBI: Tortillas and Margs :60%' then 'OBI: Tortillas and Margs (:60)'
+          when ${ad} ilike '%OBI: Tortillas and Margs :15%' then 'OBI: Tortillas and Margs (:15)'
+          when ${ad} ilike '%OBI: Liberty Station :15%' then 'OBI: Liberty Station (:15)'
+          when ${ad} ilike '%OBI: Liberty Station :60%' then 'OBI: Liberty Station (:60)'
+          when ${ad} ilike '%OBI: Convoy Desserts :15%' then 'OBI: Convoy District Desserts (:15)'
+          when ${ad} ilike '%OBI: Convoy Desserts :60%' then 'OBI: Convoy District Desserts (:60)'
+
+          when ${ad} ilike '%Socks: Torrey Pines :60%' then 'Socks: Torrey Pines (:60)'
+          when ${ad} ilike '%Socks: Torrey Pines :15%' then 'Socks: Torrey Pines (:15)'
+          when ${ad} ilike '%Socks: Tidepooling :60%' then 'Socks: Tidepooling (:60)'
+          when ${ad} ilike '%Socks: Tidepooling :15%' then 'Socks: Tidepooling (:15)'
+          when ${ad} ilike '%Socks: Star of India :60%' then 'Socks: Star of India (:60)'
+          when ${ad} ilike '%Socks: Star of India :15%' then 'Socks: Star of India (:15)'
+          when ${ad} ilike '%Socks: SeaWorld :60%' then 'Socks: SeaWorld (:60)'
+          when ${ad} ilike '%Socks: Safari Park :60%' then 'Socks: Safari Park (:60)'
+          when ${ad} ilike '%Socks: LEGOLAND :60%' then 'Socks: LEGOLAND (:60)'
+
+          when ${ad} ilike '%OBI: Safari Park :60%' then 'OBI: Safari Park (:60)'
+          when ${ad} ilike '%OBI: Safari Park :15%' then 'OBI: Safari Park (:15)'
+          when ${ad} ilike '%OBI: LEGO Submarine :60%' then 'OBI: LEGO Submarine (:60)'
+          when ${ad} ilike '%OBI: LEGO Submarine :15%' then 'OBI: LEGO Submarine (:15)'
+          when ${ad} ilike '%OBI: Learn to Surf :60%' then 'OBI: Learn to Surf (:60)'
+          when ${ad} ilike '%OBI: Learn to Surf :15%' then 'OBI: Learn to Surf (:15)'
+          when ${ad} ilike '%OBI: Birch Aquarium :60%' then 'OBI: Birch Aquarium (:60)'
+          when ${ad} ilike '%OBI: Birch Aquarium :15%' then 'OBI: Birch Aquarium (:15)'
+
+          when ${ad} ilike '%Dishing Happiness: Realm of the 52 Remedies :30%' then 'DH: Realm of the 52 Remedies (:30)'
+          when ${ad} ilike '%Dishing Happiness: Realm of the 52 Remedies :15%' then 'DH: Realm of the 52 Remedies (:15)'
+
+          when ${ad} ilike '%Dishing Happiness: Barrio Dogg :30%' then 'DH: Barrio Dogg (:30)'
+          when ${ad} ilike '%Dishing Happiness: Barrio Dogg :15%' then 'DH: Barrio Dogg (:15)'
+          when ${ad} ilike '%Dishing Happiness: Barrio Dogg LF%' then 'DH: Barrio Dogg (Longform)'
+
+          when ${ad} ilike '%Dishing Happiness: Azucar :30%' then 'DH: Azucar (:30)'
+          when ${ad} ilike '%Dishing Happiness: Azucar :15%' then 'DH: Azucar (:15)'
+
+          when ${ad} ilike '%Dishing Happiness: Animae :30%' then 'DH: Animae (:30)'
+          when ${ad} ilike '%Dishing Happiness: Animae :15%' then 'DH: Animae (:15)'
+
+          when ${ad} ilike '%Dishing Happiness Mantra LF%' then 'DH: Mantra (Longform)'
+
+          when ${ad} ilike '%TA: Balboa Park Culture :60%' then 'TripAdvisor: Balboa Park Culture (:60)'
+
+          when ${ad} ilike '%OBI: USS Midway :60%' then 'OBI: USS Midway (:60)'
+          when ${ad} ilike '%OBI: USS Midway :15%' then 'OBI: USS Midway (:15)'
+
+          when ${ad} ilike '%OBI: Stuart Collection :60%' then 'OBI: Stuart Collection (:60)'
+          when ${ad} ilike '%OBI: Stuart Collection :15%' then 'OBI: Stuart Collection (:15)'
+
+          when ${ad} ilike '%OBI: Africa Rocks :60%' then 'OBI: Africa Rocks (:60)'
+          when ${ad} ilike '%OBI: Africa Rocks :15%' then 'OBI: Africa Rocks (:15)'
+
+          when ${ad} ilike '%TripAdvisor Culinary :60%' then 'TripAdvisor Culinary (:60)'
+
+          when ${ad} ilike '%OBI: California Tower :60%' then 'OBI: California Tower (:60)'
+          when ${ad} ilike '%OBI: California Tower :15%' then 'OBI: California Tower (:15)'
+
+          when ${ad} ilike '%OBI: Torrey Pines Golf :60%' then 'OBI: Torrey Pines Golf (:60)'
+          when ${ad} ilike '%OBI: Torrey Pines Golf :15%' then 'OBI: Torrey Pines Golf (:15)'
+          when ${ad} ilike '%OBI Torrey Pines Golf :60%' then 'OBI: Torrey Pines Golf (:60)'
+          when ${ad} ilike '%OBI Torrey Pines Golf :15%' then 'OBI: Torrey Pines Golf (:15)'
+          when ${ad} ilike '%G2GS: Picture Perfect Spots :60%' then 'G2GS: Picture Perfect Spots (:60)'
 
           when ${ad} ilike '%Video - Contextual_Alana La Jolla%' then 'G2GS: La Jolla (:60)'
           when ${ad} ilike '%Video - Contextual_Rob Machado%' then 'G2GS: Surfing San Diego (:60)'
@@ -1059,12 +1275,48 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Book Hotel_300x600' then 'BookHotel_300x600'
           when ${ad} ilike '%Book Hotel_160x600' then 'BookHotel_160x600'
 
+          when ${ad} ilike '%Surfing_728x90%' then 'Surfing_728x90'
+          when ${ad} ilike '%Surfing_300x250%' then 'Surfing_300x250'
+          when ${ad} ilike '%Surfing_300x50%' then 'Surfing_300x50'
+          when ${ad} ilike '%Surfing_300x600%' then 'Surfing_300x600'
+          when ${ad} ilike '%Surfing_160x600%' then 'Surfing_160x600'
+          when ${ad} ilike '%Surfing_970x550%' then 'Surfing_970x550'
+          when ${ad} ilike '%Surfing_970x250%' then 'Surfing_970x250'
+          when ${ad} ilike '%Surfing_468x60%' then 'Surfing_468x60'
+          when ${ad} ilike '%Surfing_970x90%' then 'Surfing_970x90'
+
+          when ${ad} ilike '%Sunset_1320x742%' then 'Sunset_1320x742'
+          when ${ad} ilike '%Sunset_680x320%' then 'Sunset_680x320'
+          when ${ad} ilike '%Sunset_728x90%' then 'Sunset_728x90'
+          when ${ad} ilike '%Sunset_300x250%' then 'Sunset_300x250'
+          when ${ad} ilike '%Sunset_300x50%' then 'Sunset_300x50'
+          when ${ad} ilike '%Sunset_300x600%' then 'Sunset_300x600'
+          when ${ad} ilike '%Sunset_160x600%' then 'Sunset_160x600'
+          when ${ad} ilike '%Sunset_970x550%' then 'Sunset_970x550'
+          when ${ad} ilike '%Sunset_468x60%' then 'Sunset_468x60'
+          when ${ad} ilike '%Sunset_970x250%' then 'Sunset_970x250'
+          when ${ad} ilike '%Sunset_970x90%' then 'Sunset_970x90'
+
+          when ${ad} ilike '%Family_728x90%' then 'Family_728x90'
+          when ${ad} ilike '%Family_680x320%' then 'Family_680x320'
+          when ${ad} ilike '%Family_1320x742%' then 'Family_1320x742'
+          when ${ad} ilike '%Family_300x600%' then 'Family_300x600'
+          when ${ad} ilike '%Family_300x250%' then 'Family_300x250'
+          when ${ad} ilike '%Family_300x50%' then 'Family_300x50'
+          when ${ad} ilike '%Family_160x600%' then 'Family_160x600'
+          when ${ad} ilike '%Family_970x550%' then 'Family_970x550'
+          when ${ad} ilike '%Family_468x60%' then 'Family_468x60'
+          when ${ad} ilike '%Family_970x250%' then 'Family_970x250'
+          when ${ad} ilike '%Family_970x90%' then 'Family_970x90'
+
           when ${ad} ilike '%HICYB_970x250%' then 'Co-Branded_970x250'
           when ${ad} ilike '%HICYB_728x90%' then 'Co-Branded_728x90'
           when ${ad} ilike '%HICYB_320x50%' then 'Co-Branded_320x50'
           when ${ad} ilike '%HICYB_300x600%' then 'Co-Branded_300x600'
           when ${ad} ilike '%HICYB_300x250%' then 'Co-Branded_300x250'
           when ${ad} ilike '%HICYB_Native%' then 'Co-Branded_Native'
+
+          when ${ad_id} = '471092259' then 'Co-Branded_Outdoor_Native'
 
           when ${ad} ilike '%Halo_Mobile_1x1%' then 'High Impact Halo Unit (Mobile)'
           when ${ad} ilike '%Halo_Desktop_1x1%' then 'High Impact Halo Unit (Desktop)'
@@ -1076,7 +1328,68 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Desktop_Book Hotel%' then 'Desktop_Book Hotel'
           when ${ad} ilike '%Desktop_Plan Now%' then 'Desktop_Plan Now'
 
+          when ${ad} ilike '%Outdoor_Torrey Pines' then 'Torrey Pines'
+          when ${ad} ilike '%Outdoor_Swimming with Leopard Sharks' then 'Swimming with Leopard Sharks'
+          when ${ad} ilike '%Outdoor_San Diego''s Tide Pools - Exploring Life%' then 'SD Tide Pools: Exploring Life at the Edge of the Sea'
+          when ${ad} ilike '%Outdoor_Sailing in San Diego' then 'Sailing in San Diego'
+          when ${ad} ilike '%Outdoor_Mission Bay & Beaches' then 'Mission Bay & Beaches'
+          when ${ad} ilike '%Outdoor_Mele Sali''s Surf Faves%' then 'Mele Sali''s Surf Faves'
+          when ${ad} ilike '%Outdoor_La Jolla Beaches' then 'La Jolla Beaches'
+          when ${ad} ilike '%Outdoor_Historic Highway 101' then 'Historic Highway 101'
+
+          when ${ad} ilike '%Neighborhood_Three beach neighborhoods%' then '3 Beach Neighborhoods w/ SoCal Vibe'
+          when ${ad} ilike '%Neighborhood_Sunny 7: Mission Valley/Old Town%' then 'S7: Mission Valley/Old Town'
+          when ${ad} ilike '%Neighborhood_Sunny 7: Mission Bay%' then 'S7: Mission Bay'
+          when ${ad} ilike '%Neighborhood_Sunny 7: North Coastal%' then 'S7: North Coastal'
+          when ${ad} ilike '%Neighborhood_Pacific Beach%' then 'Pacific Beach'
+          when ${ad} ilike '%Neighborhood_Bird Rock%' then 'Bird Rock'
+
+          when ${ad} ilike '%Family_Sunny 7: Reasons to bring the family' then 'S7: Reasons to Bring the Family'
+          when ${ad} ilike '%Family_One-day itinerary' then 'One-Day Itinerary'
+          when ${ad} ilike '%Family_Awesome Museums' then 'Awesome Museums'
+          when ${ad} ilike '%Family_25 Fun & Free Things to do' then '25 Fun & Free Things to do'
+          when ${ad} ilike '%Family_15 San Diego Playgrounds' then '15 San Diego Playgrounds'
+          when ${ad} ilike '%Family_13 Kid-pleasing neighborhoods' then '13 Kid-Pleasing Neighborhoods'
+          when ${ad} ilike '%Family_The Best Beaches According to Kids' then 'The Best Beaches According to Kids'
+          when ${ad} ilike '%Family_Family fun in San Diego' then 'Family Fun in San Diego'
+          when ${ad} ilike '%Family_Edutainment' then 'Edutainment'
+          when ${ad} ilike '%Family_9 Kid Approved Parks' then '9 Kid Approved Parks'
+
+          when ${ad} ilike '%Culinary_Sunny 7: Rooftop Restaurants' then 'S7: Rooftop Restaurants'
+          when ${ad} ilike '%Culinary_Sunny 7: Local Markets' then 'S7: Local Markets'
+          when ${ad} ilike '%Culinary_Sunny 7: Beachfront Bars' then 'S7: Beachfront Bars'
+          when ${ad} ilike '%Culinary_Sunny 7: Award Winning Restaurants & Chefs' then 'S7: Award Winning Restaurants & Chefs'
+          when ${ad} ilike '%Culinary_Foodie Finds' then 'Foodie Finds'
+          when ${ad} ilike '%Culinary_Food Truck Revolution' then 'Food Truck Revolution'
+          when ${ad} ilike '%Culinary_Cross-Border Cuisine' then 'Cross-Border Cuisine'
+          when ${ad} ilike '%Culinary_Best Seafood Restaurants' then 'Best Seafood Restaurants'
+          when ${ad} ilike '%Culinary_Realm of the 52 Remedies%' then 'Realm of the 52 Remedies'
+
+          when ${ad} ilike '%Attractions_Sunny 7: Natural Wonders' then 'S7: Natural Wonders'
+          when ${ad} ilike '%Attractions_Sunny 7: Art Outside the Box' then 'S7: Art Outside the Box'
+          when ${ad} ilike '%Attractions_Sunny 7: 7 Botanical Gardens' then 'S7: 7 Botanical Gardens'
+          when ${ad} ilike '%Attractions_San Diego''s 59 Mile Scene Drive' then 'San Diego''s 59 Mile Scenic Drive'
+          when ${ad} ilike '%Attractions_Sunny 7: Hidden Gems in Balboa Park' then 'S7: Balboa Park Hidden Gems'
+          when ${ad} ilike '%Attractions_Sunny 7: Awesome San Diego Viewpoints' then 'S7: Awesome San Diego Viewpoints'
+          when ${ad} ilike '%Attractions_Balboa Park - Cultural Heart' then 'Balboa Park - Cultural Heart'
+
+          when ${ad} ilike '%Outdoor_Sunny 7: Ways to make a Splash' then 'S7: Make A Splash'
+          when ${ad} ilike '%Outdoor_Sunny 7: Great Spots to Watch the Sunset' then 'S7: Sunsets'
+          when ${ad} ilike '%Outdoor_Explore La Jolla on a Kayak Tour' then 'Explore La Jolla on a Kayak Tour'
+          when ${ad} ilike '%Outdoor_Bayshore Bikeway' then 'Bayshore Bikeway'
+          when ${ad} ilike '%Outdoor_7 Things to Do Along Scenic CA Highway 101' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
+          when ${ad} ilike '%Outdoor_7 Star Coastal Hikes' then 'S7: 7 Star Coastal Hikes'
+
+          when ${ad} ilike '%NativePromo_Pull-Through Landing Page' then 'Nano Traffic Driver: Pull-Through Landing Page'
+          when ${ad} ilike '%NativePromo_Hotels Landing Page' then 'Nano Traffic Driver: Hotels Landing Page'
+
           when ${ad} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Desktop_Portrait'
+
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Outdoor_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Outdoor Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Neighborhood__IMPRESSION TRACKER' then 'Taboola Impression Tracker - Neighborhood Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Family_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Family Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Culinary Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Attractions Content'
 
             ELSE 'Uncategorized'
         END;;

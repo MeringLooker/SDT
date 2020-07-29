@@ -16,7 +16,7 @@ view: pdt_fy21_content_pinterest {
       column: total_impressions { field: sdt_pinterest_ga_view.total_impressions }
       column: total_clicks { field: sdt_pinterest_ga_view.total_clicks }
       column: total_cost { field: sdt_pinterest_ga_view.total_spend }
-      column: total_views { field: sdt_pinterest_ga_view.total_video_views }
+      column: total_views { field: sdt_pinterest_ga_view.content_video_views }
       column: total_completes { field: sdt_pinterest_ga_view.total_views_at_100 }
       column: total_sessions { field: sdt_pinterest_ga_view.total_sessions }
       column: total_session_duration { field: sdt_pinterest_ga_view.total_session_duration }

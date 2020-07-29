@@ -8,6 +8,8 @@ view: pdt_fy21_pullthrough_campaign {
           select * from ${pdt_fy21_pullthrough_tripadvisor.SQL_TABLE_NAME}
           union
           select * from ${pdt_fy21_pullthrough_priceline.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_pullthrough_expedia.SQL_TABLE_NAME}
             ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all

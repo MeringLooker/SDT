@@ -29,6 +29,11 @@ view: sdt_pinterest_ga_view {
 
         WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting_Carousels%' then 'Carousel Pin'
         WHEN ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting_Standard%' then 'Standard Pin'
+
+         when ${campaign_name} ilike '%Macro_NonOutdoor_Traffic%' then 'Standard Pin'
+        when ${campaign_name} ilike '%Macro_Outdoor_Traffic%' then 'Standard Pin'
+        when ${campaign_name} ilike '%Macro_NonOutdoor_Video%' then 'Video Pin'
+        when ${campaign_name} ilike '%Macro_Outdoor_Video%' then 'Video Pin'
         ELSE 'Uncategorized'
         END
         ;;
@@ -46,6 +51,7 @@ view: sdt_pinterest_ga_view {
       WHEN ${date_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
       WHEN ${date_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
       WHEN ${date_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+      WHEN ${date_date} BETWEEN '2020-07-01' AND '2021-06-30' THEN 'FY 20/21'
       ELSE 'Uncategorized'
       END
     ;;
@@ -61,6 +67,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National%' then 'US Pull-Through'
         when ${campaign_name} ilike 'SDT_FY20_FallPromo%' then 'Fall Promo'
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent%' then 'Always On Content'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent%' then 'Always On Content'
         else 'Uncategorized'
         end;;
 
@@ -75,6 +82,11 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike '%Nano_Traffic_%' then 'Nano Traffic'
         when ${campaign_name} ilike '%Micro_Traffic_%' then 'Micro Traffic'
         when ${campaign_name} ilike '%Macro_Traffic_%' then 'Macro Traffic'
+
+        when ${campaign_name} ilike '%Macro_NonOutdoor_Traffic%' then 'Macro Traffic'
+        when ${campaign_name} ilike '%Macro_Outdoor_Traffic%' then 'Macro Traffic'
+        when ${campaign_name} ilike '%Macro_NonOutdoor_Video%' then 'Macro Video'
+        when ${campaign_name} ilike '%Macro_Outdoor_Video%' then 'Macro Video'
 
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim%' then 'Disneyland'
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting%' then 'Competitive Conquest'
@@ -93,6 +105,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National%' then 'United States'
         when ${campaign_name} ilike 'SDT_FY20_FallPromo%' then 'United States'
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent%' then 'United States'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent%' then 'United States'
 
       else 'Uncategorized'
       end;;
@@ -130,6 +143,9 @@ view: sdt_pinterest_ga_view {
         when ${ad_group_name} ilike '%VarietySeeker_SanFrancisco%' then 'San Francisco'
         when ${ad_group_name} ilike '%LookalikeAudience_SanFrancisco%' then 'San Francisco'
 
+        when ${campaign_name} ilike '%_California' then 'California'
+        when ${campaign_name} ilike '%_PHXTUCDMA' then 'Phoenix/Tuscon'
+
         else 'Uncategorized'
       end;;
     }
@@ -156,6 +172,11 @@ view: sdt_pinterest_ga_view {
         when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Traffic_Outdoor%' then 'Standard Pins - Macro Outdoor Traffic'
         when ${ad_group_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Traffic_NonOutdoor%' then 'Standard Pins - Macro NonOutdoor Traffic'
 
+        when ${campaign_name} ilike '%Macro_NonOutdoor_Traffic%' then 'Standard Pins - Macro NonOutdoor Traffic'
+        when ${campaign_name} ilike '%Macro_Outdoor_Traffic%' then 'Standard Pins - Macro Outdoor Traffic'
+        when ${campaign_name} ilike '%Macro_NonOutdoor_Video%' then 'Standard Pins - Macro NonOutdoor Video'
+        when ${campaign_name} ilike '%Macro_Outdoor_Video%' then 'Standard Pins - Macro Outdoor Video'
+
       else 'Uncategorized'
     end;;
 
@@ -172,6 +193,13 @@ view: sdt_pinterest_ga_view {
                 when ${promoted_pin_name} ilike '%Flight1_Culinary%' then 'Culinary'
                 when ${promoted_pin_name} ilike '%Flight1_Attractions%' then 'Attractions'
                 when ${promoted_pin_name} ilike '%Flight1_Neighborhood%' then 'Neighborhood'
+
+                when ${campaign_name} ilike '%Macro_Outdoor_Traffic%' then 'Outdoor'
+                when ${campaign_name} ilike '%Macro_Outdoor_Video%' then 'Outdoor'
+                when ${promoted_pin_name} ilike '%_Neighborhood' then 'Neighborhood'
+                when ${promoted_pin_name} ilike '%_Culinary' then 'Culinary'
+                when ${promoted_pin_name} ilike '%_Attractions' then 'Attractions'
+                when ${promoted_pin_name} ilike '%_Family' then 'Family'
 
                 else 'Uncategorized'
               end;;
@@ -276,6 +304,47 @@ view: sdt_pinterest_ga_view {
                 when ${promoted_pin_name} ilike '%Flight1_Attractions_AwesomeAttractions%' then 'Awesome Attractions'
                 when ${promoted_pin_name} ilike '%Flight1_Attractions_59MileScenicDrive%' then '59 Mile Scenic Drive'
                 when ${promoted_pin_name} ilike '%Flight1_Attractions_BalboaParkTours%' then 'Balboa Park Tours'
+
+                when ${promoted_pin_name} ilike '%_OBIBoardwalk15' then 'OBI: Boardwalk Cruising (:15)'
+                when ${promoted_pin_name} ilike '%_BBYoga15' then 'BB: Yoga (:15)'
+                when ${promoted_pin_name} ilike '%_BBParagliding15' then 'BB: Paragliding (:15)'
+                when ${promoted_pin_name} ilike '%_BBBeach15' then 'BB: Beach For 2 (:15)'
+                when ${promoted_pin_name} ilike '%_BBCoffee15' then 'BB: Coffee Cup Coastal (:15)'
+                when ${promoted_pin_name} ilike '%_BBPaddleBoard15' then 'BB: Paddle Board (:15)'
+
+                when ${promoted_pin_name} ilike '%_Sunny7Sunsets' then 'S7: Sunsets'
+                when ${promoted_pin_name} ilike '%_Sunny7MakeASplash' then 'S7: Make A Splash'
+                when ${promoted_pin_name} ilike '%_ScenicHighway101' then 'S7: Scenic Highway'
+                when ${promoted_pin_name} ilike '%_LaJollaKayak' then 'La Jolla Kayak'
+                when ${promoted_pin_name} ilike '%_CoastalHikes' then 'S7: Coastal Hikes'
+                when ${promoted_pin_name} ilike '%_BayshoreBikeway' then 'Bayshore Bikeway'
+
+                when ${promoted_pin_name} ilike '%SocksTorreyPines_Family' then 'Socks: Torrey Pines (:15)'
+                when ${promoted_pin_name} ilike '%SocksTidepools_Family' then 'Socks: Tidepooling (:15)'
+                when ${promoted_pin_name} ilike '%OBILibertyStation15_Neighborhood' then 'OBI: Liberty Station (:15)'
+                when ${promoted_pin_name} ilike '%OBILearnToSurf_Family' then 'OBI: Learn to Surf (:15)'
+                when ${promoted_pin_name} ilike '%OBIGolf15_Attractions' then 'OBI: Torrey Pines Golf (:15)'
+                when ${promoted_pin_name} ilike '%OBIConvoyDesserts15_Neighborhood' then 'OBI: Convoy District Desserts (:15)'
+                when ${promoted_pin_name} ilike '%OBIBirchAquarium_Family' then 'OBI: Birch Aquarium (:15)'
+                when ${promoted_pin_name} ilike '%OBIAfricaRocks15_Attractions' then 'OBI: Africa Rocks (:15)'
+
+                when ${promoted_pin_name} ilike '%DHRealm15_Culinary' then 'DH: Realm (:15)'
+                when ${promoted_pin_name} ilike '%DHBarrioDogg15_Culinary' then 'DH: Barrio Dogg (:15)'
+                when ${promoted_pin_name} ilike '%DHAzucar15_Culinary' then 'DH: Azucar (:15)'
+                when ${promoted_pin_name} ilike '%DHAnimae15_Culinary' then 'DH: Animae (:15)'
+
+                when ${promoted_pin_name} ilike '%Flight1_Outdoor_Sunny7_MakeASplash%' then 'S7: Make A Splash'
+                when ${promoted_pin_name} ilike '%Sunny7Viewpoints_Attractions' then 'S7: Awesome Viewpoints'
+                when ${promoted_pin_name} ilike '%Sunny7NorthCoastal_Neighborhood' then 'S7: North Coastal'
+                when ${promoted_pin_name} ilike '%Sunny7HiddenGems_Attractions' then 'S7: Hidden Gems'
+                when ${promoted_pin_name} ilike '%RealmOf52Remedies_Culinary' then 'Realm of the 52 Remedies'
+                when ${promoted_pin_name} ilike '%FamilyFun_Family' then 'Family Fun in SD'
+                when ${promoted_pin_name} ilike '%PacificBeach_Neighborhood' then 'Pacific Beach'
+                when ${promoted_pin_name} ilike '%KidApprovedParks_Family' then 'Kid-Approved Parks'
+                when ${promoted_pin_name} ilike '%BestBeaches_Family' then 'Best Beaches According to Kids'
+                when ${promoted_pin_name} ilike '%BirdRock_Neighborhood' then 'Bird Rock'
+                when ${promoted_pin_name} ilike '%Azucar_Culinary' then 'Azucar Ancillary'
+                when ${promoted_pin_name} ilike '%59MileScenicDrive_Attractions' then 'SD''s 59 Mile Scenic Drive'
 
                 else 'Uncategorized'
               end;;
@@ -702,6 +771,14 @@ view: sdt_pinterest_ga_view {
 
   measure: total_views_at_100 {
     type: sum_distinct
+    group_label: "Total Video Metrics"
+    sql_distinct_key: ${comp_key} ;;
+    sql: ${views_at_100} ;;
+  }
+
+  measure: content_video_views {
+    type: sum_distinct
+    hidden: yes
     group_label: "Total Video Metrics"
     sql_distinct_key: ${comp_key} ;;
     sql: ${views_at_100} ;;
