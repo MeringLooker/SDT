@@ -2,7 +2,7 @@ view: pdt_locals_campaign {
   derived_table: {
     sql:
         select * from ${pdt_locals_gdn.SQL_TABLE_NAME}
-        union
+          union
         select * from ${pdt_locals_sdut.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
