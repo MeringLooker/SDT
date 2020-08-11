@@ -23,6 +23,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy21_content_view {
+    view_label: "FY21 Always On Content Passback"
+    type: inner
+    sql_on: ${sdt_dcm_ga_view.passback_join_ad} = ${sdt_fy21_content_view.passback_join} ;;
+    relationship: many_to_one
+  }
+
   join: sdt_fy20_family_content_taboola {
     view_label: "FY20 Family Content Passback"
     type: inner
