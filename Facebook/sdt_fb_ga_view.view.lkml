@@ -102,6 +102,14 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%FY20_UK_Views%' then 'Landscape Video'
         when ${ad_name} ilike '%FY20_CAN_Views%' then 'Landscape Video'
 
+        when ${adset_name} ilike '%Macro_NonOutdoor_Video%' then 'Landscape Video'
+        when ${adset_name} ilike '%Macro_Outdoor_Video%' then 'Landscape Video'
+
+        when ${adset_name} ilike '%Macro_NonOutdoor_Conversion%' then 'Landscape Image'
+        when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Landscape Image'
+        when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Landscape Image'
+        when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Landscape Image'
+
         ELSE 'Uncategorized'
         END
         ;;
@@ -128,6 +136,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE '1718_Content%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY19_AAY%' then 'United States'
         WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'United States'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContent%' then 'United States'
 
 
         else 'Uncategorized'
@@ -161,6 +170,10 @@ view: sdt_fb_ga_view {
         when ${campaign_name} ilike 'National\\_%' then 'National'
         when ${campaign_name} ilike 'LA\\_%' then 'Los Angeles'
         when ${campaign_name} ilike 'Regional\\_%' then 'Regional'
+
+        when ${campaign_name} ilike '%California' then 'California'
+        when ${campaign_name} ilike '%PHXTUCDMA' then 'Phoenix/Tuscon'
+        when ${campaign_name} ilike '%LADMA' then 'Los Angeles'
 
         else 'Uncategorized'
         end
@@ -239,6 +252,14 @@ view: sdt_fb_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Macro%' then 'Macro Video'
         when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Micro%' then 'Micro Traffic'
         when ${campaign_name} ilike 'SDT_FY20_FamilyContent_Nano%' then 'Nano Traffic'
+
+        when ${adset_name} ilike '%Macro_NonOutdoor_Video%' then 'Macro Video'
+        when ${adset_name} ilike '%Macro_Outdoor_Video%' then 'Macro Video'
+
+        when ${adset_name} ilike '%Macro_NonOutdoor_Conversion%' then 'Macro Traffic'
+        when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Micro Traffic'
+        when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Macro Traffic'
+        when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Micro Traffic'
 
         else 'Uncategorized'
         end
@@ -334,6 +355,14 @@ view: sdt_fb_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Conversions_Outdoor%' then 'Traffic - Macro Outdoor'
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_Conversions_NonOutdoor%' then 'Traffic - Macro NonOutdoor'
 
+        when ${adset_name} ilike '%Macro_NonOutdoor_Video%' then 'Video - Macro NonOutdoor'
+        when ${adset_name} ilike '%Macro_Outdoor_Video%' then 'Video - Macro Outdoor'
+
+        when ${adset_name} ilike '%Macro_NonOutdoor_Conversion%' then 'Traffic - Macro NonOutdoor'
+        when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Traffic - Micro NonOutdoor'
+        when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Traffic - Macro Outdoor'
+        when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Traffic - Micro Outdoor'
+
 
         else 'Uncategorized'
         end
@@ -382,6 +411,13 @@ view: sdt_fb_ga_view {
       when ${ad_name} ilike '%SingleImage_Attractions%' then 'Attractions'
       when ${ad_name} ilike '%SingleImage_Culinary%' then 'Culinary'
       when ${ad_name} ilike '%SingleImage_Neighborhood%' then 'Neighborhood'
+
+      when ${ad_name} ilike '%_Attractions' then 'Attractions'
+      when ${ad_name} ilike '%_Family' then 'Family'
+      when ${ad_name} ilike '%_Culinary' then 'Culinary'
+      when ${ad_name} ilike '%_Neighborhood' then 'Neighborhood'
+      when ${adset_name} ilike '%Macro_Outdoor%' then 'Outdoor'
+      when ${adset_name} ilike '%Micro_Outdoor%' then 'Outdoor'
 
       else 'Uncategorized'
         end
@@ -774,10 +810,121 @@ view: sdt_fb_ga_view {
         when ${ad_name} = 'FY20_UK_Views_Content_VS_OldTown' then 'OBI: Old Town Mexican (:15)'
         when ${ad_name} = 'FY20_UK_Views_Content_VS_USSMidway' then 'OBI: USS Midway (:15)'
 
-
         when ${ad_name} = 'FY20_UK_Views_Brand_LAL_SiteVisitors_HappyToday' then 'Happy Today (:15)'
         when ${ad_name} = 'FY20_UK_Views_Brand_VS_HappyToday' then 'Happy Today (:15)'
         when ${ad_name} = 'FY20_UK_Views_Brand_LAL_USContentViewers_HappyToday' then 'Happy Today (:15)'
+
+        when ${ad_name} ilike '%TAOutdoor60' then 'Co-Branded TripAdvisor Outdoor Pillar Video (:60)'
+        when ${ad_name} ilike '%OBICoastalYoga60' then 'OBI: Coastal Yoga (:60)'
+        when ${ad_name} ilike '%OBIBoardwalk60' then 'OBI: Boardwalk Cruising (:60)'
+        when ${ad_name} ilike '%OBIBoardwalk15' then 'OBI: Boardwalk Cruising (:15)'
+
+        when ${ad_name} ilike '%G2GSSurfing60' then 'G2GS: Surfing San Diego (:60)'
+        when ${ad_name} ilike '%G2GSMissionBay60' then 'G2GS: Mission Bay (:60)'
+        when ${ad_name} ilike '%G2GSLaJolla60' then 'G2GS: La Jolla (:60)'
+
+        when ${ad_name} ilike '%BBYoga15' then 'BB: Yoga (:15)'
+        when ${ad_name} ilike '%BBParagliding30' then 'BB: Paragliding (:30)'
+        when ${ad_name} ilike '%BBPaddleBoard15' then 'BB: Paddle Board (:15)'
+        when ${ad_name} ilike '%BBCoffee30' then 'BB: Coffee Cup Coastal (:30)'
+        when ${ad_name} ilike '%BBCoffee15' then 'BB: Coffee Cup Coastal (:15)'
+        when ${ad_name} ilike '%BBBeach30' then 'BB: Beach For 2 (:30)'
+        when ${ad_name} ilike '%BBBeach15' then 'BB: Beach For 2 (:15)'
+
+        when ${ad_name} ilike '%TACulinary60%' then 'TripAdvisor Culinary (:60)'
+        when ${ad_name} ilike '%TABalboaPark60%' then 'TripAdvisor: Balboa Park Culture (:60)'
+        when ${ad_name} ilike '%SocksTorreyPines15%' then 'Socks: Torrey Pines (:15)'
+        when ${ad_name} ilike '%SocksTidepools15%' then 'Socks: Tidepooling (:15)'
+        when ${ad_name} ilike '%SockStarofIndia60%' then 'Socks: Star of India (:60)'
+        when ${ad_name} ilike '%SocksSeaWorld60%' then 'Socks: SeaWorld (:60)'
+        when ${ad_name} ilike '%SocksSafariPark60%' then 'Socks: Safari Park (:60)'
+        when ${ad_name} ilike '%SocksLegoland60%' then 'Socks: LEGOLAND (:60)'
+
+        when ${ad_name} ilike '%OBITortillasMargs60%' then 'OBI: Tortillas and Margs (:60)'
+        when ${ad_name} ilike '%OBITortillasMargs15%' then 'OBI: Tortillas and Margs (:15)'
+        when ${ad_name} ilike '%OBIStuart60%' then 'OBI: Stuart Collection (:60)'
+        when ${ad_name} ilike '%OBIMidway60%' then 'OBI: USS Midway (:60)'
+        when ${ad_name} ilike '%OBILibertyStation60%' then 'OBI: Liberty Station (:60)'
+        when ${ad_name} ilike '%OBILibertyStation15%' then 'OBI: Liberty Station (:15)'
+        when ${ad_name} ilike '%OBILegoSub60%' then 'OBI: LEGO Submarine (:60)'
+        when ${ad_name} ilike '%OBILearnToSurf60%' then 'OBI: Learn to Surf (:60)'
+        when ${ad_name} ilike '%OBILearnToSurf15%' then 'OBI: Learn to Surf (:15)'
+        when ${ad_name} ilike '%OBIGolf60%' then 'OBI: Torrey Pines Golf (:60)'
+        when ${ad_name} ilike '%OBIGolf15%' then 'OBI: Torrey Pines Golf (:15)'
+        when ${ad_name} ilike '%OBIConvoyDesserts60%' then 'OBI: Convoy District Desserts (:60)'
+        when ${ad_name} ilike '%OBIConvoyDesserts15%' then 'OBI: Convoy District Desserts (:15)'
+        when ${ad_name} ilike '%OBICaliforniaTower60%' then 'OBI: California Tower (:60)'
+        when ${ad_name} ilike '%OBIBirchAquarium60%' then 'OBI: Birch Aquarium (:60)'
+        when ${ad_name} ilike '%OBIAfricaRocks60%' then 'OBI: Africa Rocks (:60)'
+        when ${ad_name} ilike '%OBIAfricaRocks15%' then 'OBI: Africa Rocks (:15)'
+        when ${ad_name} ilike '%OBISafariPark60%' then 'OBI: Safari Park (:60)'
+        when ${ad_name} ilike '%OBICoastalYoga15' then 'OBI: Coastal Yoga (:15)'
+
+        when ${ad_name} ilike '%G2GSPicturePerfect60%' then 'G2GS: Picture Perfect Spots (:60)'
+        when ${ad_name} ilike '%G2GSBarrioLogan60%' then 'G2GS: Barrio Logan (:60)'
+
+        when ${ad_name} ilike '%DHRealm30%' then 'DH: Realm of the 52 Remedies (:30)'
+        when ${ad_name} ilike '%DHRealm15%' then 'DH: Realm of the 52 Remedies (:15)'
+        when ${ad_name} ilike '%DHMantra%' then 'DH: Mantra (Longform)'
+        when ${ad_name} ilike '%DHBarrioDogg60%' then 'DH: Barrio Dogg (:60)'
+        when ${ad_name} ilike '%DHBarrioDogg30%' then 'DH: Barrio Dogg (:30)'
+        when ${ad_name} ilike '%DHBarrioDogg15%' then 'DH: Barrio Dogg (:15)'
+        when ${ad_name} ilike '%DHAzucar30%' then 'DH: Azucar (:30)'
+        when ${ad_name} ilike '%DHAzucar15%' then 'DH: Azucar (:15)'
+        when ${ad_name} ilike '%DHAnimae30%' then 'DH: Animae (:30)'
+        when ${ad_name} ilike '%Animae15%' then 'DH: Animae (:15)'
+
+        when ${ad_name} ilike '%_TorreyPines' then 'Torrey Pines'
+        when ${ad_name} ilike '%_LeopardSharks' then 'Swimming with Leopard Sharks'
+        when ${ad_name} ilike '%TidePools' then 'SD Tide Pools: Exploring Life at the Edge of the Sea'
+        when ${ad_name} ilike '%_Sailing' then 'Sailing in San Diego'
+        when ${ad_name} ilike '%_MissionBayBeaches' then 'Mission Bay & Beaches'
+        when ${ad_name} ilike '%_MeleSurfFaves' then 'Mele Sali''s Surf Faves'
+        when ${ad_name} ilike '%_LaJollaBeaches' then 'La Jolla Beaches'
+        when ${ad_name} ilike '%_HistoricHighway101' then 'Historic Highway 101'
+        when ${ad_name} ilike '%_GuidetoSDBeaches' then 'Guide to San Diego Beaches'
+          when ${ad_name} ilike '%SocalVibe%' then '3 Beach Neighborhoods w/ SoCal Vibe'
+          when ${ad_name} ilike '%_Sunny7MissionValleyOldTown%' then 'S7: Mission Valley/Old Town'
+          when ${ad_name} ilike '%_Sunny7MissionBay%' then 'S7: Mission Bay'
+          when ${ad_name} ilike '%_Sunny7NorthCoastal%' then 'S7: North Coastal'
+          when ${ad_name} ilike '%_Sunny7NorthInland%' then 'S7: North Inland'
+          when ${ad_name} ilike '%_Sunny7PointLoma%' then 'S7: Point Loma'
+          when ${ad_name} ilike '%_Sunny7NaturalWonders%' then 'S7: Natural Wonders'
+          when ${ad_name} ilike '%_Sunny7LocalMarkets%' then 'S7: Local Markets'
+          when ${ad_name} ilike '%_Sunny7BotanicalGardens%' then 'S7: Botanical Gardens'
+          when ${ad_name} ilike '%_Sunny7RooftopRestaurants%' then 'S7: Rooftop Restaurants'
+          when ${ad_name} ilike '%_Sunny7BeachfrontBars%' then 'S7: Beachfront Bars'
+          when ${ad_name} ilike '%_Sunny7AwardWinningRestaurants%' then 'S7: Award Winning Restaurants & Chefs'
+          when ${ad_name} ilike '%_Sunny7ArtOutsideTheBox%' then 'S7: Art Outside the Box'
+          when ${ad_name} ilike '%PacificBeach%' then 'Pacific Beach'
+          when ${ad_name} ilike '%BirdRock%' then 'Bird Rock'
+          when ${ad_name} ilike '%_Sunny7Reasons%' then 'S7: Reasons to Bring the Family'
+          when ${ad_name} ilike '%Onedayitinerary%' then 'One-Day Itinerary'
+          when ${ad_name} ilike '%AwesomeMuseums%' then 'Awesome Museums'
+          when ${ad_name} ilike '%25FreeFunThings%' then '25 Fun & Free Things to do'
+          when ${ad_name} ilike '%15SanDiegoPlaygrounds%' then '15 San Diego Playgrounds'
+          when ${ad_name} ilike '%13Kidneighborhoods%' then '13 Kid-Pleasing Neighborhoods'
+          when ${ad_name} ilike '%BestBeaches%' then 'The Best Beaches According to Kids'
+          when ${ad_name} ilike '%Familyfun%' then 'Family Fun in San Diego'
+          when ${ad_name} ilike '%Edutainment%' then 'Edutainment'
+          when ${ad_name} ilike '%KidApprovedParks%' then '9 Kid Approved Parks'
+          when ${ad_name} ilike '%FoodieFinds%' then 'Foodie Finds'
+          when ${ad_name} ilike '%Azcuar%' then 'Azucar'
+          when ${ad_name} ilike '%ArtFilledDay%' then 'One Perfect Art Filled Day'
+          when ${ad_name} ilike '%FoodTruckRevolution%' then 'Food Truck Revolution'
+          when ${ad_name} ilike '%CrossBorderCuisine%' then 'Cross-Border Cuisine'
+          when ${ad_name} ilike '%SeafoodRestaurants%' then 'Best Seafood Restaurants'
+          when ${ad_name} ilike '%Realmof52Remedies%' then 'Realm of the 52 Remedies'
+          when ${ad_name} ilike '%59MileScenicDrive%' then 'San Diego''s 59 Mile Scenic Drive'
+          when ${ad_name} ilike '%Sunny7HiddenGems%' then 'S7: Balboa Park Hidden Gems'
+          when ${ad_name} ilike '%Sunny7Viewpoints%' then 'S7: Awesome San Diego Viewpoints'
+          when ${ad_name} ilike '%BalboaParkCulturalHeart%' then 'Balboa Park - Cultural Heart'
+          when ${ad_name} ilike '%Sunny7makeaSplash%' then 'S7: Make A Splash'
+          when ${ad_name} ilike '%Sunny7Sunsets%' then 'S7: Sunsets'
+          when ${ad_name} ilike '%LaJollaKayak%' then 'Explore La Jolla on a Kayak Tour'
+          when ${ad_name} ilike '%BayshoreBikeway%' then 'Bayshore Bikeway'
+          when ${ad_name} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
+          when ${ad_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
 
         else 'Uncategorized'
         end

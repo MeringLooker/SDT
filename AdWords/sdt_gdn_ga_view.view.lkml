@@ -383,7 +383,7 @@ view: sdt_gdn_ga_view {
         when ${ad_group} ilike '%_MeleSurfFaves%' then 'Mele Sali''s Surf Faves'
         when ${ad_group} ilike '%_LaJollaBeaches%' then 'La Jolla Beaches'
         when ${ad_group} ilike '%_HistoricHighway101%' then 'Historic Highway 101'
-        when ${ad_group} ilike '%_GuidetoSDBeache%s' then 'Guide to San Diego Beaches'
+        when ${ad_group} ilike '%_GuidetoSDBeaches%' then 'Guide to San Diego Beaches'
           when ${ad_group} ilike '%SocalVibe%' then '3 Beach Neighborhoods w/ SoCal Vibe'
           when ${ad_group} ilike '%_Sunny7MissionValleyOldTown%' then 'S7: Mission Valley/Old Town'
           when ${ad_group} ilike '%_Sunny7MissionBay%' then 'S7: Mission Bay'
