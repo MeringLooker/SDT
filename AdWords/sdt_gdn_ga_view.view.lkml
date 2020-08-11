@@ -48,6 +48,7 @@ view: sdt_gdn_ga_view {
         when ${campaign} = 'SDTA - Balboa - Retargeting - GDN Responsive' then 'Responsive Display'
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Responsive Display'
         when ${campaign} = 'SDT - FY21 - Locals Recovery - Awareness' then 'Responsive Display'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery%' then 'Responsive Display'
         else null
         end
       ;;
@@ -273,6 +274,8 @@ view: sdt_gdn_ga_view {
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro_Outdoor%' then 'Responsive Display - Micro Outdoor'
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro_NonOutdoor%' then 'Responsive Display - Micro NonOutdoor'
 
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Nano%' then 'Responsive Display - Nano Traffic'
+
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Micro_GDisco%' then 'Micro - Google Discover Display'
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano_GDisco%' then 'Nano - Google Discover Display'
         when ${campaign} ilike 'SDT_FY20_FamilyContent_Nano_GDN%' then 'Micro - GDN Display'
@@ -311,6 +314,8 @@ view: sdt_gdn_ga_view {
         when ${ad_group} ilike '%_Family' then 'Family'
 
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Macro_GDN_NonOutdoor%' then 'Non-Outdoor'
+
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Nano%' then 'N/A'
 
         ELSE 'Uncategorized'
         end
@@ -421,6 +426,10 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike '%BayshoreBikeway%' then 'Bayshore Bikeway'
           when ${ad_group} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad_group} ilike '%CoastalHikes%' then 'S7: 7 Star Coastal Hikes'
+
+          when ${campaign} ilike '%HotelsLandingPage' then 'Nano Traffic: Hotels LP'
+          when ${campaign} ilike '%PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
+          when ${campaign} ilike '%LASpecificLandingPage' then 'Nano Traffic: LA-Specific LP'
 
         ELSE 'Uncategorized'
         end

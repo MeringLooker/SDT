@@ -272,6 +272,8 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo%' then 'Macro Video'
           when ${placement} ilike '%AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo%' then 'Macro Video'
 
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro%' then 'Micro Video'
+
           when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness%' then 'Awareness'
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'Intent'
 
@@ -538,6 +540,10 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC%' then 'Phoenix/Tuscon'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA%' then 'Los Angeles'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA%' then 'California'
+
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC%' then 'Phoenix/Tuscon'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA%' then 'Los Angeles'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA%' then 'California'
 
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery%' then 'Combined (CA/AZ)'
 
@@ -862,17 +868,35 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Culinary' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC_NativeVideo_Attractions' then 'Macro Native Video - Non-Outdoor'
 
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC_NativeVideo_Outdoor' then 'Micro Native Video - Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC_NativeVideo_Neighborhood' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC_NativeVideo_Family' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC_NativeVideo_Culinary' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC_NativeVideo_Attractions' then 'Micro Native Video - Non-Outdoor'
+
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Outdoor' then 'Macro Native Video - Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Neighborhood' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Family' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Culinary' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA_NativeVideo_Attractions' then 'Macro Native Video - Non-Outdoor'
 
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA_NativeVideo_Outdoor' then 'Micro Native Video - Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA_NativeVideo_Neighborhood' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA_NativeVideo_Family' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA_NativeVideo_Culinary' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA_NativeVideo_Attractions' then 'Micro Native Video - Non-Outdoor'
+
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Outdoor' then 'Macro Native Video - Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Neighborhood' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Family' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Culinary' then 'Macro Native Video - Non-Outdoor'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA_NativeVideo_Attractions' then 'Macro Native Video - Non-Outdoor'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA_NativeVideo_Outdoor' then 'Micro Native Video - Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA_NativeVideo_Neighborhood' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA_NativeVideo_Family' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA_NativeVideo_Culinary' then 'Micro Native Video - Non-Outdoor'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA_NativeVideo_Attractions' then 'Micro Native Video - Non-Outdoor'
 
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Outdoor_' then 'Macro Native Traffic - Outdoor'
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Neighborhood' then 'Macro Native Traffic - Non-Outdoor'
@@ -894,7 +918,11 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
 
-
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Outdoor_IMPRESSION TRACKER' then 'Macro Native Traffic - Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Neighborhood_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Family_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
 
         else 'Uncategorized'
       end;;
@@ -1012,6 +1040,12 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Family_IMPRESSION TRACKER' then 'Family'
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Culinary'
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Attractions'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Outdoor_IMPRESSION TRACKER' then 'Outdoor'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Neighborhood_IMPRESSION TRACKER' then 'Neighborhood'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Family_IMPRESSION TRACKER' then 'Family'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Culinary'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Attractions'
 
             ELSE 'Uncategorized'
         END;;
@@ -1390,6 +1424,12 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Family_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Family Content'
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Culinary Content'
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Attractions Content'
+
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Outdoor_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Outdoor Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Neighborhood_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Neighborhood Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Family_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Family Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Culinary Content'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Attractions Content'
 
             ELSE 'Uncategorized'
         END;;
