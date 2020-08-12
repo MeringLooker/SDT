@@ -1,4 +1,4 @@
-view: pdt_fy21_drivemarket_cn {
+view: pdt_fy21_drivemarket_hulu {
   derived_table: {
     explore_source: sdt_dcm {
       column: publisher {field: sdt_dcm_ga_view.publisher}
@@ -24,7 +24,7 @@ view: pdt_fy21_drivemarket_cn {
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
-        value: "Condé Nast"
+        value: "Hulu"
       }
     }
     datagroup_trigger: sdt_falldrivemarket_datagroup

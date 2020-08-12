@@ -137,6 +137,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY19_AAY%' then 'United States'
         WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContent%' then 'United States'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'United States'
 
 
         else 'Uncategorized'
@@ -172,8 +173,12 @@ view: sdt_fb_ga_view {
         when ${campaign_name} ilike 'Regional\\_%' then 'Regional'
 
         when ${campaign_name} ilike '%California' then 'California'
-        when ${campaign_name} ilike '%PHXTUCDMA' then 'Phoenix/Tuscon'
+        when ${campaign_name} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
         when ${campaign_name} ilike '%LADMA' then 'Los Angeles'
+
+        when ${campaign_name} ilike '%California' then 'California'
+        when ${campaign_name} ilike '%Phoenix' then 'Phoenix'
+        when ${campaign_name} ilike '%Tucson' then 'Tucson'
 
         else 'Uncategorized'
         end
@@ -208,6 +213,8 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY19_UK_%' then 'United Kingdom Digital'
         WHEN ${campaign_name} ILIKE 'FY19_GER_%' then 'Germany Digital'
         WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'Family Content'
+
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Fall Drive Market'
 
         else 'Uncategorized'
         end
@@ -260,6 +267,8 @@ view: sdt_fb_ga_view {
         when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Micro Traffic'
         when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Macro Traffic'
         when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Micro Traffic'
+
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Display'
 
         else 'Uncategorized'
         end
@@ -362,6 +371,9 @@ view: sdt_fb_ga_view {
         when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Traffic - Micro NonOutdoor'
         when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Traffic - Macro Outdoor'
         when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Traffic - Micro Outdoor'
+
+        when ${campaign_name} ilike '%FY21_SDT_DriveMarket_Awareness_Stories%' then 'FB/IG Stories'
+        when ${campaign_name} ilike '%FY21_SDT_DriveMarket_Conversions%' then 'FB Audience Network Single Image'
 
 
         else 'Uncategorized'
@@ -925,6 +937,18 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%BayshoreBikeway%' then 'Bayshore Bikeway'
           when ${ad_name} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
+
+          when ${ad_name} ilike '%SurferGirl' then 'Surfer Girl Single Image'
+          when ${ad_name} ilike '%SurferCoast' then 'Surfer Coast Single Image'
+          when ${ad_name} ilike '%Surfers' then 'Surfers Single Image'
+
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Tucson_HICYB' then 'Happiness Is Calling You Back (:30)'
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Phoenix_HICYB' then 'Happiness Is Calling You Back (:30)'
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_California_HICYB' then 'Happiness Is Calling You Back (:30)'
+
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Tucson' then 'Drive Market IG Story'
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Phoenix_' then 'Drive Market IG Story'
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_California' then 'Drive Market IG Story'
 
         else 'Uncategorized'
         end

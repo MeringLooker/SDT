@@ -152,7 +152,9 @@ view: sdt_dcm_ga_view {
           when ${site_dcm} ILIKE 'globaltv%' then 'GlobalTV'
           when ${site_dcm} ILIKE 'Hulu%' then 'Hulu'
           when ${site_dcm} ILIKE 'Nativo%' then 'Nativo'
+          when ${site_dcm} ILIKE 'Spotify%' then 'Spotify'
           when ${site_dcm} ILIKE 'NBC Sports%' then 'NBC Sports'
+          when ${site_dcm} ILIKE 'NBC Universal%' then 'NBC'
           when ${site_dcm} ILIKE 'TripAdvisor%' then 'Trip Advisor'
 
           when ${site_dcm} ILIKE 'Turner Sports%' then 'Turner Sports'
@@ -277,6 +279,22 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'SDUT_SDTAFY21_RecoveryLocals_Awareness%' then 'Awareness'
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'Intent'
 
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_FallDriveMarketRecovery%' then 'Display'
+          when ${placement} ilike '%Video Sponsored Session' then 'Digital Video'
+          when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery%' then 'Digital Video'
+          when ${placement} ilike 'NBC SPOTON_SDTAFY21_FallDriveMarketRecovery%' then 'Digital Video'
+          when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery%' then 'Digital Video'
+          when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery%' then 'Digital Video'
+          when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery%' then 'Digital Video'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery%' then 'Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery%' then 'Display'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Audio Everywhere' then 'Audio'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Audio Everywhere' then 'Audio'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Audio Everywhere' then 'Audio'
+          when ${placement} ilike '%_AudioXP' then 'Audio'
+          when ${placement} ilike '%MobileWelcomeInterstitial' then 'Display'
+          when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_AV_Display' then 'Display'
+
           ELSE 'Uncategorized'
           end ;;
     }
@@ -288,6 +306,8 @@ view: sdt_dcm_ga_view {
       sql:
         CASE
           when ${ad_id} = '470013971' then 'Uncategorized'
+
+          when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'Fall Drive Market'
 
           when ${ad} = '(not set)' then 'Uncategorized'
           when ${ad} ilike '%Default Web Ad%' then 'Uncategorized'
@@ -331,7 +351,6 @@ view: sdt_dcm_ga_view {
           when ${campaign} = 'SDT: 004978_01 FY20 Premium Digital Display Campaign' then 'Premium Digital Display'
 
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'US Pull-Through'
-          when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'Fall Drive Market'
           when ${campaign} ilike 'SDT: FY21 Always On Recovery - 005402_01' then 'Always On Content'
 
 
@@ -537,15 +556,42 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Las Vegas%' then 'Las Vegas'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California%' then 'California'
 
-          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC%' then 'Phoenix/Tuscon'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_PHX,TUC%' then 'Phoenix/Tucson'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_LA%' then 'Los Angeles'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Macro_VarietySeeker_CA%' then 'California'
 
-          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC%' then 'Phoenix/Tuscon'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_PHX,TUC%' then 'Phoenix/Tucson'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_LA%' then 'Los Angeles'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_CA%' then 'California'
 
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery%' then 'Combined (CA/AZ)'
+
+          when ${placement} ilike '%Phoenix+Tucson%' then 'Phoenix/Tucson'
+          when ${placement} ilike '%PHX+Tucson%' then 'Phoenix/Tucson'
+          when ${placement} ilike '%All Markets_AV_Display%' then 'National'
+          when ${placement} ilike '%CA/PHX/Tucson%' then 'Combined (CA/PHX/TUC)'
+          when ${placement} ilike '%Tucson%' then 'Tucson'
+          when ${placement} ilike '%WesternRegion%' then 'Western Region'
+          when ${placement} ilike '%PHX_Audio Everywhere%' then 'Phoenix'
+          when ${placement} ilike '%PHX_Video Sponsored Session%' then 'Phoenix'
+          when ${placement} ilike '%California_Video Sponsored Session%' then 'California'
+          when ${placement} ilike '%Phoenix_AudioXP%' then 'Phoenix'
+          when ${placement} ilike '%Phoenix_AudioXP%' then 'Phoenix'
+          when ${placement} ilike '%California_AudioXP%' then 'California'
+          when ${placement} ilike '%California_Audio Everywhere%' then 'California'
+          when ${placement} ilike '%California_Travel Intender%' then 'California'
+          when ${placement} ilike '%Arizona_Travel Intender%' then 'Arizona'
+          when ${placement} ilike '%Phoenix_OLV' then 'Phoenix'
+          when ${placement} ilike '%Phoenix_OTT' then 'Phoenix'
+          when ${placement} ilike '%Phoenix_Midroll%' then 'Phoenix'
+          when ${placement} ilike '%In Market For Travel_Phoenix%' then 'Phoenix'
+          when ${placement} ilike '%California_Midroll%' then 'California'
+          when ${placement} ilike '%California_OLV' then 'California'
+          when ${placement} ilike '%California_OTT' then 'California'
+          when ${placement} ilike '%Fall Season_Variety Seekers_Phoenix' then 'Phoenix'
+          when ${placement} ilike '%Fall Season_Variety Seekers_California' then 'California'
+          when ${placement} ilike '%California_MobileWelcomeInterstitial%' then 'California'
+          when ${placement} ilike '%_CA_Video%' then 'California'
 
             ELSE 'Uncategorized'
         END;;
@@ -924,6 +970,59 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Macro Native Traffic - Non-Outdoor'
 
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Tucson_OTT' then 'OTT :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Tucson_OLV' then 'OLV :30 Video'
+
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Phoenix_OTT' then 'OTT :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Phoenix_OLV' then 'OLV :30 Video'
+
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_California_OTT' then 'OTT :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_California_OLV' then 'OLV :30 Video'
+
+
+          when ${ad} ilike '%Midroll_:30_Spot On%' then 'NBC Spot On Video - MidRoll'
+          when ${ad} ilike '%Midroll_:30_FEP%' then 'NBC FEP Video - MidRoll'
+          when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_CA/PHX/Tucson_Video_1920x1080_AV' then 'Hulu :30 Video Commercial - AV'
+          when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_3P: In Market for Travel%' then 'Hulu :30 Video Commercial'
+          when ${placement} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+          when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'ABC :30 Video'
+          when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'CBS :30 Video'
+
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California_High Impact_Desktop%' then 'High Impact Desktop Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California_High Impact_Mobile%' then 'High Impact Mobile Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California_RON%' then 'RON Display'
+
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Phoenix_High Impact_Desktop%' then 'High Impact Desktop Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Phoenix_High Impact_Mobile%' then 'High Impact Mobile Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Phoenix_RON%' then 'RON Display'
+
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson_High Impact_Desktop%' then 'High Impact Desktop Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson_High Impact_Mobile%' then 'High Impact Mobile Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson_RON%' then 'RON Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_US_AV_RON%' then 'RON National Display - AV'
+
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON%' then 'RON Display - Family Variety Seeker'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_RON%' then 'RON Display - Variety Seeker'
+
+          when ${placement} ilike '%_MobileWelcomeInterstitial%' then 'Pandora Mobile Interstitial Display'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_California_Companion Banner%' then 'Pandora Audio Companion Banner'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_Tucson_Companion Banner%' then 'Pandora Audio Companion Banner'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_Phoenix_Companion Banner%' then 'Pandora Audio Companion Banner'
+
+          when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_AV_Display' then 'Pandora AV Display'
+          when ${placement} ilike '%_AudioXP%' then 'Pandora :30 Audio'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Audio Everywhere%' then 'Spotify :30 Audio'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Audio Everywhere%' then 'Spotify :30 Audio'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Audio Everywhere%' then 'Spotify :30 Audio'
+
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+
+          when ${placement} ilike '%Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
+
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Portrait Display'
+
         else 'Uncategorized'
       end;;
     }
@@ -1299,15 +1398,36 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Rail_Beach_500x1100%' then 'Beach_500x1100'
           when ${ad} ilike '%Rail_BikePath_500x1100%' then 'BikePath_500x1100'
 
-          when ${ad} ilike '%Plan Now_300x250' then 'PlanNow_300x250'
+          when ${ad} ilike '%Plan Now_300x250%' then 'PlanNow_300x250'
           when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
           when ${ad} ilike '%Plan Now_300x600' then 'PlanNow_300x600'
           when ${ad} ilike '%Plan Now_160x600' then 'PlanNow_160x600'
+          when ${ad} ilike '%Plan Now_300x50' then 'Plan Now_300x50'
+          when ${ad} ilike '%Plan Now_640x640%' then 'Plan Now_640x640'
 
-          when ${ad} ilike '%Book Hotel_300x250' then 'BookHotel_300x250'
+          when ${ad} ilike '%Book Hotel_300x250%' then 'BookHotel_300x250'
           when ${ad} ilike '%Book Hotel_728x90' then 'BookHotel_728x90'
           when ${ad} ilike '%Book Hotel_300x600' then 'BookHotel_300x600'
           when ${ad} ilike '%Book Hotel_160x600' then 'BookHotel_160x600'
+          when ${ad} ilike '%Book Hotel_300x50' then 'BookHotel_300x50'
+          when ${ad} ilike '%Book Hotel_640x640%' then 'BookHotel_640x640'
+
+          when ${placement} ilike '%Book Hotel_300x50' then 'BookHotel_300x50'
+          when ${placement} ilike '%Book Hotel_300x250%' then 'BookHotel_300x250'
+          when ${placement} ilike '%Book Hotel_728x90' then 'BookHotel_728x90'
+          when ${placement} ilike '%Book Hotel_300x600' then 'BookHotel_300x600'
+          when ${placement} ilike '%Book Hotel_160x600' then 'BookHotel_160x600'
+
+          when ${ad} ilike '%MobileWelcomeInterstitial%' then 'Pandora_750x1400'
+          when ${ad} ilike '%Travel Intender_ONsiteDisplay_2560x400%' then 'TripAdvisor_2560x400'
+
+          when ${placement} ilike '%_AudioXP%' then 'Pandora :30 Audio'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Audio Everywhere%' then 'Spotify :30 Audio'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Audio Everywhere%' then 'Spotify :30 Audio'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Audio Everywhere%' then 'Spotify :30 Audio'
+
+          when ${ad} ilike '%300x250 Default Web Ad%' then 'Uncategorized_300x250'
+          when ${ad} ilike '%728x90 Default Web Ad%' then 'Uncategorized_728x90'
 
           when ${ad} ilike '%Surfing_728x90%' then 'Surfing_728x90'
           when ${ad} ilike '%Surfing_300x250%' then 'Surfing_300x250'
@@ -1430,6 +1550,12 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Family_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Family Content'
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Culinary Content'
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Attractions Content'
+
+          when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video%' then 'Happiness is Calling You Back (:30)'
+          when ${placement} ilike 'NBC SpotON_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+          when ${placement} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+          when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+          when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
 
             ELSE 'Uncategorized'
         END;;

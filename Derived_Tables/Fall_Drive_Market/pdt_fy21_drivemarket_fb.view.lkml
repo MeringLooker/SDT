@@ -8,7 +8,6 @@ view: pdt_fy21_drivemarket_fb {
       column: region {field: sdt_fb_ga_view.sdt_region}
       column: placement {field: sdt_fb_ga_view.sdt_placement}
       column: creative_name {field: sdt_fb_ga_view.creative_name}
-      column: ad_size {field: sdt_fb_ga_view.ad_size}
       column: date {field: sdt_fb_ga_view.date_start_date}
       column: week {field: sdt_fb_ga_view.date_start_week}
       column: month {field: sdt_fb_ga_view.date_start_month}

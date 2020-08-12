@@ -19,7 +19,7 @@ view: pdt_fy21_drivemarket_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${region}||'_'||${placement}||'_'||${creative_name}||'_'||${ad_size}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${region}||'_'||${placement}||'_'||${creative_name}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -60,11 +60,6 @@ view: pdt_fy21_drivemarket_campaign {
   dimension: creative_name {
     type: string
     sql: ${TABLE}.creative_name ;;
-  }
-
-  dimension: ad_size {
-    type: string
-    sql: ${TABLE}.ad_size ;;
   }
 
   dimension: fiscal_year {

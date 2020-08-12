@@ -70,6 +70,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_FallPromo%' then 'Fall Promo'
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent%' then 'Always On Content'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent%' then 'Always On Content'
+        when ${campaign_name} ilike 'FY21_SDT_DriveMarket%' then 'Fall Drive Market'
         else 'Uncategorized'
         end;;
 
@@ -96,6 +97,8 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_DisneylandAnaheim%' then 'Disneyland'
         when ${campaign_name} ilike 'SDT_FY20_PullThrough_National_CompetitiveConquesting%' then 'Competitive Conquest'
 
+        when ${campaign_name} ilike 'FY21_SDT_DriveMarket%' then 'Display'
+
       else 'Uncategorized'
       end;;
     }
@@ -112,6 +115,8 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent%' then 'United States'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent%' then 'United States'
 
+        when ${campaign_name} ilike 'FY21_SDT_DriveMarket%' then 'United States'
+
       else 'Uncategorized'
       end;;
     }
@@ -122,6 +127,10 @@ view: sdt_pinterest_ga_view {
       group_label: "Client Dimensions"
       sql:
       case
+
+        when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins_California%' then 'California'
+        when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins_PHXTUCDMA%' then 'Phoenix/Tucson'
+
         when ${campaign_name} ilike '%Nano_Traffic_Phoenix%' then 'Phoenix'
         when ${campaign_name} ilike '%Nano_Traffic_LosAngeles%' then 'Los Angeles'
         when ${campaign_name} ilike '%Nano_Traffic_National%' then 'Phoenix'
@@ -149,7 +158,7 @@ view: sdt_pinterest_ga_view {
         when ${ad_group_name} ilike '%LookalikeAudience_SanFrancisco%' then 'San Francisco'
 
         when ${campaign_name} ilike '%_California' then 'California'
-        when ${campaign_name} ilike '%_PHXTUCDMA' then 'Phoenix/Tuscon'
+        when ${campaign_name} ilike '%_PHXTUCDMA' then 'Phoenix/Tucson'
 
         else 'Uncategorized'
       end;;
@@ -184,6 +193,8 @@ view: sdt_pinterest_ga_view {
 
         when ${campaign_name} ilike '%Micro_NonOutdoor_Traffic%' then 'Standard Pins - Micro NonOutdoor Traffic'
         when ${campaign_name} ilike '%Micro_Outdoor_Traffic%' then 'Standard Pins - Micro Outdoor Traffic'
+
+        when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins%' then 'Standard Pins - Traffic Driving'
 
       else 'Uncategorized'
     end;;
@@ -407,6 +418,9 @@ view: sdt_pinterest_ga_view {
           when ${promoted_pin_name} ilike '%BayshoreBikeway%' then 'Bayshore Bikeway'
           when ${promoted_pin_name} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${promoted_pin_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
+
+          when ${promoted_pin_name} ilike '%SurferCoast' then 'Surfer Coast Pin'
+          when ${promoted_pin_name} ilike '%Family' then 'Family Pin'
 
                 else 'Uncategorized'
               end;;

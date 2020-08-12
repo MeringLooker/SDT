@@ -8,7 +8,6 @@ view: pdt_fy21_drivemarket_meredith {
       column: region {field: sdt_dcm_ga_view.sdt_region}
       column: placement {field: sdt_dcm_ga_view.sdt_placement}
       column: creative_name {field: sdt_dcm_ga_view.creative_name}
-      column: ad_size {field: sdt_dcm_ga_view.ad_size}
       column: date {field: sdt_dcm_ga_view.date_date}
       column: week {field: sdt_dcm_ga_view.date_week}
       column: month {field: sdt_dcm_ga_view.date_month}
