@@ -31,6 +31,7 @@ view: pdt_fy21_content_campaign {
 
   dimension: publisher {
     type: string
+    drill_fields: [layer]
     sql: ${TABLE}.publisher ;;
   }
 
@@ -53,6 +54,7 @@ view: pdt_fy21_content_campaign {
 
   dimension: layer {
     type: string
+    drill_fields: [creative_name]
     sql: ${TABLE}.layer ;;
   }
 
@@ -63,6 +65,7 @@ view: pdt_fy21_content_campaign {
 
   dimension: pillar {
     type: string
+    drill_fields: [creative_name,layer]
     sql: ${TABLE}.pillar ;;
   }
 

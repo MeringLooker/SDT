@@ -8,6 +8,22 @@ view: pdt_fy21_drivemarket_campaign {
           select * from ${pdt_fy21_drivemarket_meredith.SQL_TABLE_NAME}
           union
           select * from ${pdt_fy21_drivemarket_cn.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_abc.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_cbs.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_hulu.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_nbc.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_pandora.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_spotify.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_spotx.SQL_TABLE_NAME}
+          union
+          select * from ${pdt_fy21_drivemarket_ta.SQL_TABLE_NAME}
             ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all

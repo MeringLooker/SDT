@@ -93,7 +93,7 @@ view: sdt_gdn_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
-        when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tuscon'
+        when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
         when ${campaign} ilike '%LADMA' then 'Los Angeles'
         when ${campaign} ilike '%GDN_California' then 'California'
 
