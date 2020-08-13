@@ -1377,6 +1377,7 @@ view: sdt_fb_ga_view {
     sql_distinct_key: ${ga_join_id} ;;
     label: "Views to 75%"
     group_label: "Video Metrics"
+    sql: ${views_to_75};;
   }
 
   measure: view_to_75_rate {
@@ -1392,6 +1393,7 @@ view: sdt_fb_ga_view {
     sql_distinct_key: ${ga_join_id} ;;
     label: "Views to 95%"
     group_label: "Video Metrics"
+    sql: ${views_to_95};;
   }
 
   measure: view_to_95_rate {
