@@ -24,6 +24,10 @@ view: pdt_fy21_content_fb {
         field: sdt_fb_ga_view.campaign_name
         value: "%FY21^_SDT^_AlwaysOnContent%"
       }
+      filters: {
+        field: sdt_fb_ga_view.sdt_layer
+        value: "-Micro Traffic"
+      }
     }
     datagroup_trigger: sdt_content_datagroup
     distribution_style: all
