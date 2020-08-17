@@ -96,6 +96,7 @@ view: sdt_gdn_ga_view {
         when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
         when ${campaign} ilike '%LADMA' then 'Los Angeles'
         when ${campaign} ilike '%GDN_California' then 'California'
+        when ${campaign} ilike '%Nano_GDN_California%' then 'California'
 
         when ${account} = 'SDTA Content GDN US' then 'National'
         when ${account} = 'SDTA Content GDN PHX' then 'Phoenix'
