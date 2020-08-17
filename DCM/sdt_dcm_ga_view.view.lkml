@@ -569,7 +569,7 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%Phoenix+Tucson%' then 'Phoenix/Tucson'
           when ${placement} ilike '%PHX+Tucson%' then 'Phoenix/Tucson'
           when ${placement} ilike '%All Markets_AV_Display%' then 'National'
-          when ${placement} ilike '%CA/PHX/Tucson%' then 'Combined (CA/PHX/TUC)'
+          when ${placement} ilike '%CA/PHX/Tucson%' then 'California/Arizona'
           when ${placement} ilike '%Tucson%' then 'Tucson'
           when ${placement} ilike '%WesternRegion%' then 'Western Region'
           when ${placement} ilike '%PHX_Audio Everywhere%' then 'Phoenix'

@@ -151,6 +151,7 @@ view: sdt_fb_ga_view {
     type: string
     sql:
       CASE
+        when ${campaign_name} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
         when ${campaign_name} ilike '%PHX%' then 'Phoenix'
 
         when ${campaign_name} ilike '%_Phoenix\\_%' then 'Phoenix'

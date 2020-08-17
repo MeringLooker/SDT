@@ -94,7 +94,9 @@ view: sdt_gdn_ga_view {
     sql:
       case
         when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
+        when ${campaign} ilike '%Nano_GDN_PHXTUCDMA%' then 'Phoenix/Tucson'
         when ${campaign} ilike '%LADMA' then 'Los Angeles'
+        when ${campaign} ilike '%Nano_GDN_LADMA%' then 'Los Angeles'
         when ${campaign} ilike '%GDN_California' then 'California'
         when ${campaign} ilike '%Nano_GDN_California%' then 'California'
 
