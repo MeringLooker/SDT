@@ -117,6 +117,7 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '256913039' then 'Native'
 
           when ${placement_id} = '254378108' then 'Native'
+          when ${placement} ilike '%Travel Intender_OffSiteDisplay_Native' then 'Native'
           when ${placement_id} = '254378081' then 'Native'
           when ${placement_id} = '254378165' then 'Native'
           when ${placement_id} = '254378066' then 'Native'
@@ -860,6 +861,8 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROS_Arizona_Travel Intender_OffSiteDisplay%' then 'TripAdvisor OffSite Display'
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_Arizona_Travel Intender_OffSiteDisplay_Native%' then 'TripAdvisor ROVE OffSite Native Display'
         when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_Arizona_Travel Intender_OffSiteDisplay%' then 'TripAdvisor ROVE OffSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_WesternRegion_Travel Intender_OffSiteDisplay%' then 'TripAdvisor ROVE OffSite Display'
+        when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Intent_ROVE_California_Travel Intender_OffSiteDisplay%' then 'TripAdvisor ROVE OffSite Display'
 
         when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_SD Intenders+Not Booked_OnSiteDisplay%' then 'Priceline OnSite Display'
         when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_WesternRegion_SD Intenders+Not Booked_EmailDisplay%' then 'Priceline Email Display'
@@ -872,6 +875,10 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Hotels.com_ROS_WesternRegion_SD Intenders_Display%' then 'Hotels.com ROS - SD Intenders'
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_California_Travel Intenders_Display%' then 'Expedia ROS Search Tiles - Travel Intenders'
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_Arizona_Travel Intenders_Display%' then 'Expedia ROS Search Tiles - Travel Intenders'
+
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Premium Hotels Bundle_WesternRegion_SD Intenders%' then 'EBP Premium Hotels Bundle - SD Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Homepage Center Top_Arizona_Travel Intenders%' then 'EBP Homepage Center Top - Travel Intenders'
+        when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_EBP_Premium Hotels Bundle%' then 'EBP Premium Hotels Bundle Display'
 
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_WesternRegion_SD Intenders_Display%' then 'Expedia ROS Search Center Top - SD Intenders'
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Center Top_California_Travel Intenders_Display%' then 'Expedia ROS Search Center Top - Travel Intenders'
@@ -1469,6 +1476,20 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%HICYB_300x600%' then 'Co-Branded_300x600'
           when ${ad} ilike '%HICYB_300x250%' then 'Co-Branded_300x250'
           when ${ad} ilike '%HICYB_Native%' then 'Co-Branded_Native'
+
+          when ${ad} ilike '%Outdoor_2_970x250%' then 'Outdoor_v2_970x250'
+          when ${ad} ilike '%Outdoor_2_728x90%' then 'Outdoor_v2_728x90'
+          when ${ad} ilike '%Outdoor_2_320x50%' then 'Outdoor_v2_320x50'
+          when ${ad} ilike '%Outdoor_2_300x600%' then 'Outdoor_v2_300x600'
+          when ${ad} ilike '%Outdoor_2_300x250%' then 'Outdoor_v2_300x250'
+          when ${ad} ilike '%Outdoor_2_Native%' then 'Outdoor_v2_Native'
+
+          when ${ad} ilike '%Outdoor_1_970x250%' then 'Outdoor_v1_970x250'
+          when ${ad} ilike '%Outdoor_1_728x90%' then 'Outdoor_v1_728x90'
+          when ${ad} ilike '%Outdoor_1_320x50%' then 'Outdoor_v1_320x50'
+          when ${ad} ilike '%Outdoor_1_300x600%' then 'Outdoor_v1_300x600'
+          when ${ad} ilike '%Outdoor_1_300x250%' then 'Outdoor_v1_300x250'
+          when ${ad} ilike '%Outdoor_1_Native%' then 'Outdoor_v1_Native'
 
           when ${ad_id} = '471092259' then 'Co-Branded_Outdoor_Native'
 
