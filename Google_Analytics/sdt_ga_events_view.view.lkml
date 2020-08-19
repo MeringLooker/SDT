@@ -10,24 +10,12 @@ view: sdt_ga_events_view {
     sql: ${TABLE}.events_join_id ;;
   }
 
-  ## Dimensions joined from Ads Lookup File ##
-
-#   dimension: ad_name {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${sdt_ga_ads_lookup.ad_name};;
-#   }
-#
-#   dimension: creative_name {
-#     type: string
-#     group_label: "Paid Traffic Info"
-#     sql: ${sdt_ga_ads_lookup.creative_name};;
-#   }
+  ## Dimensions joined from Ad Sources Derived Tables Lookup ##
 
   dimension: publisher {
     type: string
     group_label: "Paid Traffic Info"
-    sql: ${sdt_ga_ads_lookup.publisher};;
+    sql: ${sdt_ga_campaigns_lookup.publisher};;
   }
 
   dimension: campaign {

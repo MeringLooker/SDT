@@ -3,31 +3,37 @@ view: sdt_ga_campaigns_lookup {
     sql:
         select
         campaign,
+        publisher,
         ad_id
         from ${campaigns_dcm.SQL_TABLE_NAME}
         union
         select
         campaign,
+        publisher,
         ad_id
         from ${campaigns_pin.SQL_TABLE_NAME}
         union
         select
         campaign,
+        publisher,
         cast("ad_id" as varchar)
         from ${campaigns_gdn.SQL_TABLE_NAME}
         union
         select
         campaign,
+        publisher,
         cast("ad_id" as varchar)
         from ${campaigns_fb.SQL_TABLE_NAME}
         union
         select
         campaign,
+        publisher,
         cast("ad_id" as varchar)
         from ${campaigns_yt.SQL_TABLE_NAME}
         union
         select
         campaign,
+        publisher,
         cast("ad_id" as varchar)
         from ${campaigns_sem.SQL_TABLE_NAME}
         ;;
@@ -41,7 +47,7 @@ view: sdt_ga_campaigns_lookup {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${ad_id} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${ad_id} ;;
   }
 
 ### All dimensions go below ###
@@ -51,19 +57,15 @@ view: sdt_ga_campaigns_lookup {
     sql: ${TABLE}.campaign ;;
   }
 
+  dimension: publisher {
+    type: string
+    sql: ${TABLE}.publisher ;;
+  }
+
   dimension: ad_id {
     type: string
     hidden: yes
     sql: ${TABLE}.ad_id ;;
   }
-
-
-#           select * from ${campaigns_dcm.SQL_TABLE_NAME}
-#         union
-#         select * from ${campaigns_fb.SQL_TABLE_NAME}
-#         union
-#                 select * from ${campaigns_pin.SQL_TABLE_NAME}
-#         union
-
 
 }
