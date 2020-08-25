@@ -25,6 +25,7 @@ view: sdt_gdn_ga_view {
         WHEN ${day_date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
         WHEN ${day_date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
         WHEN ${day_date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
+        WHEN ${day_date} BETWEEN '2020-07-01' AND '2021-06-30' THEN 'FY 20/21'
         ELSE 'Uncategorized'
         END
         ;;

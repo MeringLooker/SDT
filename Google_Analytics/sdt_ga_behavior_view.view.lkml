@@ -20,6 +20,7 @@ view: sdt_ga_behavior_view {
 
   dimension: campaign {
     type: string
+    drill_fields: [publisher]
     group_label: "Paid Traffic Info"
     sql: ${sdt_ga_campaigns_lookup.campaign};;
   }
