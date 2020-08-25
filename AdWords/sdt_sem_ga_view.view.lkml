@@ -53,8 +53,7 @@ view: sdt_sem_ga_view {
       CASE
         WHEN ${account} = 'SDTA CAN SEM' then 'Canada Digital'
         WHEN ${account} = 'SDTA UK SEM' then 'United Kingdom Digital'
-        WHEN ${account} = 'SDTA US SEM' and ${day_date} > '2020-07-26' then 'United States SEM'
-        WHEN ${account} = 'SDTA US SEM' and ${day_date} < '2020-07-27' then 'SDTA US SEM (pre-Mering)'
+        WHEN ${account} = 'SDTA US SEM' then 'United States SEM'
         ELSE 'Uncategorized'
         END
         ;;
