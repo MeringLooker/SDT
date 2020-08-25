@@ -36,6 +36,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike '%Micro_Outdoor_Traffic%' then 'Standard Pin'
         when ${campaign_name} ilike '%Macro_NonOutdoor_Video%' then 'Video Pin'
         when ${campaign_name} ilike '%Macro_Outdoor_Video%' then 'Video Pin'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Nano_Traffic%' then 'Standard Pin'
         ELSE 'Uncategorized'
         END
         ;;
@@ -76,7 +77,7 @@ view: sdt_pinterest_ga_view {
 
     }
 
-    dimension: sdt_layer {
+  dimension: sdt_layer {
       type: string
       label: "Campaign Layer"
       group_label: "Client Dimensions"
@@ -103,7 +104,7 @@ view: sdt_pinterest_ga_view {
       end;;
     }
 
-    dimension: sdt_market {
+  dimension: sdt_market {
       type: string
       label: "Market"
       group_label: "Client Dimensions"
@@ -121,7 +122,7 @@ view: sdt_pinterest_ga_view {
       end;;
     }
 
-    dimension: sdt_region {
+  dimension: sdt_region {
       type: string
       label: "Region"
       group_label: "Client Dimensions"
@@ -164,7 +165,7 @@ view: sdt_pinterest_ga_view {
       end;;
     }
 
-    dimension: sdt_placement {
+  dimension: sdt_placement {
       type: string
       label: "Campaign Placement"
       group_label: "Client Dimensions"
@@ -195,13 +196,14 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike '%Micro_Outdoor_Traffic%' then 'Standard Pins - Micro Outdoor Traffic'
 
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins%' then 'Standard Pins - Traffic Driving'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Nano_Traffic%' then 'Standard Pins - Nano Traffic'
 
       else 'Uncategorized'
     end;;
 
       }
 
-      dimension: sdt_pillar {
+  dimension: sdt_pillar {
         type: string
         label: "Pillar"
         group_label: "Client Dimensions"
@@ -226,12 +228,15 @@ view: sdt_pinterest_ga_view {
               end;;
       }
 
-      dimension: creative_name {
+  dimension: creative_name {
         type: string
         label: "Creative Name"
         group_label: "Client Dimensions"
         sql:
               case
+                when ${promoted_pin_name} ilike '%PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
+                when ${promoted_pin_name} ilike '%HotelsLandingPage' then 'Nano Traffic: Hotels LP'
+
                 when ${promoted_pin_name} ilike '%PlanYourEscape' then 'Plan Your Escape'
                 when ${promoted_pin_name} ilike '%PlanNowPlan' then 'Plan Now Plan'
                 when ${promoted_pin_name} ilike '%PlanNowHappyPlace' then 'Plan Now Happy Place'

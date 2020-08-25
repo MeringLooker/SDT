@@ -604,7 +604,7 @@ view: sdt_dcm_ga_view {
       label: "Audience"
       sql:
         case
-          when ${placement_id} = '252937755' then 'Family'
+                    when ${placement_id} = '252937755' then 'Family'
           when ${placement_id} = '252509375' then 'Brand'
           when ${placement_id} = '253217116' then 'Brand'
           when ${placement_id} = '253217146' then 'Family'
@@ -650,6 +650,7 @@ view: sdt_dcm_ga_view {
       label: "Placement Name"
       sql:
         case
+        when ${ad_id} = '471612518' then 'Nano Native Traffic'
 
         when ${placement} ilike '%Sports Live Streaming Video Flight%' then 'Live Streaming Video'
         when ${placement} ilike '%Sports Live Streaming Video Added Value Companion%' then 'Companion Banner'
@@ -1027,7 +1028,6 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
 
           when ${placement} ilike '%Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
-
           when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Portrait Display'
 
         else 'Uncategorized'
@@ -1040,6 +1040,7 @@ view: sdt_dcm_ga_view {
       label: "Pillar"
       sql:
         case
+          when ${ad_id} = '471612518' then 'N/A'
           when ${ad} ilike '%(in-kind)_Outdoor_%' then 'Outdoor'
           when ${ad} ilike '%(in-kind)_Entertainment_%' then 'Entertainment'
           when ${ad} ilike '%(in-kind)_Culture_%' then 'Culture'
@@ -1163,6 +1164,7 @@ view: sdt_dcm_ga_view {
       label: "Creative Name"
       sql:
         case
+          when ${ad_id} = '471612518' then 'Taboola Impression Tracker - Nano Content'
           when ${placement_id} = '252937755' then 'Find Your Smile in San Diego (:30) - Family'
           when ${placement_id} = '252509375' then 'Find Your Smile in San Diego (:30) - Brand'
 

@@ -109,6 +109,7 @@ view: sdt_fb_ga_view {
         when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Landscape Image'
         when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Landscape Image'
         when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Landscape Image'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'Landscape Image'
 
         ELSE 'Uncategorized'
         END
@@ -268,6 +269,7 @@ view: sdt_fb_ga_view {
         when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Micro Traffic'
         when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Macro Traffic'
         when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Micro Traffic'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'Nano Traffic'
 
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Display'
 
@@ -372,6 +374,7 @@ view: sdt_fb_ga_view {
         when ${adset_name} ilike '%Micro_NonOutdoor_Conversion%' then 'Traffic - Micro NonOutdoor'
         when ${adset_name} ilike '%Macro_Outdoor_Conversion%' then 'Traffic - Macro Outdoor'
         when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Traffic - Micro Outdoor'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'Traffic - Nano'
 
         when ${campaign_name} ilike '%FY21_SDT_DriveMarket_Awareness_Stories%' then 'FB/IG Stories'
         when ${campaign_name} ilike '%FY21_SDT_DriveMarket_Conversions%' then 'FB Audience Network Single Image'
@@ -431,6 +434,11 @@ view: sdt_fb_ga_view {
       when ${ad_name} ilike '%_Neighborhood' then 'Neighborhood'
       when ${adset_name} ilike '%Macro_Outdoor%' then 'Outdoor'
       when ${adset_name} ilike '%Micro_Outdoor%' then 'Outdoor'
+
+      when ${ad_name} ilike '%_Attractions_NationalCopy' then 'Attractions'
+      when ${ad_name} ilike '%_Neighborhood_NationalCopy' then 'Neighborhood'
+
+      WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'N/A'
 
       else 'Uncategorized'
         end
@@ -938,6 +946,7 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%BayshoreBikeway%' then 'Bayshore Bikeway'
           when ${ad_name} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_Outdoor_Conversion_LADMA_CoastalHikes_NationalCopy' then 'S7: 7 Star Coastal Hikes'
 
           when ${ad_name} ilike '%SurferGirl' then 'Surfer Girl Single Image'
           when ${ad_name} ilike '%SurferCoast' then 'Surfer Coast Single Image'
@@ -950,6 +959,9 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Tucson' then 'Drive Market IG Story'
           when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Phoenix_' then 'Drive Market IG Story'
           when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_California' then 'Drive Market IG Story'
+
+          when ${ad_name} ilike '%_PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
+          when ${ad_name} ilike '%_HotelsLandingPage' then 'Nano Traffic: Hotels LP'
 
         else 'Uncategorized'
         end
