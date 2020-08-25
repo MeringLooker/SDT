@@ -42,6 +42,7 @@ view: pdt_us_sem_campaign {
 
   dimension: aw_campaign {
     type: string
+    drill_fields: [aw_adgroup]
     label: "AdWords Campaign"
     sql: ${TABLE}.aw_campaign ;;
   }
