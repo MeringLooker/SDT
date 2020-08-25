@@ -67,6 +67,8 @@ view: sdt_sem_ga_view {
       case
         WHEN ${account} = 'SDTA CAN SEM' then 'Impact'
         WHEN ${account} = 'SDTA UK SEM' then 'Impact'
+        WHEN ${account} = 'SDTA US SEM' and ${day_date} BETWEEN '2020-07-27' AND '2020-12-31' then 'Phase 1'
+        WHEN ${account} = 'SDTA US SEM' and ${day_date} BETWEEN '202-01-01' AND '2021-06-30' then 'Phase 2'
 
         ELSE 'Uncategorized'
         end
