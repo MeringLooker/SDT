@@ -12,5 +12,5 @@ explore: pdt_us_sem_campaign {
   label: "FY21 US SEM"
   view_label: "FY21 US SEM"
   group_label: "San Diego Tourism"
-  hidden: yes
+  hidden: no
 }
