@@ -23,6 +23,10 @@ view: pdt_us_sem {
         field: sdt_sem_ga_view.sdt_campaign
         value: "United States SEM"
       }
+      filters: {
+        field: sdt_sem_ga_view.total_impressions
+        value: ">0"
+      }
     }
     datagroup_trigger: sdt_us_sem_datagroup
     distribution_style: all
