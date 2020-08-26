@@ -1,8 +1,7 @@
 view: pdt_us_sem_campaign {
   derived_table: {
     sql:
-          select * from ${pdt_us_sem.SQL_TABLE_NAME}
-            ;;
+          select * from ${pdt_us_sem.SQL_TABLE_NAME} ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all
   }
