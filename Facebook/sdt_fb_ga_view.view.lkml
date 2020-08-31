@@ -18,21 +18,6 @@ view: sdt_fb_ga_view {
     sql: 'Facebook' ;;
   }
 
-#   dimension: ad_type {
-#     type: string
-#     group_label: "Facebook Dimensions"
-#     sql:
-#      CASE
-#        when ${ad_name} ilike '%SingleImage%' then 'Single Image'
-#        when ${ad_name} ilike '%Carousel%' then 'Carousel'
-#        when ${ad_name} ilike '%Video%' then 'Video'y
-#        when ${ad_name} ilike '%Stories%' then 'Story'
-#        when ${ad_name} ilike '%Canvas%' then 'Canvas'
-#        ELSE 'Uncategorized'
-#       END;;
-#     drill_fields: [ad_name]
-#   }
-
   dimension: fiscal_year {
     label: "Fiscal Year"
     group_label: "Client Dimensions"
@@ -957,11 +942,21 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_California_HICYB' then 'Happiness Is Calling You Back (:30)'
 
           when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Tucson' then 'Drive Market IG Story'
-          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Phoenix_' then 'Drive Market IG Story'
+          when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_Phoenix' then 'Drive Market IG Story'
           when ${ad_name} ilike 'FY21_SDT_DriveMarket_Awareness_Stories_California' then 'Drive Market IG Story'
+
+          when ${ad_name} ilike '%Stories_Tucson_KidsFree_2' then 'Kids Free IG Story v2'
+          when ${ad_name} ilike '%Stories_Tucson_KidsFree_1' then 'Kids Free IG Story v1'
+          when ${ad_name} ilike '%Stories_Phoenix_KidsFree_2' then 'Kids Free IG Story v2'
+          when ${ad_name} ilike '%Stories_Phoenix_KidsFree_1' then 'Kids Free IG Story v1'
+          when ${ad_name} ilike '%Stories_California_KidsFree_2' then 'Kids Free IG Story v2'
+          when ${ad_name} ilike '%Stories_California_KidsFree_1' then 'Kids Free IG Story v1'
 
           when ${ad_name} ilike '%_PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
           when ${ad_name} ilike '%_HotelsLandingPage' then 'Nano Traffic: Hotels LP'
+
+          when ${ad_name} ilike '%_KidsFree_Safari' then 'Kids Free: Safari Single Image'
+          when ${ad_name} ilike '%_KidsFree_Cannonball' then 'Kids Free: Cannonball Single Image'
 
         else 'Uncategorized'
         end
