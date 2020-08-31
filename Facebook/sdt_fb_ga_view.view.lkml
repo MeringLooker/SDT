@@ -842,6 +842,7 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%SocksTorreyPines15%' then 'Socks: Torrey Pines (:15)'
         when ${ad_name} ilike '%SocksTidepools15%' then 'Socks: Tidepooling (:15)'
         when ${ad_name} ilike '%SockStarofIndia60%' then 'Socks: Star of India (:60)'
+        when ${ad_name} ilike '%SocksStarofIndia15%' then 'Socks: Star of India (:15)'
         when ${ad_name} ilike '%SocksSeaWorld60%' then 'Socks: SeaWorld (:60)'
         when ${ad_name} ilike '%SocksSafariPark60%' then 'Socks: Safari Park (:60)'
         when ${ad_name} ilike '%SocksLegoland60%' then 'Socks: LEGOLAND (:60)'
