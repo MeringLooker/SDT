@@ -295,6 +295,15 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%_AudioXP' then 'Audio'
           when ${placement} ilike '%MobileWelcomeInterstitial' then 'Display'
           when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_AV_Display' then 'Display'
+          when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_Phase 2 Family_AV_Display' then 'Display'
+
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_California%' then 'Audio'
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_Phoenix%' then 'Audio'
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_Tucson%' then 'Audio'
+
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_TUCSON_Audio Everywhere' then 'Audio'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_PHX_Audio Everywhere' then 'Audio'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_CALIFORNIA_Audio Everywhere' then 'Audio'
 
           ELSE 'Uncategorized'
           end ;;
@@ -593,6 +602,18 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%Fall Season_Variety Seekers_California' then 'California'
           when ${placement} ilike '%California_MobileWelcomeInterstitial%' then 'California'
           when ${placement} ilike '%_CA_Video%' then 'California'
+
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_California%' then 'California'
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_Phoenix%' then 'Phoenix'
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_Tucson%' then 'Tucson'
+
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Variety Seekers_California%' then 'California'
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Variety Seekers_Phoenix%' then 'Phoenix'
+          when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Variety Seekers_Tucson%' then 'Tucson'
+
+          when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_Phase 2 Family_AV_Display' then 'National'
+
+          when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Phoenix_Video_1920x1080_Behavioral' then 'Phoenix'
 
             ELSE 'Uncategorized'
         END;;
@@ -980,12 +1001,18 @@ view: sdt_dcm_ga_view {
 
         when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Tucson_OTT' then 'OTT :30 Video'
         when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Tucson_OLV' then 'OLV :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Families_Tucson_OTT' then 'OTT :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Families_Tucson_OLV' then 'OLV :30 Video'
 
         when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Phoenix_OTT' then 'OTT :30 Video'
         when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Phoenix_OLV' then 'OLV :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Families_Phoenix_OTT' then 'OTT :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Families_Phoenix_OLV' then 'OLV :30 Video'
 
         when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_California_OTT' then 'OTT :30 Video'
         when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_California_OLV' then 'OLV :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Families_California_OTT' then 'OTT :30 Video'
+        when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video_A25-54_Travelers_Families_California_OLV' then 'OLV :30 Video'
 
 
           when ${ad} ilike '%Midroll_:30_Spot On%' then 'NBC Spot On Video - MidRoll'
@@ -1006,6 +1033,7 @@ view: sdt_dcm_ga_view {
 
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson_High Impact_Desktop%' then 'High Impact Desktop Display'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson_High Impact_Mobile%' then 'High Impact Mobile Display'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Las Vegas_Phase 1_High Impact_Mobile%' then 'High Impact Mobile Display'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_Tucson_RON%' then 'RON Display'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_US_AV_RON%' then 'RON National Display - AV'
 
@@ -1018,7 +1046,13 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_Phoenix_Companion Banner%' then 'Pandora Audio Companion Banner'
 
           when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_AV_Display' then 'Pandora AV Display'
+          when ${placement} ilike 'PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_All Markets_Phase 2 Family_AV_Display' then 'Pandora AV Display'
           when ${placement} ilike '%_AudioXP%' then 'Pandora :30 Audio'
+
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_TUCSON_Audio Everywhere' then 'Spotify :30 Audio'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_PHX_Audio Everywhere' then 'Spotify :30 Audio'
+          when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_CALIFORNIA_Audio Everywhere' then 'Spotify :30 Audio'
+
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Audio Everywhere%' then 'Spotify :30 Audio'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Audio Everywhere%' then 'Spotify :30 Audio'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Audio Everywhere%' then 'Spotify :30 Audio'
@@ -1026,6 +1060,11 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_PHX_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_TUCSON_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_CALIFORNIA_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
+
 
           when ${placement} ilike '%Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
           when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Portrait Display'
@@ -1413,6 +1452,8 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Plan Now_160x600' then 'PlanNow_160x600'
           when ${ad} ilike '%Plan Now_300x50' then 'Plan Now_300x50'
           when ${ad} ilike '%Plan Now_640x640%' then 'Plan Now_640x640'
+
+          when ${ad} ilike '%Kids-Free_300x250%' then 'Kids Free_300x250'
 
           when ${ad} ilike '%Book Hotel_300x250%' then 'BookHotel_300x250'
           when ${ad} ilike '%Book Hotel_728x90' then 'BookHotel_728x90'
