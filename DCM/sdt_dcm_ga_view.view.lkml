@@ -1513,12 +1513,12 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Family_970x250%' then 'Family_970x250'
           when ${ad} ilike '%Family_970x90%' then 'Family_970x90'
 
-          when ${ad} ilike '%HICYB_970x250%' then 'Co-Branded_970x250'
-          when ${ad} ilike '%HICYB_728x90%' then 'Co-Branded_728x90'
-          when ${ad} ilike '%HICYB_320x50%' then 'Co-Branded_320x50'
-          when ${ad} ilike '%HICYB_300x600%' then 'Co-Branded_300x600'
-          when ${ad} ilike '%HICYB_300x250%' then 'Co-Branded_300x250'
-          when ${ad} ilike '%HICYB_Native%' then 'Co-Branded_Native'
+          when ${ad} ilike '%HICYB_970x250%' then 'HICYB_970x250'
+          when ${ad} ilike '%HICYB_728x90%' then 'HICYB_728x90'
+          when ${ad} ilike '%HICYB_320x50%' then 'HICYB_320x50'
+          when ${ad} ilike '%HICYB_300x600%' then 'HICYB_300x600'
+          when ${ad} ilike '%HICYB_300x250%' then 'HICYB_300x250'
+          when ${ad} ilike '%HICYB_Native%' then 'HICYB_Native'
 
           when ${ad} ilike '%Outdoor_2_970x250%' then 'Outdoor_v2_970x250'
           when ${ad} ilike '%Outdoor_2_728x90%' then 'Outdoor_v2_728x90'
