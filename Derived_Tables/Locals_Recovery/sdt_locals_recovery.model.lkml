@@ -5,6 +5,7 @@ include: "/AdWords/*.view"
 include: "/Google_Analytics/*.view"
 include: "/Publisher_Passback/*/*.view"
 include: "/DCM/*.view"
+include: "/Facebook/*.view"
 
 datagroup: sdt_locals_datagroup {
   sql_trigger: SELECT current_date;;

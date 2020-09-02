@@ -87,6 +87,11 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%FY20_UK_Views%' then 'Landscape Video'
         when ${ad_name} ilike '%FY20_CAN_Views%' then 'Landscape Video'
 
+        when ${ad_name} ilike '%FY21_SDT_LocalsRecovery_Awareness_Poolside_Square%' then 'Square Image'
+        when ${ad_name} ilike '%FY21_SDT_LocalsRecovery_Awareness_Beach_Square%' then 'Square Image'
+        when ${ad_name} ilike '%FY21_SDT_LocalsRecovery_Awareness_Poolside_Horizontal%' then 'Landscape Image'
+        when ${ad_name} ilike '%FY21_SDT_LocalsRecovery_Awareness_Beach_Horizontal%' then 'Landscape Image'
+
         when ${adset_name} ilike '%Macro_NonOutdoor_Video%' then 'Landscape Video'
         when ${adset_name} ilike '%Macro_Outdoor_Video%' then 'Landscape Video'
 
@@ -124,6 +129,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContent%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'United States'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'United States'
 
 
         else 'Uncategorized'
@@ -202,6 +208,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'SDT_FY20_FamilyContent%' then 'Family Content'
 
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Fall Drive Market'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Locals Recovery'
 
         else 'Uncategorized'
         end
@@ -257,6 +264,8 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'Nano Traffic'
 
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Display'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Awareness'
+
 
         else 'Uncategorized'
         end
@@ -363,6 +372,8 @@ view: sdt_fb_ga_view {
 
         when ${campaign_name} ilike '%FY21_SDT_DriveMarket_Awareness_Stories%' then 'FB/IG Stories'
         when ${campaign_name} ilike '%FY21_SDT_DriveMarket_Conversions%' then 'FB Audience Network Single Image'
+
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Single Image Ads (FB/IG Feeds/Stories, IG Explore, In-Article)'
 
 
         else 'Uncategorized'
@@ -958,6 +969,11 @@ view: sdt_fb_ga_view {
 
           when ${ad_name} ilike '%_KidsFree_Safari' then 'Kids Free: Safari Single Image'
           when ${ad_name} ilike '%_KidsFree_Cannonball' then 'Kids Free: Cannonball Single Image'
+
+          when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Square' then 'Poolside Square Single Image'
+          when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Horizontal' then 'Poolside Landscape Single Image'
+          when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Beach_Square' then 'Beach Square Single Image'
+          when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Beach_Horizontal' then 'Beach Landscape Single Image'
 
         else 'Uncategorized'
         end
