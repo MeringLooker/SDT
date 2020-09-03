@@ -25,6 +25,58 @@ view: sdt_ga_acq_view {
     sql: ${sdt_ga_campaigns_lookup.campaign};;
   }
 
+  ## Dimensions for Graig at SDT ##
+
+  dimension: sdt_medium {
+    type: string
+    label: "Medium (SDT)"
+    group_label: "Google Analytics Dimensions"
+    sql:
+      case
+        when ${medium} ilike '%organic%' then 'Organic'
+        when ${medium} ilike '%cpc%' then 'CPC'
+        when ${medium} ilike '%campaign%' then 'CPC'
+        when ${medium} ilike '%referral%' then 'Referral'
+        when ${medium} ilike '%social%' then 'Social'
+        when ${medium} ilike '%email%' then 'Email'
+        else ${medium}
+        end
+        ;;
+  }
+
+  dimension: sdt_source {
+    type: string
+    label: "Source (SDT)"
+    group_label: "Google Analytics Dimensions"
+    sql:
+      case
+        when ${source} ilike '%pandora%' then 'Pandora'
+        when ${source} ilike '%hulu%' then 'Hulu'
+        when ${source} ilike '%facebook%' then 'Facebook'
+        when ${source} ilike '%instagram%' then 'Instagram'
+        when ${source} ilike '%taboola%' then 'Taboola'
+        when ${source} ilike '%adara%' then 'Adara'
+        when ${source} ilike '%sojern%' then 'Sojern'
+        when ${source} ilike '%abc%' then 'ABC'
+        when ${source} ilike '%meredithcorp%' then 'Meredith'
+        when ${source} ilike '%adroll%' then 'AdRoll'
+
+        when ${source} ilike '%spotify%' then 'Spotify'
+        when ${source} ilike '%cbspublish%' then 'CBS'
+        when ${source} ilike '%stackadapt%' then 'StackAdapt'
+        when ${source} ilike '%pinterest%' then 'Pinterest'
+        when ${source} ilike '%condenast%' then 'Condé Nast'
+        when ${source} ilike '%amobee%' then 'Amobee'
+        when ${source} ilike '%inpowered%' then 'InPowered'
+        when ${source} ilike '%tripadvisor%' then 'Trip Advisor'
+        when ${source} ilike '%bellmedia%' then 'Bell Media'
+        when ${source} ilike '%globaltv%' then 'Global TV'
+
+        when ${source} ilike '%sandiegouniontrib%' then 'SD Union Tribune'
+        else ${source}
+        end ;;
+  }
+
 ####### AdRoll Join ID #######
 
   dimension: adroll_join {
@@ -138,23 +190,6 @@ view: sdt_ga_acq_view {
     sql: ${TABLE}.medium ;;
   }
 
-  dimension: sdt_medium {
-    type: string
-    label: "Medium (SDT)"
-    group_label: "Google Analytics Dimensions"
-    sql:
-      case
-        when ${medium} ilike '%organic%' then 'Organic'
-        when ${medium} ilike '%cpc%' then 'CPC'
-        when ${medium} ilike '%campaign%' then 'CPC'
-        when ${medium} ilike '%referral%' then 'Referral'
-        when ${medium} ilike '%social%' then 'Social'
-        when ${medium} ilike '%email%' then 'Email'
-        else ${medium}
-        end
-        ;;
-  }
-
   dimension: member_interactions {
     type: number
     hidden: yes
@@ -195,33 +230,6 @@ view: sdt_ga_acq_view {
     type: string
     group_label: "Google Analytics Dimensions"
     sql: ${TABLE}.source ;;
-  }
-
-  dimension: sdt_source {
-    type: string
-    label: "Source (SDT)"
-    group_label: "Google Analytics Dimensions"
-    sql:
-      case
-        when ${source} ilike '%pandora%' then 'Pandora'
-        when ${source} ilike '%hulu%' then 'Hulu'
-        when ${source} ilike '%facebook%' then 'Facebook'
-        when ${source} ilike '%instagram%' then 'Instagram'
-        when ${source} ilike '%taboola%' then 'Taboola'
-        when ${source} ilike '%adara%' then 'Adara'
-        when ${source} ilike '%sojern%' then 'Sojern'
-        when ${source} ilike '%abc%' then 'ABC'
-        when ${source} ilike '%meredithcorp%' then 'Meredith'
-
-        when ${source} ilike '%spotify%' then 'Spotify'
-        when ${source} ilike '%cbspublish%' then 'CBS'
-        when ${source} ilike '%stackadapt%' then 'StackAdapt'
-        when ${source} ilike '%pinterest%' then 'Pinterest'
-        when ${source} ilike '%condenast%' then 'Condé Nast'
-
-        when ${source} ilike '%sandiegouniontrib%' then 'SD Union Tribune'
-        else ${source}
-        end ;;
   }
 
   dimension: sourcemedium {
