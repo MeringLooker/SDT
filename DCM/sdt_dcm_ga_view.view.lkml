@@ -1019,7 +1019,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Midroll_:30_FEP%' then 'NBC FEP Video - MidRoll'
           when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_CA/PHX/Tucson_Video_1920x1080_AV' then 'Hulu :30 Video Commercial - AV'
           when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_3P: In Market for Travel%' then 'Hulu :30 Video Commercial'
-          when ${placement} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+          when ${placement} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Hulu :30 Video Commercial'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'ABC :30 Video'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'CBS :30 Video'
 
@@ -1615,11 +1615,19 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Culinary Content'
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Taboola Impression Tracker - Attractions Content'
 
+          when ${ad} ilike '%Kids-Free_OLV%' then 'Kids Free (:30)'
+          when ${ad} ilike '%Kids-Free_OTT%' then 'Kids Free (:30)'
+          when ${ad} ilike '%Kids-Free_:30%' then 'Kids Free (:30)'
+          when ${ad} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Tucson_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
+
           when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'NBC SpotON_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+
+          when ${ad} ilike '%Kids-Free_640x640%' then 'KidsFree_640x640'
+          when ${ad} ilike '%Kids-Free_728x90%' then 'KidsFree_728x90'
 
             ELSE 'Uncategorized'
         END;;
@@ -1651,6 +1659,25 @@ view: sdt_dcm_ga_view {
         ELSE null
         END;;
     }
+
+
+  dimension: creative_set {
+    type: string
+    hidden: yes
+    sql: case
+            when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+            when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+            when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+            else 'Uncategorized'
+            end
+      ;;
+  }
+
+  dimension: is_kids_free {
+    type: yesno
+    hidden: yes
+    sql: ${creative_set} = 'Kids Free' ;;
+  }
 
 
 ######### All Dimensions Native to Source Table Below #########

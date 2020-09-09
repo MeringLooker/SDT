@@ -35,7 +35,7 @@ view: pdt_fy21_drivemarket_campaign {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${region}||'_'||${placement}||'_'||${creative_name}||'_'||${date} ;;
+    sql: ${campaign}||'_'||${publisher}||'_'||${market}||'_'||${layer}||'_'||${region}||'_'||${placement}||'_'||${creative_name}||'_'||${creative_set}||'_'||${date} ;;
   }
 
 ### All dimensions go below ###
@@ -149,6 +149,24 @@ view: pdt_fy21_drivemarket_campaign {
     type: number
     hidden: yes
     sql: ${TABLE}.total_session_duration ;;
+  }
+
+  dimension: creative_set {
+    type: string
+    hidden: yes
+    sql: case
+            when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+            when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+            when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+            else 'Uncategorized'
+            end
+      ;;
+  }
+
+  dimension: is_kids_free {
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Kids Free' ;;
   }
 
 ### All measures go below ###
