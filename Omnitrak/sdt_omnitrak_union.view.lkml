@@ -62,6 +62,12 @@ view: sdt_omnitrak_union {
     sql: ${ad_name}||'_'||${ad_id}||'_'||${campaign}||'_'||${publisher}||'_'||${region}||'_'||${creative_name}||'_'||${date} ;;
   }
 
+  dimension: omnitrak_key {
+    type: string
+    hidden: yes
+    sql: ${campaign}||'_'||${publisher}||'_'||${region}||'_'||${creative_name}||'_'||${date} ;;
+  }
+
 ### All dimensions go below ###
 
   dimension: campaign {
