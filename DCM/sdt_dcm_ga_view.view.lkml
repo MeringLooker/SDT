@@ -1450,10 +1450,10 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
           when ${ad} ilike '%Plan Now_300x600' then 'PlanNow_300x600'
           when ${ad} ilike '%Plan Now_160x600' then 'PlanNow_160x600'
-          when ${ad} ilike '%Plan Now_300x50' then 'Plan Now_300x50'
-          when ${ad} ilike '%Plan Now_640x640%' then 'Plan Now_640x640'
+          when ${ad} ilike '%Plan Now_300x50' then 'PlanNow_300x50'
+          when ${ad} ilike '%Plan Now_640x640%' then 'PlanNow_640x640'
 
-          when ${ad} ilike '%Kids-Free_300x250%' then 'Kids Free_300x250'
+          when ${ad} ilike '%Kids-Free_300x250%' then 'KidsFree_300x250'
 
           when ${ad} ilike '%Book Hotel_300x250%' then 'BookHotel_300x250'
           when ${ad} ilike '%Book Hotel_728x90' then 'BookHotel_728x90'
