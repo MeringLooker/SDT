@@ -10,6 +10,12 @@ view: sdt_fy21_pullthrough_expedia {
     sql: ${TABLE}.expedia_join_id ;;
   }
 
+  dimension: bookings_join_id {
+    hidden: yes
+    type: string
+    sql: ${line_item}||'_'||${date_month} ;;
+  }
+
   ## Dimensions Added to this table via LookML ##
 
   dimension: publisher {
