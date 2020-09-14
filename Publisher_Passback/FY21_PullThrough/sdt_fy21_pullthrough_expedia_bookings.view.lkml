@@ -151,7 +151,7 @@ view: sdt_fy21_pullthrough_expedia_bookings {
     type: sum_distinct
     sql_distinct_key: ${bookings_join_id} ;;
     sql: ${view_thru_revenue} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: total_click_thru_revenue {
@@ -159,7 +159,7 @@ view: sdt_fy21_pullthrough_expedia_bookings {
     type: sum_distinct
     sql_distinct_key: ${bookings_join_id} ;;
     sql: ${click_thru_revenue} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: total_gross_revenue {
@@ -167,7 +167,7 @@ view: sdt_fy21_pullthrough_expedia_bookings {
     type: sum_distinct
     sql_distinct_key: ${bookings_join_id} ;;
     sql: ${gross_revenue} ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: total_room_nights {
@@ -212,7 +212,7 @@ view: sdt_fy21_pullthrough_expedia_bookings {
     label: "Avg. Daily Rate"
     type: number
     sql: ${total_daily_rate}/nullif(${total_room_nights},0) ;;
-    value_format_name: decimal_0
+    value_format_name: usd
   }
 
   measure: total_los {
