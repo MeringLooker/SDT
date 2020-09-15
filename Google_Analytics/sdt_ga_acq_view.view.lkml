@@ -54,10 +54,15 @@ view: sdt_ga_acq_view {
         when ${source} ilike '%hulu%' then 'Hulu'
         when ${source} ilike '%facebook%' then 'Facebook'
         when ${source} ilike '%instagram%' then 'Instagram'
+        when ${source} ilike '%twitter%' then 'twitter'
         when ${source} ilike '%taboola%' then 'Taboola'
         when ${source} ilike '%adara%' then 'Adara'
         when ${source} ilike '%sojern%' then 'Sojern'
         when ${source} ilike '%abc%' then 'ABC'
+        when ${source} ilike '%spotx%' then 'Spot X'
+        when ${source} ilike '%soje%' then 'Sojern'
+        when ${source} ilike '%nbcsports%' then 'NBC Sports'
+        when ${source} ilike '%nbcuniversal%' then 'NBC Universal'
         when ${source} ilike '%meredithcorp%' then 'Meredith'
         when ${source} ilike '%adroll%' then 'AdRoll'
 
@@ -68,9 +73,13 @@ view: sdt_ga_acq_view {
         when ${source} ilike '%condenast%' then 'Condé Nast'
         when ${source} ilike '%amobee%' then 'Amobee'
         when ${source} ilike '%inpowered%' then 'InPowered'
+        when ${source} ilike '%exponential%' then 'Exponential'
+        when ${source} ilike '%sunset.com%' then 'Sunset.com'
         when ${source} ilike '%tripadvisor%' then 'Trip Advisor'
         when ${source} ilike '%bellmedia%' then 'Bell Media'
         when ${source} ilike '%globaltv%' then 'Global TV'
+        when ${source} ilike '%travelandleisure%' then 'Travel & Leisure'
+
 
         when ${source} ilike '%sandiegouniontrib%' then 'SD Union Tribune'
         else ${source}
