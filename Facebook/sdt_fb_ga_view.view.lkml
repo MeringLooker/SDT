@@ -945,6 +945,10 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_Outdoor_Conversion_LADMA_CoastalHikes_NationalCopy' then 'S7: 7 Star Coastal Hikes'
 
+          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_California_OBIBirchAquarium15_Family' then 'Birch Aquarium (:15)'
+          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_LADMA_OBIBirchAquarium15_Family' then 'Birch Aquarium (:15)'
+          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_PHXTUCDMA_OBIBirchAquarium15_Family' then 'Birch Aquarium (:15)'
+
           when ${ad_name} ilike '%SurferGirl' then 'Surfer Girl Single Image'
           when ${ad_name} ilike '%SurferCoast' then 'Surfer Coast Single Image'
           when ${ad_name} ilike '%Surfers' then 'Surfers Single Image'
@@ -966,6 +970,7 @@ view: sdt_fb_ga_view {
 
           when ${ad_name} ilike '%_PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
           when ${ad_name} ilike '%_HotelsLandingPage' then 'Nano Traffic: Hotels LP'
+          when ${ad_name} ilike '%_LASpecificLandingPage' then 'Nano Traffic: LA-Specific LP'
 
           when ${ad_name} ilike '%_KidsFree_Safari' then 'Kids Free: Safari Single Image'
           when ${ad_name} ilike '%_KidsFree_Cannonball' then 'Kids Free: Cannonball Single Image'
