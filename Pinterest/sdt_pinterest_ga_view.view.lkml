@@ -245,7 +245,7 @@ view: sdt_pinterest_ga_view {
                 when ${promoted_pin_name} ilike '%BookNowPlan' then 'Book Now Plan'
                 when ${promoted_pin_name} ilike '%BookNowHappyPlace' then 'Book Now Happy Place'
 
-                when ${promoted_pin_name} ilike '%KidsFree' then 'KidsFree'
+                when ${promoted_pin_name} ilike '%KidsFree' then 'Kids Free Pin'
                 when ${promoted_pin_name} ilike '%Flight1_Holidays' then 'Holidays'
                 when ${promoted_pin_name} ilike '%Flight1_GeneralEvents' then 'General Events'
                 when ${promoted_pin_name} ilike '%Flight1_CarouselNextGetaway' then 'Next Getaway Carousel'
@@ -1068,7 +1068,7 @@ view: sdt_pinterest_ga_view {
     type: sum_distinct
     label: "Pageviews"
     sql_distinct_key: ${comp_key} ;;
-    sql: ${sessions} ;;
+    sql: ${pageviews} ;;
   }
 
   measure: pages_per_session {

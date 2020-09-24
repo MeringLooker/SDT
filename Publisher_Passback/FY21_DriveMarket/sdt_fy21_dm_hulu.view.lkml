@@ -12,6 +12,13 @@ view: sdt_fy21_dm_hulu {
 
 ##### Dimensions added to this table via LookML ######
 
+  dimension: ad_name {
+    type: string
+    group_label: "Client Dimensions"
+    label: "Ad Name"
+    sql: ${sdt_dcm_ga_view.ad};;
+  }
+
   dimension: ad_size {
     type: string
     group_label: "Client Dimensions"
