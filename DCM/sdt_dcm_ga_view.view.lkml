@@ -1473,6 +1473,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%MobileWelcomeInterstitial%' then 'Pandora_750x1400'
           when ${ad} ilike '%Travel Intender_ONsiteDisplay_2560x400%' then 'TripAdvisor_2560x400'
 
+          when ${ad} ilike '%_Audio_Kids-Free%' then 'Pandora Kids Free :30 Audio'
           when ${placement} ilike '%_AudioXP%' then 'Pandora :30 Audio'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Audio Everywhere%' then 'Spotify :30 Audio'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Audio Everywhere%' then 'Spotify :30 Audio'
