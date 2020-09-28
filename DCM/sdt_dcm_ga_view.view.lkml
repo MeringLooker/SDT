@@ -1621,12 +1621,17 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Kids-Free_OTT%' then 'Kids Free (:30)'
           when ${ad} ilike '%Kids-Free_:30%' then 'Kids Free (:30)'
           when ${ad} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Tucson_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
+          when ${ad} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Phoenix_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
+          when ${ad} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_CA_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
 
           when ${placement} ilike 'SPOTX_SDTAFY21_FallDriveMarketRecovery_Awareness_RON Video%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'NBC SpotON_SDTAFY21_FallDriveMarketRecovery_Awareness_DomesticTravelInterest%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'NBC SpotON_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'NBC SpotON_SDTAFY21_FallDriveMarketRecovery_Awareness_Children6-17%' then 'Kids Free (:30)'
-          when ${placement} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+          when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_3P%' then 'Happiness is Calling You Back (:30)'
+          when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_CA/PHX/TUCSON%' then 'Happiness is Calling You Back (:30)'
+          when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-07-27' AND '2020-08-30' then 'Happiness is Calling You Back (:30)'
+          when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-08-31' AND '2020-11-30' then 'Kids Free (:30)'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
 
