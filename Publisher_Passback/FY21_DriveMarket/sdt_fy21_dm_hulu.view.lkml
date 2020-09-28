@@ -86,7 +86,17 @@ view: sdt_fy21_dm_hulu {
     type: string
     group_label: "Client Dimensions"
     label: "Creative Name"
-    sql: ${sdt_dcm_ga_view.creative_name};;
+    sql:
+      case
+          when ${ad_name} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Tucson_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
+          when ${ad_name} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Phoenix_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
+          when ${ad_name} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_CA_Video_1920x1080_Behavioral_Kids-Free_1x1%' then 'Kids Free (:30)'
+          when ${ad_name} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_3P%' then 'Happiness is Calling You Back (:30)'
+          when ${ad_name} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_CA/PHX/TUCSON%' then 'Happiness is Calling You Back (:30)'
+          when ${ad_name} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-07-27' AND '2020-08-30' then 'Happiness is Calling You Back (:30)'
+          when ${ad_name} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-08-31' AND '2020-11-30' then 'Kids Free (:30)'
+          else 'Uncategorized'
+          end;;
   }
 
   dimension: sdt_partner {
