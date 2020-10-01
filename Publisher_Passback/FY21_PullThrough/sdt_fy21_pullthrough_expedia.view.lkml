@@ -49,7 +49,27 @@ view: sdt_fy21_pullthrough_expedia {
     type: string
     label: "Region"
     group_label: "Client Dimensions"
-    sql: 'Uncategorized - Expedia' ;;
+    sql:
+        case
+          when ${line_item} ilike '001:%' then 'Western Region'
+          when ${line_item} ilike '002:%' then 'Western Region'
+          when ${line_item} ilike '003:%' then 'Western Region'
+          when ${line_item} ilike '004:%' then 'Western Region'
+          when ${line_item} ilike '005:%' then 'Western Region'
+          when ${line_item} ilike '007:%' then 'Western Region'
+          when ${line_item} ilike '008:%' then 'Western Region'
+          when ${line_item} ilike '009:%' then 'Western Region'
+          when ${line_item} ilike '010:%' then 'Western Region'
+          when ${line_item} ilike '011:%' then 'California'
+          when ${line_item} ilike '012:%' then 'California'
+          when ${line_item} ilike '013:%' then 'California'
+          when ${line_item} ilike '014:%' then 'California'
+          when ${line_item} ilike '019:%' then 'Arizona'
+          when ${line_item} ilike '020:%' then 'Arizona'
+          when ${line_item} ilike '021:%' then 'Arizona'
+          when ${line_item} ilike '022:%' then 'Arizona'
+          else 'Uncategorized'
+          end;;
   }
 
   dimension: ad_size {
