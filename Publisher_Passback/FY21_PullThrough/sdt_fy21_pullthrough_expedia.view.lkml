@@ -16,6 +16,12 @@ view: sdt_fy21_pullthrough_expedia {
     sql: ${line_item}||'_'||${date_month} ;;
   }
 
+  dimension: expedia_line_creative_name {
+    hidden: yes
+    type: string
+    sql: ${line_item}||'_'||${expedia_creative} ;;
+  }
+
   ## Dimensions Added to this table via LookML ##
 
   dimension: publisher {

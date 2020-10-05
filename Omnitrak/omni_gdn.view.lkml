@@ -9,7 +9,21 @@ view: omni_gdn {
       column: region {field: sdt_gdn_ga_view.sdt_region}
       column: creative_name {field: sdt_gdn_ga_view.creative_name}
       column: total_impressions {field: sdt_gdn_ga_view.total_impressions}
+      column: total_clicks {field: sdt_gdn_ga_view.total_clicks}
+      column: total_views {field: sdt_gdn_ga_view.total_views}
       column: total_cost {field: sdt_gdn_ga_view.total_cost}
+      filters: {
+        field: sdt_gdn_ga_view.total_impressions
+        value: ">0"
+      }
+      filters: {
+        field: sdt_gdn_ga_view.day_date
+        value: "after 2020/07/01"
+      }
+      filters: {
+        field: sdt_gdn_ga_view.sdt_campaign
+        value: "Always On Content,Fall Drive Market,US Pull-Through"
+      }
     }
     datagroup_trigger: sdt_omnitrak_datagroup
     distribution_style: all
