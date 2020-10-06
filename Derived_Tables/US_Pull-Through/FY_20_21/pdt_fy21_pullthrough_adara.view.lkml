@@ -34,61 +34,12 @@ view: pdt_fy21_pullthrough_adara {
         field: sdt_dcm_ga_view.publisher
         value: "Adara"
       }
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2020/07/27 to 2021/01/04"
+      }
     }
     datagroup_trigger: sdt_us_pullthrough_datagroup
     distribution_style: all
-  }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: quarter {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
   }
 }

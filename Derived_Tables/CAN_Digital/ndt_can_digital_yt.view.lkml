@@ -21,6 +21,10 @@ view: ndt_can_digital_yt {
         field: sdt_yt_ga_view.sdt_campaign
         value: "Canada Digital"
       }
+      filters: {
+        field: sdt_yt_ga_view.day_date
+        value: "2019/11/04 to 2020/03/13"
+      }
     }
     datagroup_trigger: sdt_can_digital_datagroup
     distribution_style: all

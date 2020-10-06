@@ -13,56 +13,13 @@ view: ndt_ta_can_audext_social {
       column: total_views {}
       column: total_completes {}
       column: total_cost {}
+      filters: {
+        field: sdt_fy20_ta_can_audext_social.date_date
+        value: "2019/11/01 to 2020/02/01"
+      }
     }
     datagroup_trigger: sdt_ta_can_datagroup
     distribution_style: all
   }
-  dimension: layer {
-    type: string
-  }
 
-  dimension: placement {
-    type: string
-  }
-
-  dimension: pillar {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_completes {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  measure: count {
-    type: count
-  }
 }

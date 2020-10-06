@@ -20,6 +20,10 @@ view: ndt_can_pullthrough_expedia {
         field: sdt_dcm_ga_view.campaign
         value: "SDT: 004762_01 FY20 CAN Pull-Through Campaign"
       }
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2019/11/04 to 2020/02/01"
+      }
     }
     datagroup_trigger: sdt_can_pullthrough_datagroup
     distribution_style: all

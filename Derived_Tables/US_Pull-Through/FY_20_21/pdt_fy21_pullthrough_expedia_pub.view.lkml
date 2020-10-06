@@ -26,6 +26,10 @@ view: pdt_fy21_pullthrough_expedia_pub {
       column: total_staying_in_touch {field: sdt_fy21_pullthrough_expedia.total_staying_in_touch}
       column: total_hotel_search {field: sdt_fy21_pullthrough_expedia.total_hotel_search}
       column: total_purchases {field: sdt_fy21_pullthrough_expedia.total_purchases}
+      filters: {
+        field: sdt_fy21_pullthrough_expedia.date_date
+        value: "2020/07/27 to 2021/01/04"
+      }
     }
     datagroup_trigger: sdt_us_pullthrough_datagroup
     distribution_style: all

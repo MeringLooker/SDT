@@ -21,7 +21,10 @@ view: ndt_bp_sunset {
         field: sdt_dcm_ga_view.publisher
         value: "Sunset"
       }
-
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2020/02/24 to 2020/03/14"
+      }
     }
     datagroup_trigger: sdt_bp_datagroup
     distribution_style: all

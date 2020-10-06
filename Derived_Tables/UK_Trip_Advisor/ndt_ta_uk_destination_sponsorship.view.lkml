@@ -17,6 +17,10 @@ view: ndt_ta_uk_destination_sponsorship {
         field: sdt_dcm_ga_view.sdt_campaign
         value: "UK TripAdvisor Program"
       }
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2019/07/01 to 2020/04/01"
+      }
     }
     datagroup_trigger: sdt_ta_uk_datagroup
     distribution_style: all

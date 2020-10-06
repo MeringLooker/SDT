@@ -28,6 +28,10 @@ view: pdt_content_stackadapt {
       field: sdt_dcm_ga_view.publisher
       value: "Stack Adapt"
     }
+    filters: {
+      field: sdt_dcm_ga_view.date_date
+      value: "2019/09/16 to 2020/03/17"
+    }
   }
   datagroup_trigger: sdt_content_datagroup
   distribution_style: all

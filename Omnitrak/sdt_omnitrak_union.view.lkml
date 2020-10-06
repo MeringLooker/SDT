@@ -145,9 +145,6 @@ view: sdt_omnitrak_union {
     distribution_style: all
   }
 
-
-
-
 #### Primary Key Added ####
 
   dimension: primary_key {
@@ -160,7 +157,7 @@ view: sdt_omnitrak_union {
   dimension: omnitrak_key {
     type: string
     hidden: yes
-    sql: ${campaign}||'_'||${publisher}||'_'||${region}||'_'||${creative_name}||'_'||${date} ;;
+    sql: ${creative_campaign}||'_'||${region}||'_'||${month} ;;
   }
 
 ### All dimensions go below ###
@@ -244,12 +241,12 @@ view: sdt_omnitrak_union {
     group_label: "Omnitrak Research"
     sql:
         case
-          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
           when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
           when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
-          when ${creative_name} ilike '%Kids--Free%' then 'Kids Free'
+          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
           when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
           when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
+          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
           when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
           when ${creative_name} ilike 'BB:%' then 'Bliss Break'
           when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'

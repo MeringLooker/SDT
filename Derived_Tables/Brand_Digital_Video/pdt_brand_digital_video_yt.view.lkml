@@ -20,6 +20,10 @@ view: pdt_brand_digital_video_yt {
         field: sdt_yt_ga_view.sdt_campaign
         value: "Brand Digital Video"
       }
+      filters: {
+        field: sdt_yt_ga_view.day_date
+        value: "2019/08/25 to 2020/03/17"
+      }
     }
     datagroup_trigger: sdt_brand_digital_video_datagroup
     distribution_style: all

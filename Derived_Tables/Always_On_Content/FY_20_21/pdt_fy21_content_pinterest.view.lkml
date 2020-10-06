@@ -24,6 +24,10 @@ view: pdt_fy21_content_pinterest {
         field: sdt_pinterest_ga_view.campaign_name
         value: "%FY21^_SDT^_AlwaysOnContent%"
       }
+      filters: {
+        field: sdt_pinterest_ga_view.date_date
+        value: "2020/07/27 to 2020/12/24"
+      }
     }
     datagroup_trigger: sdt_content_datagroup
     distribution_style: all

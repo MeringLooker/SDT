@@ -24,6 +24,10 @@ view: pdt_content_fb {
         field: sdt_fb_ga_view.sdt_campaign
         value: "Always On Content"
       }
+      filters: {
+        field: sdt_fb_ga_view.date_start_date
+        value: "2019/09/16 to 2020/03/17"
+      }
     }
     datagroup_trigger: sdt_content_datagroup
     distribution_style: all

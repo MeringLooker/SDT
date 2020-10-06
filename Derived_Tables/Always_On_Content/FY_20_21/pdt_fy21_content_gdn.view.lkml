@@ -24,6 +24,10 @@ view: pdt_fy21_content_gdn {
         field: sdt_gdn_ga_view.campaign
         value: "%FY21^_SDT^_AlwaysOnContent%"
       }
+      filters: {
+        field: sdt_gdn_ga_view.day_date
+        value: "2020/07/27 to 2020/12/24"
+      }
     }
     datagroup_trigger: sdt_content_datagroup
     distribution_style: all

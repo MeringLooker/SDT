@@ -21,61 +21,12 @@ view: pdt_fam_content_gdn {
         field: sdt_gdn_ga_view.sdt_campaign
         value: "Family Content"
       }
+      filters: {
+        field: sdt_gdn_ga_view.day_date
+        value: "2020/02/03 to 2020/03/14"
+      }
     }
     datagroup_trigger: sdt_fam_content_datagroup
     distribution_style: all
-  }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
   }
 }

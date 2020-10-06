@@ -21,77 +21,12 @@ view: pdt_locals_gdn {
         field: sdt_gdn_ga_view.sdt_campaign
         value: "Locals Recovery"
       }
+      filters: {
+        field: sdt_gdn_ga_view.day_date
+        value: "2020/07/06 to 2020/10/05"
+      }
     }
     datagroup_trigger: sdt_locals_datagroup
     distribution_style: all
-  }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: region {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: quarter {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_completes {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
-  }
-
-  measure: count {
-    type: count
   }
 }

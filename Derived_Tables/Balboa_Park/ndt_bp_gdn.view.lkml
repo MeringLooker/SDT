@@ -17,6 +17,10 @@ view: ndt_bp_gdn {
         field: sdt_gdn_ga_view.sdt_campaign
         value: "Balboa Park Digital"
       }
+      filters: {
+        field: sdt_gdn_ga_view.day_date
+        value: "2020/02/24 to 2020/03/14"
+      }
     }
     datagroup_trigger: sdt_bp_datagroup
     distribution_style: all

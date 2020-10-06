@@ -24,6 +24,10 @@ view: pdt_content_yt {
         field: sdt_yt_ga_view.sdt_campaign
         value: "Always On Content"
       }
+      filters: {
+        field: sdt_yt_ga_view.day_date
+        value: "2019/09/16 to 2020/03/17"
+      }
     }
     datagroup_trigger: sdt_content_datagroup
     distribution_style: all

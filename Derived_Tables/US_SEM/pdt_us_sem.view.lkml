@@ -27,61 +27,12 @@ view: pdt_us_sem {
         field: sdt_sem_ga_view.total_impressions
         value: ">0"
       }
+      filters: {
+        field: sdt_sem_ga_view.day_date
+        value: "2020/07/27 to 2021/07/01"
+      }
     }
     datagroup_trigger: sdt_us_sem_datagroup
     distribution_style: all
-  }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
   }
 }

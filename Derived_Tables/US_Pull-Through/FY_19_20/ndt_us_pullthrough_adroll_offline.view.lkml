@@ -16,65 +16,12 @@ view: ndt_us_pullthrough_adroll_offline {
       column: total_cost {field: sdt_fy20_us_pullthrough_adroll.total_cost}
       column: total_sessions {field: sdt_fy20_us_pullthrough_adroll.ga_sessions}
       column: total_session_duration {field: sdt_fy20_us_pullthrough_adroll.ga_total_session_duration}
+      filters: {
+        field: sdt_fy20_us_pullthrough_adroll.day_date
+        value: "2019/09/16 to 2020/03/14"
+      }
     }
     datagroup_trigger: sdt_us_pullthrough_datagroup
     distribution_style: all
-  }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: placement {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: quarter {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
   }
 }

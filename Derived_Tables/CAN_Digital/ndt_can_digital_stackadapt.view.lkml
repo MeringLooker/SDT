@@ -25,6 +25,10 @@ view: ndt_can_digital_stackadapt {
         field: sdt_dcm_ga_view.publisher
         value: "Stack Adapt"
       }
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2019/11/04 to 2020/03/13"
+      }
     }
     datagroup_trigger: sdt_can_digital_datagroup
     distribution_style: all

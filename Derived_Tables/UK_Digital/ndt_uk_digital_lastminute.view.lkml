@@ -25,70 +25,12 @@ view: ndt_uk_digital_lastminute {
         field: sdt_dcm_ga_view.publisher
         value: "Lastminute"
       }
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2020/01/06 to 2020/03/22"
+      }
     }
     datagroup_trigger: sdt_uk_digital_datagroup
     distribution_style: all
   }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: placement {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
-  }
-
-  measure: count {
-    type: count
-  }
-
 }

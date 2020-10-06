@@ -25,78 +25,12 @@ view: pdt_fam_content_taboola {
         field: sdt_dcm_ga_view.publisher
         value: "Taboola"
       }
+      filters: {
+        field: sdt_dcm_ga_view.date_date
+        value: "2020/02/03 to 2020/03/14"
+      }
     }
     datagroup_trigger: sdt_fam_content_datagroup
     distribution_style: all
   }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: partner {
-    type: string
-  }
-
-  dimension: placement {
-    type: string
-  }
-
-  dimension: creative_name {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_completes {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  dimension: total_sessions {
-    type: number
-  }
-
-  dimension: total_session_duration {
-    type: number
-  }
-
-  measure: count {
-    type: count
-  }
-
 }
