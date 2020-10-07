@@ -69,6 +69,7 @@ view: pdt_fy21_drivemarket_campaign {
 
   dimension: placement {
     type: string
+    drill_fields: [creative_set]
     label: "Campaign Placement"
     sql: ${TABLE}.placement ;;
   }
@@ -153,11 +154,30 @@ view: pdt_fy21_drivemarket_campaign {
 
   dimension: creative_set {
     type: string
-    hidden: yes
+    drill_fields: [placement,creative_name]
+    hidden: no
     sql: case
             when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
             when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
             when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+            when ${creative_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%BookHotel%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%PlanNow%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Book Hotel%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Plan Now%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%High Impact Halo Unit%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Desktop_Portrait%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Drive Market IG Story%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Family Pin%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Pandora :30 Audio%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Surfers%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Surfer Coast%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Surfer Girl%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Roller Girls%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%TripAdvisor_2560x400%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Pandora_750x1400%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Happiness Is Calling You Back%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%WeekYay%' then 'WeekYay'
             else 'Uncategorized'
             end
       ;;
@@ -167,6 +187,20 @@ view: pdt_fy21_drivemarket_campaign {
     type: yesno
     hidden: no
     sql: ${creative_set} = 'Kids Free' ;;
+  }
+
+  dimension: is_hicyb {
+    label: "Is HICYB"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Hapiness Is Calling You Back' ;;
+  }
+
+  dimension: is_weekyay {
+    label: "Is WeekYay"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'WeekYay' ;;
   }
 
 ### All measures go below ###

@@ -975,6 +975,13 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%_KidsFree_Safari' then 'Kids Free: Safari Single Image'
           when ${ad_name} ilike '%_KidsFree_Cannonball' then 'Kids Free: Cannonball Single Image'
 
+          when ${ad_name} ilike '%SingleImage_Weekyay_WorkFromHotel' then 'WeekYay: Work From Hotel Single Image'
+          when ${ad_name} ilike '%SingleImage_Weekyay_OutdoorDining' then 'WeekYay: Outdoor Dining Single Image'
+          when ${ad_name} ilike '%SingleImage_Weekyay_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Single Image'
+          when ${ad_name} ilike '%SingleImage_Weekyay_LowerRateActivity' then 'WeekYay: Lower Rate Activity Single Image'
+          when ${ad_name} ilike '%SingleImage_Weekyay_LessCrowds' then 'WeekYay: Less Crowds Single Image'
+          when ${ad_name} ilike '%SingleImage_Weekyay_HomeSchool' then 'WeekYay: Home School Hotel Single Image'
+
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Square' then 'Poolside Square Single Image'
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Horizontal' then 'Poolside Landscape Single Image'
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Beach_Square' then 'Beach Square Single Image'

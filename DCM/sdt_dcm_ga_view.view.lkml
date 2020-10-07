@@ -1474,13 +1474,25 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Travel Intender_ONsiteDisplay_2560x400%' then 'TripAdvisor_2560x400'
 
           when ${ad} ilike '%_Audio_Kids-Free%' then 'Pandora Kids Free :30 Audio'
-          when ${placement} ilike '%_AudioXP%' then 'Pandora :30 Audio'
-          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_PHX_Audio Everywhere%' then 'Spotify :30 Audio'
-          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_TUCSON_Audio Everywhere%' then 'Spotify :30 Audio'
-          when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Audio Everywhere%' then 'Spotify :30 Audio'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_Phoenix_Audio_:30_1x1%' then 'Pandora :30 Audio'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_Tucson_Audio_:30_1x1%' then 'Pandora :30 Audio'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Travelers_California_Audio_:30_1x1%' then 'Pandora :30 Audio'
 
-          when ${ad} ilike '%300x250 Default Web Ad%' then 'Uncategorized_300x250'
-          when ${ad} ilike '%728x90 Default Web Ad%' then 'Uncategorized_728x90'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Family Travelers_Phoenix_Audio_:30_1x1%' then 'Pandora :30 Audio'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Family Travelers_Tucson_Audio_:30_1x1%' then 'Pandora :30 Audio'
+          when ${ad} ilike '%PANDORA_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Leisure Family Travelers_California_Audio_:30_1x1%' then 'Pandora :30 Audio'
+
+          when ${ad} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Road Trip/Travel_CALIFORNIA_Audio_:30_1x1%' then 'Spotify :30 Audio'
+
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_RON_Plan Now_728x90' then 'PlanNow_728x90'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON_Plan Now_728x90' then 'PlanNow_728x90'
+
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON_Kids-Free_728x90' then 'KidsFree_728x90'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON_Plan Now_300x250' then 'PlanNow_300x250'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON_Kids-Free_300x250' then 'KidsFree_300x250'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON_Kids-Free_300x250' then 'KidsFree_300x250'
+          when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_RON_Plan Now_300x250' then 'PlanNow_300x250'
+          when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California_RON_Plan Now_300x600' then 'PlanNow_300x600'
 
           when ${ad} ilike '%Surfing_728x90%' then 'Surfing_728x90'
           when ${ad} ilike '%Surfing_300x250%' then 'Surfing_300x250'
@@ -1638,6 +1650,11 @@ view: sdt_dcm_ga_view {
 
           when ${ad} ilike '%Kids-Free_640x640%' then 'KidsFree_640x640'
           when ${ad} ilike '%Kids-Free_728x90%' then 'KidsFree_728x90'
+
+          when ${ad} ilike '%WeekYay_Hotel_300x250%' then 'WeekYay_Hotels_300x250'
+          when ${ad} ilike '%WeekYay_Hotels_300x250%' then 'WeekYay_Hotels_300x250'
+          when ${ad} ilike '%WeekYay_Hotels_640x640%' then 'WeekYay_Hotels_640x640'
+          when ${ad} ilike '%PANDORA_%_Audio_WeekYay_Hotels_:30%' then 'Pandora WeekYay Hotels :30 Audio'
 
             ELSE 'Uncategorized'
         END;;
