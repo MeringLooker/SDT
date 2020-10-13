@@ -604,6 +604,7 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%Fall Season_Variety Seekers_California' then 'California'
           when ${placement} ilike '%California_MobileWelcomeInterstitial%' then 'California'
           when ${placement} ilike '%_CA_Video%' then 'California'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_HHIValueTarget_California%' then 'California'
 
           when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_California%' then 'California'
           when ${placement} ilike '%CBS_SDTAFY21_FallDriveMarketRecovery_Awareness_Fall Season_Family Variety Seekers_Phoenix%' then 'Phoenix'
@@ -1071,6 +1072,9 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
           when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Portrait Display'
 
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_HHIValueTarget_California_Display%' then 'Display Prospecting (HHI Value Target)'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_HHIValueTarget_California_AVDisplay%' then 'AV - Display Prospecting (HHI Value Target)'
+
         else 'Uncategorized'
       end;;
     }
@@ -1486,6 +1490,8 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%Book Hotel_300x600' then 'BookHotel_300x600'
           when ${placement} ilike '%Book Hotel_160x600' then 'BookHotel_160x600'
 
+          when ${ad_id} = '471447447' then 'BookHotel_300x600'
+
           when ${ad} ilike '%MobileWelcomeInterstitial%' then 'Pandora_750x1400'
           when ${ad} ilike '%Travel Intender_ONsiteDisplay_2560x400%' then 'TripAdvisor_2560x400'
 
@@ -1525,6 +1531,24 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%WeekYay_Family_300x250%' then 'WeekYay_Family_300x250'
           when ${creative} ilike '%WeekYay_Family_640x640%' then 'WeekYay_Family_640x640'
 
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_300x600%' then 'WeekYay_Hotels_300x600'
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_728x90%' then 'WeekYay_Hotels_728x90'
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_160x600%' then 'WeekYay_Hotels_160x600'
+
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_SD Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_300x600%' then 'WeekYay_Hotels_300x600'
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_SD Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_728x90%' then 'WeekYay_Hotels_728x90'
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_SD Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_160x600%' then 'WeekYay_Hotels_160x600'
+
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Family_300x600%' then 'WeekYay_Family_300x600'
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Family_728x90%' then 'WeekYay_Family_728x90'
+          when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Family_160x600%' then 'WeekYay_Family_160x600'
+
+          when ${ad} ilike '%Kids-Free_640x640%' then 'KidsFree_640x640'
+          when ${ad} ilike '%Kids-Free_728x90%' then 'KidsFree_728x90'
+          when ${ad} ilike '%WeekYay_Hotels_640x640%' then 'WeekYay_Hotels_640x640'
+          when ${ad} ilike '%WeekYay_Hotels_300x250%' then 'WeekYay_Hotels_300x250'
+          when ${ad} ilike '%WeekYay_Hotel_300x250%' then 'WeekYay_Hotels_300x250'
+          when ${ad} ilike '%PANDORA_%_Audio_WeekYay_Hotels_:30%' then 'Pandora WeekYay Hotels :30 Audio'
 
           when ${ad} ilike '%Surfing_728x90%' then 'Surfing_728x90'
           when ${ad} ilike '%Surfing_300x250%' then 'Surfing_300x250'
@@ -1679,12 +1703,6 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-08-31' AND '2020-11-30' then 'Kids Free (:30)'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
-
-          when ${ad} ilike '%Kids-Free_640x640%' then 'KidsFree_640x640'
-          when ${ad} ilike '%Kids-Free_728x90%' then 'KidsFree_728x90'
-
-
-          when ${ad} ilike '%PANDORA_%_Audio_WeekYay_Hotels_:30%' then 'Pandora WeekYay Hotels :30 Audio'
 
             ELSE 'Uncategorized'
         END;;

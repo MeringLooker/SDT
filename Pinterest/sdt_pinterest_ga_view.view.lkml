@@ -77,7 +77,7 @@ view: sdt_pinterest_ga_view {
 
     }
 
-  dimension: sdt_layer {
+    dimension: sdt_layer {
       type: string
       label: "Campaign Layer"
       group_label: "Client Dimensions"
@@ -104,7 +104,7 @@ view: sdt_pinterest_ga_view {
       end;;
     }
 
-  dimension: sdt_market {
+    dimension: sdt_market {
       type: string
       label: "Market"
       group_label: "Client Dimensions"
@@ -122,7 +122,7 @@ view: sdt_pinterest_ga_view {
       end;;
     }
 
-  dimension: sdt_region {
+    dimension: sdt_region {
       type: string
       label: "Region"
       group_label: "Client Dimensions"
@@ -165,7 +165,7 @@ view: sdt_pinterest_ga_view {
       end;;
     }
 
-  dimension: sdt_placement {
+    dimension: sdt_placement {
       type: string
       label: "Campaign Placement"
       group_label: "Client Dimensions"
@@ -203,7 +203,7 @@ view: sdt_pinterest_ga_view {
 
       }
 
-  dimension: sdt_pillar {
+      dimension: sdt_pillar {
         type: string
         label: "Pillar"
         group_label: "Client Dimensions"
@@ -228,7 +228,7 @@ view: sdt_pinterest_ga_view {
               end;;
       }
 
-  dimension: creative_name {
+      dimension: creative_name {
         type: string
         label: "Creative Name"
         group_label: "Client Dimensions"
@@ -427,753 +427,760 @@ view: sdt_pinterest_ga_view {
           when ${promoted_pin_name} ilike '%SurferCoast' then 'Surfer Coast Pin'
           when ${promoted_pin_name} ilike '%Family' then 'Family Pin'
 
+          when ${promoted_pin_name} ilike '%Weekyay_HomeSchool' then 'WeekYay: HomeSchool Pin'
+          when ${promoted_pin_name} ilike '%Weekyay_OutdoorDining' then 'WeekYa:y Outdoor Dining Pin'
+          when ${promoted_pin_name} ilike '%Weekyay_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Pin'
+          when ${promoted_pin_name} ilike '%Weekyay_LessCrowds' then 'WeekYay: Less Crowds Pin'
+          when ${promoted_pin_name} ilike '%Weekyay_LowerRateActivity' then 'WeekYay: Lower Rate Activity Pin'
+          when ${promoted_pin_name} ilike '%Weekyay_WorkFromHotel' then 'WeekYay: Work From Hotel Pin'
+
                 else 'Uncategorized'
               end;;
       }
 
 
-    ### Dimensions native to this table ###
+      ### Dimensions native to this table ###
 
-  dimension: ad_group_id {
-    type: string
-    group_label: "Pinterest IDs"
-    sql: ${TABLE}.ad_group_id ;;
-  }
+      dimension: ad_group_id {
+        type: string
+        group_label: "Pinterest IDs"
+        sql: ${TABLE}.ad_group_id ;;
+      }
 
-  dimension: ad_group_name {
-    type: string
-    group_label: "Pinterest Dimensions"
-    sql: ${TABLE}.ad_group_name ;;
-  }
+      dimension: ad_group_name {
+        type: string
+        group_label: "Pinterest Dimensions"
+        sql: ${TABLE}.ad_group_name ;;
+      }
 
-  dimension: bounces {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.bounces ;;
-  }
+      dimension: bounces {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.bounces ;;
+      }
 
-  dimension: campaign_id {
-    type: string
-    group_label: "Pinterest IDs"
-    sql: ${TABLE}.campaign_id ;;
-  }
+      dimension: campaign_id {
+        type: string
+        group_label: "Pinterest IDs"
+        sql: ${TABLE}.campaign_id ;;
+      }
 
-  dimension: campaign_name {
-    type: string
-    group_label: "Pinterest Dimensions"
-    sql: ${TABLE}.campaign_name ;;
-  }
+      dimension: campaign_name {
+        type: string
+        group_label: "Pinterest Dimensions"
+        sql: ${TABLE}.campaign_name ;;
+      }
 
-  dimension: campaign_objective {
-    type: string
-    group_label: "Pinterest Dimensions"
-    sql: ${TABLE}.campaign_objective ;;
-  }
+      dimension: campaign_objective {
+        type: string
+        group_label: "Pinterest Dimensions"
+        sql: ${TABLE}.campaign_objective ;;
+      }
 
-  dimension: clicks {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.clicks ;;
-  }
+      dimension: clicks {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.clicks ;;
+      }
 
-  dimension: conversions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.conversions ;;
-  }
+      dimension: conversions {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.conversions ;;
+      }
 
-  dimension: cost {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.cost ;;
-  }
+      dimension: cost {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.cost ;;
+      }
 
-  dimension_group: date {
-    type: time
-    label: ""
-    group_label: "Date Periods"
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.date ;;
-  }
+      dimension_group: date {
+        type: time
+        label: ""
+        group_label: "Date Periods"
+        timeframes: [
+          raw,
+          time,
+          date,
+          week,
+          month,
+          quarter,
+          year
+        ]
+        sql: ${TABLE}.date ;;
+      }
 
-  dimension: earned_clicks {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.earned_clicks ;;
-  }
+      dimension: earned_clicks {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.earned_clicks ;;
+      }
 
-  dimension: earned_impressions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.earned_impressions ;;
-  }
+      dimension: earned_impressions {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.earned_impressions ;;
+      }
 
-  dimension: earned_saves {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.earned_saves ;;
-  }
+      dimension: earned_saves {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.earned_saves ;;
+      }
 
-  dimension: earned_video_views {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.earned_video_views ;;
-  }
+      dimension: earned_video_views {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.earned_video_views ;;
+      }
 
-  dimension: earned_views_at_100 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.earned_views_at_100 ;;
-  }
+      dimension: earned_views_at_100 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.earned_views_at_100 ;;
+      }
 
-  dimension: ga_video_starts {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.ga_video_starts ;;
-  }
+      dimension: ga_video_starts {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.ga_video_starts ;;
+      }
 
-  dimension: impressions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.impressions ;;
-  }
+      dimension: impressions {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.impressions ;;
+      }
 
-  dimension: newsletter_sign_up {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.newsletter_sign_up ;;
-  }
+      dimension: newsletter_sign_up {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.newsletter_sign_up ;;
+      }
 
-  dimension: newusers {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.newusers ;;
-  }
+      dimension: newusers {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.newusers ;;
+      }
 
-  dimension: pageviews {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.pageviews ;;
-  }
+      dimension: pageviews {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.pageviews ;;
+      }
 
-  dimension: paid_clicks {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.paid_clicks ;;
-  }
+      dimension: paid_clicks {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.paid_clicks ;;
+      }
 
-  dimension: paid_impressions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.paid_impressions ;;
-  }
+      dimension: paid_impressions {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.paid_impressions ;;
+      }
 
-  dimension: paid_saves {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.paid_saves ;;
-  }
+      dimension: paid_saves {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.paid_saves ;;
+      }
 
-  dimension: paid_video_views {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.paid_video_views ;;
-  }
+      dimension: paid_video_views {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.paid_video_views ;;
+      }
 
-  dimension: paid_views_at_100 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.paid_views_at_100 ;;
-  }
+      dimension: paid_views_at_100 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.paid_views_at_100 ;;
+      }
 
-  dimension: pin_description {
-    type: string
-    group_label: "Pinterest Dimensions"
-    sql: ${TABLE}.pin_description ;;
-  }
+      dimension: pin_description {
+        type: string
+        group_label: "Pinterest Dimensions"
+        sql: ${TABLE}.pin_description ;;
+      }
 
-  dimension: pin_id {
-    type: string
-    group_label: "Pinterest IDs"
-    sql: ${TABLE}.pin_id ;;
-  }
+      dimension: pin_id {
+        type: string
+        group_label: "Pinterest IDs"
+        sql: ${TABLE}.pin_id ;;
+      }
 
-  dimension: promoted_pin_id {
-    type: string
-    group_label: "Pinterest IDs"
-    sql: ${TABLE}.promoted_pin_id ;;
-  }
+      dimension: promoted_pin_id {
+        type: string
+        group_label: "Pinterest IDs"
+        sql: ${TABLE}.promoted_pin_id ;;
+      }
 
-  dimension: promoted_pin_name {
-    type: string
-    group_label: "Pinterest Dimensions"
-    sql: ${TABLE}.promoted_pin_name ;;
-  }
+      dimension: promoted_pin_name {
+        type: string
+        group_label: "Pinterest Dimensions"
+        sql: ${TABLE}.promoted_pin_name ;;
+      }
 
-  dimension: saves {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.saves ;;
-  }
+      dimension: saves {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.saves ;;
+      }
 
-  dimension: sessionduration {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.sessionduration ;;
-  }
+      dimension: sessionduration {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.sessionduration ;;
+      }
 
-  dimension: sessions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.sessions ;;
-  }
+      dimension: sessions {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.sessions ;;
+      }
 
-  dimension: tos_above_120s {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.tos_above_120s ;;
-  }
+      dimension: tos_above_120s {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.tos_above_120s ;;
+      }
 
-  dimension: tos_above_30s {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.tos_above_30s ;;
-  }
+      dimension: tos_above_30s {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.tos_above_30s ;;
+      }
 
-  dimension: users {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.users ;;
-  }
+      dimension: users {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.users ;;
+      }
 
-  dimension: video_starts {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.video_starts ;;
-  }
+      dimension: video_starts {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.video_starts ;;
+      }
 
-  dimension: video_views {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.video_views ;;
-  }
+      dimension: video_views {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.video_views ;;
+      }
 
-  dimension: views_at_100 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.views_at_100 ;;
-  }
+      dimension: views_at_100 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.views_at_100 ;;
+      }
 
-  dimension: views_at_25 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.views_at_25 ;;
-  }
+      dimension: views_at_25 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.views_at_25 ;;
+      }
 
-  dimension: views_at_50 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.views_at_50 ;;
-  }
+      dimension: views_at_50 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.views_at_50 ;;
+      }
 
-  dimension: views_at_75 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.views_at_75 ;;
-  }
+      dimension: views_at_75 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.views_at_75 ;;
+      }
 
-  dimension: views_at_95 {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.views_at_95 ;;
-  }
+      dimension: views_at_95 {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.views_at_95 ;;
+      }
 
-  dimension: wheel_interactions {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.wheel_interactions ;;
-  }
+      dimension: wheel_interactions {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.wheel_interactions ;;
+      }
 
-  ## Dimensions for GA Events ##
+      ## Dimensions for GA Events ##
 
-  dimension: discover_sd {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.discover_sd ;;
-  }
+      dimension: discover_sd {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.discover_sd ;;
+      }
 
-  dimension: plan_your_vacation {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.plan_your_vacation ;;
-  }
+      dimension: plan_your_vacation {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.plan_your_vacation ;;
+      }
 
-  dimension: spin_wheel_button {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.spin_wheel_button ;;
-  }
+      dimension: spin_wheel_button {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.spin_wheel_button ;;
+      }
 
-  dimension: wheel_drag {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.wheel_drag ;;
-  }
+      dimension: wheel_drag {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.wheel_drag ;;
+      }
 
-  dimension: wheel_click {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.wheel_click ;;
-  }
+      dimension: wheel_click {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.wheel_click ;;
+      }
 
-  dimension: visitor_planning_guide {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.visitor_planning_guide ;;
-  }
+      dimension: visitor_planning_guide {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.visitor_planning_guide ;;
+      }
 
-  dimension: staying_in_touch {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.staying_in_touch ;;
-  }
+      dimension: staying_in_touch {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.staying_in_touch ;;
+      }
 
-  dimension: hotel_search {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.hotel_search ;;
-  }
+      dimension: hotel_search {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.hotel_search ;;
+      }
 
-  dimension: purchases {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.purchases ;;
-  }
+      dimension: purchases {
+        type: number
+        hidden: yes
+        sql: ${TABLE}.purchases ;;
+      }
 
 #### All Measures go Below ###
 
-  measure: total_spend {
-    type: sum_distinct
-    group_label: "Total Delivery"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${cost} ;;
-    value_format_name: usd
-  }
+      measure: total_spend {
+        type: sum_distinct
+        group_label: "Total Delivery"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${cost} ;;
+        value_format_name: usd
+      }
 
-  measure: total_impressions {
-    type: sum_distinct
-    group_label: "Total Delivery"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${impressions} ;;
-  }
+      measure: total_impressions {
+        type: sum_distinct
+        group_label: "Total Delivery"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${impressions} ;;
+      }
 
-  measure: total_clicks {
-    type: sum_distinct
-    group_label: "Total Delivery"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${clicks} ;;
-  }
+      measure: total_clicks {
+        type: sum_distinct
+        group_label: "Total Delivery"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${clicks} ;;
+      }
 
-  measure: click_through_rate  {
-    label: "CTR"
-    type: number
-    group_label: "Total Delivery"
-    sql: ${total_clicks}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: click_through_rate  {
+        label: "CTR"
+        type: number
+        group_label: "Total Delivery"
+        sql: ${total_clicks}/nullif(${total_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: cost_per_click {
-    label: "CPC"
-    type: number
-    group_label: "Total Delivery"
-    sql: ${total_spend}/nullif(${total_clicks}, 0) ;;
-    value_format_name: usd
-  }
+      measure: cost_per_click {
+        label: "CPC"
+        type: number
+        group_label: "Total Delivery"
+        sql: ${total_spend}/nullif(${total_clicks}, 0) ;;
+        value_format_name: usd
+      }
 
-  measure: cost_per_thousand  {
-    label: "CPM"
-    type: number
-    group_label: "Total Delivery"
-    sql: ${total_spend}/nullif(${total_impressions}/1000, 0) ;;
-    value_format_name: usd
-  }
+      measure: cost_per_thousand  {
+        label: "CPM"
+        type: number
+        group_label: "Total Delivery"
+        sql: ${total_spend}/nullif(${total_impressions}/1000, 0) ;;
+        value_format_name: usd
+      }
 
-  measure: total_conversions {
-    type: sum_distinct
-    group_label: "Total Delivery"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${conversions} ;;
-  }
+      measure: total_conversions {
+        type: sum_distinct
+        group_label: "Total Delivery"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${conversions} ;;
+      }
 
-  measure: total_saves {
-    group_label: "Total Delivery"
-    type: sum_distinct
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${saves} ;;
-  }
+      measure: total_saves {
+        group_label: "Total Delivery"
+        type: sum_distinct
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${saves} ;;
+      }
 
-  measure: total_video_starts {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${video_starts} ;;
-  }
+      measure: total_video_starts {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${video_starts} ;;
+      }
 
-  measure: total_video_views {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${video_views} ;;
-  }
+      measure: total_video_views {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${video_views} ;;
+      }
 
-  measure: total_view_rate  {
-    label: "View Rate"
-    type: number
-    group_label: "Total Video Metrics"
-    sql: ${total_video_views}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_view_rate  {
+        label: "View Rate"
+        type: number
+        group_label: "Total Video Metrics"
+        sql: ${total_video_views}/nullif(${total_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_completion_rate  {
-    label: "VCR"
-    type: number
-    group_label: "Total Video Metrics"
-    sql: ${total_views_at_100}/nullif(${total_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_completion_rate  {
+        label: "VCR"
+        type: number
+        group_label: "Total Video Metrics"
+        sql: ${total_views_at_100}/nullif(${total_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_views_at_100 {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${views_at_100} ;;
-  }
+      measure: total_views_at_100 {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${views_at_100} ;;
+      }
 
-  measure: content_video_views {
-    type: sum_distinct
-    hidden: yes
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${views_at_100} ;;
-  }
+      measure: content_video_views {
+        type: sum_distinct
+        hidden: yes
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${views_at_100} ;;
+      }
 
-  measure: total_views_at_25 {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${views_at_25} ;;
-  }
+      measure: total_views_at_25 {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${views_at_25} ;;
+      }
 
-  measure: total_views_at_50 {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${views_at_50} ;;
-  }
+      measure: total_views_at_50 {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${views_at_50} ;;
+      }
 
-  measure: total_views_at_75 {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${views_at_75} ;;
-  }
+      measure: total_views_at_75 {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${views_at_75} ;;
+      }
 
-  measure: total_views_at_95 {
-    type: sum_distinct
-    group_label: "Total Video Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${views_at_95} ;;
-  }
+      measure: total_views_at_95 {
+        type: sum_distinct
+        group_label: "Total Video Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${views_at_95} ;;
+      }
 
-  ### Paid Measures ###
+      ### Paid Measures ###
 
-  measure: total_paid_impressions {
-    type: sum_distinct
-    group_label: "Paid Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${paid_impressions} ;;
-  }
+      measure: total_paid_impressions {
+        type: sum_distinct
+        group_label: "Paid Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${paid_impressions} ;;
+      }
 
-  measure: total_paid_clicks {
-    type: sum_distinct
-    group_label: "Paid Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${paid_clicks} ;;
-  }
+      measure: total_paid_clicks {
+        type: sum_distinct
+        group_label: "Paid Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${paid_clicks} ;;
+      }
 
-  measure: paid_ctr  {
-    label: "Paid CTR"
-    type: number
-    group_label: "Paid Metrics"
-    sql: ${total_paid_clicks}/nullif(${total_paid_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: paid_ctr  {
+        label: "Paid CTR"
+        type: number
+        group_label: "Paid Metrics"
+        sql: ${total_paid_clicks}/nullif(${total_paid_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_paid_saves {
-    type: sum_distinct
-    group_label: "Paid Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${paid_saves} ;;
-  }
+      measure: total_paid_saves {
+        type: sum_distinct
+        group_label: "Paid Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${paid_saves} ;;
+      }
 
-  measure: total_paid_views_at_100 {
-    type: sum_distinct
-    group_label: "Paid Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${paid_views_at_100} ;;
-  }
+      measure: total_paid_views_at_100 {
+        type: sum_distinct
+        group_label: "Paid Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${paid_views_at_100} ;;
+      }
 
-  measure: total_paid_video_views {
-    type: sum_distinct
-    group_label: "Paid Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${paid_video_views} ;;
-  }
+      measure: total_paid_video_views {
+        type: sum_distinct
+        group_label: "Paid Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${paid_video_views} ;;
+      }
 
-  measure: paid_cpc {
-    label: "Paid CPC"
-    type: number
-    group_label: "Paid Metrics"
-    sql: ${total_spend}/nullif(${total_paid_clicks}, 0) ;;
-    value_format_name: usd
-  }
+      measure: paid_cpc {
+        label: "Paid CPC"
+        type: number
+        group_label: "Paid Metrics"
+        sql: ${total_spend}/nullif(${total_paid_clicks}, 0) ;;
+        value_format_name: usd
+      }
 
-  measure: paid_cpm  {
-    label: "Paid CPM"
-    type: number
-    group_label: "Paid Metrics"
-    sql: ${total_spend}/nullif(${total_paid_impressions}/1000, 0) ;;
-    value_format_name: usd
-  }
+      measure: paid_cpm  {
+        label: "Paid CPM"
+        type: number
+        group_label: "Paid Metrics"
+        sql: ${total_spend}/nullif(${total_paid_impressions}/1000, 0) ;;
+        value_format_name: usd
+      }
 
-  measure: total_paid_view_rate  {
-    type: number
-    group_label: "Paid Metrics"
-    sql: ${total_paid_video_views}/nullif(${total_paid_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_paid_view_rate  {
+        type: number
+        group_label: "Paid Metrics"
+        sql: ${total_paid_video_views}/nullif(${total_paid_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_paid_completion_rate  {
-    label: "Paid VCR"
-    type: number
-    group_label: "Paid Metrics"
-    sql: ${total_earned_video_views}/nullif(${total_paid_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_paid_completion_rate  {
+        label: "Paid VCR"
+        type: number
+        group_label: "Paid Metrics"
+        sql: ${total_earned_video_views}/nullif(${total_paid_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  ### Earned Measures ###
+      ### Earned Measures ###
 
-  measure: total_earned_impressions {
-    type: sum_distinct
-    group_label: "Earned Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${earned_impressions} ;;
-  }
+      measure: total_earned_impressions {
+        type: sum_distinct
+        group_label: "Earned Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${earned_impressions} ;;
+      }
 
-  measure: total_earned_clicks {
-    type: sum_distinct
-    group_label: "Earned Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${earned_clicks} ;;
-  }
+      measure: total_earned_clicks {
+        type: sum_distinct
+        group_label: "Earned Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${earned_clicks} ;;
+      }
 
-  measure: earned_ctr  {
-    label: "Earned CTR"
-    type: number
-    group_label: "Earned Metrics"
-    sql: ${total_earned_clicks}/nullif(${total_earned_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: earned_ctr  {
+        label: "Earned CTR"
+        type: number
+        group_label: "Earned Metrics"
+        sql: ${total_earned_clicks}/nullif(${total_earned_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_earned_saves {
-    type: sum_distinct
-    group_label: "Earned Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${earned_saves} ;;
-  }
+      measure: total_earned_saves {
+        type: sum_distinct
+        group_label: "Earned Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${earned_saves} ;;
+      }
 
-  measure: total_earned_views_at_100 {
-    type: sum_distinct
-    group_label: "Earned Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${earned_views_at_100} ;;
-  }
+      measure: total_earned_views_at_100 {
+        type: sum_distinct
+        group_label: "Earned Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${earned_views_at_100} ;;
+      }
 
-  measure: total_earned_video_views {
-    type: sum_distinct
-    group_label: "Earned Metrics"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${earned_video_views} ;;
-  }
+      measure: total_earned_video_views {
+        type: sum_distinct
+        group_label: "Earned Metrics"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${earned_video_views} ;;
+      }
 
-  measure: total_earned_view_rate  {
-    type: number
-    group_label: "Earned Metrics"
-    sql: ${total_earned_video_views}/nullif(${total_earned_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_earned_view_rate  {
+        type: number
+        group_label: "Earned Metrics"
+        sql: ${total_earned_video_views}/nullif(${total_earned_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_earned_completion_rate  {
-    label: "Earned VCR"
-    type: number
-    group_label: "Earned Metrics"
-    sql: ${total_earned_video_views}/nullif(${total_earned_impressions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_earned_completion_rate  {
+        label: "Earned VCR"
+        type: number
+        group_label: "Earned Metrics"
+        sql: ${total_earned_video_views}/nullif(${total_earned_impressions}, 0) ;;
+        value_format_name: percent_2
+      }
 
 ####### Google Analytics Measures #######
 
-  measure: total_sessions {
-    group_label: "Google Analytics Metrics"
-    type: sum_distinct
-    label: "Sessions"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${sessions} ;;
-  }
+      measure: total_sessions {
+        group_label: "Google Analytics Metrics"
+        type: sum_distinct
+        label: "Sessions"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${sessions} ;;
+      }
 
-  measure: cost_per_session {
-    group_label: "Google Analytics Metrics"
-    type: number
-    label: "CPS"
-    sql: ${total_spend}/nullif(${total_sessions}, 0) ;;
-    value_format_name: usd
-  }
+      measure: cost_per_session {
+        group_label: "Google Analytics Metrics"
+        type: number
+        label: "CPS"
+        sql: ${total_spend}/nullif(${total_sessions}, 0) ;;
+        value_format_name: usd
+      }
 
-  measure: total_session_duration {
-    hidden: yes
-    type: sum_distinct
-    label: "Total Session Duration"
-    sql_distinct_key: ${comp_key};;
-    sql: ${sessionduration};;
-  }
+      measure: total_session_duration {
+        hidden: yes
+        type: sum_distinct
+        label: "Total Session Duration"
+        sql_distinct_key: ${comp_key};;
+        sql: ${sessionduration};;
+      }
 
-  measure: avg_time_on_site {
-    group_label: "Google Analytics Metrics"
-    label: "Avg. TOS"
-    type: number
-    sql:  (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400  ;;
-    value_format: "m:ss"
-  }
+      measure: avg_time_on_site {
+        group_label: "Google Analytics Metrics"
+        label: "Avg. TOS"
+        type: number
+        sql:  (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400  ;;
+        value_format: "m:ss"
+      }
 
-  measure: total_pageviews {
-    group_label: "Google Analytics Metrics"
-    type: sum_distinct
-    label: "Pageviews"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${pageviews} ;;
-  }
+      measure: total_pageviews {
+        group_label: "Google Analytics Metrics"
+        type: sum_distinct
+        label: "Pageviews"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${pageviews} ;;
+      }
 
-  measure: pages_per_session {
-    group_label: "Google Analytics Metrics"
-    type: number
-    label: "Pages/Session"
-    sql: ${total_pageviews}/nullif(${total_sessions}, 0) ;;
-    value_format_name: decimal_2
-  }
+      measure: pages_per_session {
+        group_label: "Google Analytics Metrics"
+        type: number
+        label: "Pages/Session"
+        sql: ${total_pageviews}/nullif(${total_sessions}, 0) ;;
+        value_format_name: decimal_2
+      }
 
-  measure: total_bounces {
-    group_label: "Google Analytics Metrics"
-    type: sum_distinct
-    label: "Bounces"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${bounces} ;;
-  }
+      measure: total_bounces {
+        group_label: "Google Analytics Metrics"
+        type: sum_distinct
+        label: "Bounces"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${bounces} ;;
+      }
 
-  measure: total_bounce_rate  {
-    label: "Bounce Rate"
-    group_label: "Google Analytics Metrics"
-    type: number
-    sql: ${total_bounces}/nullif(${total_sessions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: total_bounce_rate  {
+        label: "Bounce Rate"
+        group_label: "Google Analytics Metrics"
+        type: number
+        sql: ${total_bounces}/nullif(${total_sessions}, 0) ;;
+        value_format_name: percent_2
+      }
 
 ## SDT Google Analytics Goals ##
 
-  measure: total_wheel_interactions {
-    group_label: "Google Analytics Goals"
-    type: sum_distinct
-    label: "Wheel Interactions"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${wheel_interactions} ;;
-  }
+      measure: total_wheel_interactions {
+        group_label: "Google Analytics Goals"
+        type: sum_distinct
+        label: "Wheel Interactions"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${wheel_interactions} ;;
+      }
 
-  measure: wheel_interaction_rate  {
-    label: "Wheel Interaction Rate"
-    group_label: "Google Analytics Goals"
-    type: number
-    sql: ${total_wheel_interactions}/nullif(${total_sessions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: wheel_interaction_rate  {
+        label: "Wheel Interaction Rate"
+        group_label: "Google Analytics Goals"
+        type: number
+        sql: ${total_wheel_interactions}/nullif(${total_sessions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_ga_video_starts {
-    group_label: "Google Analytics Goals"
-    type: sum_distinct
-    label: "Video Starts"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${ga_video_starts} ;;
-  }
+      measure: total_ga_video_starts {
+        group_label: "Google Analytics Goals"
+        type: sum_distinct
+        label: "Video Starts"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${ga_video_starts} ;;
+      }
 
-  measure: ga_video_start_rate  {
-    label: "Video Start Rate"
-    group_label: "Google Analytics Goals"
-    type: number
-    sql: ${total_ga_video_starts}/nullif(${total_sessions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: ga_video_start_rate  {
+        label: "Video Start Rate"
+        group_label: "Google Analytics Goals"
+        type: number
+        sql: ${total_ga_video_starts}/nullif(${total_sessions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_newsletter_signups {
-    group_label: "Google Analytics Goals"
-    type: sum_distinct
-    label: "Newsletter Sign-Ups"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${newsletter_sign_up} ;;
-  }
+      measure: total_newsletter_signups {
+        group_label: "Google Analytics Goals"
+        type: sum_distinct
+        label: "Newsletter Sign-Ups"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${newsletter_sign_up} ;;
+      }
 
-  measure: newsletter_signups_rate  {
-    label: "Newsletter Sign-Up Rate"
-    group_label: "Google Analytics Goals"
-    type: number
-    sql: ${total_newsletter_signups}/nullif(${total_sessions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: newsletter_signups_rate  {
+        label: "Newsletter Sign-Up Rate"
+        group_label: "Google Analytics Goals"
+        type: number
+        sql: ${total_newsletter_signups}/nullif(${total_sessions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_tos_above_30s {
-    group_label: "Google Analytics Goals"
-    type: sum_distinct
-    label: "Avg. TOS >30s"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${tos_above_30s} ;;
-  }
+      measure: total_tos_above_30s {
+        group_label: "Google Analytics Goals"
+        type: sum_distinct
+        label: "Avg. TOS >30s"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${tos_above_30s} ;;
+      }
 
-  measure: tos_above_30s_rate  {
-    label: "Avg. TOS >30s Rate"
-    group_label: "Google Analytics Goals"
-    type: number
-    sql: ${total_tos_above_30s}/nullif(${total_sessions}, 0) ;;
-    value_format_name: percent_2
-  }
+      measure: tos_above_30s_rate  {
+        label: "Avg. TOS >30s Rate"
+        group_label: "Google Analytics Goals"
+        type: number
+        sql: ${total_tos_above_30s}/nullif(${total_sessions}, 0) ;;
+        value_format_name: percent_2
+      }
 
-  measure: total_tos_above_120s {
-    group_label: "Google Analytics Goals"
-    type: sum_distinct
-    label: "Avg. TOS >120s"
-    sql_distinct_key: ${comp_key} ;;
-    sql: ${tos_above_30s} ;;
-  }
+      measure: total_tos_above_120s {
+        group_label: "Google Analytics Goals"
+        type: sum_distinct
+        label: "Avg. TOS >120s"
+        sql_distinct_key: ${comp_key} ;;
+        sql: ${tos_above_30s} ;;
+      }
 
-  measure: tos_above_120s_rate  {
-    label: "Avg. TOS >120s Rate"
-    group_label: "Google Analytics Goals"
-    type: number
-    sql: ${total_tos_above_120s}/nullif(${total_sessions}, 0) ;;
-    value_format_name: percent_2
-  }
-}
+      measure: tos_above_120s_rate  {
+        label: "Avg. TOS >120s Rate"
+        group_label: "Google Analytics Goals"
+        type: number
+        sql: ${total_tos_above_120s}/nullif(${total_sessions}, 0) ;;
+        value_format_name: percent_2
+      }
+    }
