@@ -19,3 +19,17 @@ explore: sdt_omnitrak {
   group_label: "San Diego Tourism"
 
 }
+
+explore: sdt_omnitrak_ratings {
+  hidden:  yes
+  view_name: sdt_omnitrak
+  label: "Omnitrak Ratings"
+  view_label: "Ratings"
+  group_label: "San Diego Tourism"
+
+  join: sdt_omnitrak_union {
+    view_label: "Ads Data"
+    sql_on: ${sdt_omnitrak_union.omnitrak_program_creative_key} = ${sdt_omnitrak.omnitrak_key_new} ;;
+    relationship: many_to_one
+  }
+}

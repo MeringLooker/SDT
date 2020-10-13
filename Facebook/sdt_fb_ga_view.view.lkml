@@ -738,8 +738,6 @@ view: sdt_fb_ga_view {
         when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_OBI_WhaleWatching' then 'OBI: Whale Watching (:15)'
         when ${ad_name} = 'SDT_FY20_FamilyContent_Macro_VideoViews_SanDiegoTourismAuthority_15Video_Socks_StarOfIndia' then 'SFTSD: Star of India (:15)'
 
-
-
         when ${ad_name} ilike '%\\_Slideshow\\_LegoLandListicle%' then 'LegoLand Listicle Slideshow'
         when ${ad_name} ilike '%\\_Carousel\\_LegoLandListicle%' then 'LegoLand Listicle Carousel'
         when ${ad_name} ilike '%\\_SingleImage\\_LegoLandListicle%' then 'LegoLand Listicle Single Image'
@@ -877,6 +875,7 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%OBIAfricaRocks15%' then 'OBI: Africa Rocks (:15)'
         when ${ad_name} ilike '%OBISafariPark60%' then 'OBI: Safari Park (:60)'
         when ${ad_name} ilike '%OBICoastalYoga15' then 'OBI: Coastal Yoga (:15)'
+        when ${ad_name} ilike '%OBIMidway15%' then 'OBI: USS Midway (:15)'
 
         when ${ad_name} ilike '%G2GSPicturePerfect60%' then 'G2GS: Picture Perfect Spots (:60)'
         when ${ad_name} ilike '%G2GSBarrioLogan60%' then 'G2GS: Barrio Logan (:60)'
@@ -945,9 +944,9 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_Outdoor_Conversion_LADMA_CoastalHikes_NationalCopy' then 'S7: 7 Star Coastal Hikes'
 
-          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_California_OBIBirchAquarium15_Family' then 'Birch Aquarium (:15)'
-          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_LADMA_OBIBirchAquarium15_Family' then 'Birch Aquarium (:15)'
-          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_PHXTUCDMA_OBIBirchAquarium15_Family' then 'Birch Aquarium (:15)'
+          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_California_OBIBirchAquarium15_Family' then 'OBI: Birch Aquarium (:15)'
+          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_LADMA_OBIBirchAquarium15_Family' then 'OBI: Birch Aquarium (:15)'
+          when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_PHXTUCDMA_OBIBirchAquarium15_Family' then 'OBI: Birch Aquarium (:15)'
 
           when ${ad_name} ilike '%SurferGirl' then 'Surfer Girl Single Image'
           when ${ad_name} ilike '%SurferCoast' then 'Surfer Coast Single Image'

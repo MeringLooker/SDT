@@ -75,6 +75,8 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%\\_970x550' then '970x550'
           when ${placement} ilike '%\\_680x320' then '680x320'
 
+          when ${ad_id} = '476971125' then '728x90'
+
           when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery%' then 'Native_1000x600'
           when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnRecovery%' then 'Video'
 
@@ -1446,6 +1448,20 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Rail_Beach_500x1100%' then 'Beach_500x1100'
           when ${ad} ilike '%Rail_BikePath_500x1100%' then 'BikePath_500x1100'
 
+          when ${creative} ilike '%SDT_COVID-19_V1_300x250%' then 'PlanNow_300x250'
+          when ${creative} ilike '%SDT_COVID-19_V1_728x90%' then 'PlanNow_728x90'
+          when ${ad_id} = '476971125' then 'PlanNow_728x90'
+          when ${creative} ilike '%SDT_COVID-19_V1_300x600%' then 'PlanNow_300x600'
+          when ${creative} ilike '%SDT_COVID-19_V1_160x600%' then 'PlanNow_160x600'
+          when ${creative} ilike '%SDT_COVID-19_V1_300x50%' then 'PlanNow_300x50'
+
+          when ${creative} ilike '%SDT_COVID-19_V2_300x250%' then 'BookHotel_300x250'
+          when ${creative} ilike '%SDT_COVID-19_V2_728x90%' then 'BookHotel_728x90'
+          when ${creative} ilike '%SDT_HICYB_728x90_v2_STATIC%' then 'BookHotel_728x90'
+          when ${creative} ilike '%SDT_COVID-19_V2_300x600%' then 'BookHotel_300x600'
+          when ${creative} ilike '%SDT_COVID-19_V2_160x600%' then 'BookHotel_160x600'
+          when ${creative} ilike '%SDT_COVID-19_V2_300x50%' then 'BookHotel_300x50'
+
           when ${ad} ilike '%Plan Now_300x250%' then 'PlanNow_300x250'
           when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
           when ${ad} ilike '%Plan Now_300x600' then 'PlanNow_300x600'
@@ -1493,6 +1509,22 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Family Variety Seeker_California_RON_Kids-Free_300x250' then 'KidsFree_300x250'
           when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_RON_Plan Now_300x250' then 'PlanNow_300x250'
           when ${placement} ilike 'CONDENAST_SDTAFY21_FallDriveMarketRecovery_Awareness_California_RON_Plan Now_300x600' then 'PlanNow_300x600'
+
+          when ${creative} ilike '%WeekYay_Hotel_300x250%' then 'WeekYay_Hotels_300x250'
+          when ${creative} ilike '%WeekYay_Hotel_728x90%' then 'WeekYay_Hotels_728x90'
+          when ${creative} ilike '%WeekYay_Family_728x90%' then 'WeekYay_Family_728x90'
+          when ${creative} ilike '%WeekYay_Hotel_300x600%' then 'WeekYay_Hotels_300x600'
+          when ${creative} ilike '%WeekYay_Hotel_160x600%' then 'WeekYay_Hotels_160x600'
+          when ${creative} ilike '%WeekYay_Hotels_300x250%' then 'WeekYay_Hotels_300x250'
+          when ${creative} ilike '%WeekYay_Hotels_640x640%' then 'WeekYay_Hotels_640x640'
+
+          when ${creative} ilike '%WeekYay_Family_300x250%' then 'WeekYay_Family_300x250'
+          when ${creative} ilike '%WeekYay_Family_728x90%' then 'WeekYay_Family_728x90'
+          when ${creative} ilike '%WeekYay_Family_300x600%' then 'WeekYay_Family_300x600'
+          when ${creative} ilike '%WeekYay_Family_160x600%' then 'WeekYay_Family_160x600'
+          when ${creative} ilike '%WeekYay_Family_300x250%' then 'WeekYay_Family_300x250'
+          when ${creative} ilike '%WeekYay_Family_640x640%' then 'WeekYay_Family_640x640'
+
 
           when ${ad} ilike '%Surfing_728x90%' then 'Surfing_728x90'
           when ${ad} ilike '%Surfing_300x250%' then 'Surfing_300x250'
@@ -1651,9 +1683,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Kids-Free_640x640%' then 'KidsFree_640x640'
           when ${ad} ilike '%Kids-Free_728x90%' then 'KidsFree_728x90'
 
-          when ${ad} ilike '%WeekYay_Hotel_300x250%' then 'WeekYay_Hotels_300x250'
-          when ${ad} ilike '%WeekYay_Hotels_300x250%' then 'WeekYay_Hotels_300x250'
-          when ${ad} ilike '%WeekYay_Hotels_640x640%' then 'WeekYay_Hotels_640x640'
+
           when ${ad} ilike '%PANDORA_%_Audio_WeekYay_Hotels_:30%' then 'Pandora WeekYay Hotels :30 Audio'
 
             ELSE 'Uncategorized'

@@ -154,10 +154,108 @@ view: sdt_omnitrak_union {
     sql: ${ad_name}||'_'||${ad_id}||'_'||${campaign}||'_'||${publisher}||'_'||${region}||'_'||${creative_name}||'_'||${date} ;;
   }
 
-  dimension: omnitrak_key {
+  dimension: omnitrak_program_key {
     type: string
-    hidden: yes
-    sql: ${creative_campaign}||'_'||${region}||'_'||${month} ;;
+    hidden: no
+    sql: ${program}||'_'||${region}||'_'||${month} ;;
+  }
+
+  dimension: omnitrak_program_creative_key {
+    type: string
+    hidden: no
+    sql: ${program}||'_'||${creative_campaign}||'_'||${region}||'_'||${month} ;;
+  }
+
+  ## Omnitrak Dimensions ##
+
+  dimension: program {
+    type: string
+    label: "Program"
+    group_label: "Omnitrak Research"
+    sql:
+        case
+          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+          when ${creative_name} ilike '%WeekYay%' then 'Week Yay'
+          when ${publisher} = 'Trip Advisor' then 'Trip Advisor'
+          when ${campaign} = 'Always On Content' then 'Content Net'
+          when ${creative_name} ilike '%BookHotel%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%PlanNow%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Book Hotel%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Plan Now%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling'
+
+          when ${creative_name} ilike '%Surfer Coast Pin%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Surfers Single Image%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Surfer Girl Single Image%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Roller Girls Single Image%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Surfer Coast Single Image%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Family Pin%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Drive Market IG Story%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Pandora_750x1400%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Pandora :30 Audio%' then 'Happiness Is Calling'
+
+
+          when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling'
+          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling'
+
+
+          when ${creative_name} ilike '%WeekYay%' then 'Week Yay'
+
+          else 'Uncategorized'
+          end
+        ;;
+  }
+
+  dimension: creative_campaign {
+    type: string
+    label: "Creative Campaign"
+    group_label: "Omnitrak Research"
+    sql:
+        case
+          when ${publisher} = 'Trip Advisor' then 'Trip Advisor'
+          when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
+          when ${creative_name} ilike 'BB:%' then 'Bliss Break'
+          when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'
+          when ${creative_name} ilike 'S7:%' then 'Sunny 7'
+          when ${creative_name} ilike 'G2GS:%' then 'Guides To Good Stuff'
+          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+
+          when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
+          when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
+          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
+
+          else 'Uncategorized'
+          end
+        ;;
+  }
+
+  dimension: omnitrak_region {
+    type: string
+    label: "Omnitrak Region"
+    group_label: "Omnitrak Research"
+    sql:
+        case
+          when ${region} = 'Trip Advisor' then 'Trip Advisor'
+          when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
+          when ${creative_name} ilike 'BB:%' then 'Bliss Break'
+          when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'
+          when ${creative_name} ilike 'S7:%' then 'Sunny 7'
+          when ${creative_name} ilike 'G2GS:%' then 'Guides To Good Stuff'
+          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+
+          when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
+          when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
+          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
+
+          else 'Uncategorized'
+          end
+        ;;
   }
 
 ### All dimensions go below ###
@@ -233,30 +331,6 @@ view: sdt_omnitrak_union {
     sql: ${TABLE}.total_views ;;
   }
 
-  ## Omnitrak Dimensions ##
-
-  dimension: creative_campaign {
-    type: string
-    label: "Creative Campaign"
-    group_label: "Omnitrak Research"
-    sql:
-        case
-          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
-          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
-          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
-          when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
-          when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
-          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
-          when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
-          when ${creative_name} ilike 'BB:%' then 'Bliss Break'
-          when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'
-          when ${creative_name} ilike 'S7:%' then 'Sunny 7'
-          when ${creative_name} ilike 'G2GS:%' then 'Guides To The Good Stuff'
-          else 'Uncategorized'
-          end
-        ;;
-  }
-
   ## Measures ##
 
   measure: total_impressions {
@@ -287,6 +361,4 @@ view: sdt_omnitrak_union {
     value_format_name: usd
     sql: ${cost} ;;
   }
-
-
 }
