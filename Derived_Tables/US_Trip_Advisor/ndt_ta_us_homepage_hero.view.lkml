@@ -22,7 +22,7 @@ view: ndt_ta_us_homepage_hero {
         value: "2019/09/23 to 2020/04/01"
       }
     }
-    datagroup_trigger: sdt_ta_us_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

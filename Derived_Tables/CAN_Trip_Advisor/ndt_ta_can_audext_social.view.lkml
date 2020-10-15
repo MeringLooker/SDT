@@ -18,7 +18,7 @@ view: ndt_ta_can_audext_social {
         value: "2019/11/01 to 2020/02/01"
       }
     }
-    datagroup_trigger: sdt_ta_can_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 

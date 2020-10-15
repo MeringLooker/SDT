@@ -30,7 +30,7 @@ view: ndt_uk_digital_lastminute {
         value: "2020/01/06 to 2020/03/22"
       }
     }
-    datagroup_trigger: sdt_uk_digital_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

@@ -29,65 +29,7 @@ view: pdt_brand_digital_video_hulu {
         value: "2019/08/25 to 2020/03/17"
       }
     }
-    datagroup_trigger: sdt_brand_digital_video_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
-
-  dimension: publisher {
-    type: string
-  }
-
-  dimension: campaign {
-    type: string
-  }
-
-  dimension: market {
-    type: string
-  }
-
-  dimension: region {
-    type: string
-  }
-
-  dimension: audience {
-    type: string
-  }
-
-  dimension: creative_name {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: quarter {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_completes {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
 }

@@ -22,7 +22,7 @@ view: ndt_ta_can_destination_sponsorship {
         value: "2019/11/01 to 2020/04/01"
       }
     }
-    datagroup_trigger: sdt_ta_can_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

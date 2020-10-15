@@ -30,7 +30,7 @@ view: pdt_fam_content_taboola {
         value: "2020/02/03 to 2020/03/14"
       }
     }
-    datagroup_trigger: sdt_fam_content_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

@@ -1,4 +1,4 @@
-view: sdt_omnitrak_union {
+view: sdt_omnitrak_ads {
   derived_table: {
     sql:
         select
@@ -160,17 +160,17 @@ view: sdt_omnitrak_union {
     sql: ${program}||'_'||${region}||'_'||${month} ;;
   }
 
-  dimension: omnitrak_program_creative_key {
+  dimension: omnitrak_creative_key {
     type: string
     hidden: no
-    sql: ${program}||'_'||${creative_campaign}||'_'||${region}||'_'||${month} ;;
+    sql: ${creative_campaign}||'_'||${region}||'_'||${month} ;;
   }
 
   ## Omnitrak Dimensions ##
 
   dimension: program {
     type: string
-    label: "Program"
+    label: "Omnitrak Program"
     group_label: "Omnitrak Research"
     sql:
         case
@@ -196,21 +196,18 @@ view: sdt_omnitrak_union {
           when ${creative_name} ilike '%Pandora_750x1400%' then 'Happiness Is Calling'
           when ${creative_name} ilike '%Pandora :30 Audio%' then 'Happiness Is Calling'
 
-
           when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling'
           when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling'
-
-
           when ${creative_name} ilike '%WeekYay%' then 'Week Yay'
 
-          else 'Uncategorized'
+          else null
           end
         ;;
   }
 
   dimension: creative_campaign {
     type: string
-    label: "Creative Campaign"
+    label: "Omnitrak Creative"
     group_label: "Omnitrak Research"
     sql:
         case
@@ -228,7 +225,7 @@ view: sdt_omnitrak_union {
           when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
           when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
 
-          else 'Uncategorized'
+          else null
           end
         ;;
   }
@@ -239,46 +236,46 @@ view: sdt_omnitrak_union {
     group_label: "Omnitrak Research"
     sql:
         case
-          when ${region} = 'Trip Advisor' then 'Trip Advisor'
-          when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
-          when ${creative_name} ilike 'BB:%' then 'Bliss Break'
-          when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'
-          when ${creative_name} ilike 'S7:%' then 'Sunny 7'
-          when ${creative_name} ilike 'G2GS:%' then 'Guides To Good Stuff'
-          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
-          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
-          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+          when ${region} = 'Phoenix/Tucson' then 'Phoenix'
+          when ${region} = 'Tucson' then 'Phoenix'
 
-          when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
-          when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
-          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
-
-          else 'Uncategorized'
+          else ${region}
           end
         ;;
+  }
+
+  dimension: omnitrak_publisher {
+    label: "Omnitrak Publisher"
+    type: string
+    group_label: "Omnitrak Research"
+    sql: ${TABLE}.publisher ;;
   }
 
 ### All dimensions go below ###
 
   dimension: campaign {
+    label: "Ad Campaign"
     type: string
     group_label: "Advertising Campaigns"
     sql: ${TABLE}.campaign ;;
   }
 
   dimension: publisher {
+    label: "Ad Publisher"
     type: string
-    group_label: "Omnitrak Research"
+    group_label: "Advertising Campaigns"
     sql: ${TABLE}.publisher ;;
   }
 
   dimension: region {
+    label: "Ad Region"
     type: string
-    group_label: "Omnitrak Research"
+    group_label: "Advertising Campaigns"
     sql: ${TABLE}.region ;;
   }
 
   dimension: creative_name {
+    label: "Ad Creative"
     type: string
     group_label: "Advertising Campaigns"
     sql: ${TABLE}.creative_name ;;
@@ -293,11 +290,12 @@ view: sdt_omnitrak_union {
   dimension: ad_name {
     type: string
     group_label: "Advertising Campaigns"
-    hidden: no
+    hidden: yes
     sql: ${TABLE}.ad_name ;;
   }
 
   dimension: date {
+    hidden: yes
     type: date
     sql: ${TABLE}.date ;;
   }

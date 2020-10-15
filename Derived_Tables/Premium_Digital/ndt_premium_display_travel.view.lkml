@@ -32,7 +32,7 @@ view: ndt_premium_display_travel {
         value: "2020/02/03 to 2020/03/14"
       }
     }
-    datagroup_trigger: sdt_premium_digital_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

@@ -26,7 +26,7 @@ view: pdt_locals_gdn {
         value: "2020/07/06 to 2020/10/05"
       }
     }
-    datagroup_trigger: sdt_locals_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

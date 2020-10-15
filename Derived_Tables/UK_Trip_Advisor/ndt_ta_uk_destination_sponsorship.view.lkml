@@ -22,53 +22,7 @@ view: ndt_ta_uk_destination_sponsorship {
         value: "2019/07/01 to 2020/04/01"
       }
     }
-    datagroup_trigger: sdt_ta_uk_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
-
-  dimension: layer {
-    type: string
-  }
-
-  dimension: placement {
-    type: string
-  }
-
-  dimension: date {
-    type: date
-  }
-
-  dimension: week {
-    type: date
-  }
-
-  dimension: month {
-    type: date
-  }
-
-  dimension: total_impressions {
-    type: number
-  }
-
-  dimension: total_clicks {
-    type: number
-  }
-
-  dimension: total_views {
-    type: number
-  }
-
-  dimension: total_completes {
-    type: number
-  }
-
-  dimension: total_cost {
-    type: number
-    value_format_name: usd
-  }
-
-  measure: count {
-    type: count
-  }
-
 }

@@ -29,7 +29,7 @@ view: ndt_us_pullthrough_adara {
         value: "2019/09/16 to 2020/03/14"
       }
     }
-    datagroup_trigger: sdt_us_pullthrough_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

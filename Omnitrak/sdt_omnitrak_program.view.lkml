@@ -1,30 +1,17 @@
-view: sdt_omnitrak {
-  sql_table_name: public.sdt_omnitrak ;;
-  drill_fields: [id]
+view: sdt_omnitrak_program {
+  sql_table_name: public.sdt_omnitrak_program ;;
 
   ### Primary Key ###
 
-  dimension: omnitrak_key_old {
-    hidden: no
+  dimension: omnitrak_program_key {
+    # label: "Omnitrak Key"
+    hidden: yes
     primary_key: yes
     type: string
-    sql: ${TABLE}.omnitrak_key ;;
+    sql:${program}||'_'||${region}||'_'||${month} ;;
   }
 
-  dimension: omnitrak_key_new {
-    # label: "Omnitrak Key"
-    hidden: no
-    type: string
-    sql:${program}||'_'||${creative_campaign}||'_'||${region}||'_'||${month} ;;
-  }
-
-  ## Dimensions Native to This Table ##
-
-  dimension: id {
-    hidden: yes
-    type: string
-    sql: ${TABLE}.id ;;
-  }
+  ## Dimensions for Table ##
 
   dimension_group: __senttime {
     hidden: yes
@@ -62,17 +49,6 @@ view: sdt_omnitrak {
     sql: ${TABLE}.__updatetime ;;
   }
 
-  dimension: creative_campaign {
-    type: string
-    sql: ${TABLE}.creative_campaign ;;
-  }
-
-  dimension: creative_rating {
-    description: "Omnitrak Rating for various Creative Campaigns."
-    type: number
-    sql: ${TABLE}.creative_rating ;;
-  }
-
   dimension: month {
     type: date_month
     sql: ${TABLE}.month ;;
@@ -84,7 +60,7 @@ view: sdt_omnitrak {
   }
 
   dimension: program_rating {
-    description: "Omnitrak Rating for various Programs."
+    hidden: no
     type: number
     sql: ${TABLE}.program_rating ;;
   }
@@ -94,9 +70,13 @@ view: sdt_omnitrak {
     sql: ${TABLE}.region ;;
   }
 
-  measure: count {
-    hidden: yes
-    type: count
-    drill_fields: [id]
+  ## Measures ##
+
+  measure: rating {
+    label: "Program Rating"
+    description: "Omnitrak Rating for various Creative Campaigns."
+    type: sum_distinct
+    sql_distinct_key: ${omnitrak_program_key} ;;
+    sql: ${TABLE}.program_rating ;;
   }
 }

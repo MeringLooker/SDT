@@ -31,7 +31,7 @@ view: pdt_fy21_drivemarket_cbs {
         value: "2020/07/27 to 2020/11/16"
       }
     }
-    datagroup_trigger: sdt_falldrivemarket_datagroup
+    datagroup_trigger: 24hour_cache
     distribution_style: all
   }
 }

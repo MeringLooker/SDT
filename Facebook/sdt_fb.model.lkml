@@ -1,9 +1,9 @@
 connection: "mc_panoply"
 
-include: "/Facebook/**/*.view"
-include: "/Google_Analytics/**/*.view"
+# include: "/Facebook/**/*.view"
+# include: "/Google_Analytics/**/*.view"
 
-explore: sdt_fb_extended {
-  extends: [sdt_fb]
-  hidden: no
-}
+# explore: sdt_fb_extended {
+#   extends: [sdt_fb]
+#   hidden: no
+# }

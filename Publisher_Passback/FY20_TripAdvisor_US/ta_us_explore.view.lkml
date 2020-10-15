@@ -8,13 +8,6 @@ explore: sdt_fy20_ta_us_audext_social {
   group_label: "San Diego Tourism"
 }
 
-explore: sdt_fy20_ta_us_content_hub {
-  hidden: yes
-  label: "TripAdvisor US - Content Hub"
-  view_label: "TripAdvisor - Content Hub"
-  group_label: "San Diego Tourism"
-}
-
 explore: sdt_fy20_ta_us_lure {
   hidden: yes
   label: "TripAdvisor - Lure"
