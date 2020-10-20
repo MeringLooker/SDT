@@ -14,7 +14,6 @@ view: pdt_brand_digital_video_campaign {
         select * from ${pdt_brand_digital_video_amobee.SQL_TABLE_NAME}
         union
         select * from ${pdt_brand_digital_video_abc.SQL_TABLE_NAME}
-
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all

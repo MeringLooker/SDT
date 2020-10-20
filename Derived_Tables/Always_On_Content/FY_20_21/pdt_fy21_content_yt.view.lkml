@@ -29,7 +29,7 @@ view: pdt_fy21_content_yt {
         value: "2020/07/27 to 2020/12/24"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

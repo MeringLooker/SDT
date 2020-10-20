@@ -33,7 +33,7 @@ view: pdt_content_stackadapt {
         value: "2019/09/16 to 2020/03/17"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

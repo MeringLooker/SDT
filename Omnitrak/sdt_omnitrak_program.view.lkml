@@ -78,5 +78,6 @@ view: sdt_omnitrak_program {
     type: sum_distinct
     sql_distinct_key: ${omnitrak_program_key} ;;
     sql: ${TABLE}.program_rating ;;
+    value_format_name: decimal_1
   }
 }

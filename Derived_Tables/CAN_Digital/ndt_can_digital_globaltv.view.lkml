@@ -30,7 +30,7 @@ view: ndt_can_digital_globaltv {
         value: "2019/11/04 to 2020/03/13"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

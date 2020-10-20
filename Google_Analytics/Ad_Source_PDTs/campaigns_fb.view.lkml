@@ -5,7 +5,7 @@ view: campaigns_fb {
       column: publisher {field: sdt_fb_ga_view.publisher}
       column: ad_id {field: sdt_fb_ga_view.ad_id}
     }
-    datagroup_trigger: sdt_ga_datagroup
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

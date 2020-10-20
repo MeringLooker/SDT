@@ -5,7 +5,7 @@ view: campaigns_yt {
       column: publisher {field: sdt_yt_ga_view.publisher}
       column: ad_id {field: sdt_yt_ga_view.ad_group_id}
     }
-    datagroup_trigger: sdt_ga_datagroup
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

@@ -22,7 +22,7 @@ view: ndt_ta_us_video_banners {
         value: "2019/09/23 to 2020/04/01"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

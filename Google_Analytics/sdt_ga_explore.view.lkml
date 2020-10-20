@@ -5,10 +5,10 @@ include: "/DCM/*.view"
 include: "/AdWords/*.view"
 include: "/Pinterest/*.view"
 
-datagroup: sdt_ga_datagroup {
-  sql_trigger: SELECT current_date;;
-  max_cache_age: "24 hours"
-}
+# datagroup: sdt_ga_datagroup {
+#   sql_trigger: SELECT current_date;;
+#   max_cache_age: "24 hours"
+# }
 
 explore: sdt_ga {
   hidden:  yes

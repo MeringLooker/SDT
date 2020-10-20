@@ -21,7 +21,7 @@ view: ndt_us_pullthrough_adroll_offline {
         value: "2019/09/16 to 2020/03/14"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

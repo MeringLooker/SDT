@@ -31,7 +31,7 @@ view: pdt_fy21_pullthrough_expedia_pub {
         value: "2020/07/27 to 2021/01/04"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

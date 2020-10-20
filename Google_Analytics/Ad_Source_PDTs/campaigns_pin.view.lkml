@@ -5,7 +5,7 @@ view: campaigns_pin {
       column: publisher {field: sdt_pinterest_ga_view.publisher}
       column: ad_id {field: sdt_pinterest_ga_view.promoted_pin_id}
     }
-    datagroup_trigger: sdt_ga_datagroup
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

@@ -9,9 +9,15 @@ include: "/Omnitrak/**/*.view"
 include: "/Pinterest/**/*.view"
 include: "/TrueView/**/*.view"
 
+datagroup: sdt_default_datagroup {
+  sql_trigger: SELECT current_date;;
+  max_cache_age: "24 hours"
+}
+
 ## Google Display ##
 
 explore: sdt_gdn_extended {
+  persist_with: sdt_default_datagroup
   hidden: no
   extends: [sdt_gdn]
 }
@@ -19,6 +25,7 @@ explore: sdt_gdn_extended {
 ## Google Search ##
 
 explore: sdt_sem_extended {
+  persist_with: sdt_default_datagroup
   hidden: no
   extends: [sdt_sem]
 }
@@ -26,6 +33,7 @@ explore: sdt_sem_extended {
 ## DoubleClick ##
 
 explore: sdt_dcm_extended {
+  persist_with: sdt_default_datagroup
   extends: [sdt_dcm]
   hidden: no
 }
@@ -33,6 +41,7 @@ explore: sdt_dcm_extended {
 ## Facebook Ads ##
 
 explore: sdt_fb_extended {
+  persist_with: sdt_default_datagroup
   extends: [sdt_fb]
   hidden: no
 }
@@ -40,6 +49,7 @@ explore: sdt_fb_extended {
 ## Google Analytics ##
 
 explore: sdt_ga_extended {
+  persist_with: sdt_default_datagroup
   hidden: no
   extends: [sdt_ga]
 }
@@ -47,6 +57,7 @@ explore: sdt_ga_extended {
 ## Pinterest Ads ##
 
 explore: sdt_pinterest_extended {
+  persist_with: sdt_default_datagroup
   extends: [sdt_pinterest]
   hidden: no
 }
@@ -54,6 +65,7 @@ explore: sdt_pinterest_extended {
 ## YouTube TrueView ##
 
 explore: sdt_yt_extended {
+  persist_with: sdt_default_datagroup
   extends: [sdt_yt]
   hidden: no
 }
@@ -61,6 +73,7 @@ explore: sdt_yt_extended {
 ## TripAdvisor Destination Sponsorship ##
 
 explore: sdt_ta_dest_spon_elements {
+  persist_with: sdt_default_datagroup
   hidden: yes
   view_label: "Elements Overview"
   label: "TripAdvisor Destination Sponsorship"
@@ -84,6 +97,7 @@ explore: sdt_ta_dest_spon_elements {
 ## TripAdvisor UK Content Hub ##
 
 explore: sdt_fy20_ta_uk_content_hub {
+  persist_with: sdt_default_datagroup
   hidden: yes
   label: "TripAdvisor UK - Content Hub"
   view_label: "TripAdvisor - Content Hub"
@@ -93,6 +107,7 @@ explore: sdt_fy20_ta_uk_content_hub {
 ## TripAdvisor CAN Content Hub ##
 
 explore: sdt_fy20_ta_can_content_hub {
+  persist_with: sdt_default_datagroup
   hidden: yes
   label: "TripAdvisor CAN - Content Hub"
   view_label: "TripAdvisor - Content Hub"
@@ -102,6 +117,7 @@ explore: sdt_fy20_ta_can_content_hub {
 ## TripAdvisor US Content Hub ##
 
 explore: sdt_fy20_ta_us_content_hub {
+  persist_with: sdt_default_datagroup
   hidden: yes
   label: "TripAdvisor US - Content Hub"
   view_label: "TripAdvisor - Content Hub"

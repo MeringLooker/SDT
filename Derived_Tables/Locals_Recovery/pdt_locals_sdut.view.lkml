@@ -30,7 +30,7 @@ view: pdt_locals_sdut {
         value: "2020/07/06 to 2020/10/05"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

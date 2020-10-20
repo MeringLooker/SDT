@@ -26,7 +26,7 @@ view: ndt_uk_digital_fb {
         value: "2020/01/06 to 2020/03/22"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }

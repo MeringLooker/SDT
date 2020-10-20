@@ -80,6 +80,7 @@ view: sdt_omnitrak_creative {
     type: sum_distinct
     sql_distinct_key: ${omnitrak_creative_key} ;;
     sql: ${TABLE}.creative_rating ;;
+    value_format_name: decimal_1
   }
 
 

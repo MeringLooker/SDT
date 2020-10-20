@@ -217,13 +217,37 @@ view: sdt_omnitrak_ads {
           when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'
           when ${creative_name} ilike 'S7:%' then 'Sunny 7'
           when ${creative_name} ilike 'G2GS:%' then 'Guides To Good Stuff'
-          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
-          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
-          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+          when ${creative_name} ilike 'Socks:%' then 'Stories From The Sock Drawer'
+          when ${creative_name} ilike 'WC:%' then 'Website Content'
+
+          when ${program} = 'Happiness Is Calling' and ${publisher} = 'Meredith' then 'Happiness Is Calling Digital'
+          when ${program} = 'Happiness Is Calling' and ${publisher} = 'Condé Nast' then 'Happiness Is Calling Digital'
+          when ${publisher} = 'Facebook' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Digital'
+
+          when ${publisher} = 'Pinterest' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
+          when ${publisher} = 'Pinterest' and ${program} = 'Kids Free' then 'Kids Free Digital'
+          when ${publisher} = 'Facebook' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
+          when ${publisher} = 'Facebook' and ${program} = 'Kids Free' then 'Kids Free Digital'
+
+          when ${publisher} = 'CBS' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
+          when ${publisher} = 'ABC' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
+          when ${publisher} = 'Spot X' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
+          when ${publisher} = 'NBC' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
+          when ${publisher} = 'Hulu' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
+
+
+          when ${publisher} = 'CBS' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
+          when ${publisher} = 'ABC' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
+          when ${publisher} = 'Spot X' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
+          when ${publisher} = 'NBC' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
+          when ${publisher} = 'Hulu' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
 
           when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
           when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
           when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
+          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
 
           else null
           end

@@ -29,7 +29,7 @@ view: pdt_brand_digital_video_cbs {
         value: "2019/08/25 to 2020/03/17"
       }
     }
-    datagroup_trigger: 24hour_cache
+    datagroup_trigger: sdt_default_datagroup
     distribution_style: all
   }
 }
