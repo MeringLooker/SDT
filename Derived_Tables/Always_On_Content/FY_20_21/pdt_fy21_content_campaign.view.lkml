@@ -286,7 +286,7 @@ view: pdt_fy21_content_campaign {
 
   measure: total_session_duration {
     type: sum_distinct
-    hidden: yes
+    hidden: no
     sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
   }
@@ -296,5 +296,11 @@ view: pdt_fy21_content_campaign {
     type: number
     sql: (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400 ;;
     value_format: "m:ss"
+  }
+
+  measure: avg_session_duration_2 {
+    label: "Avg. TOS (v2)"
+    type: number
+    sql: ((${total_session_duration}::numeric(19,6))/nullif(${total_sessions}, 0))::float/86400 ;;
   }
 }

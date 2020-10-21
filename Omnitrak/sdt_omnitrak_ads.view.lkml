@@ -6,6 +6,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -20,6 +21,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -34,6 +36,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -48,6 +51,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -62,6 +66,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -76,6 +81,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -90,6 +96,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -104,6 +111,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -118,6 +126,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -132,6 +141,7 @@ view: sdt_omnitrak_ads {
         ad_name,
         date,
         campaign,
+        placement,
         publisher,
         region,
         creative_name,
@@ -151,7 +161,7 @@ view: sdt_omnitrak_ads {
     type: string
     hidden: yes
     primary_key: yes
-    sql: ${ad_name}||'_'||${ad_id}||'_'||${campaign}||'_'||${publisher}||'_'||${region}||'_'||${creative_name}||'_'||${date} ;;
+    sql: ${ad_name}||'_'||${ad_id}||'_'||${campaign}||'_'||${publisher}||'_'||${placement}||'_'||${region}||'_'||${creative_name}||'_'||${date} ;;
   }
 
   dimension: omnitrak_program_key {
@@ -195,6 +205,8 @@ view: sdt_omnitrak_ads {
           when ${creative_name} ilike '%Drive Market IG Story%' then 'Happiness Is Calling'
           when ${creative_name} ilike '%Pandora_750x1400%' then 'Happiness Is Calling'
           when ${creative_name} ilike '%Pandora :30 Audio%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%High Impact Halo%' then 'Happiness Is Calling'
+          when ${creative_name} ilike '%Desktop_Portrait%' then 'Happiness Is Calling'
 
           when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling'
           when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling'
@@ -219,6 +231,7 @@ view: sdt_omnitrak_ads {
           when ${creative_name} ilike 'G2GS:%' then 'Guides To Good Stuff'
           when ${creative_name} ilike 'Socks:%' then 'Stories From The Sock Drawer'
           when ${creative_name} ilike 'WC:%' then 'Website Content'
+          when ${creative_name} ilike 'Nano Traffic%' then 'Website Content'
 
           when ${program} = 'Happiness Is Calling' and ${publisher} = 'Meredith' then 'Happiness Is Calling Digital'
           when ${program} = 'Happiness Is Calling' and ${publisher} = 'Condé Nast' then 'Happiness Is Calling Digital'
@@ -234,20 +247,22 @@ view: sdt_omnitrak_ads {
           when ${publisher} = 'Spot X' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
           when ${publisher} = 'NBC' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
           when ${publisher} = 'Hulu' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
-
-
           when ${publisher} = 'CBS' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${publisher} = 'ABC' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${publisher} = 'Spot X' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${publisher} = 'NBC' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${publisher} = 'Hulu' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
-
-          when ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling You Back'
-          when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
-          when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling You Back'
-          when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
-          when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
-          when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+          when ${placement} = 'Spotify :30 Audio' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Radio'
+          when ${placement} = 'Spotify :30 Audio' and ${program} = 'Kids Free' then 'Kids Free Radio'
+          when ${placement} = 'Pandora :30 Audio' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Radio'
+          when ${placement} = 'Pandora :30 Audio' and ${program} = 'Kids Free' then 'Kids Free Radio'
+          when ${placement} = 'Spotify Video Sponsored Session' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Video'
+          when ${placement} = 'Spotify Video Sponsored Session' and ${program} = 'Kids Free' then 'Kids Free Video'
+          when ${placement} = 'Pandora AV Display' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
+          when ${placement} = 'Pandora AV Display' and ${program} = 'Kids Free' then 'Kids Free Digital'
+          when ${placement} = 'Pandora Audio Companion Banner' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
+          when ${placement} = 'Pandora Audio Companion Banner' and ${program} = 'Kids Free' then 'Kids Free Digital'
+          when ${placement} ilike 'Pandora Mobile Interstitial Display' then 'Happiness Is Calling Digital'
 
           else null
           end
@@ -289,6 +304,13 @@ view: sdt_omnitrak_ads {
     type: string
     group_label: "Advertising Campaigns"
     sql: ${TABLE}.publisher ;;
+  }
+
+  dimension: placement {
+    label: "Ad Placement"
+    type: string
+    group_label: "Advertising Campaigns"
+    sql: ${TABLE}.placement ;;
   }
 
   dimension: region {

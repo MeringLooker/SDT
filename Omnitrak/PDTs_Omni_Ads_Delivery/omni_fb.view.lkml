@@ -5,6 +5,7 @@ view: omni_fb {
       column: ad_name {field: sdt_fb_ga_view.ad_name}
       column: date {field: sdt_fb_ga_view.date_start_date}
       column: campaign {field: sdt_fb_ga_view.sdt_campaign}
+      column: placement {field: sdt_fb_ga_view.sdt_placement}
       column: publisher {field: sdt_fb_ga_view.publisher}
       column: region {field: sdt_fb_ga_view.sdt_region}
       column: creative_name {field: sdt_fb_ga_view.creative_name}

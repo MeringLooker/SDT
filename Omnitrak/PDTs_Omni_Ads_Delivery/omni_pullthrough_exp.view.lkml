@@ -5,6 +5,7 @@ view: omni_pullthrough_exp {
       column: ad_name {field: sdt_fy21_pullthrough_expedia.expedia_line_creative_name}
       column: date {field: sdt_fy21_pullthrough_expedia.date_date}
       column: campaign {field: sdt_fy21_pullthrough_expedia.sdt_campaign}
+      column: placement {field: sdt_fy21_pullthrough_expedia.mering_placement}
       column: publisher {field: sdt_fy21_pullthrough_expedia.publisher}
       column: region {field: sdt_fy21_pullthrough_expedia.sdt_region}
       column: creative_name {field: sdt_fy21_pullthrough_expedia.mering_creative}

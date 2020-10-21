@@ -154,6 +154,63 @@ view: pdt_fy21_pullthrough_campaign {
     sql: ${TABLE}.total_session_duration ;;
   }
 
+  ## Creative dimensions ##
+
+  dimension: creative_set {
+    type: string
+    drill_fields: [placement,creative_name]
+    hidden: no
+    sql: case
+            when ${creative_name} ilike '%KidsFree%' then 'Kids Free'
+            when ${creative_name} ilike '%Kids-Free%' then 'Kids Free'
+            when ${creative_name} ilike '%Kids Free%' then 'Kids Free'
+            when ${creative_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%BookHotel%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%PlanNow%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Book Hotel%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Plan Now%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Sunset%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Surfing%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Family%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Outdoor_v1%' then 'TripAdvisor Outdoor'
+            when ${creative_name} ilike 'Outdoor_v2%' then 'TripAdvisor Outdoor'
+            when ${creative_name} ilike 'ExpediaNativeTile%' and ${date} BETWEEN '2020-07-27' AND '2020-10-13' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'ExpediaNativeTile%' and ${date} BETWEEN '2020-07-27' AND '2021-01-03' then 'WeekYay'
+            when ${creative_name} ilike '%Happiness Is Calling You Back%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%WeekYay%' then 'WeekYay'
+            else 'Uncategorized'
+            end
+      ;;
+  }
+
+  dimension: is_kids_free {
+    label: "Is Kids Free"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Kids Free' ;;
+  }
+
+  dimension: is_hicyb {
+    label: "Is HICYB"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Hapiness Is Calling You Back' ;;
+  }
+
+  dimension: is_weekyay {
+    label: "Is WeekYay"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'WeekYay' ;;
+  }
+
+  dimension: is_ta_outdoor {
+    label: "Is TripAdvisor Outdoor"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Kids Free' ;;
+  }
+
   ## client event dimensions ##
 
   dimension: discover_sd {

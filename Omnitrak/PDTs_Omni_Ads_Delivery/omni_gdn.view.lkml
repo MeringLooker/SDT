@@ -5,6 +5,7 @@ view: omni_gdn {
       column: ad_name {field: sdt_gdn_ga_view.ad_group}
       column: date {field: sdt_gdn_ga_view.day_date}
       column: campaign {field: sdt_gdn_ga_view.sdt_campaign}
+      column: placement {field: sdt_gdn_ga_view.sdt_placement}
       column: publisher {field: sdt_gdn_ga_view.publisher}
       column: region {field: sdt_gdn_ga_view.sdt_region}
       column: creative_name {field: sdt_gdn_ga_view.creative_name}

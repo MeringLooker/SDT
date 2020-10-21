@@ -35,6 +35,10 @@ view: pdt_fy21_pullthrough_sojern {
         value: "Sojern"
       }
       filters: {
+        field: sdt_dcm_ga_view.ad
+        value: "-(not set)"
+      }
+      filters: {
         field: sdt_dcm_ga_view.date_date
         value: "2020/07/27 to 2021/01/04"
       }

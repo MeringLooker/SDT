@@ -5,6 +5,7 @@ view: omni_hulu_drivemarket {
       column: ad_name {field: sdt_fy21_dm_hulu.ad_name}
       column: date {field: sdt_fy21_dm_hulu.date_date}
       column: campaign {field: sdt_fy21_dm_hulu.sdt_campaign}
+      column: placement {field: sdt_fy21_dm_hulu.sdt_placement}
       column: publisher {field: sdt_fy21_dm_hulu.publisher}
       column: region {field: sdt_fy21_dm_hulu.sdt_region}
       column: creative_name {field: sdt_fy21_dm_hulu.creative_name}

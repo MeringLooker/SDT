@@ -5,6 +5,7 @@ view: omni_yt {
       column: ad_name {field: sdt_yt_ga_view.ad_group}
       column: date {field: sdt_yt_ga_view.day_date}
       column: campaign {field: sdt_yt_ga_view.sdt_campaign}
+      column: placement {field: sdt_yt_ga_view.sdt_placement}
       column: publisher {field: sdt_yt_ga_view.publisher}
       column: region {field: sdt_yt_ga_view.sdt_region}
       column: creative_name {field: sdt_yt_ga_view.creative_name}

@@ -967,6 +967,13 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%Stories_California_KidsFree_2' then 'Kids Free IG Story v2'
           when ${ad_name} ilike '%Stories_California_KidsFree_1' then 'Kids Free IG Story v1'
 
+          when ${ad_name} ilike '%Stories_Tucson_Weekyay_Parallax' then 'WeekYay IG Story: Parallax'
+          when ${ad_name} ilike '%Stories_Tucson_Weekyay_Animated' then 'WeekYay IG Story: Animated'
+          when ${ad_name} ilike '%Stories_Phoenix_Weekyay_Parallax' then 'WeekYay IG Story: Parallax'
+          when ${ad_name} ilike '%Stories_Phoenix_Weekyay_Animated' then 'WeekYay IG Story: Animated'
+          when ${ad_name} ilike '%Stories_California_Weekyay_Parallax' then 'WeekYay IG Story: Parallax'
+          when ${ad_name} ilike '%Stories_California_Weekyay_Animated' then 'WeekYay IG Story: Animated'
+
           when ${ad_name} ilike '%_PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
           when ${ad_name} ilike '%_HotelsLandingPage' then 'Nano Traffic: Hotels LP'
           when ${ad_name} ilike '%_LASpecificLandingPage' then 'Nano Traffic: LA-Specific LP'

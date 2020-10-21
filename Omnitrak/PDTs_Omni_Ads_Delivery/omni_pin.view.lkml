@@ -5,6 +5,7 @@ view: omni_pin {
       column: ad_name {field: sdt_pinterest_ga_view.promoted_pin_name}
       column: date {field: sdt_pinterest_ga_view.date_date}
       column: campaign {field: sdt_pinterest_ga_view.sdt_campaign}
+      column: placement {field: sdt_pinterest_ga_view.sdt_placement}
       column: publisher {field: sdt_pinterest_ga_view.publisher}
       column: region {field: sdt_pinterest_ga_view.sdt_region}
       column: creative_name {field: sdt_pinterest_ga_view.creative_name}

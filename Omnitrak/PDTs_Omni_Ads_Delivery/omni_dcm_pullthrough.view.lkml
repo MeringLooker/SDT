@@ -5,6 +5,7 @@ view: omni_dcm_pullthrough {
       column: ad_name {field: sdt_dcm_ga_view.ad}
       column: date {field: sdt_dcm_ga_view.date_date}
       column: campaign {field: sdt_dcm_ga_view.sdt_campaign}
+      column: placement {field: sdt_dcm_ga_view.sdt_placement}
       column: publisher {field: sdt_dcm_ga_view.publisher}
       column: region {field: sdt_dcm_ga_view.sdt_region}
       column: creative_name {field: sdt_dcm_ga_view.creative_name}
