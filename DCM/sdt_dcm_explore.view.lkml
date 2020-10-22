@@ -9,6 +9,13 @@ explore: sdt_dcm {
   view_label: "DoubleClick"
   group_label: "San Diego Tourism"
 
+  # join: sojern_pt_test_view {
+  #   view_label: "FY21 Sojern PT Passback"
+  #   type: inner
+  #   sql_on: ${sdt_dcm_ga_view.passback_join_placement_name} = ${sojern_pt_test_view.dcm_join_id} ;;
+  #   relationship: many_to_one
+  # }
+
   join: sdt_fy21_locals_view {
     view_label: "FY21 Locals Recovery Passback"
     type: inner

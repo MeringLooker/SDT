@@ -12,3 +12,10 @@ explore: sdt_fy21_pullthrough_expedia {
       relationship: many_to_one
     }
 }
+
+# explore: sojern_pt_test_view {
+#   hidden: no
+#   label: "Sojern 1P Reporting"
+#   view_label: "Ads"
+#   group_label: "San Diego Tourism"
+# }
