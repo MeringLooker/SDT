@@ -18,19 +18,19 @@ explore: sdt_omnitrak {
   view_label: "Ads Delivery"
   group_label: "San Diego Tourism"
 
-  join: sdt_omnitrak_program {
-    view_label: "Program Ratings"
-    sql_on:  ${sdt_omnitrak_program.omnitrak_program_key} = ${sdt_omnitrak_ads.omnitrak_program_key};;
-    relationship: one_to_many
-    type: inner
-  }
+  # join: sdt_omnitrak_program {
+  #   view_label: "Program Ratings"
+  #   sql_on:  ${sdt_omnitrak_program.omnitrak_program_key} = ${sdt_omnitrak_ads.omnitrak_program_key};;
+  #   relationship: one_to_many
+  #   type: inner
+  # }
 
-  join: sdt_omnitrak_creative {
-    view_label: "Creative Ratings"
-    sql_on:  ${sdt_omnitrak_creative.omnitrak_creative_key} = ${sdt_omnitrak_ads.omnitrak_creative_key};;
-    relationship: one_to_many
-    type: inner
-  }
+  # join: sdt_omnitrak_creative {
+  #   view_label: "Creative Ratings"
+  #   sql_on:  ${sdt_omnitrak_creative.omnitrak_creative_key} = ${sdt_omnitrak_ads.omnitrak_creative_key};;
+  #   relationship: one_to_many
+  #   type: inner
+  # }
 
 }
 
