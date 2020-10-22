@@ -166,13 +166,13 @@ view: sdt_omnitrak_ads {
 
   dimension: omnitrak_program_key {
     type: string
-    hidden: no
+    hidden: yes
     sql: ${program}||'_'||${region}||'_'||${month} ;;
   }
 
   dimension: omnitrak_creative_key {
     type: string
-    hidden: no
+    hidden: yes
     sql: ${creative_campaign}||'_'||${region}||'_'||${month} ;;
   }
 
