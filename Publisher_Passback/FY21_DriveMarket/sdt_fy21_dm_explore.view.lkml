@@ -13,5 +13,4 @@ explore: sdt_fy21_dm_hulu {
     fields: []
     relationship: one_to_one
   }
-
 }
