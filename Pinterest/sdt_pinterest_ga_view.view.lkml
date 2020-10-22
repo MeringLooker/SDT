@@ -433,7 +433,7 @@ view: sdt_pinterest_ga_view {
           when ${promoted_pin_name} ilike '%FY21_SDT_DriveMarket_Traffic_StandardPins_California_Family' then 'Family Pin'
 
           when ${promoted_pin_name} ilike '%Weekyay_HomeSchool' then 'WeekYay: HomeSchool Pin'
-          when ${promoted_pin_name} ilike '%Weekyay_OutdoorDining' then 'WeekYa:y Outdoor Dining Pin'
+          when ${promoted_pin_name} ilike '%Weekyay_OutdoorDining' then 'WeekYay: Outdoor Dining Pin'
           when ${promoted_pin_name} ilike '%Weekyay_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Pin'
           when ${promoted_pin_name} ilike '%Weekyay_LessCrowds' then 'WeekYay: Less Crowds Pin'
           when ${promoted_pin_name} ilike '%Weekyay_LowerRateActivity' then 'WeekYay: Lower Rate Activity Pin'

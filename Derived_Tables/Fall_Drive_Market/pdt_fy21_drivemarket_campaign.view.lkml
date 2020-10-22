@@ -193,7 +193,7 @@ view: pdt_fy21_drivemarket_campaign {
     label: "Is HICYB"
     type: yesno
     hidden: no
-    sql: ${creative_set} = 'Hapiness Is Calling You Back' ;;
+    sql: ${creative_set} = 'Happiness Is Calling You Back' ;;
   }
 
   dimension: is_weekyay {
