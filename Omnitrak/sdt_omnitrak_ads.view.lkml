@@ -285,6 +285,7 @@ view: sdt_omnitrak_ads {
 
   dimension: omnitrak_publisher {
     label: "Omnitrak Publisher"
+    hidden: yes
     type: string
     group_label: "Omnitrak Research"
     sql: ${TABLE}.publisher ;;
