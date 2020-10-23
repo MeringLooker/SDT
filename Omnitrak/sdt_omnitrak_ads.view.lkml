@@ -235,6 +235,8 @@ view: sdt_omnitrak_ads {
 
           when ${program} = 'Happiness Is Calling' and ${publisher} = 'Meredith' then 'Happiness Is Calling Digital'
           when ${program} = 'Happiness Is Calling' and ${publisher} = 'Condé Nast' then 'Happiness Is Calling Digital'
+          when ${program} = 'Kids Free' and ${publisher} = 'Meredith' then 'Kids Free Digital'
+          when ${program} = 'Kids Free' and ${publisher} = 'Condé Nast' then 'Kids Free Digital'
           when ${publisher} = 'Facebook' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Digital'
           when ${publisher} = 'Facebook' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Digital'
 
