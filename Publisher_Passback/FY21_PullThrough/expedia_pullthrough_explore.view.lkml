@@ -13,9 +13,9 @@ explore: sdt_fy21_pullthrough_expedia {
     }
 }
 
-# explore: sojern_pt_test_view {
-#   hidden: no
-#   label: "Sojern 1P Reporting"
-#   view_label: "Ads"
-#   group_label: "San Diego Tourism"
-# }
+explore: sdt_fy21_pt_priceline_bookings {
+  hidden: yes
+  label: "Priceline FY21 US PullThrough"
+  view_label: "Bookings"
+  group_label: "San Diego Tourism"
+}

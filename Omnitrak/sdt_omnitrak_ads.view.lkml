@@ -236,11 +236,14 @@ view: sdt_omnitrak_ads {
           when ${program} = 'Happiness Is Calling' and ${publisher} = 'Meredith' then 'Happiness Is Calling Digital'
           when ${program} = 'Happiness Is Calling' and ${publisher} = 'Condé Nast' then 'Happiness Is Calling Digital'
           when ${publisher} = 'Facebook' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Digital'
+          when ${publisher} = 'Facebook' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Digital'
 
           when ${publisher} = 'Pinterest' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
           when ${publisher} = 'Pinterest' and ${program} = 'Kids Free' then 'Kids Free Digital'
+          when ${publisher} = 'Pinterest' and ${program} = 'Week Yay' then 'WeekYay Digital'
           when ${publisher} = 'Facebook' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
           when ${publisher} = 'Facebook' and ${program} = 'Kids Free' then 'Kids Free Digital'
+          when ${publisher} = 'Facebook' and ${program} = 'Week Yay' then 'WeekYay Digital'
 
           when ${publisher} = 'CBS' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
           when ${publisher} = 'ABC' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
@@ -254,8 +257,10 @@ view: sdt_omnitrak_ads {
           when ${publisher} = 'Hulu' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${placement} = 'Spotify :30 Audio' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Radio'
           when ${placement} = 'Spotify :30 Audio' and ${program} = 'Kids Free' then 'Kids Free Radio'
+          when ${placement} = 'Spotify :30 Audio' and ${program} = 'Week Yay' then 'WeekYay Radio'
           when ${placement} = 'Pandora :30 Audio' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Radio'
           when ${placement} = 'Pandora :30 Audio' and ${program} = 'Kids Free' then 'Kids Free Radio'
+          when ${placement} = 'Pandora :30 Audio' and ${program} = 'Week Yay' then 'WeekYay Radio'
           when ${placement} = 'Spotify Video Sponsored Session' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Video'
           when ${placement} = 'Spotify Video Sponsored Session' and ${program} = 'Kids Free' then 'Kids Free Video'
           when ${placement} = 'Pandora AV Display' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
@@ -263,7 +268,11 @@ view: sdt_omnitrak_ads {
           when ${placement} = 'Pandora Audio Companion Banner' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
           when ${placement} = 'Pandora Audio Companion Banner' and ${program} = 'Kids Free' then 'Kids Free Digital'
           when ${placement} ilike 'Pandora Mobile Interstitial Display' then 'Happiness Is Calling Digital'
-
+          when ${placement} ilike 'Pandora AV Display' and ${program} = 'Week Yay' then 'WeekYay Digital'
+          when ${placement} ilike 'Pandora Audio Companion Banner' and ${program} = 'Week Yay' then 'WeekYay Digital'
+          when ${program} = 'Pandora Audio Companion Banner' and ${program} = 'Week Yay' then 'WeekYay Digital'
+          when ${campaign} = 'US Pull-Through' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
+          when ${campaign} = 'US Pull-Through' and ${program} = 'Week Yay' then 'WeekYay Digital'
           else null
           end
         ;;
