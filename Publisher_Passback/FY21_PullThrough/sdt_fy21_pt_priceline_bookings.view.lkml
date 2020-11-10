@@ -56,7 +56,8 @@ view: sdt_fy21_pt_priceline_bookings {
   dimension: line_item_name {
     label: "Priceline Line Item"
     type: string
-    sql: ${TABLE}.line_item_name ;;
+    sql: REPLACE(${TABLE}.line_item_name, 'PULL THROUGH - ', '' )
+    ;;
   }
 
   dimension: roas {
