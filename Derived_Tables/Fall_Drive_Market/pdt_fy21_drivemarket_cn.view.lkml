@@ -28,7 +28,7 @@ view: pdt_fy21_drivemarket_cn {
       }
       filters: {
         field: sdt_dcm_ga_view.ad
-        value: "-(not set)"
+        value: "-(not set),-%Default Web Ad%"
       }
       filters: {
         field: sdt_dcm_ga_view.date_date
