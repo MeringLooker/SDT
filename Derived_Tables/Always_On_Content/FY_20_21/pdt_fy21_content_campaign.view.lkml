@@ -161,16 +161,16 @@ view: pdt_fy21_content_campaign {
 ### All measures go below ###
 
   measure: total_impressions {
-    type: sum_distinct
+    type: sum
     label: "Impressions"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
-    type: sum_distinct
+    type: sum
     label: "Clicks"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
 
@@ -182,32 +182,32 @@ view: pdt_fy21_content_campaign {
   }
 
   measure: total_views {
-    type: sum_distinct
+    type: sum
     label: "Video Views"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${views} ;;
   }
 
   measure: total_completes {
-    type: sum_distinct
+    type: sum
     label: "Video Completes"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${completes} ;;
     value_format_name: decimal_0
   }
 
   measure: total_cost {
-    type: sum_distinct
+    type: sum
     label: "Media Spend"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
   }
 
   measure: video_impressions {
-    type: sum_distinct
+    type: sum
     hidden: yes
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql:
       case
         when ${views} > 0 then ${impressions}
@@ -245,9 +245,9 @@ view: pdt_fy21_content_campaign {
   }
 
   measure: video_cost {
-    type: sum_distinct
+    type: sum
     hidden: yes
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql:
       case
         when ${views} > 0 then ${cost}
@@ -271,9 +271,9 @@ view: pdt_fy21_content_campaign {
   }
 
   measure: total_sessions {
-    type: sum_distinct
+    type: sum
     label: "Sessions"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
@@ -285,9 +285,9 @@ view: pdt_fy21_content_campaign {
   }
 
   measure: total_session_duration {
-    type: sum_distinct
+    type: sum
     hidden: no
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
   }
 

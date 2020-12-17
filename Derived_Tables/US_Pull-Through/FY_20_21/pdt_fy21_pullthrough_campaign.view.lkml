@@ -252,14 +252,14 @@ view: pdt_fy21_pullthrough_campaign {
 ### All measures go below ###
 
   measure: total_impressions {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
 
@@ -271,23 +271,23 @@ view: pdt_fy21_pullthrough_campaign {
   }
 
   measure: total_cost {
-    type: sum_distinct
+    type: sum
     label: "Total Media Spend"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
   }
 
   measure: total_views {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${views} ;;
     hidden: yes
   }
 
   measure: total_completes {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${completes} ;;
     hidden: yes
   }
@@ -307,8 +307,8 @@ view: pdt_fy21_pullthrough_campaign {
   }
 
   measure: total_sessions {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
@@ -320,8 +320,8 @@ view: pdt_fy21_pullthrough_campaign {
   }
 
   measure: total_session_duration {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
     hidden: yes
   }
@@ -336,58 +336,58 @@ view: pdt_fy21_pullthrough_campaign {
   ### Client Events ###
 
   measure: total_discover_sd {
-    type: sum_distinct
+    type: sum
     label: "Discover SD Boards"
     group_label: "Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${discover_sd} ;;
   }
 
   measure: total_plan_your_vacation {
-    type: sum_distinct
+    type: sum
     label: "Plan Your Vacation"
     group_label: "Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${plan_your_vacation} ;;
   }
 
   measure: total_visitor_planning_guide {
-    type: sum_distinct
+    type: sum
     label: "Visitor Planning Guide"
     group_label: "Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${visitor_planning_guide} ;;
   }
 
   measure: total_staying_in_touch {
-    type: sum_distinct
+    type: sum
     label: "Staying In Touch"
     group_label: "Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${staying_in_touch} ;;
   }
 
   measure: total_hotel_search {
-    type: sum_distinct
+    type: sum
     label: "Hotel Searches"
     group_label: "Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${hotel_search} ;;
   }
 
   measure: total_purchases {
-    type: sum_distinct
+    type: sum
     label: "Purchaes"
     group_label: "Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${purchases} ;;
   }
 
   measure: total_events {
-    type: sum_distinct
+    type: sum
     group_label: "Website Events"
     label: "Total Website Events"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${discover_sd} + ${plan_your_vacation} + ${staying_in_touch} + ${hotel_search} + ${purchases} + ${visitor_planning_guide};;
   }
 

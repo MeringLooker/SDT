@@ -52,6 +52,18 @@ explore: pdt_fy21_pullthrough_campaign {
   view_label: "FY21 US Pull-Through"
   group_label: "San Diego Tourism"
   hidden: no
+
+  # aggregate_table: publisher_by_day_metrics {
+  #   query: {
+  #     dimensions: [publisher, date]
+  #     measures: [avg_session_duration, click_through_rate, cost_per_click, cost_per_session, cost_per_thousand, total_clicks, total_cost, total_events, total_impressions, total_sessions]
+  #   }
+
+  #   materialization: {
+  #     datagroup_trigger: sdt_default_datagroup
+  #   }
+  # }
+
 }
 
 ## FY21 Locals Digital ##

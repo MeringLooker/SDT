@@ -146,16 +146,16 @@ view: pdt_us_sem_campaign {
 ### All measures go below ###
 
   measure: total_impressions {
-    type: sum_distinct
+    type: sum
     label: "Impressions"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
-    type: sum_distinct
+    type: sum
     label: "Clicks"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${clicks} ;;
   }
 
@@ -167,23 +167,23 @@ view: pdt_us_sem_campaign {
   }
 
   measure: total_cost {
-    type: sum_distinct
+    type: sum
     label: "Media Spend"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     value_format_name: usd
     sql: ${cost} ;;
   }
 
   measure: total_views {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${views} ;;
     hidden: yes
   }
 
   measure: total_completes {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${completes} ;;
     hidden: yes
   }
@@ -203,9 +203,9 @@ view: pdt_us_sem_campaign {
   }
 
   measure: total_sessions {
-    type: sum_distinct
+    type: sum
     label: "Sessions"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${sessions} ;;
   }
 
@@ -217,8 +217,8 @@ view: pdt_us_sem_campaign {
   }
 
   measure: total_session_duration {
-    type: sum_distinct
-    sql_distinct_key: ${primary_key} ;;
+    type: sum
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
     hidden: yes
   }
@@ -231,9 +231,9 @@ view: pdt_us_sem_campaign {
   }
 
   measure: total_conversions {
-    type: sum_distinct
+    type: sum
     label: "Conversions"
-    sql_distinct_key: ${primary_key} ;;
+    # sql_distinct_key: ${primary_key} ;;
     sql: ${conversions} ;;
   }
 
