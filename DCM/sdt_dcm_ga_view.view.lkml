@@ -19,6 +19,12 @@ view: sdt_dcm_ga_view {
     sql: ${placement_id}||'_'||${date_date} ;;
   }
 
+  dimension: passback_join_ad_creative {
+    type: string
+    hidden: yes
+    sql: ${ad_id}||'_'||${creative_id}||'_'||${date_date} ;;
+  }
+
   # dimension: passback_join_placement_name { ## placement name + date ALWAYS
   #   type: string
   #   hidden: yes
