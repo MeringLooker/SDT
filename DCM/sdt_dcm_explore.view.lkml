@@ -30,12 +30,12 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
-  join: sdt_fy21_pt_adara {
-    view_label: "FY21 PullThrough Passback (Adara)"
-    type: inner
-    sql_on: ${sdt_dcm_ga_view.passback_join_ad_creative} = ${sdt_fy21_pt_adara.passback_join} ;;
-    relationship: many_to_one
-  }
+  # join: sdt_fy21_pt_adara {
+  #   view_label: "FY21 PullThrough Passback (Adara)"
+  #   type: inner
+  #   sql_on: ${sdt_dcm_ga_view.passback_join_ad_creative} = ${sdt_fy21_pt_adara.passback_join} ;;
+  #   relationship: many_to_one
+  # }
 
   # join: sojern_pt_test_view {
   #   view_label: "FY21 Sojern PT Passback"

@@ -211,44 +211,6 @@ view: pdt_fy21_pullthrough_campaign {
     sql: ${creative_set} = 'Kids Free' ;;
   }
 
-  ## client event dimensions ##
-
-  dimension: discover_sd {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_discover_sd ;;
-  }
-
-  dimension: plan_your_vacation {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_plan_your_vacation ;;
-  }
-
-  dimension: visitor_planning_guide {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_visitor_planning_guide ;;
-  }
-
-  dimension: staying_in_touch {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_staying_in_touch ;;
-  }
-
-  dimension: hotel_search {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_hotel_search ;;
-  }
-
-  dimension: purchases {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.total_purchases ;;
-  }
-
 ### All measures go below ###
 
   measure: total_impressions {
@@ -332,63 +294,4 @@ view: pdt_fy21_pullthrough_campaign {
     sql: (${total_session_duration}/nullif(${total_sessions}, 0))::float/86400 ;;
     value_format: "m:ss"
   }
-
-  ### Client Events ###
-
-  measure: total_discover_sd {
-    type: sum
-    label: "Discover SD Boards"
-    group_label: "Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${discover_sd} ;;
-  }
-
-  measure: total_plan_your_vacation {
-    type: sum
-    label: "Plan Your Vacation"
-    group_label: "Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${plan_your_vacation} ;;
-  }
-
-  measure: total_visitor_planning_guide {
-    type: sum
-    label: "Visitor Planning Guide"
-    group_label: "Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${visitor_planning_guide} ;;
-  }
-
-  measure: total_staying_in_touch {
-    type: sum
-    label: "Staying In Touch"
-    group_label: "Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${staying_in_touch} ;;
-  }
-
-  measure: total_hotel_search {
-    type: sum
-    label: "Hotel Searches"
-    group_label: "Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${hotel_search} ;;
-  }
-
-  measure: total_purchases {
-    type: sum
-    label: "Purchaes"
-    group_label: "Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${purchases} ;;
-  }
-
-  measure: total_events {
-    type: sum
-    group_label: "Website Events"
-    label: "Total Website Events"
-    # sql_distinct_key: ${primary_key} ;;
-    sql: ${discover_sd} + ${plan_your_vacation} + ${staying_in_touch} + ${hotel_search} + ${purchases} + ${visitor_planning_guide};;
-  }
-
 }

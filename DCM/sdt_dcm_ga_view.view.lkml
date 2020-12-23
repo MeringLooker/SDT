@@ -25,6 +25,12 @@ view: sdt_dcm_ga_view {
     sql: ${ad_id}||'_'||${creative_id}||'_'||${date_date} ;;
   }
 
+  dimension: adara_join {
+    type: string
+    hidden: yes
+    sql: ${ad_id}||'_'||${creative_id} ;;
+  }
+
   # dimension: passback_join_placement_name { ## placement name + date ALWAYS
   #   type: string
   #   hidden: yes
@@ -1476,7 +1482,9 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%SDT_HICYB_728x90_v2_STATIC%' then 'BookHotel_728x90'
           when ${creative} ilike '%SDT_COVID-19_V2_300x600%' then 'BookHotel_300x600'
           when ${creative} ilike '%SDT_COVID-19_V2_160x600%' then 'BookHotel_160x600'
+          when ${creative} ilike '%SDT_HICYB_160x600_v2_STATIC%' then 'BookHotel_160x600'
           when ${creative} ilike '%SDT_COVID-19_V2_300x50%' then 'BookHotel_300x50'
+          when ${creative} ilike '%SDT_HICYB_300x250_v2_STATIC%' then 'BookHotel_300x50'
 
           when ${ad} ilike '%Plan Now_300x250%' then 'PlanNow_300x250'
           when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
