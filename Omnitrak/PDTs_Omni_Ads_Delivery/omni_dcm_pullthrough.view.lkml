@@ -23,7 +23,7 @@ view: omni_dcm_pullthrough {
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
-        value: "-Expedia"
+        value: "-Expedia,-Adara"
       }
       filters: {
         field: sdt_dcm_ga_view.ad
