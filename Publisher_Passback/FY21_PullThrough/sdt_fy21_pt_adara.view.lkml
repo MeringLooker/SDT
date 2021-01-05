@@ -7,13 +7,13 @@ view: sdt_fy21_pt_adara {
   dimension: adara_join {
     type: string
     hidden: yes
-    sql: ${ad_id}||'_'||${creative_id} ;;
+    sql: ${placement_id}||'_'||${ad_id}||'_'||${creative_id} ;;
   }
 
   dimension: primary_key {
     type: string
     hidden: yes
-    sql: ${ad_id}||'_'||${creative_id}||'_'||${date_date} ;;
+    sql: ${placement_id}||'_'||${ad_id}||'_'||${creative_id}||'_'||${date_date} ;;
   }
 
   ## Joined from DCM Explore ##
@@ -185,6 +185,13 @@ view: sdt_fy21_pt_adara {
     hidden: yes
     type: number
     sql: ${TABLE}.impressions ;;
+  }
+
+  dimension: placement_id {
+    group_label: "DCM Dimensions"
+    label: "Placement ID"
+    type: number
+    sql: ${TABLE}.placement_id ;;
   }
 
   dimension: sessions {

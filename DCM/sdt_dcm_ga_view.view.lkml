@@ -28,7 +28,7 @@ view: sdt_dcm_ga_view {
   dimension: adara_join {
     type: string
     hidden: yes
-    sql: ${ad_id}||'_'||${creative_id} ;;
+    sql: ${placement_id}||'_'||${ad_id}||'_'||${creative_id} ;;
   }
 
   # dimension: passback_join_placement_name { ## placement name + date ALWAYS
