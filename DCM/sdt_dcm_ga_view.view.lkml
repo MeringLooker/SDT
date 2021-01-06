@@ -335,6 +335,7 @@ view: sdt_dcm_ga_view {
       label: "Campaign Name"
       sql:
         CASE
+          when ${campaign} ilike 'SDT: FY21 Pull-Through%' and ${site_dcm} ilike '%Adara%' then 'US Pull-Through'
           when ${ad_id} = '470013971' then 'Uncategorized'
 
           when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'Fall Drive Market'
