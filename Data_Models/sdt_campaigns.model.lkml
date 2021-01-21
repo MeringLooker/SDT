@@ -68,7 +68,7 @@ explore: pdt_fy21_pullthrough_campaign {
 
 ## FY21 Locals Digital ##
 
-explore: pdt_locals_campaign {
+explore: sdt_fy21_locals_campaign {
   persist_with: sdt_default_datagroup
   label: "FY21 Locals Recovery"
   view_label: "FY21 Locals Recovery"
