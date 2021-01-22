@@ -36,7 +36,7 @@ explore: pdt_us_sem_campaign {
 
 ## FY21 Fall Drive Market ##
 
-explore: pdt_fy21_drivemarket_campaign {
+explore: sdt_fy21_drivemarket_campaign {
   persist_with: sdt_default_datagroup
   label: "FY21 Fall Drive Market"
   view_label: "FY21 Fall Drive Market"
