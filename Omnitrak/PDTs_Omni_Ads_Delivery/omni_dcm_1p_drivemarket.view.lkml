@@ -23,7 +23,7 @@ view: omni_dcm_1p_drivemarket {
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
-        value: "ABC,CBS,NBC,Pandora,Spotify,Spot X,Trip Advisor"
+        value: "ABC,CBS,NBC,Pandora,Spotify,Spot X"
       }
     }
     datagroup_trigger: sdt_omnitrak_datagroup

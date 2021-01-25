@@ -23,7 +23,7 @@ view: omni_dcm_drivemarket {
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
-        value: "Meredith,Condé Nast"
+        value: "Meredith,Condé Nast,Trip Advisor"
       }
       filters: {
         field: sdt_dcm_ga_view.ad
