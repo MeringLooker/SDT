@@ -299,7 +299,7 @@ view: sdt_fy21_case_study {
         case
           when ${campaign} = 'Locals Recovery' then 'Locals Digital'
           when ${publisher} = 'Trip Advisor' then 'Happiness Is Calling Digital'
-          when ${placement} = 'Base WeekYay' then 'Week Yay Digital'
+          when ${placement} = 'Base WeekYay' then 'WeekYay Digital'
           when ${placement} = 'Base Kids Free CA, AZ' then 'Kids Free Digital'
           when ${publisher} = 'Google Search' then 'Happiness Is Calling Digital'
           when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
