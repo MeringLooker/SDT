@@ -10,6 +10,7 @@ include: "/Pinterest/**/*.view"
 include: "/TrueView/**/*.view"
 include: "/Derived_Tables/**/*.view"
 include: "/Campaign_Final/**/*.view"
+include: "/FY21_Case_Study/**/*.view"
 
 datagroup: sdt_default_datagroup {
   sql_trigger: SELECT current_date;;
@@ -22,6 +23,14 @@ explore: sdt_omnitrak_ext {
   persist_with: sdt_default_datagroup
   hidden: no
   extends: [sdt_omnitrak]
+}
+
+## FY21 Creatives Case Study ##
+
+explore: sdt_fy21_case_study_ext {
+  persist_with: sdt_default_datagroup
+  hidden: no
+  extends: [sdt_case_study]
 }
 
 ## FY21 Domestic SEM ##

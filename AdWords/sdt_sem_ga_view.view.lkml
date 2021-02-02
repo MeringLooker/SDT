@@ -59,6 +59,14 @@ view: sdt_sem_ga_view {
         ;;
   }
 
+  dimension: sdt_region {
+    label: "Region"
+    hidden: yes
+    type: string
+    group_label: "Client Dimensions"
+    sql: 'Uncategorized' ;;
+  }
+
   dimension: sdt_layer {
     type: string
     label: "Campaign Layer"
