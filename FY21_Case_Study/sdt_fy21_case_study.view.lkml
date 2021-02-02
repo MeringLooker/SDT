@@ -572,7 +572,8 @@ view: sdt_fy21_case_study {
 
   measure: total_session_duration {
     type: sum_distinct
-    hidden: yes
+    label: "Total Session Duration (s)"
+    hidden: no
     sql_distinct_key: ${primary_key} ;;
     sql: ${session_duration} ;;
   }
