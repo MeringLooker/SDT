@@ -101,6 +101,9 @@ view: sdt_fb_ga_view {
         when ${adset_name} ilike '%Micro_Outdoor_Conversion%' then 'Landscape Image'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'Landscape Image'
 
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Landscape Image'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'Landscape Video'
+
         ELSE 'Uncategorized'
         END
         ;;
@@ -172,6 +175,13 @@ view: sdt_fb_ga_view {
         when ${campaign_name} ilike '%California' then 'California'
         when ${campaign_name} ilike '%Phoenix' then 'Phoenix'
         when ${campaign_name} ilike '%Tucson' then 'Tucson'
+
+        when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_Arizona' then 'Arizona'
+        when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_California' then 'California'
+        when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_LosAngeles' then 'Los Angeles'
+        when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_Arizona' then 'Arizona'
+        when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_California' then 'California'
+        when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_LosAngeles' then 'Los Angeles'
 
         else 'Uncategorized'
         end
@@ -266,6 +276,8 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Display'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Awareness'
 
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Topical Retargeting'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'First Touch Video'
 
         else 'Uncategorized'
         end
@@ -375,6 +387,8 @@ view: sdt_fb_ga_view {
 
         WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Single Image Ads (FB/IG Feeds/Stories, IG Explore, In-Article)'
 
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Topical Retargeting - Single Image'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'First Touch - Video'
 
         else 'Uncategorized'
         end
@@ -387,6 +401,13 @@ view: sdt_fb_ga_view {
     type: string
     sql:
     CASE
+      when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_Arizona' then 'N/A'
+      when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_California' then 'N/A'
+      when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_LosAngeles' then 'N/A'
+      when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_Arizona' then 'N/A'
+      when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_California' then 'N/A'
+      when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_LosAngeles' then 'N/A'
+
       when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'N/A'
       when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Outdoor%' then 'Outdoor'
       when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Neighborhood%' then 'Neighborhood'
@@ -992,6 +1013,23 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Horizontal' then 'Poolside Landscape Single Image'
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Beach_Square' then 'Beach Square Single Image'
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Beach_Horizontal' then 'Beach Landscape Single Image'
+
+          when ${ad_name} ilike '%BlissBreak_PaddleBoard' then 'BB: Paddle Board (:15)'
+          when ${ad_name} ilike '%BlissBreak_Paragliding' then 'BB: Paragliding (:15)'
+          when ${ad_name} ilike '%BlissBreak_BeachForTwo' then 'BB: Beach For Two (:15)'
+          when ${ad_name} ilike '%BlissBreak_SunsetYoga' then 'BB: Sunset Yoga (:15)'
+          when ${ad_name} ilike '%BlissBreak_CoffeeCupCoastal' then 'BB: Coffee Cup Coastal (:15)'
+          when ${ad_name} ilike '%BlissBreak_PaddleBoard' then 'BB: Paddle Board (:15)'
+          when ${ad_name} ilike '%BlissBreak_PaddleBoard' then 'BB: Paddle Board (:15)'
+
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_PlanNow2' then 'Plan Now v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_PlanNow1' then 'Plan Now v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_OutdoorDining2' then 'Outdoor Dining v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_OutdoorDining1' then 'Outdoor Dining v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow1' then 'Book Now v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow2' then 'Book Now v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent1' then 'Safe Traveler Content v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent2' then 'Safe Traveler Content v1 Single Image'
 
         else 'Uncategorized'
         end

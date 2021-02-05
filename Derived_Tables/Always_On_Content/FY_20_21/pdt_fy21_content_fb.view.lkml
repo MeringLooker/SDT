@@ -26,7 +26,7 @@ view: pdt_fy21_content_fb {
       }
       filters: {
         field: sdt_fb_ga_view.date_start_date
-        value: "2020/07/27 to 2020/12/24"
+        value: "2020/07/27 to 2020/12/24, 2021/02/01 to 2021/07/01"
       }
     }
     datagroup_trigger: sdt_default_datagroup
