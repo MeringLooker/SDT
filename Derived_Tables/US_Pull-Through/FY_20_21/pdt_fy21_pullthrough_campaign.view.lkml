@@ -3,6 +3,8 @@ view: pdt_fy21_pullthrough_campaign {
     sql:
           select * from ${pdt_fy21_pullthrough_adara.SQL_TABLE_NAME}
           union
+          select * from ${pdt_fy21_pullthrough_adara_2h_3p.SQL_TABLE_NAME}
+          union
           select * from ${pdt_fy21_pullthrough_sojern.SQL_TABLE_NAME}
           union
           select * from ${pdt_fy21_pullthrough_tripadvisor.SQL_TABLE_NAME}

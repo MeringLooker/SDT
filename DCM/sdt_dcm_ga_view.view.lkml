@@ -157,6 +157,17 @@ view: sdt_dcm_ga_view {
 
           when ${ad} ilike '%SDTA Content Hub Promotional Click Out%' then 'N/A'
 
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_RTGNative%' then 'Native'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_AVNative%' then 'Native'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_Native%' then 'Native'
+
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_%_Native Search Results%' then 'Native'
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_%_Email Marquee%' then 'Email'
+
+          when ${ad_id} = '487962873' then '1200x627'
+          when ${ad_id} = '487681778' then '1200x627'
+          when ${ad_id} = '487707014' then '1200x627'
+
         ELSE 'Uncategorized'
         END;;
     }
@@ -637,6 +648,22 @@ view: sdt_dcm_ga_view {
 
           when ${placement} ilike 'HULU_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P: Parent Watchers_Phoenix_Video_1920x1080_Behavioral' then 'Phoenix'
 
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_California_Display%' then 'California'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_Arizona_Display%' then 'Arizona'
+
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_California,Arizona%' then 'California/Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_Arizona_Display%' then 'Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_California_Display%' then 'California'
+
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_National%' then 'National'
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_California%' then 'California'
+          when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_Arizona%' then 'Arizona'
+
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_California%' then 'California'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_Arizona%' then 'Arizona'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_California%' then 'California'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_Arizona%' then 'Arizona'
+
             ELSE 'Uncategorized'
         END;;
     }
@@ -647,7 +674,7 @@ view: sdt_dcm_ga_view {
       label: "Audience"
       sql:
         case
-                    when ${placement_id} = '252937755' then 'Family'
+          when ${placement_id} = '252937755' then 'Family'
           when ${placement_id} = '252509375' then 'Brand'
           when ${placement_id} = '253217116' then 'Brand'
           when ${placement_id} = '253217146' then 'Family'
@@ -915,6 +942,10 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_Arizona_Active Travel Intenders+Not Booked_OnSiteDisplay%' then 'Priceline OnSite Display'
         when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_Arizona_Active Travel Intenders+Not Booked_EmailDisplay%' then 'Priceline Email Display'
 
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_%_ROS%' then 'Priceline ROS Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_%_Native Search Results%' then 'Priceline Search Results Native Display'
+        when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_%_Email Marquee%' then 'Priceline Email Marquee Display'
+
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Hotels.com_ROS_WesternRegion_SD Intenders_ResponsiveDisplay%' then 'Hotels.com ROS Responsive - SD Intenders'
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Hotels.com_ROS_WesternRegion_SD Intenders_Display%' then 'Hotels.com ROS - SD Intenders'
         when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Intent_Expedia_ROS Search Tiles_California_Travel Intenders_Display%' then 'Expedia ROS Search Tiles - Travel Intenders'
@@ -1087,12 +1118,31 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_TUCSON_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
           when ${placement} ilike '%SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_CALIFORNIA_Video Sponsored Session%' then 'Spotify Video Sponsored Session'
 
-
           when ${placement} ilike '%Travel Intender_OnSiteDisplay%' then 'TripAdvisor OnSite Display'
           when ${placement} ilike 'MEREDITH_SDTAFY21_FallDriveMarketRecovery_Awareness_Variety Seeker_California_Portrait' then 'Portrait Display'
 
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_HHIValueTarget_California_Display%' then 'Display Prospecting (HHI Value Target)'
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_Intent_HHIValueTarget_California_AVDisplay%' then 'AV - Display Prospecting (HHI Value Target)'
+
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display%' then 'Travel Intent Display'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display%' then 'Travel Intent Display'
+
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_%_RTGDisplay%' then 'Display Retargeting'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_%_AVDisplay%' then 'AV Display'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_%_Display%' then 'Display Prospecting'
+
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_RTGDisplay%' then 'Display Retargeting'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_AVDisplay%' then 'AV Display'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_Display%' then 'Display Prospecting'
+
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_RTGNative%' then 'Native Retargeting'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_AVNative%' then 'AV Native'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_Native%' then 'Native Prospecting'
+
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Display%' then 'TripAdvisor ROVE Display'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Display%' then 'TripAdvisor Onsite Display'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Native%' then 'TripAdvisor ROVE Native'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Native%' then 'TripAdvisor Onsite Native'
 
         else 'Uncategorized'
       end;;
@@ -1581,6 +1631,12 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Surfing_468x60%' then 'Surfing_468x60'
           when ${ad} ilike '%Surfing_970x90%' then 'Surfing_970x90'
 
+          when ${creative} = 'SDT_TA_HICYB_Display_Sunset_PlanNow_970x250' then 'Sunset_970x250'
+          when ${creative} = 'SDT_TA_HICYB_Display_Sunset_PlanNow_728x90' then 'Sunset_728x90'
+          when ${creative} = 'SDT_TA_HICYB_Display_Sunset_PlanNow_300x250' then 'Sunset_300x250'
+          when ${creative} = 'SDT_TA_HICYB_Display_Sunset_PlanNow_300x600' then 'Sunset_300x600'
+          when ${creative} = 'SDT_TA_HICYB_Display_Sunset_PlanNow_320x50' then 'Sunset_320x50'
+
           when ${ad} ilike '%Sunset_1320x742%' then 'Sunset_1320x742'
           when ${ad} ilike '%Sunset_680x320%' then 'Sunset_680x320'
           when ${ad} ilike '%Sunset_728x90%' then 'Sunset_728x90'
@@ -1609,8 +1665,40 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%HICYB_728x90%' then 'HICYB_728x90'
           when ${ad} ilike '%HICYB_320x50%' then 'HICYB_320x50'
           when ${ad} ilike '%HICYB_300x600%' then 'HICYB_300x600'
+          when ${ad} ilike '%HICYB_160x600%' then 'HICYB_160x600'
           when ${ad} ilike '%HICYB_300x250%' then 'HICYB_300x250'
           when ${ad} ilike '%HICYB_Native%' then 'HICYB_Native'
+
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_970x250%' then 'HICYB_970x250'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_728x90%' then 'HICYB_728x90'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_320x50%' then 'HICYB_320x50'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_300x600%' then 'HICYB_300x600'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_160x600%' then 'HICYB_160x600'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_300x250%' then 'HICYB_300x250'
+
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display_HICYB_970x250%' then 'HICYB_970x250'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display_HICYB_728x90%' then 'HICYB_728x90'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display_HICYB_320x50%' then 'HICYB_320x50'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display_HICYB_300x600%' then 'HICYB_300x600'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display_HICYB_160x600%' then 'HICYB_160x600'
+          when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_SDTravelIntent_%_Display_HICYB_300x250%' then 'HICYB_300x250'
+
+          when ${ad_id} = '487708200' then 'HICYB_300x600'
+          when ${ad_id} = '487708197' then 'HICYB_300x250'
+          when ${ad_id} = '487708194' then 'HICYB_160x600'
+          when ${ad_id} = '487708188' then 'HICYB_728x90'
+
+          when ${ad_id} = '488171158' then 'WeekYay_1200x627'
+          when ${ad_id} = '488171155' then 'WeekYay_1200x627'
+          when ${ad_id} = '488171152' then 'WeekYay_1200x627'
+
+          when ${ad_id} = '487644664' then 'HICYB_1200x627'
+          when ${ad_id} = '487642576' then 'HICYB_1200x627'
+          when ${ad_id} = '487640377' then 'HICYB_1200x627'
+
+          when ${ad_id} = '487962873' then 'HICYB_1200x627'
+          when ${ad_id} = '487681778' then 'HICYB_1200x627'
+          when ${ad_id} = '487707014' then 'HICYB_1200x627'
 
           when ${ad} ilike '%Outdoor_2_970x250%' then 'Outdoor_v2_970x250'
           when ${ad} ilike '%Outdoor_2_728x90%' then 'Outdoor_v2_728x90'
@@ -1625,6 +1713,22 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Outdoor_1_300x600%' then 'Outdoor_v1_300x600'
           when ${ad} ilike '%Outdoor_1_300x250%' then 'Outdoor_v1_300x250'
           when ${ad} ilike '%Outdoor_1_Native%' then 'Outdoor_v1_Native'
+
+          when ${creative} ilike '%sanDiego_970x250_outdoor_US%' then 'TripAdvisor_Outdoor_970x250'
+          when ${ad_id} = '487852806' then 'TripAdvisor_Outdoor_970x250'
+          when ${creative} ilike '%sanDiego_728x90_outdoor_US%' then 'TripAdvisor_Outdoor_728x90'
+          when ${ad_id} = '487708188' then 'TripAdvisor_Outdoor_728x90'
+          when ${creative} ilike '%sanDiego_300x600_outdoor_US%' then 'TripAdvisor_Outdoor_300x600'
+          when ${ad_id} = '487708200' then 'TripAdvisor_Outdoor_300x600'
+          when ${creative} ilike '%sanDiego_300x250_outdoor_US%' then 'TripAdvisor_Outdoor_300x250'
+          when ${ad_id} = '487708197' then 'TripAdvisor_Outdoor_300x250'
+
+          when ${ad_id} = '487708197' then 'TripAdvisor_Outdoor_300x250'
+
+          when ${creative} = 'San Diego_970x250' then 'TripAdvisor_RTG_970x250'
+          when ${creative} = 'San Diego_728x90' then 'TripAdvisor_RTG_728x90'
+          when ${creative} = 'sanDiego_300x600' then 'TripAdvisor_RTG_300x600'
+          when ${creative} = 'sanDiego_300x250' then 'TripAdvisor_RTG_300x250'
 
           when ${ad_id} = '471092259' then 'Co-Branded_Outdoor_Native'
 
@@ -1724,6 +1828,24 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-08-31' AND '2020-11-30' then 'Kids Free (:30)'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+
+          when ${creative} ilike '%Surfing_728x90%' then 'Surfing_728x90'
+          when ${creative} ilike '%Sunset_728x90%' then 'Sunset_728x90'
+          when ${creative} ilike '%Surfing_300x250%' then 'Surfing_300x250'
+          when ${creative} ilike '%Surfing_300x600%' then 'Surfing_300x600'
+          when ${creative} ilike '%Surfing_160x600%' then 'Surfing_160x600'
+
+          when ${creative} ilike '%HICYB_728x90_STATIC-5%' then 'HICYB_728x90'
+          when ${creative} ilike '%HICYB_300x600_STATIC-5%' then 'HICYB_300x600'
+          when ${creative} ilike '%HICYB_300x600_STATIC-3%' then 'HICYB_300x600'
+          when ${creative} ilike '%HICYB_300x250_STATIC-5%' then 'HICYB_300x250'
+          when ${creative} ilike '%HICYB_300x250_STATIC-3%' then 'HICYB_300x250'
+          when ${creative} ilike '%HICYB_160x600_STATIC-5%' then 'HICYB_160x600'
+          when ${creative} ilike '%HICYB_160x600_STATIC-3%' then 'HICYB_160x600'
+
+          when ${ad_id} = '487870245' then 'HICYB_217x114'
+          when ${ad_id} = '487587734' then 'HICYB_217x114'
+          when ${ad_id} = '487588046' then 'HICYB_217x114'
 
             ELSE 'Uncategorized'
         END;;

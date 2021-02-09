@@ -1,4 +1,4 @@
-view: pdt_fy21_pullthrough_priceline {
+view: pdt_fy21_pullthrough_adara_2h_3p {
   derived_table: {
     explore_source: sdt_dcm {
       column: publisher {field: sdt_dcm_ga_view.publisher}
@@ -22,11 +22,11 @@ view: pdt_fy21_pullthrough_priceline {
       column: total_session_duration {field: sdt_dcm_ga_view.total_session_duration}
       filters: {
         field: sdt_dcm_ga_view.campaign
-        value: "SDT: FY21 Pull-Through - 005532_01,SDT: FY21 Pull-Through 2H - 005532_01"
+        value: "SDT: FY21 Pull-Through 2H - 005532_01"
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
-        value: "Priceline"
+        value: "Adara"
       }
       filters: {
         field: sdt_dcm_ga_view.ad
@@ -34,7 +34,7 @@ view: pdt_fy21_pullthrough_priceline {
       }
       filters: {
         field: sdt_dcm_ga_view.date_date
-        value: "2020/07/27 to 2021/01/04,2021/02/08 to 2021/07/01"
+        value: "2021/02/01 to 2021/07/01"
       }
     }
     datagroup_trigger: sdt_default_datagroup

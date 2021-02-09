@@ -22,7 +22,7 @@ view: pdt_fy21_pullthrough_tripadvisor {
       column: total_session_duration {field: sdt_dcm_ga_view.total_session_duration}
       filters: {
         field: sdt_dcm_ga_view.campaign
-        value: "SDT: FY21 Pull-Through - 005532_01"
+        value: "SDT: FY21 Pull-Through - 005532_01,SDT: FY21 Pull-Through 2H - 005532_01"
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
@@ -34,7 +34,7 @@ view: pdt_fy21_pullthrough_tripadvisor {
       }
       filters: {
         field: sdt_dcm_ga_view.date_date
-        value: "2020/07/27 to 2021/01/04"
+        value: "2020/07/27 to 2021/01/04,2021/02/08 to 2021/07/01"
       }
     }
     datagroup_trigger: sdt_default_datagroup

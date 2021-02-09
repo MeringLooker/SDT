@@ -25,13 +25,13 @@ explore: sdt_omnitrak_ext {
   extends: [sdt_omnitrak]
 }
 
-## FY21 Creatives Case Study ##
+## FY21 Creatives Case Study ## -- Removed, used briefly for Kat/Christine Case Study
 
-explore: sdt_fy21_case_study_ext {
-  persist_with: sdt_default_datagroup
-  hidden: no
-  extends: [sdt_case_study]
-}
+# explore: sdt_fy21_case_study_ext {
+#   persist_with: sdt_default_datagroup
+#   hidden: no
+#   extends: [sdt_case_study]
+# }
 
 ## FY21 Domestic SEM ##
 
