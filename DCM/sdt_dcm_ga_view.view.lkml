@@ -73,9 +73,12 @@ view: sdt_dcm_ga_view {
       sql:
         CASE
           when ${creative} ILIKE '%728x90%' then '728x90'
+          when ${placement} ILIKE '%728x90%' then '728x90'
           when ${creative} ILIKE '%300x250%' then '300x250'
+          when ${placement} ILIKE '%300x250%' then '300x250'
           when ${creative} ILIKE '%300x600%' then '300x600'
           when ${creative} ILIKE '%160x600%' then '160x600'
+          when ${placement} ILIKE '%160x600%' then '160x600'
           when ${creative} ILIKE '%970x250%' then '970x250'
           when ${placement} ilike '%\\_728x90' then '728x90'
           when ${placement} ilike '%\\_300x600' then '300x600'
@@ -86,6 +89,7 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%\\_160x600' then '160x600'
           when ${placement} ilike '%\\_468x60' then '468x60'
           when ${placement} ilike '%\\_300x50' then '300x50'
+          when ${placement} ilike '% 300x50' then '300x50'
           when ${placement} ilike '%\\_970x90' then '970x90'
           when ${placement} ilike '%\\_1320x742' then '1320x742'
           when ${placement} ilike '%\\_2560x500' then '2560x500'
@@ -126,6 +130,13 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '257456647' then 'Native'
           when ${placement_id} = '276884083' then 'Native'
 
+          when ${placement_id} = '294737080' then '400x225'
+          when ${placement_id} = '294736822' then '400x225'
+          when ${placement_id} = '294736012' then '400x225'
+
+          when ${ad_id} = '487845862' then '2640x1485'
+          when ${ad_id} = '487844650' then '2640x1485'
+          when ${ad_id} = '487845853' then '2640x1485'
 
           when ${placement_id} = '256904522' then 'N/A'
           when ${placement_id} = '256902170' then 'N/A'
@@ -664,6 +675,9 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_California%' then 'California'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_Arizona%' then 'Arizona'
 
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Arizona%' then 'Arizona'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_California%' then 'California'
+
             ELSE 'Uncategorized'
         END;;
     }
@@ -1143,6 +1157,20 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Display%' then 'TripAdvisor Onsite Display'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Native%' then 'TripAdvisor ROVE Native'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Native%' then 'TripAdvisor Onsite Native'
+
+          when ${placement} ilike 'HOTELS.COM_SDTAFY21_PullThrough_%_ROS Responsive%' then 'Hotels.com ROS Responsive Display'
+          when ${placement} ilike 'HOTELS.COM_SDTAFY21_PullThrough_%_ROS_%' then 'Hotels.com ROS Display'
+          when ${placement} ilike 'HOTELS.COM_SDTAFY21_PullThrough_%_Hotels Results Listing%' then 'Hotels.com Destination Results Listing'
+
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_%_ROS Search Native Marquee Card%' then 'Expedia.com Marquee Card'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_%_ROS Results Right%' then 'Expedia.com ROS Right Results'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_%_ROS Responsive%' then 'Expedia.com ROS Responsive Display'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_%_ROS_%' then 'Expedia.com ROS Display'
+
+          when ${placement} ilike 'EXPEDIA BRANDS PORTFOLIO_SDTAFY21_PullThrough_%_EBP%' then 'Expedia Brands Portfolio Display'
+
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_%_Hotels Results Right Middle Photo Gallery_1x1%' then 'Expedia.com Hotels Photo Gallery Display'
+          when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_%_Hotels Infosite/Details Right Middle Photo Gallery_1x1%' then 'Expedia.com Hotels Infosite/Details Display'
 
         else 'Uncategorized'
       end;;
@@ -1834,18 +1862,48 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%Surfing_300x250%' then 'Surfing_300x250'
           when ${creative} ilike '%Surfing_300x600%' then 'Surfing_300x600'
           when ${creative} ilike '%Surfing_160x600%' then 'Surfing_160x600'
+          when ${creative} ilike '%Surfing_970x90%' then 'Surfing_970x90'
+          when ${creative} ilike '%Surfing_468x60%' then 'Surfing_468x60'
+          when ${creative} ilike '%Surfing_300x50%' then 'Surfing_300x50'
 
-          when ${creative} ilike '%HICYB_728x90_STATIC-5%' then 'HICYB_728x90'
-          when ${creative} ilike '%HICYB_300x600_STATIC-5%' then 'HICYB_300x600'
-          when ${creative} ilike '%HICYB_300x600_STATIC-3%' then 'HICYB_300x600'
-          when ${creative} ilike '%HICYB_300x250_STATIC-5%' then 'HICYB_300x250'
-          when ${creative} ilike '%HICYB_300x250_STATIC-3%' then 'HICYB_300x250'
-          when ${creative} ilike '%HICYB_160x600_STATIC-5%' then 'HICYB_160x600'
-          when ${creative} ilike '%HICYB_160x600_STATIC-3%' then 'HICYB_160x600'
+          when ${creative} ilike '%Sunset_970x90%' then 'Sunset_970x90'
+          when ${creative} ilike '%Sunset_468x60%' then 'Sunset_468x60'
+          when ${creative} ilike '%Sunset_300x50%' then 'Sunset_300x50'
+          when ${creative} ilike '%Sunset_160x600%' then 'Sunset_160x600'
+
+          when ${creative} ilike '%Family_468x60%' then 'Family_468x60'
+          when ${creative} ilike '%Family_300x50%' then 'Family_300x50'
+          when ${creative} ilike '%Family_300x250%' then 'Family_300x250'
+          when ${creative} ilike '%Family_160x600%' then 'Family_160x600'
+
+          when ${creative} ilike '%HICYB_728x90_STATIC-5%' then 'HICYB_728x90 (Static Offer)'
+          when ${creative} ilike '%HICYB_728x90_STATIC-4%' then 'HICYB_728x90 (Static 4)'
+          when ${creative} ilike '%HICYB_728x90_STATIC-3%' then 'HICYB_728x90 (Static 3)'
+          when ${creative} ilike '%HICYB_300x600_STATIC-5%' then 'HICYB_300x600 (Static Offer)'
+          when ${creative} ilike '%HICYB_300x600_STATIC-3%' then 'HICYB_300x600 (Static 3)'
+          when ${creative} ilike '%HICYB_300x600_STATIC-4%' then 'HICYB_300x600 (Static 4)'
+          when ${creative} ilike '%HICYB_300x250_STATIC-5%' then 'HICYB_300x250 (Static Offer)'
+          when ${creative} ilike '%HICYB_300x250_STATIC-3%' then 'HICYB_300x250 (Static 3)'
+          when ${creative} ilike '%HICYB_300x250_STATIC-4%' then 'HICYB_300x250 (Static 4)'
+          when ${creative} ilike '%HICYB_160x600_STATIC-5%' then 'HICYB_160x600 (Static Offer)'
+          when ${creative} ilike '%HICYB_160x600_STATIC-3%' then 'HICYB_160x600 (Static 3)'
+          when ${creative} ilike '%HICYB_160x600_STATIC-4%' then 'HICYB_160x600 (Static 4)'
+
+          when ${ad_id} = '488411149' then 'HICYB_728x90 (Static 4)'
+          when ${ad_id} = '487679147' then 'HICYB_160x600 (Static 4)'
+          when ${ad_id} = '487967316' then 'HICYB_300x250 (Static 4)'
+
+          when ${ad_id} = '487845862' then 'HICYB_2640x1485'
+          when ${ad_id} = '487844650' then 'HICYB_2640x1485'
+          when ${ad_id} = '487845853' then 'HICYB_2640x1485'
 
           when ${ad_id} = '487870245' then 'HICYB_217x114'
           when ${ad_id} = '487587734' then 'HICYB_217x114'
           when ${ad_id} = '487588046' then 'HICYB_217x114'
+
+          when ${placement_id} = '294737080' then 'Expedia_HICYB_400x225'
+          when ${placement_id} = '294736822' then 'Expedia_HICYB_400x225'
+          when ${placement_id} = '294736012' then 'Expedia_HICYB_400x225'
 
             ELSE 'Uncategorized'
         END;;
