@@ -1156,7 +1156,7 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Display%' then 'TripAdvisor ROVE Display'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Display%' then 'TripAdvisor Onsite Display'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Native%' then 'TripAdvisor ROVE Native'
-          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Native%' then 'TripAdvisor Onsite Native'
+          when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Native Boost%' then 'TripAdvisor Native Boost'
 
           when ${placement} ilike 'HOTELS.COM_SDTAFY21_PullThrough_%_ROS Responsive%' then 'Hotels.com ROS Responsive Display'
           when ${placement} ilike 'HOTELS.COM_SDTAFY21_PullThrough_%_ROS_%' then 'Hotels.com ROS Display'

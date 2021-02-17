@@ -22,7 +22,11 @@ view: pdt_fy21_pullthrough_expedia_pub {
       column: total_session_duration {field: sdt_fy21_pullthrough_expedia.total_session_duration}
       filters: {
         field: sdt_fy21_pullthrough_expedia.date_date
-        value: "2020/07/27 to 2021/01/04"
+        value: "2020/07/27 to 2021/07/01"
+      }
+      filters: {
+        field: sdt_fy21_pullthrough_expedia.line_item_id
+        value: "-5600652424,-5600893370,-5600893379,-5600893331,-5600892707,-5600652436,-5600893361,-5599355661,-5599355682,-5600891747"
       }
     }
     datagroup_trigger: sdt_default_datagroup

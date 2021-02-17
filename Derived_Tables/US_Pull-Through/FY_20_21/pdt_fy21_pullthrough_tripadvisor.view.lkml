@@ -33,6 +33,10 @@ view: pdt_fy21_pullthrough_tripadvisor {
         value: "-(not set)"
       }
       filters: {
+        field: sdt_dcm_ga_view.sdt_placement
+        value: "-TripAdvisor Native Boost"
+      }
+      filters: {
         field: sdt_dcm_ga_view.date_date
         value: "2020/07/27 to 2021/01/04,2021/02/08 to 2021/07/01"
       }

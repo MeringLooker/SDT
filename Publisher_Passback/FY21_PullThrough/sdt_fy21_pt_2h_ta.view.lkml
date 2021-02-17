@@ -1,33 +1,21 @@
-view: sdt_fy21_pullthrough_expedia {
-  sql_table_name: public.sdt_fy21_pullthrough_expedia ;;
+view: sdt_fy21_pt_2h_ta {
+  sql_table_name: public.sdt_fy21_pt_2h_ta ;;
 
   ## Primary ID ##
 
-  dimension: expedia_join_id {
-    type: string
+  dimension: id {
     primary_key: yes
     hidden: yes
-    sql: ${TABLE}.expedia_join_id ;;
-  }
-
-  dimension: bookings_join_id {
-    hidden: yes
     type: string
-    sql: ${line_item}||'_'||${date_month} ;;
+    sql: ${TABLE}.id ;;
   }
 
-  dimension: expedia_line_creative_name {
-    hidden: yes
-    type: string
-    sql: ${line_item}||'_'||${expedia_creative} ;;
-  }
-
-  ## Dimensions Added to this table via LookML ##
+## Dimensions Added to this table via LookML ##
 
   dimension: publisher {
     type: string
     group_label: "Client Dimensions"
-    sql: 'Expedia' ;;
+    sql: 'Trip Advisor' ;;
   }
 
   dimension: sdt_market {
@@ -57,27 +45,9 @@ view: sdt_fy21_pullthrough_expedia {
     group_label: "Client Dimensions"
     sql:
         case
-          when ${line_item} ilike '001:%' then 'Western Region'
-          when ${line_item} ilike '002:%' then 'Western Region'
-          when ${line_item} ilike '003:%' then 'Western Region'
-          when ${line_item} ilike '004:%' then 'Western Region'
-          when ${line_item} ilike '005:%' then 'Western Region'
-          when ${line_item} ilike '007:%' then 'Western Region'
-          when ${line_item} ilike '008:%' then 'Western Region'
-          when ${line_item} ilike '009:%' then 'Western Region'
-          when ${line_item} ilike '010:%' then 'Western Region'
-          when ${line_item} ilike '011:%' then 'California'
-          when ${line_item} ilike '012:%' then 'California'
-          when ${line_item} ilike '013:%' then 'California'
-          when ${line_item} ilike '014:%' then 'California'
-          when ${line_item} ilike '019:%' then 'Arizona'
-          when ${line_item} ilike '020:%' then 'Arizona'
-          when ${line_item} ilike '021:%' then 'Arizona'
-          when ${line_item} ilike '022:%' then 'Arizona'
-          when ${line_item_id} = '5600652451' then 'Arizona'
-          when ${line_item_id} = '5600891753' then 'Western Region'
-          when ${expedia_creative} ilike 'TPS_F#15_EXPEDIA_SDTAFY21_PullThrough_Arizona%' then 'Arizona'
-          when ${expedia_creative} ilike 'TPS_F#16_EXPEDIA_SDTAFY21_PullThrough_Arizona%' then 'Arizona'
+          when ${line_item_id} = '5606660387' then 'Arizona'
+          when ${line_item_id} = '5606337358' then 'California'
+          when ${line_item_id} = '5606661083' then 'Western Region'
 
           else 'Uncategorized'
           end;;
@@ -88,27 +58,38 @@ view: sdt_fy21_pullthrough_expedia {
     group_label: "Client Dimensions"
     sql:
       CASE
-          when ${mering_creative} ILIKE '%728x90%' then '728x90'
-          when ${mering_creative} ILIKE '%300x250%' then '300x250'
-          when ${mering_creative} ILIKE '%300x600%' then '300x600'
-          when ${mering_creative} ILIKE '%160x600%' then '160x600'
-          when ${mering_creative} ILIKE '%970x250%' then '970x250'
+          when ${line_item_id} = '5606660387' then '1200x627'
+          when ${line_item_id} = '5606337358' then '1200x627'
+          when ${line_item_id} = '5606661083' then '1200x627'
 
-          when ${mering_creative} ILIKE '%760x428%' then '760x428'
-          when ${mering_creative} ILIKE '%400x225%' then '400x225'
-          when ${mering_creative} ILIKE '%2640x1485%' then '2640x1485'
 
-          when ${mering_creative} ilike '%\\_320x50' then '320x50'
-          when ${mering_creative} ilike '%\\_468x60' then '468x60'
-          when ${mering_creative} ilike '%\\_300x50' then '300x50'
-          when ${mering_creative} ilike '%\\_970x90' then '970x90'
-          when ${mering_creative} ilike '%\\_1320x742' then '1320x742'
-          when ${mering_creative} ilike '%\\_474x250' then '474x250'
-          when ${mering_creative} ilike '%\\_532x299' then '532x299'
-          when ${mering_creative} ilike '%\\_680x320' then '680x320'
-          when ${mering_creative} ilike '%_680x320' then '680x320'
-          when ${mering_creative} ilike '%\\_562x240' then '562x240'
+        ELSE 'Uncategorized'
+        END;;
+  }
 
+    dimension: sdt_placement {
+    type: string
+    label: "Placement"
+    group_label: "Client Dimensions"
+    sql:
+      CASE
+          when ${line_item_id} = '5606660387' then 'TripAdvisor Native Boost'
+          when ${line_item_id} = '5606337358' then 'TripAdvisor Native Boost'
+          when ${line_item_id} = '5606661083' then 'TripAdvisor Native Boost'
+
+        ELSE 'Uncategorized'
+        END;;
+  }
+
+  dimension: sdt_creative {
+    type: string
+    label: "Creative Nmae"
+    group_label: "Client Dimensions"
+    sql:
+      CASE
+          when ${line_item_id} = '5606660387' then 'HICYB_1200x627'
+          when ${line_item_id} = '5606337358' then 'HICYB_1200x627'
+          when ${line_item_id} = '5606661083' then 'HICYB_1200x627'
         ELSE 'Uncategorized'
         END;;
   }
@@ -121,16 +102,15 @@ view: sdt_fy21_pullthrough_expedia {
     sql: ${TABLE}.clicks ;;
   }
 
-  dimension: cost {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.cost ;;
+  dimension: creative {
+    type: string
+    group_label: "Trip Advisor Dimensions"
+    sql: ${TABLE}.creative ;;
   }
 
   dimension: creative_id {
-    group_label: "Expedia Dimensions"
-    type: string
-    hidden: no
+    type: number
+    group_label: "Trip Advisor Dimensions"
     sql: ${TABLE}.creative_id ;;
   }
 
@@ -148,13 +128,6 @@ view: sdt_fy21_pullthrough_expedia {
     sql: ${TABLE}.date ;;
   }
 
-  dimension: expedia_creative {
-    type: string
-    label: "Expedia Creative"
-    group_label: "Expedia Dimensions"
-    sql: ${TABLE}.expedia_creative ;;
-  }
-
   dimension: impressions {
     type: number
     hidden: yes
@@ -163,44 +136,46 @@ view: sdt_fy21_pullthrough_expedia {
 
   dimension: line_item {
     type: string
-    label: "Expedia Line Item"
-    group_label: "Expedia Dimensions"
+    group_label: "Trip Advisor Dimensions"
     sql: ${TABLE}.line_item ;;
   }
 
   dimension: line_item_id {
-    group_label: "Expedia Dimensions"
-    type: string
-    hidden: no
+    type: number
+    group_label: "Trip Advisor Dimensions"
     sql: ${TABLE}.line_item_id ;;
   }
 
-  dimension: mering_creative {
+  dimension: order {
     type: string
-    label: "Creative Name"
-    group_label: "Client Dimensions"
-    sql: ${TABLE}.mering_creative ;;
+    hidden: yes
+    sql: ${TABLE}."order" ;;
   }
 
-  dimension: mering_placement {
-    type: string
-    label: "Placement Name"
-    group_label: "Client Dimensions"
-    sql: ${TABLE}.mering_placement ;;
+  dimension: order_id {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.order_id ;;
+  }
+
+  dimension: spend {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.spend ;;
   }
 
 ######### All measures go below ########
 
   measure: total_impressions {
     type: sum_distinct
-    sql_distinct_key: ${expedia_join_id} ;;
+    sql_distinct_key: ${id} ;;
     label: "Impressions"
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     type: sum_distinct
-    sql_distinct_key: ${expedia_join_id} ;;
+    sql_distinct_key: ${id} ;;
     label: "Clicks"
     sql: ${clicks} ;;
   }
@@ -214,9 +189,9 @@ view: sdt_fy21_pullthrough_expedia {
 
   measure: total_cost {
     type: sum_distinct
-    sql_distinct_key: ${expedia_join_id} ;;
+    sql_distinct_key: ${id} ;;
     label: "Media Spend"
-    sql: ${cost} ;;
+    sql: ${spend} ;;
     value_format_name: usd
   }
 
