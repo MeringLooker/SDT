@@ -45,9 +45,12 @@ view: sdt_fy21_pt_2h_ta {
     group_label: "Client Dimensions"
     sql:
         case
-          when ${line_item_id} = '5606660387' then 'Arizona'
-          when ${line_item_id} = '5606337358' then 'California'
-          when ${line_item_id} = '5606661083' then 'Western Region'
+          when ${line_item} ilike '368420-1%' then 'Arizona'
+          when ${line_item} ilike '370022-1%' then 'Arizona'
+          when ${line_item} ilike '368421-1%' then 'California'
+          when ${line_item} ilike '370021-1%' then 'California'
+          when ${line_item} ilike '368419-1%' then 'Western Region'
+          when ${line_item} ilike '370020-1%' then 'Western Region'
 
           else 'Uncategorized'
           end;;
@@ -58,10 +61,9 @@ view: sdt_fy21_pt_2h_ta {
     group_label: "Client Dimensions"
     sql:
       CASE
-          when ${line_item_id} = '5606660387' then '1200x627'
-          when ${line_item_id} = '5606337358' then '1200x627'
-          when ${line_item_id} = '5606661083' then '1200x627'
-
+          when ${line_item} ilike '370020-1%' then '1200x627'
+          when ${line_item} ilike '370021-1%' then '1200x627'
+          when ${line_item} ilike '370022-1%' then '1200x627'
 
         ELSE 'Uncategorized'
         END;;
@@ -73,9 +75,9 @@ view: sdt_fy21_pt_2h_ta {
     group_label: "Client Dimensions"
     sql:
       CASE
-          when ${line_item_id} = '5606660387' then 'TripAdvisor Native Boost'
-          when ${line_item_id} = '5606337358' then 'TripAdvisor Native Boost'
-          when ${line_item_id} = '5606661083' then 'TripAdvisor Native Boost'
+          when ${line_item} ilike '370020-1%' then 'TripAdvisor Native Boost'
+          when ${line_item} ilike '370021-1%' then 'TripAdvisor Native Boost'
+          when ${line_item} ilike '370022-1%' then 'TripAdvisor Native Boost'
 
         ELSE 'Uncategorized'
         END;;
@@ -87,9 +89,9 @@ view: sdt_fy21_pt_2h_ta {
     group_label: "Client Dimensions"
     sql:
       CASE
-          when ${line_item_id} = '5606660387' then 'HICYB_1200x627'
-          when ${line_item_id} = '5606337358' then 'HICYB_1200x627'
-          when ${line_item_id} = '5606661083' then 'HICYB_1200x627'
+          when ${line_item} ilike '370020-1%' then 'HICYB_1200x627'
+          when ${line_item} ilike '370021-1%' then 'HICYB_1200x627'
+          when ${line_item} ilike '370022-1%' then 'HICYB_1200x627'
         ELSE 'Uncategorized'
         END;;
   }
@@ -106,12 +108,6 @@ view: sdt_fy21_pt_2h_ta {
     type: string
     group_label: "Trip Advisor Dimensions"
     sql: ${TABLE}.creative ;;
-  }
-
-  dimension: creative_id {
-    type: number
-    group_label: "Trip Advisor Dimensions"
-    sql: ${TABLE}.creative_id ;;
   }
 
   dimension_group: date {
@@ -140,22 +136,11 @@ view: sdt_fy21_pt_2h_ta {
     sql: ${TABLE}.line_item ;;
   }
 
-  dimension: line_item_id {
-    type: number
-    group_label: "Trip Advisor Dimensions"
-    sql: ${TABLE}.line_item_id ;;
-  }
 
   dimension: order {
     type: string
     hidden: yes
     sql: ${TABLE}."order" ;;
-  }
-
-  dimension: order_id {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.order_id ;;
   }
 
   dimension: spend {
