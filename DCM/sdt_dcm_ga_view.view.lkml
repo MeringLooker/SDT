@@ -134,6 +134,15 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '294736822' then '400x225'
           when ${placement_id} = '294736012' then '400x225'
 
+          when ${ad} ilike '%970x250%' then '970x250'
+          when ${ad} ilike '%728x90 brand-neutral web ad%' then '728x90'
+          when ${ad} ilike '%320x50 brand-neutral web ad%' then '320x50'
+          when ${ad} ilike '%300x600 brand-neutral web ad%' then '300x600'
+          when ${ad} ilike '%160x600 brand-neutral web ad%' then '160x600'
+          when ${ad} ilike '%300x250 brand-neutral web ad%' then '300x250'
+
+          when ${creative_name} ilike '%1200x627%' then '1200x627'
+
           when ${ad_id} = '487845862' then '2640x1485'
           when ${ad_id} = '487844650' then '2640x1485'
           when ${ad_id} = '487845853' then '2640x1485'
@@ -470,6 +479,38 @@ view: sdt_dcm_ga_view {
       label: "Region"
       sql:
         case
+          when ${placement_id} = '294443196' then 'Western Region'
+          when ${placement_id} = '294365546' then 'Western Region'
+          when ${placement_id} = '294445794' then 'Western Region'
+          when ${placement_id} = '294365549' then 'Western Region'
+          when ${placement_id} = '294431151' then 'Western Region'
+          when ${placement_id} = '294429480' then 'Western Region'
+          when ${placement_id} = '294431706' then 'Western Region'
+          when ${placement_id} = '294428358' then 'Western Region'
+          when ${placement_id} = '294433665' then 'Western Region'
+          when ${placement_id} = '294362114' then 'Western Region'
+          when ${placement_id} = '294543559' then 'Western Region'
+          when ${placement_id} = '294362117' then 'Western Region'
+
+          when ${placement_id} = '294453867' then 'Arizona'
+          when ${placement_id} = '294560269' then 'Arizona'
+          when ${placement_id} = '294555193' then 'Arizona'
+          when ${placement_id} = '294445980' then 'Arizona'
+
+          when ${placement_id} = '294453852' then 'California'
+          when ${placement_id} = '294555163' then 'California'
+          when ${placement_id} = '294454155' then 'California'
+          when ${placement_id} = '294445962' then 'California'
+
+          when ${placement_id} = '294555235' then 'California/Arizona'
+          when ${placement_id} = '294456816' then 'California/Arizona'
+          when ${placement_id} = '294561349' then 'California/Arizona'
+          when ${placement_id} = '294456819' then 'California/Arizona'
+          when ${placement_id} = '294453312' then 'California/Arizona'
+          when ${placement_id} = '294450195' then 'California/Arizona'
+          when ${placement_id} = '294560329' then 'California/Arizona'
+          when ${placement_id} = '294449715' then 'California/Arizona'
+
           when ${placement_id} = '253217116' then 'National'
           when ${placement_id} = '253217146' then 'National'
           when ${placement_id} = '252866297' then 'National'
@@ -666,6 +707,13 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_Arizona_Display%' then 'Arizona'
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerUS_California_Display%' then 'California'
 
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_Arizona_Display%' then 'Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_California_Display%' then 'California'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_California,Arizona_Display%' then 'California/Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_California,Arizona_RTGDisplay%' then 'California/Arizona'
+          when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_California,Arizona_AVDisplay%' then 'California/Arizona'
+
+
           when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_National%' then 'National'
           when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_California%' then 'California'
           when ${placement} ilike 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_Arizona%' then 'Arizona'
@@ -677,6 +725,10 @@ view: sdt_dcm_ga_view {
 
           when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_Arizona%' then 'Arizona'
           when ${placement} ilike 'EXPEDIA_SDTAFY21_PullThrough_California%' then 'California'
+
+          when ${placement_id} = '294443289' then 'Western Region'
+          when ${placement_id} = '294443271' then 'Western Region'
+          when ${placement_id} = '294445860' then 'Western Region'
 
             ELSE 'Uncategorized'
         END;;
@@ -1153,6 +1205,44 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_AVNative%' then 'AV Native'
           when ${placement} ilike 'ADARA_SDTAFY21_PullThrough_In-marketLeisureTravelerSD_%_Native%' then 'Native Prospecting'
 
+          when ${placement_id} = '294443196' then 'AV Display'
+          when ${placement_id} = '294365546' then 'AV Display'
+          when ${placement_id} = '294445794' then 'AV Display'
+          when ${placement_id} = '294365549' then 'AV Display'
+
+          when ${placement_id} = '294431151' then 'Display Prospecting'
+          when ${placement_id} = '294429480' then 'Display Prospecting'
+          when ${placement_id} = '294431706' then 'Display Prospecting'
+          when ${placement_id} = '294428358' then 'Display Prospecting'
+
+          when ${placement_id} = '294433665' then 'Display Retargeting'
+          when ${placement_id} = '294362114' then 'Display Retargeting'
+          when ${placement_id} = '294543559' then 'Display Retargeting'
+          when ${placement_id} = '294362117' then 'Display Retargeting'
+          when ${placement_id} = '294445860' then 'Native Retargeting'
+
+          when ${placement_id} = '294453867' then 'Display Prospecting'
+          when ${placement_id} = '294560269' then 'Display Prospecting'
+          when ${placement_id} = '294555193' then 'Display Prospecting'
+          when ${placement_id} = '294445980' then 'Display Prospecting'
+          when ${placement_id} = '294443271' then 'Native Prospecting'
+
+          when ${placement_id} = '294453852' then 'Display Prospecting'
+          when ${placement_id} = '294555163' then 'Display Prospecting'
+          when ${placement_id} = '294454155' then 'Display Prospecting'
+          when ${placement_id} = '294445962' then 'Display Prospecting'
+
+          when ${placement_id} = '294555235' then 'AV Display'
+          when ${placement_id} = '294456816' then 'AV Display'
+          when ${placement_id} = '294561349' then 'AV Display'
+          when ${placement_id} = '294456819' then 'AV Display'
+          when ${placement_id} = '294443289' then 'AV Native'
+
+          when ${placement_id} = '294453312' then 'Display Retargeting'
+          when ${placement_id} = '294450195' then 'Display Retargeting'
+          when ${placement_id} = '294560329' then 'Display Retargeting'
+          when ${placement_id} = '294449715' then 'Display Retargeting'
+
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Display%' then 'TripAdvisor ROVE Display'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Onsite_ActiveTravelPlanning_%_Display%' then 'TripAdvisor Onsite Display'
           when ${placement} ilike 'TRIPADVISOR_SDTAFY21_PullThrough_Rove_ActiveTravelPlanning_%_Native%' then 'TripAdvisor ROVE Native'
@@ -1565,6 +1655,28 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%SDT_COVID-19_V2_300x50%' then 'BookHotel_300x50'
           when ${creative} ilike '%SDT_HICYB_300x250_v2_STATIC%' then 'BookHotel_300x50'
 
+          when ${creative} ilike '%Surfing_728x90%' then 'Surfing_728x90'
+          when ${creative} ilike '%Sunset_728x90%' then 'Sunset_728x90'
+          when ${creative} ilike '%Surfing_300x250%' then 'Surfing_300x250'
+          when ${creative} ilike '%Surfing_300x600%' then 'Surfing_300x600'
+          when ${creative} ilike '%Surfing_160x600%' then 'Surfing_160x600'
+          when ${creative} ilike '%Surfing_970x90%' then 'Surfing_970x90'
+          when ${creative} ilike '%Surfing_468x60%' then 'Surfing_468x60'
+          when ${creative} ilike '%Surfing_300x50%' then 'Surfing_300x50'
+
+          when ${creative} ilike '%Sunset_970x90%' then 'Sunset_970x90'
+          when ${creative} ilike '%Sunset_468x60%' then 'Sunset_468x60'
+          when ${creative} ilike '%Sunset_300x50%' then 'Sunset_300x50'
+          when ${creative} ilike '%Sunset_160x600%' then 'Sunset_160x600'
+
+          when ${creative} ilike '%Family_468x60%' then 'Family_468x60'
+          when ${creative} ilike '%Family_300x50%' then 'Family_300x50'
+          when ${creative} ilike '%Family_300x250%' then 'Family_300x250'
+          when ${creative} ilike '%Family_160x600%' then 'Family_160x600'
+
+          when ${creative} ilike 'WeekYay_Native' then 'WeekYay_Native'
+          when ${creative} ilike 'HICYB_Native' then 'HICYB_Native'
+
           when ${ad} ilike '%Plan Now_300x250%' then 'PlanNow_300x250'
           when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
           when ${ad} ilike '%Plan Now_300x600' then 'PlanNow_300x600'
@@ -1588,6 +1700,43 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike '%Book Hotel_728x90' then 'BookHotel_728x90'
           when ${placement} ilike '%Book Hotel_300x600' then 'BookHotel_300x600'
           when ${placement} ilike '%Book Hotel_160x600' then 'BookHotel_160x600'
+
+          when ${creative} ilike '%HICYB_728x90_STATIC-5%' then 'HICYB_728x90 (Static Offer)'
+          when ${creative} ilike '%HICYB_728x90_STATIC-4%' then 'HICYB_728x90 (Static 4)'
+          when ${creative} ilike '%HICYB_728x90_STATIC-3%' then 'HICYB_728x90 (Static 3)'
+          when ${creative} ilike '%HICYB_300x600_STATIC-5%' then 'HICYB_300x600 (Static Offer)'
+          when ${creative} ilike '%HICYB_300x600_STATIC-3%' then 'HICYB_300x600 (Static 3)'
+          when ${creative} ilike '%HICYB_300x600_STATIC-4%' then 'HICYB_300x600 (Static 4)'
+          when ${creative} ilike '%HICYB_300x250_STATIC-5%' then 'HICYB_300x250 (Static Offer)'
+          when ${creative} ilike '%HICYB_300x250_STATIC-3%' then 'HICYB_300x250 (Static 3)'
+          when ${creative} ilike '%HICYB_300x250_STATIC-4%' then 'HICYB_300x250 (Static 4)'
+          when ${creative} ilike '%HICYB_160x600_STATIC-5%' then 'HICYB_160x600 (Static Offer)'
+          when ${creative} ilike '%HICYB_160x600_STATIC-3%' then 'HICYB_160x600 (Static 3)'
+          when ${creative} ilike '%HICYB_160x600_STATIC-4%' then 'HICYB_160x600 (Static 4)'
+
+          when ${ad_id} = '488411149' then 'HICYB_728x90 (Static 4)'
+          when ${ad_id} = '487679147' then 'HICYB_160x600 (Static 4)'
+          when ${ad_id} = '487967316' then 'HICYB_300x250 (Static 4)'
+
+          when ${ad_id} = '487845862' then 'HICYB_2640x1485'
+          when ${ad_id} = '487844650' then 'HICYB_2640x1485'
+          when ${ad_id} = '487845853' then 'HICYB_2640x1485'
+
+          when ${ad_id} = '487870245' then 'HICYB_217x114'
+          when ${ad_id} = '487587734' then 'HICYB_217x114'
+          when ${ad_id} = '487588046' then 'HICYB_217x114'
+
+          when ${placement_id} = '294737080' then 'Expedia_HICYB_400x225'
+          when ${placement_id} = '294736822' then 'Expedia_HICYB_400x225'
+          when ${placement_id} = '294736012' then 'Expedia_HICYB_400x225'
+
+          when ${creative} ilike '%HICYB_970x250%' then 'HICYB_970x250'
+          when ${creative} ilike '%HICYB_728x90%' then 'HICYB_728x90'
+          when ${creative} ilike '%HICYB_320x50%' then 'HICYB_320x50'
+          when ${creative} ilike '%HICYB_300x600%' then 'HICYB_300x600'
+          when ${creative} ilike '%HICYB_160x600%' then 'HICYB_160x600'
+          when ${creative} ilike '%HICYB_300x250%' then 'HICYB_300x250'
+          when ${creative} ilike '%HICYB_Native%' then 'HICYB_Native'
 
           when ${ad_id} = '471447447' then 'BookHotel_300x600'
 
@@ -1629,6 +1778,10 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%WeekYay_Family_160x600%' then 'WeekYay_Family_160x600'
           when ${creative} ilike '%WeekYay_Family_300x250%' then 'WeekYay_Family_300x250'
           when ${creative} ilike '%WeekYay_Family_640x640%' then 'WeekYay_Family_640x640'
+
+          when ${creative} ilike '%SDT_Weekyay_StaticDisplay_300x50%' then 'WeekYay_300x50'
+          when ${creative} ilike '%SDT_Weekyay_StaticDisplay_970x90%' then 'WeekYay_970x90'
+          when ${creative} ilike '%SDT_Weekyay_StaticDisplay_468x60%' then 'WeekYay_468x60'
 
           when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_300x600%' then 'WeekYay_Hotels_300x600'
           when ${ad} ilike 'PRICELINE_SDTAFY21_PullThrough_Intent_ROS_%_Active Travel Intenders+Not Booked_OnSiteDisplay_Display_WeekYay_Hotel_728x90%' then 'WeekYay_Hotels_728x90'
@@ -1856,54 +2009,6 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-08-31' AND '2020-11-30' then 'Kids Free (:30)'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
-
-          when ${creative} ilike '%Surfing_728x90%' then 'Surfing_728x90'
-          when ${creative} ilike '%Sunset_728x90%' then 'Sunset_728x90'
-          when ${creative} ilike '%Surfing_300x250%' then 'Surfing_300x250'
-          when ${creative} ilike '%Surfing_300x600%' then 'Surfing_300x600'
-          when ${creative} ilike '%Surfing_160x600%' then 'Surfing_160x600'
-          when ${creative} ilike '%Surfing_970x90%' then 'Surfing_970x90'
-          when ${creative} ilike '%Surfing_468x60%' then 'Surfing_468x60'
-          when ${creative} ilike '%Surfing_300x50%' then 'Surfing_300x50'
-
-          when ${creative} ilike '%Sunset_970x90%' then 'Sunset_970x90'
-          when ${creative} ilike '%Sunset_468x60%' then 'Sunset_468x60'
-          when ${creative} ilike '%Sunset_300x50%' then 'Sunset_300x50'
-          when ${creative} ilike '%Sunset_160x600%' then 'Sunset_160x600'
-
-          when ${creative} ilike '%Family_468x60%' then 'Family_468x60'
-          when ${creative} ilike '%Family_300x50%' then 'Family_300x50'
-          when ${creative} ilike '%Family_300x250%' then 'Family_300x250'
-          when ${creative} ilike '%Family_160x600%' then 'Family_160x600'
-
-          when ${creative} ilike '%HICYB_728x90_STATIC-5%' then 'HICYB_728x90 (Static Offer)'
-          when ${creative} ilike '%HICYB_728x90_STATIC-4%' then 'HICYB_728x90 (Static 4)'
-          when ${creative} ilike '%HICYB_728x90_STATIC-3%' then 'HICYB_728x90 (Static 3)'
-          when ${creative} ilike '%HICYB_300x600_STATIC-5%' then 'HICYB_300x600 (Static Offer)'
-          when ${creative} ilike '%HICYB_300x600_STATIC-3%' then 'HICYB_300x600 (Static 3)'
-          when ${creative} ilike '%HICYB_300x600_STATIC-4%' then 'HICYB_300x600 (Static 4)'
-          when ${creative} ilike '%HICYB_300x250_STATIC-5%' then 'HICYB_300x250 (Static Offer)'
-          when ${creative} ilike '%HICYB_300x250_STATIC-3%' then 'HICYB_300x250 (Static 3)'
-          when ${creative} ilike '%HICYB_300x250_STATIC-4%' then 'HICYB_300x250 (Static 4)'
-          when ${creative} ilike '%HICYB_160x600_STATIC-5%' then 'HICYB_160x600 (Static Offer)'
-          when ${creative} ilike '%HICYB_160x600_STATIC-3%' then 'HICYB_160x600 (Static 3)'
-          when ${creative} ilike '%HICYB_160x600_STATIC-4%' then 'HICYB_160x600 (Static 4)'
-
-          when ${ad_id} = '488411149' then 'HICYB_728x90 (Static 4)'
-          when ${ad_id} = '487679147' then 'HICYB_160x600 (Static 4)'
-          when ${ad_id} = '487967316' then 'HICYB_300x250 (Static 4)'
-
-          when ${ad_id} = '487845862' then 'HICYB_2640x1485'
-          when ${ad_id} = '487844650' then 'HICYB_2640x1485'
-          when ${ad_id} = '487845853' then 'HICYB_2640x1485'
-
-          when ${ad_id} = '487870245' then 'HICYB_217x114'
-          when ${ad_id} = '487587734' then 'HICYB_217x114'
-          when ${ad_id} = '487588046' then 'HICYB_217x114'
-
-          when ${placement_id} = '294737080' then 'Expedia_HICYB_400x225'
-          when ${placement_id} = '294736822' then 'Expedia_HICYB_400x225'
-          when ${placement_id} = '294736012' then 'Expedia_HICYB_400x225'
 
             ELSE 'Uncategorized'
         END;;
