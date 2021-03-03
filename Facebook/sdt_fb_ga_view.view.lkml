@@ -104,6 +104,9 @@ view: sdt_fb_ga_view {
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Landscape Image'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'Landscape Video'
 
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Landscape Image'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories%' then 'Story'
+
         ELSE 'Uncategorized'
         END
         ;;
@@ -133,6 +136,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContent%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'United States'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'United States'
+        WHEN ${campaign_name} ILIKE 'FY21_SDT_SpringAwareness%' then 'United States'
 
 
         else 'Uncategorized'
@@ -183,6 +187,9 @@ view: sdt_fb_ga_view {
         when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_California' then 'California'
         when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_LosAngeles' then 'Los Angeles'
 
+        when ${campaign_name} = 'FY21_SDT_SpringAwareness_Conversion_SingleImage_Arizona' then 'Arizona'
+        when ${campaign_name} = 'FY21_SDT_SpringAwareness_Awareness_Stories_Arizona' then 'Arizona'
+
         else 'Uncategorized'
         end
         ;;
@@ -219,6 +226,7 @@ view: sdt_fb_ga_view {
 
         WHEN ${campaign_name} ILIKE 'FY21_SDT_DriveMarket%' then 'Fall Drive Market'
         WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Locals Recovery'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness%' then 'Spring Awareness'
 
         else 'Uncategorized'
         end
@@ -311,6 +319,9 @@ view: sdt_fb_ga_view {
     type: string
     sql:
       CASE
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Facebook/Instagram Single Image'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories%' then 'Facebook/Instagram Stories'
+
         when ${adset_name} = 'FY20_UK_Views_Content_RT' then 'Video Content - Retargeting'
         when ${adset_name} = 'FY20_UK_Views_Content_VS' then 'Video Content - Variety Seeker'
         when ${adset_name} = 'FY20_UK_Views_Brand_LAL_USContentViewers' then 'Awareness - Lookalikes (Content Viewers)'
@@ -1007,7 +1018,7 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%SingleImage_Weekyay_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Single Image'
           when ${ad_name} ilike '%SingleImage_Weekyay_LowerRateActivity' then 'WeekYay: Lower Rate Activity Single Image'
           when ${ad_name} ilike '%SingleImage_Weekyay_LessCrowds' then 'WeekYay: Less Crowds Single Image'
-          when ${ad_name} ilike '%SingleImage_Weekyay_HomeSchool' then 'WeekYay: Home School Hotel Single Image'
+          when ${ad_name} ilike '%SingleImage_Weekyay_HomeSchool' then 'WeekYay: Home School Single Image'
 
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Square' then 'Poolside Square Single Image'
           when ${ad_name} ilike 'FY21_SDT_LocalsRecovery_Awareness_Poolside_Horizontal' then 'Poolside Landscape Single Image'
@@ -1030,6 +1041,20 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow2' then 'Book Now v1 Single Image'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent1' then 'Safe Traveler Content v2 Single Image'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent2' then 'Safe Traveler Content v1 Single Image'
+
+          when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge_%_HICYB_BookHotel' then 'Book Hotel Single Image'
+          when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge_%_HICYB_PlanNow' then 'Plan Now Single Image'
+          when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_WorkFromHotel' then 'WeekYay: Work From Hotel Single Image'
+          when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_OutdoorDining' then 'WeekYay: Outdoor Dining Single Image'
+          when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Single Image'
+          when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_LowerRateActivity' then 'WeekYay: Lower Rate Activity Single Image'
+          when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_LessCrowds' then 'WeekYay: Less Crowds Single Image'
+          when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_HomeSchool' then 'WeekYay: Home School Single Image'
+
+          when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_WeekYayCreativeTest_Parallax' then 'WeekYay: Parallax Story'
+          when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_WeekYayCreativeTest_Animated' then 'WeekYay: Animated Story'
+          when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_HICYB_Video' then 'Happiness Is Calling You Back (:15)'
+          when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_HICYB_Animated' then 'HICYB: Animated Story'
 
         else 'Uncategorized'
         end

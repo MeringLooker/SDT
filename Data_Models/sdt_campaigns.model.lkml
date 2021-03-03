@@ -33,6 +33,16 @@ explore: sdt_omnitrak_ext {
 #   extends: [sdt_case_study]
 # }
 
+## FY21 Spring Awareness ##
+
+explore: pdt_fy21_spring_awareness_campaign {
+  persist_with: sdt_default_datagroup
+  label: "FY21 Spring Awareness"
+  view_label: "FY21 Spring Awareness"
+  group_label: "San Diego Tourism"
+  hidden: no
+}
+
 ## FY21 Domestic SEM ##
 
 explore: pdt_us_sem_campaign {
