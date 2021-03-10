@@ -12,6 +12,8 @@ view: pdt_fy21_content_campaign {
         select * from ${pdt_fy21_content_taboola.SQL_TABLE_NAME}
         union
         select * from ${pdt_fy21_content_yt.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_content_verizon.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*8)/(60*60*24)) ;;
     distribution_style: all

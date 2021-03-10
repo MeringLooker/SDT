@@ -79,6 +79,10 @@ view: sdt_yt_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_TrueView_%_California%' then 'California'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_TrueView_%_Arizona%' then 'Arizona'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_TrueView_%_LosAngeles%' then 'Los Angeles'
+
         when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
         when ${campaign} ilike '%LADMA' then 'Los Angeles'
         when ${campaign} ilike '%TrueView_California' then 'California'
@@ -131,6 +135,7 @@ view: sdt_yt_ga_view {
 
         when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro%' then 'Micro Video'
         when ${ad_group} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro%' then 'Macro Video'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_TrueView_FirstTouch%' then 'First Touch Video'
 
         ELSE 'Uncategorized'
         end
@@ -143,6 +148,8 @@ view: sdt_yt_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_TrueView_FirstTouch%' then 'YouTube Skippable Video - First Touch'
+
         when ${campaign} ilike 'SDTA - UK - Brand - Retargeting - FY20%' then 'Awareness - Retargeting'
         when ${campaign} ilike 'SDTA - UK - Brand - FY20%' then 'Awareness - Variety Seeker'
 
@@ -191,6 +198,8 @@ view: sdt_yt_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_TrueView_FirstTouch%' then 'N/A'
+
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Outdoor%' then 'Outdoor'
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery_Micro_Outdoor%' then 'Outdoor'
         when ${ad_group} ilike '%_Micro_Outdoor%' then 'Outdoor'
@@ -274,21 +283,27 @@ view: sdt_yt_ga_view {
         when ${ad_group} ilike '%TAOutdoor60' then 'Co-Branded TripAdvisor Outdoor Pillar Video (:60)'
         when ${ad_group} ilike '%OBICoastalYoga60' then 'OBI: Coastal Yoga (:60)'
         when ${ad_group} ilike '%OBIBoardwalk60' then 'OBI: Boardwalk Cruising (:60)'
+        when ${ad_group} ilike '%OBI_BoardwalkCruising' then 'OBI: Boardwalk Cruising (:60)'
 
         when ${ad_group} ilike '%G2GSSurfing60' then 'G2GS: Surfing San Diego (:60)'
         when ${ad_group} ilike '%G2GSMissionBay60' then 'G2GS: Mission Bay (:60)'
         when ${ad_group} ilike '%G2GSLaJolla60' then 'G2GS: La Jolla (:60)'
 
         when ${ad_group} ilike '%BBYoga15' then 'BB: Yoga (:15)'
+        when ${ad_group} ilike '%BlissBreak_Yoga' then 'BB: Yoga (:15)'
         when ${ad_group} ilike '%BBParagliding30' then 'BB: Paragliding (:30)'
+        when ${ad_group} ilike '%BlissBreak_Paragliding' then 'BB: Paragliding (:30)'
         when ${ad_group} ilike '%BBPaddleBoard15' then 'BB: Paddle Board (:15)'
+        when ${ad_group} ilike '%BlissBreak_PaddleBoard' then 'BB: Paddle Board (:15)'
         when ${ad_group} ilike '%BBCoffee30' then 'BB: Coffee Cup Coastal (:30)'
-        when ${ad_group} ilike '%BBBeach30' then 'BB: Beach For 2 (:30)'
+        when ${ad_group} ilike '%BlissBreak_CoffeeCup' then 'BB: Coffee Cup Coastal (:30)'
+        when ${ad_group} ilike '%BlissBreak_BeachForTwo' then 'BB: Beach For 2 (:30)'
 
         when ${ad_group} ilike '%TACulinary60%' then 'TripAdvisor Culinary (:60)'
         when ${ad_group} ilike '%TABalboaPark60%' then 'TripAdvisor: Balboa Park Culture (:60)'
         when ${ad_group} ilike '%SocksTorreyPines60%' then 'Socks: Torrey Pines (:60)'
         when ${ad_group} ilike '%SocksTidepools60%' then 'Socks: Tidepooling (:60)'
+        when ${ad_group} ilike '%Socks_Tidepools' then 'Socks: Tidepooling (:60)'
         when ${ad_group} ilike '%SockStarofIndia60%' then 'Socks: Star of India (:60)'
         when ${ad_group} ilike '%SocksSeaWorld60%' then 'Socks: SeaWorld (:60)'
         when ${ad_group} ilike '%SocksSafariPark60%' then 'Socks: Safari Park (:60)'
@@ -298,22 +313,30 @@ view: sdt_yt_ga_view {
         when ${ad_group} ilike '%OBIStuart60%' then 'OBI: Stuart Collection (:60)'
         when ${ad_group} ilike '%OBIMidway60%' then 'OBI: USS Midway (:60)'
         when ${ad_group} ilike '%OBILibertyStation60%' then 'OBI: Liberty Station (:60)'
+        when ${ad_group} ilike '%OBI_LibertyStation' then 'OBI: Liberty Station (:60)'
         when ${ad_group} ilike '%OBILegoSub60%' then 'OBI: LEGO Submarine (:60)'
         when ${ad_group} ilike '%OBILearnToSurf60%' then 'OBI: Learn to Surf (:60)'
         when ${ad_group} ilike '%OBIGolf60%' then 'OBI: Torrey Pines Golf (:60)'
+        when ${ad_group} ilike '%OBI_TorreyPines' then 'OBI: Torrey Pines Golf (:60)'
         when ${ad_group} ilike '%OBIConvoyDesserts60%' then 'OBI: Convoy District Desserts (:60)'
         when ${ad_group} ilike '%OBICaliforniaTower60%' then 'OBI: California Tower (:60)'
         when ${ad_group} ilike '%OBIBirchAquarium60%' then 'OBI: Birch Aquarium (:60)'
         when ${ad_group} ilike '%OBIAfricaRocks60%' then 'OBI: Africa Rocks (:60)'
+        when ${ad_group} ilike '%OBI_AfricaRocks' then 'OBI: Africa Rocks (:60)'
         when ${ad_group} ilike '%OBISafariPark60%' then 'OBI: Safari Park (:60)'
 
         when ${ad_group} ilike '%G2GSPicturePerfect60%' then 'G2GS: Picture Perfect Spots (:60)'
         when ${ad_group} ilike '%G2GSBarrioLogan60%' then 'G2GS: Barrio Logan (:60)'
+        when ${ad_group} ilike '%G2GS_Surfing' then 'G2GS: Surfing (:60)'
+        when ${ad_group} ilike '%G2GS_MissionBay' then 'G2GS: Mission Bay (:60)'
+        when ${ad_group} ilike '%G2GS_LaJolla' then 'G2GS: La Jolla (:60)'
 
         when ${ad_group} ilike '%DHRealm30%' then 'DH: Realm of the 52 Remedies (:30)'
         when ${ad_group} ilike '%DHMantra%' then 'DH: Mantra (Longform)'
         when ${ad_group} ilike '%DHBarrioDogg60%' then 'DH: Barrio Dogg (:60)'
         when ${ad_group} ilike '%DHBarrioDogg30%' then 'DH: Barrio Dogg (:30)'
+        when ${ad_group} ilike '%DH_BarrioDogg30%' then 'DH: Barrio Dogg (:30)'
+        when ${ad_group} ilike '%DH_BarrioDoggLF%' then 'DH: Barrio Dogg (Longform)'
         when ${ad_group} ilike '%DHAzucar30%' then 'DH: Azucar (:30)'
         when ${ad_group} ilike '%DHAnimae30%' then 'DH: Animae (:30)'
 

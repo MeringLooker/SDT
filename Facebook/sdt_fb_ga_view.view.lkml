@@ -102,6 +102,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY21_SDT_AlwaysOnContentRecovery_Nano_Conversion%%' then 'Landscape Image'
 
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Landscape Image'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch%' then 'Landscape Image'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'Landscape Video'
 
         when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Landscape Image'
@@ -189,6 +190,10 @@ view: sdt_fb_ga_view {
 
         when ${campaign_name} = 'FY21_SDT_SpringAwareness_Conversion_SingleImage_Arizona' then 'Arizona'
         when ${campaign_name} = 'FY21_SDT_SpringAwareness_Awareness_Stories_Arizona' then 'Arizona'
+
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_LosAngeles' then 'Los Angeles'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_Arizona' then 'Arizona'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_California' then 'California'
 
         else 'Uncategorized'
         end
@@ -286,6 +291,7 @@ view: sdt_fb_ga_view {
 
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Topical Retargeting'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'First Touch Video'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch%' then 'First Touch Display'
 
         else 'Uncategorized'
         end
@@ -400,6 +406,7 @@ view: sdt_fb_ga_view {
 
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Topical Retargeting - Single Image'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'First Touch - Video'
+        when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch%' then 'First Touch - Single Image'
 
         else 'Uncategorized'
         end
@@ -418,6 +425,7 @@ view: sdt_fb_ga_view {
       when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_Arizona' then 'N/A'
       when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_California' then 'N/A'
       when ${campaign_name} = 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_LosAngeles' then 'N/A'
+      when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch%' then 'N/A'
 
       when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Nano%' then 'N/A'
       when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent_Macro_VideoViews_Outdoor%' then 'Outdoor'
@@ -627,6 +635,7 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%SingleImage_Attractions_Sunny7_BehindTheScenesTours' then 'S7: Behind The Scenes Tours Single Image'
         when ${ad_name} ilike '%SingleImage_Attractions_Sunny7_BalboaParkHiddenGems' then 'S7: Balboa Park Hidden Gems Single Image'
         when ${ad_name} ilike '%SingleImage_Attractions_BalboaParkCulturalHeart' then 'Balboa Park Cultural Heart Single Image'
+        when ${ad_name} ilike '%_NaturalWonders' then 'S7: 7 Natural Wonders Single Image'
         when ${ad_name} ilike '%SingleImage_Attractions_7NaturalWonders' then 'S7: 7 Natural Wonders Single Image'
         when ${ad_name} ilike '%SingleImage_Attractions_59MileScenicDrive' then '59 Mile Scenic Drive Single Image'
 
@@ -865,10 +874,14 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%OBICoastalYoga60' then 'OBI: Coastal Yoga (:60)'
         when ${ad_name} ilike '%OBIBoardwalk60' then 'OBI: Boardwalk Cruising (:60)'
         when ${ad_name} ilike '%OBIBoardwalk15' then 'OBI: Boardwalk Cruising (:15)'
+        when ${ad_name} ilike '%OBI_BoardwalkCruising15' then 'OBI: Boardwalk Cruising (:15)'
+        when ${ad_name} ilike '%OBI_BoardwalkCruising60' then 'OBI: Boardwalk Cruising (:60)'
 
         when ${ad_name} ilike '%G2GSSurfing60' then 'G2GS: Surfing San Diego (:60)'
         when ${ad_name} ilike '%G2GSMissionBay60' then 'G2GS: Mission Bay (:60)'
+        when ${ad_name} ilike '%G2GS_MissionBay' then 'G2GS: Mission Bay (:60)'
         when ${ad_name} ilike '%G2GSLaJolla60' then 'G2GS: La Jolla (:60)'
+        when ${ad_name} ilike '%G2GS_LaJolla' then 'G2GS: La Jolla (:60)'
 
         when ${ad_name} ilike '%BBYoga15' then 'BB: Yoga (:15)'
         when ${ad_name} ilike '%BBParagliding30' then 'BB: Paragliding (:30)'
@@ -894,29 +907,38 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%OBIMidway60%' then 'OBI: USS Midway (:60)'
         when ${ad_name} ilike '%OBILibertyStation60%' then 'OBI: Liberty Station (:60)'
         when ${ad_name} ilike '%OBILibertyStation15%' then 'OBI: Liberty Station (:15)'
+        when ${ad_name} ilike '%OBI_LibertyStation60' then 'OBI: Liberty Station (:60)'
+        when ${ad_name} ilike '%OBI_LibertyStation15' then 'OBI: Liberty Station (:15)'
         when ${ad_name} ilike '%OBILegoSub60%' then 'OBI: LEGO Submarine (:60)'
         when ${ad_name} ilike '%OBILearnToSurf60%' then 'OBI: Learn to Surf (:60)'
         when ${ad_name} ilike '%OBILearnToSurf15%' then 'OBI: Learn to Surf (:15)'
         when ${ad_name} ilike '%OBIGolf60%' then 'OBI: Torrey Pines Golf (:60)'
+        when ${ad_name} ilike '%OBI_TorreyPinesGolf60' then 'OBI: Torrey Pines Golf (:60)'
         when ${ad_name} ilike '%OBIGolf15%' then 'OBI: Torrey Pines Golf (:15)'
+        when ${ad_name} ilike '%OBI_TorreyPinesGolf15%' then 'OBI: Torrey Pines Golf (:15)'
         when ${ad_name} ilike '%OBIConvoyDesserts60%' then 'OBI: Convoy District Desserts (:60)'
         when ${ad_name} ilike '%OBIConvoyDesserts15%' then 'OBI: Convoy District Desserts (:15)'
         when ${ad_name} ilike '%OBICaliforniaTower60%' then 'OBI: California Tower (:60)'
         when ${ad_name} ilike '%OBIBirchAquarium60%' then 'OBI: Birch Aquarium (:60)'
         when ${ad_name} ilike '%OBIAfricaRocks60%' then 'OBI: Africa Rocks (:60)'
         when ${ad_name} ilike '%OBIAfricaRocks15%' then 'OBI: Africa Rocks (:15)'
+        when ${ad_name} ilike '%OBI_AfricaRocks60' then 'OBI: Africa Rocks (:60)'
+        when ${ad_name} ilike '%OBI_AfricaRocks15' then 'OBI: Africa Rocks (:15)'
         when ${ad_name} ilike '%OBISafariPark60%' then 'OBI: Safari Park (:60)'
         when ${ad_name} ilike '%OBICoastalYoga15' then 'OBI: Coastal Yoga (:15)'
         when ${ad_name} ilike '%OBIMidway15%' then 'OBI: USS Midway (:15)'
 
         when ${ad_name} ilike '%G2GSPicturePerfect60%' then 'G2GS: Picture Perfect Spots (:60)'
         when ${ad_name} ilike '%G2GSBarrioLogan60%' then 'G2GS: Barrio Logan (:60)'
+        when ${ad_name} ilike '%G2GS_Surfing' then 'G2GS: Surfing (:60)'
 
         when ${ad_name} ilike '%DHRealm30%' then 'DH: Realm of the 52 Remedies (:30)'
         when ${ad_name} ilike '%DHRealm15%' then 'DH: Realm of the 52 Remedies (:15)'
         when ${ad_name} ilike '%DHMantra%' then 'DH: Mantra (Longform)'
         when ${ad_name} ilike '%DHBarrioDogg60%' then 'DH: Barrio Dogg (:60)'
         when ${ad_name} ilike '%DHBarrioDogg30%' then 'DH: Barrio Dogg (:30)'
+        when ${ad_name} ilike '%DH_BarrioDogg30' then 'DH: Barrio Dogg (:30)'
+        when ${ad_name} ilike '%DH_BarrioDogg15' then 'DH: Barrio Dogg (:15)'
         when ${ad_name} ilike '%DHBarrioDogg15%' then 'DH: Barrio Dogg (:15)'
         when ${ad_name} ilike '%DHAzucar30%' then 'DH: Azucar (:30)'
         when ${ad_name} ilike '%DHAzucar15%' then 'DH: Azucar (:15)'
@@ -967,6 +989,8 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%59MileScenicDrive%' then 'WC: San Diego''s 59 Mile Scenic Drive'
           when ${ad_name} ilike '%Sunny7HiddenGems%' then 'S7: Balboa Park Hidden Gems'
           when ${ad_name} ilike '%Sunny7Viewpoints%' then 'S7: Awesome San Diego Viewpoints'
+          when ${ad_name} ilike '%_ScenicViewpoints' then 'S7: Awesome San Diego Viewpoints'
+          when ${ad_name} ilike '%_LocalMarkets' then 'S7: 7 Local Markets'
           when ${ad_name} ilike '%BalboaParkCulturalHeart%' then 'WC: Balboa Park - Cultural Heart'
           when ${ad_name} ilike '%Sunny7makeaSplash%' then 'S7: Make A Splash'
           when ${ad_name} ilike '%Sunny7Sunsets%' then 'S7: Sunsets'

@@ -50,6 +50,10 @@ view: sdt_gdn_ga_view {
         when ${campaign} = 'SDT_FY20_PullThrough_National' then 'Responsive Display'
         when ${campaign} = 'SDT - FY21 - Locals Recovery - Awareness' then 'Responsive Display'
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContentRecovery%' then 'Responsive Display'
+
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_Retargeting%' then 'Responsive Display'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_Retargeting%' then 'Responsive Display'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch%' then 'Responsive Display'
         else null
         end
       ;;
@@ -94,6 +98,15 @@ view: sdt_gdn_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_%_California%' then 'California'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_%_California%' then 'California'
+
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_%_Arizona%' then 'Arizona'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_%_Arizona%' then 'Arizona'
+
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_%_LosAngeles%' then 'Los Angeles'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_%_LosAngeles%' then 'Los Angeles'
+
         when ${campaign} ilike '%PHXTUCDMA' then 'Phoenix/Tucson'
         when ${campaign} ilike '%Nano_GDN_PHXTUCDMA%' then 'Phoenix/Tucson'
         when ${campaign} ilike '%LADMA' then 'Los Angeles'
@@ -227,6 +240,10 @@ view: sdt_gdn_ga_view {
 
         when ${campaign} ilike 'SDT - FY21 - Locals Recovery - Awareness%' then 'Awareness'
 
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_Retargeting%' then 'Topical Retargeting'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_Retargeting%' then 'Topical Retargeting'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch%' then 'First Touch Display'
+
         ELSE 'Uncategorized'
         end
         ;;
@@ -238,6 +255,10 @@ view: sdt_gdn_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_Retargeting%' then 'GDN Responsive Display - Retargeting'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_Retargeting%' then 'GDN Discpvery Display - Retargeting'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch%' then 'GDN Responsive Display - First Touch'
+
         when ${ad_group_id} = '89533583427' then 'Static Display - Variety Seeker'
         when ${ad_group_id} = '92121636452' then 'Static Display - Variety Seeker'
         when ${ad_group_id} = '92121636852' then 'Static Display - Variety Seeker'
@@ -300,6 +321,10 @@ view: sdt_gdn_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_Retargeting%' then 'N/A'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_Retargeting%' then 'N/A'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch%' then 'N/A'
+
         when ${campaign} ilike 'SDT_FY20_AlwaysOnContent_Nano_GDN%' then 'N/A'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Outdoor%' then 'Outdoor'
         when ${ad_group} ilike 'SDT_FY20_AlwaysOnContent_Micro_GDN_Neighborhood%' then 'Neighborhood'
@@ -388,6 +413,7 @@ view: sdt_gdn_ga_view {
         when ${ad_group} ilike '%_LaJollaBeaches%' then 'WC: La Jolla Beaches'
         when ${ad_group} ilike '%_HistoricHighway101%' then 'WC: Historic Highway 101'
         when ${ad_group} ilike '%_GuidetoSDBeaches%' then 'WC: Guide to San Diego Beaches'
+        when ${ad_group} ilike '%_GuiddetoSDBeaches' then 'WC: Guide to San Diego Beaches'
           when ${ad_group} ilike '%SocalVibe%' then 'WC: 3 Beach Neighborhoods w/ SoCal Vibe'
           when ${ad_group} ilike '%_Sunny7MissionValleyOldTown%' then 'S7: Mission Valley/Old Town'
           when ${ad_group} ilike '%_Sunny7MissionBay%' then 'S7: Mission Bay'
@@ -395,6 +421,7 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike '%_Sunny7NorthInland%' then 'S7: North Inland'
           when ${ad_group} ilike '%_Sunny7PointLoma%' then 'S7: Point Loma'
           when ${ad_group} ilike '%_Sunny7NaturalWonders%' then 'S7: Natural Wonders'
+          when ${ad_group} ilike '%NaturalWonders' then 'S7: Natural Wonders'
           when ${ad_group} ilike '%_Sunny7LocalMarkets%' then 'S7: Local Markets'
           when ${ad_group} ilike '%_Sunny7BotanicalGardens%' then 'S7: Botanical Gardens'
           when ${ad_group} ilike '%_Sunny7RooftopRestaurants%' then 'S7: Rooftop Restaurants'
@@ -423,6 +450,7 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike '%59MileScenicDrive%' then 'WC: San Diego''s 59 Mile Scenic Drive'
           when ${ad_group} ilike '%Sunny7HiddenGems%' then 'S7: Balboa Park Hidden Gems'
           when ${ad_group} ilike '%Sunny7Viewpoints%' then 'S7: Awesome San Diego Viewpoints'
+          when ${ad_group} ilike '%ScenicViewpoints' then 'S7: Awesome San Diego Viewpoints'
           when ${ad_group} ilike '%BalboaParkCulturalHeart%' then 'WC: Balboa Park - Cultural Heart'
           when ${ad_group} ilike '%Sunny7makeaSplash%' then 'S7: Make A Splash'
           when ${ad_group} ilike '%Sunny7Sunsets%' then 'S7: Sunsets'
@@ -430,6 +458,7 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike '%BayshoreBikeway%' then 'WC: Bayshore Bikeway'
           when ${ad_group} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad_group} ilike '%CoastalHikes%' then 'S7: 7 Star Coastal Hikes'
+          when ${ad_group} ilike '%LocalMarkets' then 'S7: 7 Local Markets'
 
           when ${campaign} ilike '%HotelsLandingPage' then 'Nano Traffic: Hotels LP'
           when ${campaign} ilike '%PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'

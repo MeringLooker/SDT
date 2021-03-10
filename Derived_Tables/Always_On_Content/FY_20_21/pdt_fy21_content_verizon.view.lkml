@@ -1,4 +1,4 @@
-view: pdt_fy21_content_stackadapt {
+view: pdt_fy21_content_verizon {
   derived_table: {
     explore_source: sdt_dcm {
       column: publisher {field: sdt_dcm_ga_view.publisher}
@@ -21,16 +21,16 @@ view: pdt_fy21_content_stackadapt {
       column: total_sessions {field: sdt_dcm_ga_view.total_sessions}
       column: total_session_duration {field: sdt_dcm_ga_view.total_session_duration}
       filters: {
-        field: sdt_dcm_ga_view.sdt_campaign
-        value: "Always On Content"
+        field: sdt_dcm_ga_view.campaign
+        value: "SDT: FY21 Always On Content 2H - 005868_01"
       }
       filters: {
         field: sdt_dcm_ga_view.publisher
-        value: "Stack Adapt"
+        value: "Verizon Media"
       }
       filters: {
         field: sdt_dcm_ga_view.date_date
-        value: "2020/07/27 to 2020/12/24, 2021/03/01 to 2021/07/01"
+        value: "2021/03/01 to 2021/07/01"
       }
     }
     datagroup_trigger: sdt_default_datagroup

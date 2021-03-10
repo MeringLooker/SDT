@@ -19,7 +19,7 @@ explore: sdt_dcm {
   join: sdt_fy21_content_view {
     view_label: "FY21 Always On Content Passback"
     type: inner
-    sql_on: ${sdt_dcm_ga_view.passback_join_ad} = ${sdt_fy21_content_view.passback_join} ;;
+    sql_on: ${sdt_dcm_ga_view.passback_join_ad} = ${sdt_fy21_content_view.dcm_join_id} ;;
     relationship: many_to_one
   }
 

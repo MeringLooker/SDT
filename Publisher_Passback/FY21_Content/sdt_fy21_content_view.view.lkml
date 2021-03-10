@@ -3,11 +3,11 @@ view: sdt_fy21_content_view {
 
 #### Primary Key ####
 
-  dimension: passback_join {
+  dimension: dcm_join_id {
     type: string
     hidden: yes
     primary_key:  yes
-    sql: ${ad_id}||'_'||${date_date} ;;
+    sql: ${TABLE}.dcm_join_id ;;
   }
 
   dimension: ad_id {
@@ -64,14 +64,14 @@ view: sdt_fy21_content_view {
   measure: total_impressions {
     label: "Total Impressions"
     type: sum_distinct
-    sql_distinct_key: ${passback_join} ;;
+    sql_distinct_key: ${dcm_join_id} ;;
     sql: ${impressions} ;;
   }
 
   measure: total_clicks {
     label: "Total Clicks"
     type: sum_distinct
-    sql_distinct_key: ${passback_join} ;;
+    sql_distinct_key: ${dcm_join_id} ;;
     sql: ${clicks} ;;
   }
 
@@ -85,7 +85,7 @@ view: sdt_fy21_content_view {
   measure: total_media_cost {
     label: "Total Media Cost"
     type: sum_distinct
-    sql_distinct_key: ${passback_join} ;;
+    sql_distinct_key: ${dcm_join_id} ;;
     sql: ${cost} ;;
     value_format_name: usd
   }
@@ -93,14 +93,14 @@ view: sdt_fy21_content_view {
   measure: total_video_views {
     label: "Total Video Views"
     type: sum_distinct
-    sql_distinct_key: ${passback_join} ;;
+    sql_distinct_key: ${dcm_join_id} ;;
     sql: ${video_views} ;;
   }
 
   measure: total_video_completes {
     label: "Total Video Completes"
     type: sum_distinct
-    sql_distinct_key: ${passback_join} ;;
+    sql_distinct_key: ${dcm_join_id} ;;
     sql: ${video_completions} ;;
   }
 

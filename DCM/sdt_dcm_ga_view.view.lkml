@@ -213,6 +213,19 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Plan Now_1x1' then 'High Impact Crown'
           when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Creative TBD_1x1' then 'High Impact Crown'
 
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Native'
+        when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Native_Brand%' then 'Native'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Native'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Native%' then 'Native'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Video%' then 'Video'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Native'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Video%' then 'Video'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Video%' then 'Video'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Native%' then 'Native'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Native%' then 'Native'
+
         ELSE 'Uncategorized'
         END;;
     }
@@ -381,6 +394,19 @@ view: sdt_dcm_ga_view {
           when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_PHX_Audio Everywhere' then 'Audio'
           when ${placement} ilike 'SPOTIFY_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_Kids/Family_CALIFORNIA_Audio Everywhere' then 'Audio'
 
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Topical Retargeting'
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Native_Brand%' then 'First Touch Display'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Topical Retargeting'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Native%' then 'First Touch Display'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Video%' then 'First Touch Video'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Topical Retargeting'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Video%' then 'First Touch Video'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Video%' then 'First Touch Video'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Native%' then 'First Touch Display'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Native%' then 'First Touch Display'
+
           ELSE 'Uncategorized'
           end ;;
     }
@@ -440,6 +466,7 @@ view: sdt_dcm_ga_view {
 
           when ${campaign} ilike 'SDT: FY21 Pull-Through%' then 'US Pull-Through'
           when ${campaign} ilike 'SDT: FY21 Always On Recovery - 005402_01' then 'Always On Content'
+          when ${campaign} ilike 'SDT: FY21 Always On Content 2H - 005868_01' then 'Always On Content'
 
 
         ELSE ${campaign}
@@ -495,6 +522,7 @@ view: sdt_dcm_ga_view {
           when ${campaign} ilike 'SDT: FY21 Drive Market Recovery%' then 'United States'
           when ${campaign} ilike 'SDT: FY21 Always On Recovery - 005402_01' then 'United States'
           when ${campaign} = 'SDT: FY21 Spring Awareness - 005867_01' then 'United States'
+          when ${campaign} ilike 'SDT: FY21 Always On Content 2H - 005868_01' then 'United States'
 
             ELSE 'Uncategorized'
         END;;
@@ -794,6 +822,26 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '294443271' then 'Western Region'
           when ${placement_id} = '294445860' then 'Western Region'
 
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_RTG_LosAngeles, California, Arizona_Native_Topical%' then 'Combined (CA/AZ/LA)'
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_LosAngeles_%' then 'Los Angeles'
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_California_%' then 'California'
+          when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_Arizona_%' then 'Arizona'
+
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_RTG_LosAngeles_Native_Topical%' then 'Los Angeles'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_RTG_Arizona_Native_Topical%' then 'Arizona'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_RTG_California_Native_Topical%' then 'California'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_LosAngeles%' then 'Los Angeles'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_Arizona%' then 'Arizona'
+          when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_California%' then 'California'
+
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_California%' then 'California'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_Arizona%' then 'Arizona'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_LosAngeles%' then 'Los Angeles'
+
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_%_California%' then 'California'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_%_Arizona%' then 'Arizona'
+          when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_%_LosAngeles%' then 'Los Angeles'
+
             ELSE 'Uncategorized'
         END;;
     }
@@ -850,6 +898,19 @@ view: sdt_dcm_ga_view {
       label: "Placement Name"
       sql:
         case
+        when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Retargeting Display'
+        when ${placement} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Native_Brand%' then 'First Touch Display'
+
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Retargeting Native Display'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Native%' then 'First Touch Native Display'
+        when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnContent_FirstTouch_VarietySeeker_%_Video%' then 'First Touch Video'
+
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_%_Native_Topical%' then 'Retargeting Native Display'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Video%' then 'First Touch Video: Contextual'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Video%' then 'First Touch Video: Behavioral'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Native%' then 'First Touch Native: Contextual'
+        when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Native%' then 'First Touch Native: Behavioral'
+
         when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_%_Video' then 'ABC :30 Video'
         when ${placement} ilike 'VIACOM_SDTAFY21_SpringAwareness_Variety Seeker_Entertainment and Youth_%_Video' then 'Viacom :30 Video (Entertainment & Youth)'
         when ${placement} ilike 'CBS_SDTAFY21_SpringAwareness_Variety Seeker_Custom Show List_%_Video' then 'CBS :30 Video (Custom Show List)'
@@ -1488,6 +1549,8 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Culinary_IMPRESSION TRACKER' then 'Culinary'
         when ${placement} ilike 'TABOOLA_SDTAFY21_AlwaysOnRecovery_Micro_RetargetMacro_NativeTraffic_Attractions_IMPRESSION TRACKER' then 'Attractions'
 
+        when ${campaign} ilike 'SDT: FY21 Always On Content 2H - 005868_01' then 'N/A'
+
             ELSE 'Uncategorized'
         END;;
     }
@@ -1644,10 +1707,15 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Co-Branded TripAdvisor Outdoor Pillar Video :60' then 'Co-Branded TripAdvisor Outdoor Pillar Video (:60)'
 
           when ${ad} ilike '%Bliss Break: Yoga :15' then 'BB: Yoga (:15)'
+          when ${ad} ilike '%Bliss Break: Yoga :15%' then 'BB: Yoga (:15)'
           when ${ad} ilike '%Bliss Break: Paragliding :15' then 'BB: Paragliding (:15)'
+          when ${ad} ilike '%Bliss Break: Paragliding :15%' then 'BB: Paragliding (:15)'
           when ${ad} ilike '%Bliss Break: Paddle Board :15' then 'BB: Paddle Board (:15)'
+          when ${ad} ilike '%Bliss Break: Paddle Board :15%' then 'BB: Paddle Board (:15)'
           when ${ad} ilike '%Bliss Break: Coffee Cup Coastal :15' then 'BB: Coffee Cup Coastal (:15)'
+          when ${ad} ilike '%Bliss Break: Coffee Cup Coastal :15%' then 'BB: Coffee Cup Coastal (:15)'
           when ${ad} ilike '%Bliss Break: Beach For 2 :15' then 'BB: Beach For 2 (:15)'
+          when ${ad} ilike '%Bliss Break: Beach For 2 :15%' then 'BB: Beach For 2 (:15)'
 
           when ${ad} ilike '%OBI: Tortillas and Margs :60%' then 'OBI: Tortillas and Margs (:60)'
           when ${ad} ilike '%OBI: Tortillas and Margs :15%' then 'OBI: Tortillas and Margs (:15)'
@@ -1655,6 +1723,8 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%OBI: Liberty Station :60%' then 'OBI: Liberty Station (:60)'
           when ${ad} ilike '%OBI: Convoy Desserts :15%' then 'OBI: Convoy District Desserts (:15)'
           when ${ad} ilike '%OBI: Convoy Desserts :60%' then 'OBI: Convoy District Desserts (:60)'
+          when ${ad} ilike '%OBI: Boardwalk Cruising :15%' then 'OBI: Boardwalk Cruising (:15)'
+          when ${ad} ilike '%OBI: Boardwalk Cruising :60%' then 'OBI: Boardwalk Cruising (:60)'
 
           when ${ad} ilike '%Socks: Torrey Pines :60%' then 'Socks: Torrey Pines (:60)'
           when ${ad} ilike '%Socks: Torrey Pines :15%' then 'Socks: Torrey Pines (:15)'
@@ -2073,6 +2143,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Outdoor_Torrey Pines' then 'WC: Torrey Pines'
           when ${ad} ilike '%Outdoor_Swimming with Leopard Sharks' then 'WC: Swimming with Leopard Sharks'
           when ${ad} ilike '%Outdoor_San Diego''s Tide Pools - Exploring Life%' then 'WC: SD Tide Pools: Exploring Life at the Edge of the Sea'
+          when ${ad} ilike '%Brand_SD Tide Pools%' then 'WC: SD Tide Pools'
           when ${ad} ilike '%Outdoor_Sailing in San Diego' then 'WC: Sailing in San Diego'
           when ${ad} ilike '%Outdoor_Mission Bay & Beaches' then 'WC: Mission Bay & Beaches'
           when ${ad} ilike '%Outdoor_Mele Sali''s Surf Faves%' then 'WC: Mele Sali''s Surf Faves'
@@ -2093,12 +2164,14 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Family_15 San Diego Playgrounds' then 'WC: 15 San Diego Playgrounds'
           when ${ad} ilike '%Family_13 Kid-pleasing neighborhoods' then 'WC: 13 Kid-Pleasing Neighborhoods'
           when ${ad} ilike '%Family_The Best Beaches According to Kids' then 'WC: The Best Beaches According to Kids'
+          when ${ad} ilike '%Brand_The Best Beaches According to Kids%' then 'WC: The Best Beaches According to Kids'
           when ${ad} ilike '%Family_Family fun in San Diego' then 'WC: Family Fun in San Diego'
           when ${ad} ilike '%Family_Edutainment' then 'Edutainment'
           when ${ad} ilike '%Family_9 Kid Approved Parks' then 'WC: 9 Kid Approved Parks'
 
           when ${ad} ilike '%Culinary_Sunny 7: Rooftop Restaurants' then 'S7: Rooftop Restaurants'
           when ${ad} ilike '%Culinary_Sunny 7: Local Markets' then 'S7: Local Markets'
+          when ${ad} ilike '%Brand_Local Markets%' then 'S7: Local Markets'
           when ${ad} ilike '%Culinary_Sunny 7: Beachfront Bars' then 'S7: Beachfront Bars'
           when ${ad} ilike '%Culinary_Sunny 7: Award Winning Restaurants & Chefs' then 'S7: Award Winning Restaurants & Chefs'
           when ${ad} ilike '%Culinary_Foodie Finds' then 'WC: Foodie Finds'
@@ -2108,19 +2181,24 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Culinary_Realm of the 52 Remedies%' then 'WC: Realm of the 52 Remedies'
 
           when ${ad} ilike '%Attractions_Sunny 7: Natural Wonders' then 'S7: Natural Wonders'
+          when ${ad} ilike '%Brand_Sunny 7: Natural Wonders%' then 'S7: Natural Wonders'
           when ${ad} ilike '%Attractions_Sunny 7: Art Outside the Box' then 'S7: Art Outside the Box'
           when ${ad} ilike '%Attractions_Sunny 7: 7 Botanical Gardens' then 'S7: 7 Botanical Gardens'
           when ${ad} ilike '%Attractions_San Diego''s 59 Mile Scene Drive' then 'WC: San Diego''s 59 Mile Scenic Drive'
           when ${ad} ilike '%Attractions_Sunny 7: Hidden Gems in Balboa Park' then 'S7: Balboa Park Hidden Gems'
           when ${ad} ilike '%Attractions_Sunny 7: Awesome San Diego Viewpoints' then 'S7: Awesome San Diego Viewpoints'
+          when ${ad} ilike '%Brand_Sunny 7: Scenic Viewpoints%' then 'S7: Awesome San Diego Viewpoints'
           when ${ad} ilike '%Attractions_Balboa Park - Cultural Heart' then 'WC: Balboa Park - Cultural Heart'
 
           when ${ad} ilike '%Outdoor_Sunny 7: Ways to make a Splash' then 'S7: Make A Splash'
           when ${ad} ilike '%Outdoor_Sunny 7: Great Spots to Watch the Sunset' then 'S7: Sunsets'
           when ${ad} ilike '%Outdoor_Explore La Jolla on a Kayak Tour' then 'WC: Explore La Jolla on a Kayak Tour'
           when ${ad} ilike '%Outdoor_Bayshore Bikeway' then 'WC: Bayshore Bikeway'
+          when ${ad} ilike '%Brand_Bayshore Bikeway%' then 'WC: Bayshore Bikeway'
           when ${ad} ilike '%Outdoor_7 Things to Do Along Scenic CA Highway 101' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
+          when ${ad} ilike '%Brand_Sunny 7: Scenic Highway 101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad} ilike '%Outdoor_7 Star Coastal Hikes' then 'S7: 7 Star Coastal Hikes'
+          when ${ad} ilike '%Brand_Sunny 7: 7 Star Coastal Hikes%' then 'S7: 7 Star Coastal Hikes'
 
           when ${ad} ilike '%NativePromo_Pull-Through Landing Page' then 'Nano Traffic Driver: Pull-Through Landing Page'
           when ${ad} ilike '%NativePromo_Hotels Landing Page' then 'Nano Traffic Driver: Hotels Landing Page'
@@ -2156,6 +2234,12 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'Hulu_SDTAFY21_FallDriveMarketRecovery_Awareness_A25-54_1P%_Behavioral_1x1' and ${date_date} BETWEEN '2020-08-31' AND '2020-11-30' then 'Kids Free (:30)'
           when ${placement} ilike 'ABC_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
           when ${placement} ilike 'CBS_SDTAFY21_FallDriveMarketRecovery_Awareness%' then 'Happiness is Calling You Back (:30)'
+
+          when ${ad} ilike '%Topical_Safe Traveler%' then 'WC: Safe Traveler Content'
+          when ${ad} ilike '%Topical_Plan Now%' then 'WC: Plan Now'
+          when ${ad} ilike '%Topical_Book Now%' then 'WC: Book Now'
+          when ${ad} ilike '%Topical_Outdoor Dining%' then 'WC: Outdoor Dining'
+          when ${ad} ilike '%Brand_Guide To SD Beaches%' then 'WC: Guide to San Diego Beaches'
 
             ELSE 'Uncategorized'
         END;;
