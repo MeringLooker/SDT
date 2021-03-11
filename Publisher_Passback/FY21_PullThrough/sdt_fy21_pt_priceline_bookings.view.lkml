@@ -53,10 +53,32 @@ view: sdt_fy21_pt_priceline_bookings {
     sql: ${TABLE}.impressions ;;
   }
 
+  dimension: line_item {
+    label: "Priceline Line Item"
+    type: string
+    sql: ${TABLE}.line_item_name ;;
+  }
+
   dimension: line_item_name {
     label: "Priceline Line Item"
     type: string
-    sql: REPLACE(${TABLE}.line_item_name, 'PULL THROUGH - ', '' )
+    sql:
+      case
+        when ${line_item} = 'PULL THROUGH - Audience Targeting Display Package - Active Travel Intenders, geo AZ drive markets' then 'ROS Display - AZ Markets'
+        when ${line_item} = 'PULL THROUGH - Audience Targeting Display Package - Active Travel Intenders, geo CA drive markets' then 'ROS Display - CA Markets'
+        when ${line_item} = 'PULL THROUGH - Audience Targeting Display Package - San Diego Searchers, geo targeted' then 'ROS Display - Western Region'
+        when ${line_item} = 'PULL THROUGH - Promotional Email - Active Travel Intenders, geo AZ drive markets' then 'Promotional Email - AZ Markets'
+        when ${line_item} = 'PULL THROUGH - Promotional Email - Active Travel Intenders, geo CA drive markets' then 'Promotional Email - CA Markets'
+        when ${line_item} = 'PULL THROUGH - Promotional Email - San Diego Searchers, geo targeted' then 'Promotional Email - Western Region'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_Arizona_Native Search Results_Package' then 'Native Search Results - AZ Market'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_Arizona_ROS_Package' then 'ROS Display - AZ Markets'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_California_Native Search Results_Package' then 'Native Search Results - CA Market'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_California_ROS_Package' then 'ROS Display - CA Markets'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_National_Email Marquee_Package' then 'Email Marquee - National'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_WesternRegion_Native Search Results_Package' then 'Native Search Results - Western Region'
+        when ${line_item} = 'PRICELINE_SDTAFY21_PullThrough_SDIntenders_WesternRegion_ROS_Package' then 'ROS Display - Western Region'
+        else 'Uncategorized'
+        end
     ;;
   }
 
