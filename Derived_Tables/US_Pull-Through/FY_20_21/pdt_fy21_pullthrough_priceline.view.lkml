@@ -33,6 +33,10 @@ view: pdt_fy21_pullthrough_priceline {
         value: "-(not set)"
       }
       filters: {
+        field: sdt_dcm_ga_view.sdt_placement
+        value: "-Priceline Search Results Native Display"
+      }
+      filters: {
         field: sdt_dcm_ga_view.date_date
         value: "2020/07/27 to 2021/01/04,2021/02/08 to 2021/07/01"
       }

@@ -19,3 +19,10 @@ explore: sdt_fy21_pt_priceline_bookings {
   view_label: "Bookings"
   group_label: "San Diego Tourism"
 }
+
+explore: sdt_fy21_pt_priceline_data {
+  hidden: yes
+  label: "Priceline FY21 US PullThrough Rptg"
+  view_label: "Native Data"
+  group_label: "San Diego Tourism"
+}

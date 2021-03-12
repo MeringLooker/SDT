@@ -13,6 +13,8 @@ view: pdt_fy21_pullthrough_campaign {
           union
           select * from ${pdt_fy21_pullthrough_priceline.SQL_TABLE_NAME}
           union
+          select * from ${pdt_fy21_pullthrough_priceline_pub.SQL_TABLE_NAME}
+          union
           select * from ${pdt_fy21_pullthrough_expedia_pub.SQL_TABLE_NAME}
           union
           select * from ${pdt_fy21_pullthrough_expedia.SQL_TABLE_NAME}
@@ -180,6 +182,8 @@ view: pdt_fy21_pullthrough_campaign {
             when ${creative_name} ilike 'Family%' then 'Happiness Is Calling You Back'
             when ${creative_name} ilike 'Outdoor_v1%' then 'TripAdvisor Outdoor'
             when ${creative_name} ilike 'Outdoor_v2%' then 'TripAdvisor Outdoor'
+            when ${creative_name} ilike 'TripAdvisor_Outdoor%' then 'TripAdvisor Outdoor'
+            when ${creative_name} ilike 'TripAdvisor_RTG%' then 'TripAdvisor Outdoor'
             when ${creative_name} ilike 'ExpediaNativeTile%' and ${date} BETWEEN '2020-07-27' AND '2020-10-13' then 'Happiness Is Calling You Back'
             when ${creative_name} ilike 'ExpediaNativeTile%' and ${date} BETWEEN '2020-07-27' AND '2021-01-03' then 'WeekYay'
             when ${creative_name} ilike '%Happiness Is Calling You Back%' then 'Happiness Is Calling You Back'
