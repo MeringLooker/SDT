@@ -9,11 +9,11 @@ view: pdt_fy21_spring_awareness_abc {
       column: creative_name {field: sdt_dcm_ga_view.creative_name}
       column: ad_size {field: sdt_dcm_ga_view.ad_size}
       column: date {field: sdt_dcm_ga_view.date_date}
-      column: total_impressions {field: sdt_dcm_ga_view.total_impressions}
-      column: total_clicks {field: sdt_dcm_ga_view.total_clicks}
-      column: total_cost {field: sdt_dcm_ga_view.total_cost}
-      column: total_views {field: sdt_dcm_ga_view.total_views}
-      column: total_completes {field: sdt_dcm_ga_view.total_completes}
+      column: total_impressions {field: sdt_fy21_awareness_dcm_view.total_impressions}
+      column: total_clicks {field: sdt_fy21_awareness_dcm_view.total_clicks}
+      column: total_cost {field: sdt_fy21_awareness_dcm_view.total_cost}
+      column: total_views {field: sdt_fy21_awareness_dcm_view.total_views}
+      column: total_completes {field: sdt_fy21_awareness_dcm_view.total_completes}
       column: total_sessions {field: sdt_dcm_ga_view.total_sessions}
       column: total_session_duration {field: sdt_dcm_ga_view.total_session_duration}
       filters: {

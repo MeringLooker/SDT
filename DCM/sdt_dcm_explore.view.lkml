@@ -23,6 +23,13 @@ explore: sdt_dcm {
     relationship: many_to_one
   }
 
+  join: sdt_fy21_awareness_dcm_view {
+    view_label: "FY21 Spring Awareness Passback"
+    type: inner
+    sql_on: ${sdt_dcm_ga_view.passback_join_ad} = ${sdt_fy21_awareness_dcm_view.dcm_join_id} ;;
+    relationship: many_to_one
+  }
+
   join: sdt_fy21_drivemkt_dcm_view {
     view_label: "FY21 Drive Market Passback"
     type: inner
