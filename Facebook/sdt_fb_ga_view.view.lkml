@@ -107,6 +107,8 @@ view: sdt_fb_ga_view {
 
         when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Landscape Image'
         when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories%' then 'Story'
+        when ${adset_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Landscape Image'
+        when ${adset_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge%' then 'Landscape Image'
 
         ELSE 'Uncategorized'
         END
@@ -326,6 +328,8 @@ view: sdt_fb_ga_view {
     sql:
       CASE
         when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Facebook/Instagram Single Image'
+        when ${adset_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleImage%' then 'Facebook/Instagram Single Image'
+        when ${adset_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge%' then 'Facebook/Instagram Single Image'
         when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories%' then 'Facebook/Instagram Stories'
 
         when ${adset_name} = 'FY20_UK_Views_Content_RT' then 'Video Content - Retargeting'
@@ -947,7 +951,8 @@ view: sdt_fb_ga_view {
 
         when ${ad_name} ilike '%_TorreyPines' then 'WC: Torrey Pines'
         when ${ad_name} ilike '%_LeopardSharks' then 'WC: Swimming with Leopard Sharks'
-        when ${ad_name} ilike '%TidePools' then 'WC: SD Tide Pools: Exploring Life at the Edge of the Sea'
+        when ${ad_name} ilike '%SDTidePools' then 'WC: SD Tide Pools: Exploring Life at the Edge of the Sea'
+        when ${ad_name} ilike '%Socks_TidePools' then 'SFTSD: Tidepools (:15)'
         when ${ad_name} ilike '%_Sailing' then 'WC: Sailing in San Diego'
         when ${ad_name} ilike '%_MissionBayBeaches' then 'WC: Mission Bay & Beaches'
         when ${ad_name} ilike '%_MeleSurfFaves' then 'WC: Mele Sali''s Surf Faves'
@@ -1057,14 +1062,14 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%BlissBreak_PaddleBoard' then 'BB: Paddle Board (:15)'
           when ${ad_name} ilike '%BlissBreak_PaddleBoard' then 'BB: Paddle Board (:15)'
 
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_PlanNow2' then 'Plan Now v2 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_PlanNow1' then 'Plan Now v1 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_OutdoorDining2' then 'Outdoor Dining v2 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_OutdoorDining1' then 'Outdoor Dining v1 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow1' then 'Book Now v2 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow2' then 'Book Now v1 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent1' then 'Safe Traveler Content v2 Single Image'
-          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent2' then 'Safe Traveler Content v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_PlanNow2' then 'WC: Plan Now v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_PlanNow1' then 'WC: Plan Now v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_OutdoorDining2' then 'WC: Outdoor Dining v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_OutdoorDining1' then 'WC: Outdoor Dining v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow1' then 'WC: Book Now v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow2' then 'WC: Book Now v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent1' then 'WC: Safe Traveler Content v2 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent2' then 'WC: Safe Traveler Content v1 Single Image'
 
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge_%_HICYB_BookHotel' then 'Book Hotel Single Image'
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge_%_HICYB_PlanNow' then 'Plan Now Single Image'
@@ -1074,6 +1079,20 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_LowerRateActivity' then 'WeekYay: Lower Rate Activity Single Image'
           when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_LessCrowds' then 'WeekYay: Less Crowds Single Image'
           when ${ad_name} ilike '%SingleImage_%_WeekYayCreativeTest_HomeSchool' then 'WeekYay: Home School Single Image'
+
+          when ${ad_name} ilike '%WeekYay_WorkFromHotel' then 'WeekYay: Work From Hotel Single Image'
+          when ${ad_name} ilike '%WeekYay_OutdoorDining' then 'WeekYay: Outdoor Dining Single Image'
+          when ${ad_name} ilike '%WeekYay_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Single Image'
+          when ${ad_name} ilike '%WeekYay_LowerRateActivity' then 'WeekYay: Lower Rate Activity Single Image'
+          when ${ad_name} ilike '%WeekYay_LessCrowds' then 'WeekYay: Less Crowds Single Image'
+          when ${ad_name} ilike '%WeekYay_HomeSchool' then 'WeekYay: Home School Single Image'
+          when ${ad_name} ilike '%WeekYay_Animated' then 'WeekYay: Animated Story'
+          when ${ad_name} ilike '%WeekYay_Parallax' then 'WeekYay: Parallax Story'
+
+          when ${ad_name} ilike '%Spring_Baycycle' then 'HICYB: Baycycle Single Image'
+          when ${ad_name} ilike '%Spring_FamilyHammock' then 'HICYB: Family Hammock Single Image'
+          when ${ad_name} ilike '%Spring_windansea' then 'HICYB: Wind & Sea Single Image'
+          when ${ad_name} ilike '%Spring_Hotel' then 'HICYB: Hotel Single Image'
 
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_WeekYayCreativeTest_Parallax' then 'WeekYay: Parallax Story'
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_WeekYayCreativeTest_Animated' then 'WeekYay: Animated Story'

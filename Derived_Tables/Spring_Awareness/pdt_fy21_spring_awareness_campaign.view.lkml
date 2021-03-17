@@ -4,6 +4,32 @@ view: pdt_fy21_spring_awareness_campaign {
         select * from ${pdt_fy21_spring_awareness_fb.SQL_TABLE_NAME}
         union
         select * from ${pdt_fy21_spring_awareness_seesource.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_pin.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_hulu.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_abc.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_cbs.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_clearchannel.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_cn.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_nbc.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_pandora.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_spotify.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_tripadv.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_vdx.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_snap.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_tz.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*8)/(60*60*24)) ;;
     distribution_style: all
@@ -20,6 +46,56 @@ view: pdt_fy21_spring_awareness_campaign {
   }
 
 ### All dimensions go below ###
+
+  dimension: creative_set {
+    type: string
+    drill_fields: [placement,creative_name]
+    hidden: no
+    sql: case
+            when ${creative_name} ilike '%HICYB%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%BookHotel%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%PlanNow%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Book Hotel%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%Plan Now%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Sunset%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Surfing%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike 'Family%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%TripAdvisor%' then 'TripAdvisor Outdoor'
+            when ${creative_name} ilike '%Happiness Is Calling You Back%' then 'Happiness Is Calling You Back'
+            when ${creative_name} ilike '%WeekYay%' then 'WeekYay'
+            when ${creative_name} ilike 'BB:%' then 'Bliss Break'
+            when ${creative_name} ilike 'TravelZoo%' then 'TravelZoo'
+            else 'Uncategorized'
+            end
+      ;;
+  }
+
+  dimension: is_tripadvisor_outdoor {
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'TripAdvisor Outdoor' ;;
+  }
+
+  dimension: is_hicyb {
+    label: "Is HICYB"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Happiness Is Calling You Back' ;;
+  }
+
+  dimension: is_weekyay {
+    label: "Is WeekYay"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'WeekYay' ;;
+  }
+
+  dimension: is_bliss_break {
+    label: "Is Bliss Break"
+    type: yesno
+    hidden: no
+    sql: ${creative_set} = 'Bliss Break' ;;
+  }
 
   dimension: publisher {
     type: string
@@ -58,24 +134,6 @@ view: pdt_fy21_spring_awareness_campaign {
   dimension: ad_size {
     type: string
     sql: ${TABLE}.ad_size ;;
-  }
-
-  dimension: fiscal_year {
-    type:  string
-    group_label: "Date Periods"
-    sql:
-      CASE
-      WHEN ${date} BETWEEN '2013-07-01' AND '2014-06-30' THEN 'FY 13/14'
-      WHEN ${date} BETWEEN '2014-07-01' AND '2015-06-30' THEN 'FY 14/15'
-      WHEN ${date} BETWEEN '2015-07-01' AND '2016-06-30' THEN 'FY 15/16'
-      WHEN ${date} BETWEEN '2016-07-01' AND '2017-06-30' THEN 'FY 16/17'
-      WHEN ${date} BETWEEN '2017-07-01' AND '2018-06-30' THEN 'FY 17/18'
-      WHEN ${date} BETWEEN '2018-07-01' AND '2019-06-30' THEN 'FY 18/19'
-      WHEN ${date} BETWEEN '2019-07-01' AND '2020-06-30' THEN 'FY 19/20'
-      WHEN ${date} BETWEEN '2020-07-01' AND '2021-06-30' THEN 'FY 20/21'
-      ELSE 'Uncategorized'
-      END
-    ;;
   }
 
   dimension: date {

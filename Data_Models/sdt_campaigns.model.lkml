@@ -11,6 +11,7 @@ include: "/TrueView/**/*.view"
 include: "/Derived_Tables/**/*.view"
 include: "/Campaign_Final/**/*.view"
 include: "/FY21_Case_Study/**/*.view"
+include: "/Snap/**/*.view"
 
 datagroup: sdt_default_datagroup {
   sql_trigger: SELECT current_date;;
@@ -60,7 +61,7 @@ explore: sdt_fy21_drivemarket_campaign {
   label: "FY21 Fall Drive Market"
   view_label: "FY21 Fall Drive Market"
   group_label: "San Diego Tourism"
-  hidden: no
+  hidden: yes
 }
 
 ##  FY21 United States Pull-Through  ##
@@ -80,7 +81,7 @@ explore: sdt_fy21_locals_campaign {
   label: "FY21 Locals Recovery"
   view_label: "FY21 Locals Recovery"
   group_label: "San Diego Tourism"
-  hidden: no
+  hidden: yes
 }
 
 ##  FY20/21 Always On Content  ##

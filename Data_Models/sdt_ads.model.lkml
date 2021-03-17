@@ -8,6 +8,7 @@ include: "/Google_Analytics/**/*.view"
 include: "/Omnitrak/**/*.view"
 include: "/Pinterest/**/*.view"
 include: "/TrueView/**/*.view"
+include: "/Snap/**/*.view"
 
 datagroup: sdt_default_datagroup {
   sql_trigger: SELECT current_date;;
@@ -59,6 +60,14 @@ explore: sdt_ga_extended {
 explore: sdt_pinterest_extended {
   persist_with: sdt_default_datagroup
   extends: [sdt_pinterest]
+  hidden: no
+}
+
+## Snap Ads ##
+
+explore: sdt_snapchat_extended {
+  persist_with: sdt_default_datagroup
+  extends: [sdt_snap]
   hidden: no
 }
 

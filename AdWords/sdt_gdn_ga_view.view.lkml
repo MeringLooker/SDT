@@ -460,6 +460,13 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike '%CoastalHikes%' then 'S7: 7 Star Coastal Hikes'
           when ${ad_group} ilike '%LocalMarkets' then 'S7: 7 Local Markets'
 
+          when ${ad_group} ilike '%_PlanNow' then 'WC: Plan Now'
+          when ${ad_group} ilike '%_OutdoorDining' then 'WC: Outdoor Dining'
+          when ${ad_group} ilike '%_BookNow' then 'WC: Book Now'
+          when ${ad_group} ilike '%_SafeTravelerContent' then 'WC: Safe Traveler Content'
+
+          when ${ad_group} ilike '%LocalMarkets' then 'S7: 7 Local Markets'
+
           when ${campaign} ilike '%HotelsLandingPage' then 'Nano Traffic: Hotels LP'
           when ${campaign} ilike '%PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
           when ${campaign} ilike '%LASpecificLandingPage' then 'Nano Traffic: LA-Specific LP'

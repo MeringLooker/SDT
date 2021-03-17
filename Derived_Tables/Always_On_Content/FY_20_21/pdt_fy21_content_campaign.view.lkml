@@ -51,12 +51,13 @@ view: pdt_fy21_content_campaign {
 
   dimension: region {
     type: string
+    drill_fields: [publisher,layer]
     sql: ${TABLE}.region ;;
   }
 
   dimension: layer {
     type: string
-    drill_fields: [creative_name]
+    drill_fields: [publisher,creative_name]
     sql: ${TABLE}.layer ;;
   }
 

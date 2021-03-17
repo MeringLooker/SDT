@@ -226,6 +226,25 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Page-Level Contextual_%_Native%' then 'Native'
         when ${placement} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_FirstTouch_Demo+Behavioral_%_Native%' then 'Native'
 
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream Mobile%' then 'Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream Desktop%' then 'Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_300x250%' then '300x250'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_300x600%' then '300x600'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_160x600%' then '160x600'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_970x250%' then '970x250'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_728x90%' then '728x90'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_320x50%' then '320x50'
+        when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Variety Seeker_California_Certified Pre-Roll Video' then 'Video'
+        when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown' then 'High Impact Crown'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream Mobile%' then 'Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream OTT%' then 'Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read Mobile%' then 'In-Read Mobile'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read Desktop%' then 'In-Read Desktop'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read % Desktop%' then 'In-Read Mobile'
+
+        when ${ad_id} = '491597526' then 'Email/Native'
+        when ${ad_id} = '491536729' then 'N/A'
+
         ELSE 'Uncategorized'
         END;;
     }
@@ -534,8 +553,16 @@ view: sdt_dcm_ga_view {
       label: "Region"
       sql:
         case
+          when ${placement_id} = '298274051' then 'National'
+          when ${placement_id} = '298503262' then 'National'
+
           when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_California_Video' then 'California'
           when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_Arizona_Video' then 'Arizona'
+
+          when ${placement} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_Los Angeles_RTGDisplay%' then 'Los Angeles'
+          when ${placement} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_Phoenix_RTGDisplay%' then 'Phoenix'
+          when ${placement} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_San Francisco_RTGDisplay%' then 'San Francisco'
+          when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_California_Video' then 'Phoenix'
 
           when ${placement} ilike 'VIACOM_SDTAFY21_SpringAwareness_Variety Seeker_%_California_Video' then 'California'
           when ${placement} ilike 'VIACOM_SDTAFY21_SpringAwareness_Variety Seeker_%_Arizona_Video' then 'Arizona'
@@ -544,12 +571,16 @@ view: sdt_dcm_ga_view {
 
           when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Variety Seeker_Arizona_%' then 'Arizona'
           when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_California_%' then 'California'
+          when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Variety Seeker_California_%' then 'California'
           when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_Arizona_%' then 'Arizona'
           when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_%' then 'National'
           when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Run of CN Portfolio_National_%' then 'National'
 
           when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_%_California_Video' then 'California'
           when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_%_Arizona_Video' then 'Arizona'
+
+          when ${placement} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_California%' then 'California'
+          when ${placement} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_Arizona%' then 'Arizona'
 
           when ${placement} ilike 'NBC_SDTAFY21_SpringAwareness_%_California_Video' then 'California'
           when ${placement} ilike 'NBC_SDTAFY21_SpringAwareness_%_Arizona_Video' then 'Arizona'
@@ -925,6 +956,21 @@ view: sdt_dcm_ga_view {
 
         when ${placement} ilike 'NBC_SDTAFY21_SpringAwareness_Travel Interest_%_Video%' then 'NBC Midroll :30 Video - Travel Interest'
         when ${placement} ilike 'NBC_SDTAFY21_SpringAwareness_A25-54_%_Video%' then 'NBC Midroll :30 Video - A25-54'
+
+        when ${placement} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_%_RTGDisplay%' then 'OOH Boards Display Retargeting'
+
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream Mobile%' then 'In-Stream Mobile Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream OTT%' then 'In-Stream OTT Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream Desktop%' then 'In-Stream Desktop Video'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-frame % Desktop%' then 'In-Frame Desktop Display'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read Mobile%' then 'In-Read Mobile Display'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read Desktop%' then 'In-Read Desktop Display'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-frame Mobile%' then 'In-Frame Mobile Display'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_Expandable Mobile%' then 'In-Frame Expandable Mobile Display'
+        when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_Expandable % Desktop%' then 'In-Frame Expandable Desktop Display'
+
+        when ${ad_id} = '491597526' then 'TravelZoo Traffic Drivers (Email/Native)'
+        when ${ad_id} = '491536729' then 'TravelZoo Page Traffic'
 
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Audio XP' then 'Pandora :30 Audio + Display'
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Display_Mobile Welcome Interstitial' then 'Pandora Mobile Welcome Interstitial'
@@ -1561,6 +1607,15 @@ view: sdt_dcm_ga_view {
       label: "Creative Name"
       sql:
         case
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_970x250%' then 'HICYB_970x250'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_160x600%' then 'HICYB_160x600%'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_300x600%' then 'HICYB_300x600'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_728x90%' then 'HICYB_728x90'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_300x250%' then 'HICYB_300x250'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_320x50%' then 'HICYB_320x50'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read Mobile%' then 'HICYB_Mobile Native'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-read Desktop%' then 'HICYB_Desktop Native'
+
           when ${creative} = 'SDT_HICYB_Display_Sunset_PlanNow_970x250' then 'HICYB_Sunset_PlanNow_970x250'
           when ${creative} = 'SDT_HICYB_Display_Sunset_PlanNow_728x90' then 'HICYB_Sunset_PlanNow_728x90'
           when ${creative} = 'SDT_HICYB_Display_Sunset_PlanNow_320x50' then 'HICYB_Sunset_PlanNow_320x50'
@@ -1589,10 +1644,36 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x250_Plan Now_1x1' then 'PlanNow_300x250'
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x600_Plan Now_1x1' then 'PlanNow_300x600'
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_728x90_Plan Now_1x1' then 'PlanNow_728x90'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_970x90_Plan Now_1x1' then 'PlanNow_970x90'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_970x250_Plan Now_1x1' then 'PlanNow_970x250'
+
+          when ${ad_id} = '491597526' then 'TravelZoo Creative'
+          when ${ad_id} = '491536729' then 'TravelZoo Page'
+
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_160x600_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_160x600'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x250_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_300x250'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x600_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_300x600'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_728x90_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_728x90'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_970x250_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_970x250'
+
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_160x600_WeekYay_Family_1x1' then 'WeekYay_Family_160x600'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x250_WeekYay_Family_1x1' then 'WeekYay_Family_300x250'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x600_WeekYay_Family_1x1' then 'WeekYay_Family_300x600'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_728x90_WeekYay_Family_1x1' then 'WeekYay_Family_728x90'
+          when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_970x250_WeekYay_Family_1x1' then 'WeekYay_Family_970x250'
+
+          when ${creative} = 'SDT_Spring_728x90' then 'PlanNow_728x90'
+          when ${creative} = 'SDT_Spring_300x600' then 'PlanNow_300x600'
+          when ${creative} = 'SDT_Spring_300x50_STATIC' then 'PlanNow_300x50'
+          when ${creative} = 'SDT_Spring_300x250' then 'PlanNow_300x250'
+
+          when ${ad} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_%_RTGDisplay_300x250_Plan Now_1x1' then 'PlanNow_300x250'
+          when ${ad} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_%_RTGDisplay_320x50_Plan Now_1x1' then 'PlanNow_320x50'
+          when ${ad} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_%_RTGDisplay_728x90_Plan Now_1x1' then 'PlanNow_728x90'
 
           when ${ad} ilike 'SPOTIFY_SDTAFY21_SpringAwareness_%_%_Audio Everywhere_WeekYay_Companion Banner_WY Hotel_640x640_1x1' then 'WeekYay_Hotel_640x640'
-          when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Plan Now_1x1' then 'HICYB_PlanNow_HIC'
-          when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Creative TBD_1x1' then 'HICYB_TBD_HIC'
+          when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Plan Now_1x1' then 'HICYB_PlanNow_Crown'
+          when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Spring_1x1' then 'HICYB_Video Crown'
 
           when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Variety Seeker_%_Certified Pre-Roll Video_HICYB' then 'BB: Paragliding (:15)'
 
@@ -2240,6 +2321,8 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Topical_Book Now%' then 'WC: Book Now'
           when ${ad} ilike '%Topical_Outdoor Dining%' then 'WC: Outdoor Dining'
           when ${ad} ilike '%Brand_Guide To SD Beaches%' then 'WC: Guide to San Diego Beaches'
+
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream%' then 'Happiness is Calling You Back (:30)'
 
             ELSE 'Uncategorized'
         END;;

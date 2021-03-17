@@ -37,6 +37,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike '%Macro_NonOutdoor_Video%' then 'Video Pin'
         when ${campaign_name} ilike '%Macro_Outdoor_Video%' then 'Video Pin'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Nano_Traffic%' then 'Standard Pin'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness%' then 'Standard Pin'
         ELSE 'Uncategorized'
         END
         ;;
@@ -72,6 +73,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'SDT_FY20_AlwaysOnContent%' then 'Always On Content'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent%' then 'Always On Content'
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket%' then 'Fall Drive Market'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness%' then 'Spring Awareness'
         else 'Uncategorized'
         end;;
 
@@ -117,6 +119,7 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent%' then 'United States'
 
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket%' then 'United States'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness%' then 'United States'
 
       else 'Uncategorized'
       end;;
@@ -131,6 +134,9 @@ view: sdt_pinterest_ga_view {
 
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins_California%' then 'California'
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins_PHXTUCDMA%' then 'Phoenix/Tucson'
+
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Consideration_California' then 'California'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Consideration_Arizona' then 'Arizona'
 
         when ${campaign_name} ilike '%Nano_Traffic_Phoenix%' then 'Phoenix'
         when ${campaign_name} ilike '%Nano_Traffic_LosAngeles%' then 'Los Angeles'
@@ -197,6 +203,7 @@ view: sdt_pinterest_ga_view {
 
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins%' then 'Standard Pins - Traffic Driving'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Nano_Traffic%' then 'Standard Pins - Nano Traffic'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness%' then 'Standard Pins - Traffic Driving'
 
       else 'Uncategorized'
     end;;
@@ -438,6 +445,14 @@ view: sdt_pinterest_ga_view {
           when ${promoted_pin_name} ilike '%Weekyay_LessCrowds' then 'WeekYay: Less Crowds Pin'
           when ${promoted_pin_name} ilike '%Weekyay_LowerRateActivity' then 'WeekYay: Lower Rate Activity Pin'
           when ${promoted_pin_name} ilike '%Weekyay_WorkFromHotel' then 'WeekYay: Work From Hotel Pin'
+
+          when ${promoted_pin_name} ilike '%WeekyayCreativeTest_HomeSchool' then 'WeekYay: HomeSchool Pin'
+          when ${promoted_pin_name} ilike '%WeekyayCreativeTest_OutdoorDining' then 'WeekYay: Outdoor Dining Pin'
+          when ${promoted_pin_name} ilike '%WeekyayCreativeTest_LowerRateHotel' then 'WeekYay: Lower Rate Hotel Pin'
+          when ${promoted_pin_name} ilike '%WeekyayCreativeTest_LessCrowds' then 'WeekYay: Less Crowds Pin'
+          when ${promoted_pin_name} ilike '%WeekyayCreativeTest_LowerRateActivity' then 'WeekYay: Lower Rate Activity Pin'
+          when ${promoted_pin_name} ilike '%WeekyayCreativeTest_WorkFromHotel' then 'WeekYay: Work From Hotel Pin'
+          when ${promoted_pin_name} ilike '%HICYB_PlanNow' then 'HICYB: Plan Now Pin'
 
                 else 'Uncategorized'
               end;;
