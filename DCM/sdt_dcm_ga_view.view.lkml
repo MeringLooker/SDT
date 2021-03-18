@@ -2790,7 +2790,7 @@ view: sdt_dcm_ga_view {
   }
 
   measure: total_session_duration {
-    hidden: yes
+    hidden: no
     type: sum_distinct
     label: "Total Session Duration"
     sql_distinct_key: ${ga_join_id};;

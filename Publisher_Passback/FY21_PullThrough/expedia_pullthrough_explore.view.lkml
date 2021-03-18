@@ -26,3 +26,10 @@ explore: sdt_fy21_pt_priceline_data {
   view_label: "Native Data"
   group_label: "San Diego Tourism"
 }
+
+explore: sdt_fy21_pt_2h_adara_offline {
+  hidden: yes
+  label: "Adara FY21 US PullThrough Rptg"
+  view_label: "Adara"
+  group_label: "San Diego Tourism"
+}
