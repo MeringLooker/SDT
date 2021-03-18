@@ -30,6 +30,8 @@ view: pdt_fy21_spring_awareness_campaign {
         select * from ${pdt_fy21_spring_awareness_snap.SQL_TABLE_NAME}
         union
         select * from ${pdt_fy21_spring_awareness_tz.SQL_TABLE_NAME}
+        union
+        select * from ${pdt_fy21_spring_awareness_helm.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*8)/(60*60*24)) ;;
     distribution_style: all

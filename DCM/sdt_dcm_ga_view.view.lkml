@@ -954,8 +954,10 @@ view: sdt_dcm_ga_view {
         when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_In Market Travel_%_Video%' then 'Hulu :30 Video - In Market Travel'
         when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_Affluent Travelers_%_Video%' then 'Hulu :30 Video - Affluent Travelers'
 
-        when ${placement} ilike 'NBC_SDTAFY21_SpringAwareness_Travel Interest_%_Video%' then 'NBC Midroll :30 Video - Travel Interest'
-        when ${placement} ilike 'NBC_SDTAFY21_SpringAwareness_A25-54_%_Video%' then 'NBC Midroll :30 Video - A25-54'
+        when ${ad} ilike 'NBC_SDTAFY21_SpringAwareness_Travel Interest_%_Video_FEP%' then 'NBC FEP Midroll :30 Video - Travel Interest'
+        when ${ad} ilike 'NBC_SDTAFY21_SpringAwareness_Travel Interest_%_Video_Spot On%' then 'NBC Spot On Midroll :30 Video - Travel Interest'
+        when ${ad} ilike 'NBC_SDTAFY21_SpringAwareness_A25-54_%_Video_FEP%' then 'NBC FEP Midroll :30 Video - A25-54'
+        when ${ad} ilike 'NBC_SDTAFY21_SpringAwareness_A25-54_%_Video_Spot On%' then 'NBC Spot On Midroll :30 Video - A25-54'
 
         when ${placement} ilike 'CLEARCHANNEL_SDTAFY21_Spring Awareness_OOH Boards_%_RTGDisplay%' then 'OOH Boards Display Retargeting'
 

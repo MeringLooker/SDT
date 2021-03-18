@@ -12,6 +12,7 @@ include: "/Derived_Tables/**/*.view"
 include: "/Campaign_Final/**/*.view"
 include: "/FY21_Case_Study/**/*.view"
 include: "/Snap/**/*.view"
+include: "/Helm/**/*.view"
 
 datagroup: sdt_default_datagroup {
   sql_trigger: SELECT current_date;;

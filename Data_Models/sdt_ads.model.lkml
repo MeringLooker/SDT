@@ -9,6 +9,7 @@ include: "/Omnitrak/**/*.view"
 include: "/Pinterest/**/*.view"
 include: "/TrueView/**/*.view"
 include: "/Snap/**/*.view"
+include: "/Helm/**/*.view"
 
 datagroup: sdt_default_datagroup {
   sql_trigger: SELECT current_date;;
@@ -53,6 +54,14 @@ explore: sdt_ga_extended {
   persist_with: sdt_default_datagroup
   hidden: no
   extends: [sdt_ga]
+}
+
+## Helm ##
+
+explore: sdt_helm_extended {
+  persist_with: sdt_default_datagroup
+  extends: [sdt_helm]
+  hidden: no
 }
 
 ## Pinterest Ads ##

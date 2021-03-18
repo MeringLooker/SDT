@@ -453,6 +453,7 @@ view: sdt_pinterest_ga_view {
           when ${promoted_pin_name} ilike '%WeekyayCreativeTest_LowerRateActivity' then 'WeekYay: Lower Rate Activity Pin'
           when ${promoted_pin_name} ilike '%WeekyayCreativeTest_WorkFromHotel' then 'WeekYay: Work From Hotel Pin'
           when ${promoted_pin_name} ilike '%HICYB_PlanNow' then 'HICYB: Plan Now Pin'
+          when ${promoted_pin_name} ilike '%HICYB_Spring%' then 'HICYB: Plan Now Pin'
 
                 else 'Uncategorized'
               end;;
