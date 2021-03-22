@@ -1969,8 +1969,8 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%Family_300x250%' then 'Family_300x250'
           when ${creative} ilike '%Family_160x600%' then 'Family_160x600'
 
-          when ${creative} ilike 'WeekYay_Native' then 'WeekYay_Native'
-          when ${creative} ilike 'HICYB_Native' then 'HICYB_Native'
+          when ${creative} ilike 'WeekYay_Native' then 'WeekYay_1200x627'
+          when ${creative} ilike 'HICYB_Native' then 'HICYB_1200x627'
 
           when ${ad} ilike '%Plan Now_300x250%' then 'PlanNow_300x250'
           when ${ad} ilike '%Plan Now_728x90' then 'PlanNow_728x90'
@@ -2031,7 +2031,7 @@ view: sdt_dcm_ga_view {
           when ${creative} ilike '%HICYB_300x600%' then 'HICYB_300x600'
           when ${creative} ilike '%HICYB_160x600%' then 'HICYB_160x600'
           when ${creative} ilike '%HICYB_300x250%' then 'HICYB_300x250'
-          when ${creative} ilike '%HICYB_Native%' then 'HICYB_Native'
+          when ${creative} ilike '%HICYB_Native%' then 'HICYB_1200x627'
 
           when ${ad_id} = '471447447' then 'BookHotel_300x600'
 
@@ -2143,7 +2143,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%HICYB_300x600%' then 'HICYB_300x600'
           when ${ad} ilike '%HICYB_160x600%' then 'HICYB_160x600'
           when ${ad} ilike '%HICYB_300x250%' then 'HICYB_300x250'
-          when ${ad} ilike '%HICYB_Native%' then 'HICYB_Native'
+          when ${ad} ilike '%HICYB_Native%' then 'HICYB_1200x627'
 
           when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_970x250%' then 'HICYB_970x250'
           when ${placement} ilike 'SOJERN_SDTAFY21_PullThrough_TravelIntent_%_Display_HICYB_728x90%' then 'HICYB_728x90'
