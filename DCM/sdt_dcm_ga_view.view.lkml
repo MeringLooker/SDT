@@ -1610,7 +1610,7 @@ view: sdt_dcm_ga_view {
       sql:
         case
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_970x250%' then 'HICYB_970x250'
-          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_160x600%' then 'HICYB_160x600%'
+          when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_160x600%' then 'HICYB_160x600'
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_300x600%' then 'HICYB_300x600'
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_728x90%' then 'HICYB_728x90'
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_%_300x250%' then 'HICYB_300x250'
