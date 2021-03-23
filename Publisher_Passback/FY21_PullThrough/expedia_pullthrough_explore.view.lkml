@@ -33,3 +33,10 @@ explore: sdt_fy21_pt_2h_adara_offline {
   view_label: "Adara"
   group_label: "San Diego Tourism"
 }
+
+explore: sdt_fy21_awareness_tripadv_data {
+  hidden: yes
+  label: "TA Horizon FY21 Spring Awareness"
+  view_label: "TA Horizon"
+  group_label: "San Diego Tourism"
+}

@@ -25,6 +25,8 @@ view: pdt_fy21_spring_awareness_campaign {
         union
         select * from ${pdt_fy21_spring_awareness_tripadv.SQL_TABLE_NAME}
         union
+        select * from ${pdt_fy21_spring_awareness_ta_horizon.SQL_TABLE_NAME}
+        union
         select * from ${pdt_fy21_spring_awareness_vdx.SQL_TABLE_NAME}
         union
         select * from ${pdt_fy21_spring_awareness_snap.SQL_TABLE_NAME}

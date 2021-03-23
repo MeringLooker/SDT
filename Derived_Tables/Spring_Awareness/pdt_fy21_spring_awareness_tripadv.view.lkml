@@ -25,6 +25,10 @@ view: pdt_fy21_spring_awareness_tripadv {
         value: "Trip Advisor"
       }
       filters: {
+        field: sdt_dcm_ga_view.sdt_placement
+        value: "-TripAdvisor Horizon High Impact Display (Variety Seeker)"
+      }
+      filters: {
         field: sdt_dcm_ga_view.date_date
         value: "2021/03/01 to 2021/07/01"
       }
