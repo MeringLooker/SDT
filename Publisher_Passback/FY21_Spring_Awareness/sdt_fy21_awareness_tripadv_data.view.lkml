@@ -53,7 +53,7 @@ view: sdt_fy21_awareness_tripadv_data {
     type: string
     sql:
       case
-        when ${creative} ilike '29477_296681575_TRIPADVISOR_SDTAFY21_SpringAwareness_Onsite_Variety Seeker_%_Horizon_2.22.21' then 'TripAdvisor Horizon High Impact Display (Variety Seeker)'
+        when ${creative} ilike '%TRIPADVISOR_SDTAFY21_SpringAwareness_Onsite_Variety Seeker_%_Horizon_2.22.21' then 'TripAdvisor Horizon High Impact Display (Variety Seeker)'
         else 'Uncategorized'
         end ;;
   }
@@ -62,7 +62,7 @@ view: sdt_fy21_awareness_tripadv_data {
     type: string
     sql:
       case
-        when ${creative} ilike '29477_296681575_TRIPADVISOR_SDTAFY21_SpringAwareness_Onsite_Variety Seeker_%_Horizon_2.22.21' then 'TripAdvisor_Horizon'
+        when ${creative} ilike '%TRIPADVISOR_SDTAFY21_SpringAwareness_Onsite_Variety Seeker_%_Horizon_2.22.21' then 'TripAdvisor_Horizon'
         else 'Uncategorized'
         end ;;
   }
@@ -71,7 +71,7 @@ view: sdt_fy21_awareness_tripadv_data {
     type: string
     sql:
       case
-        when ${creative} ilike '29477_296681575_TRIPADVISOR_SDTAFY21_SpringAwareness_Onsite_Variety Seeker_%_Horizon_2.22.21' then 'Horizon High Impact'
+        when ${creative} ilike '%TRIPADVISOR_SDTAFY21_SpringAwareness_Onsite_Variety Seeker_%_Horizon_2.22.21' then 'Horizon High Impact'
         else 'Uncategorized'
         end ;;
   }
