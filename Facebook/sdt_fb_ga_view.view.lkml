@@ -1004,6 +1004,7 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad_name} ilike '%CoastalHikes' then 'S7: 7 Star Coastal Hikes'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContentRecovery_Macro_Outdoor_Conversion_LADMA_CoastalHikes_NationalCopy' then 'S7: 7 Star Coastal Hikes'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_%_PicnicSpots' then 'S7: Picnic Spots'
 
           when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_California_OBIBirchAquarium15_Family' then 'OBI: Birch Aquarium (:15)'
           when ${ad_name} = 'FY21_SDT_AlwaysOnContentRecovery_Macro_NonOutdoor_Video_LADMA_OBIBirchAquarium15_Family' then 'OBI: Birch Aquarium (:15)'

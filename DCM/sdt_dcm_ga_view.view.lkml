@@ -2251,6 +2251,8 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Family_Family fun in San Diego' then 'WC: Family Fun in San Diego'
           when ${ad} ilike '%Family_Edutainment' then 'Edutainment'
           when ${ad} ilike '%Family_9 Kid Approved Parks' then 'WC: 9 Kid Approved Parks'
+          when ${ad} ilike '%SDTAFY21_AlwaysOnContent_%Native_Brand_25 Fun Free Things To Do_%' then 'WC: 25 Fun & Free Things to do'
+          when ${ad} ilike '%SDTAFY21_AlwaysOnContent_%Native_Brand_Top Picnic Spots_%' then 'S7: Picnic Spots'
 
           when ${ad} ilike '%Culinary_Sunny 7: Rooftop Restaurants' then 'S7: Rooftop Restaurants'
           when ${ad} ilike '%Culinary_Sunny 7: Local Markets' then 'S7: Local Markets'
