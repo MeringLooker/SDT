@@ -65,6 +65,7 @@ view: pdt_fy21_content_campaign {
 
   dimension: placement {
     type: string
+    drill_fields: [creative_name]
     sql: ${TABLE}.placement ;;
   }
 

@@ -20,6 +20,7 @@ view: sdt_helm_ga_view {
         CASE
           when ${line_item} ilike 'fy21_SDTA_SpringAwareness%' then 'Video'
           when ${creative} ilike '%1200x1200%' then '1200x1200'
+          when ${creative} ilike '%1200x628%' then '1200x628'
         ELSE 'Uncategorized'
         END;;
   }
@@ -126,6 +127,9 @@ view: sdt_helm_ga_view {
           when ${creative} ilike '%BayshoreBikeway_1200x1200%' then 'WC: Bayshore Bikeway'
           when ${creative} ilike '%7NaturalWonders_1200x1200%' then 'S7: Natural Wonders'
           when ${creative} ilike '%GuidetoSDBeaches_1200x1200%' then 'WC: Guide to San Diego Beaches'
+
+          when ${creative} ilike '%25ThingsToDo_1200%' then 'WC: 25 Fun & Free Things to do'
+          when ${creative} ilike '%TopPicnicSpots_1200%' then 'S7: Picnic Spots'
             ELSE 'Uncategorized'
         END;;
   }
