@@ -135,8 +135,8 @@ view: sdt_pinterest_ga_view {
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins_California%' then 'California'
         when ${campaign_name} ilike 'FY21_SDT_DriveMarket_Traffic_StandardPins_PHXTUCDMA%' then 'Phoenix/Tucson'
 
-        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Consideration_California' then 'California'
-        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Consideration_Arizona' then 'Arizona'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Consideration_California%' then 'California'
+        when ${campaign_name} ilike 'FY21_SDT_SpringAwareness_Consideration_Arizona%' then 'Arizona'
 
         when ${campaign_name} ilike '%Nano_Traffic_Phoenix%' then 'Phoenix'
         when ${campaign_name} ilike '%Nano_Traffic_LosAngeles%' then 'Los Angeles'

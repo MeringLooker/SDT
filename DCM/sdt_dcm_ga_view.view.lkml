@@ -245,6 +245,8 @@ view: sdt_dcm_ga_view {
         when ${ad_id} = '491597526' then 'Email/Native'
         when ${ad_id} = '491536729' then 'N/A'
 
+        when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_Display_Native Driver_1x1' then 'Native'
+
         ELSE 'Uncategorized'
         END;;
     }
@@ -949,6 +951,7 @@ view: sdt_dcm_ga_view {
 
         when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown%' then 'High Impact Crown Display Package'
         when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_Display%' then 'SELF Native Article Display'
+        when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_Native%' then 'SELF Native Article Display'
         when ${placement} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Run of CN Portfolio_National_AVDisplay_%' then 'AV - Run of CN Portfolio Display'
 
         when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_In Market Travel_%_Video%' then 'Hulu :30 Video - In Market Travel'
@@ -1676,6 +1679,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'SPOTIFY_SDTAFY21_SpringAwareness_%_%_Audio Everywhere_WeekYay_Companion Banner_WY Hotel_640x640_1x1' then 'WeekYay_Hotel_640x640'
           when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Plan Now_1x1' then 'HICYB_PlanNow_Crown'
           when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Spire_%_High Impact Crown_HICYB_Spring_1x1' then 'HICYB_Video Crown'
+          when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_Display_Native Driver_1x1' then 'SELF Native Article Driver'
 
           when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_Variety Seeker_%_Certified Pre-Roll Video_HICYB' then 'BB: Paragliding (:15)'
 
