@@ -99,7 +99,9 @@ view: sdt_gdn_ga_view {
     sql:
       case
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_%_California%' then 'California'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_%_Callifornia%' then 'California'
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_%_California%' then 'California'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_%_Callifornia%' then 'California'
 
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_%_Arizona%' then 'Arizona'
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_%_Arizona%' then 'Arizona'
@@ -256,7 +258,7 @@ view: sdt_gdn_ga_view {
     sql:
       case
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_Retargeting%' then 'GDN Responsive Display - Retargeting'
-        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_Retargeting%' then 'GDN Discpvery Display - Retargeting'
+        when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_Discovery_Retargeting%' then 'GDN Discovery Display - Retargeting'
         when ${campaign} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch%' then 'GDN Responsive Display - First Touch'
 
         when ${ad_group_id} = '89533583427' then 'Static Display - Variety Seeker'
