@@ -21,6 +21,8 @@ view: pdt_fy21_spring_awareness_campaign {
         union
         select * from ${pdt_fy21_spring_awareness_pandora.SQL_TABLE_NAME}
         union
+        select * from ${pdt_fy21_spring_awareness_pandora_video.SQL_TABLE_NAME}
+        union
         select * from ${pdt_fy21_spring_awareness_spotify.SQL_TABLE_NAME}
         union
         select * from ${pdt_fy21_spring_awareness_tripadv.SQL_TABLE_NAME}
