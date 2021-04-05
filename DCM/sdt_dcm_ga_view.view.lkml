@@ -2329,6 +2329,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Topical_Book Now%' then 'WC: Book Now'
           when ${ad} ilike '%Topical_Outdoor Dining%' then 'WC: Outdoor Dining'
           when ${ad} ilike '%Brand_Guide To SD Beaches%' then 'WC: Guide to San Diego Beaches'
+          when ${ad} ilike '%Topical_Mothers Day%' then 'WC: Mother''s Day'
 
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream%' then 'Happiness is Calling You Back (:30)'
 
