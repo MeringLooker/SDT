@@ -1,6 +1,5 @@
 view: sdt_fy21_pt_priceline_bookings {
   sql_table_name: public.sdt_fy21_pt_priceline_bookings ;;
-  drill_fields: [id]
 
   ## Primary Key ##
 
