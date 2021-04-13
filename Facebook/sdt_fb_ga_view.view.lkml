@@ -1071,6 +1071,8 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_BookNow2' then 'WC: Book Now v1 Single Image'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent1' then 'WC: Safe Traveler Content v2 Single Image'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_SafeTravelerContent2' then 'WC: Safe Traveler Content v1 Single Image'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_%_MothersDay' then 'WC: Mother''s Day Single Image'
+
 
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge_%_HICYB_BookHotel' then 'Book Hotel Single Image'
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Conversion_SingleIamge_%_HICYB_PlanNow' then 'Plan Now Single Image'

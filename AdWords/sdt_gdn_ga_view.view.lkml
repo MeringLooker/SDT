@@ -473,6 +473,9 @@ view: sdt_gdn_ga_view {
           when ${campaign} ilike '%PullThroughLandingPage' then 'Nano Traffic: PullThrough LP'
           when ${campaign} ilike '%LASpecificLandingPage' then 'Nano Traffic: LA-Specific LP'
 
+          when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch_%_PicnicSpots' then 'S7: Picnic Spots'
+          when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch_%_MothersDay' then 'WC: Mother''s Day'
+
         ELSE 'Uncategorized'
         end
         ;;

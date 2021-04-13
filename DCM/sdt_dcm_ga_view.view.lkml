@@ -2025,11 +2025,16 @@ view: sdt_dcm_ga_view {
           when ${ad_id} = '487587734' then 'HICYB_217x114'
           when ${ad_id} = '487588046' then 'HICYB_217x114'
 
+          when ${ad_id} = '488284335' then 'WeekYay_217x114'
+          when ${ad_id} = '488284338' then 'WeekYay_217x114'
+          when ${ad_id} = '488290662' then 'WeekYay_217x114'
+
           when ${placement_id} = '294737080' then 'Expedia_HICYB_400x225'
           when ${placement_id} = '294736822' then 'Expedia_HICYB_400x225'
           when ${placement_id} = '294736012' then 'Expedia_HICYB_400x225'
 
           when ${creative} ilike '%HICYB_970x250%' then 'HICYB_970x250'
+          when ${creative} ilike '%HICYB_970x90%' then 'HICYB_970x90'
           when ${creative} ilike '%HICYB_728x90%' then 'HICYB_728x90'
           when ${creative} ilike '%HICYB_320x50%' then 'HICYB_320x50'
           when ${creative} ilike '%HICYB_300x600%' then 'HICYB_300x600'
