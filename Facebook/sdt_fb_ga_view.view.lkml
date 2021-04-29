@@ -1102,6 +1102,11 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_HICYB_Video' then 'Happiness Is Calling You Back (:15)'
           when ${ad_name} ilike 'FY21_SDT_SpringAwareness_Awareness_Stories_%_HICYB_Animated' then 'HICYB: Animated Story'
 
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_MothersDay' then 'WC: Mother''s Day'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_%_SpectacularBoatRides' then 'S7: Boat Rides'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_%_Azucar' then 'WC: Azucar Ancillary'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_KelpForest' then 'WC: Kelp Forest Diving'
+
         else 'Uncategorized'
         end
         ;;

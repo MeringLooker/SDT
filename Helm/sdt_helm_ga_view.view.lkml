@@ -128,6 +128,12 @@ view: sdt_helm_ga_view {
           when ${creative} ilike '%7NaturalWonders_1200x1200%' then 'S7: Natural Wonders'
           when ${creative} ilike '%GuidetoSDBeaches_1200x1200%' then 'WC: Guide to San Diego Beaches'
 
+          when ${creative} ilike '%MothersDay_1200x1200%' then 'WC: Mother''s Day'
+          when ${creative} ilike '%Sunny7BoatRides_1200x1200%' then 'S7: Boat Rides'
+          when ${creative} ilike '%AzucarAncillary_1200x1200%' then 'WC: Azucar Ancillary'
+          when ${creative} ilike '%KelpForestDriving_1200x1200%' then 'WC: Kelp Forest Diving'
+          when ${creative} ilike '%BalboaParkCulturalHeart_1200x1200%' then 'WC: Balboa Park Cultural Heart'
+
           when ${creative} ilike '%25ThingsToDo_1200%' then 'WC: 25 Fun & Free Things to do'
           when ${creative} ilike '%TopPicnicSpots_1200%' then 'S7: Picnic Spots'
             ELSE 'Uncategorized'

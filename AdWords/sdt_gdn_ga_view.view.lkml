@@ -461,6 +461,9 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike '%ScenicHighway101%' then 'S7: 7 Things to Do Along Scenic CA Highway 101'
           when ${ad_group} ilike '%CoastalHikes%' then 'S7: 7 Star Coastal Hikes'
           when ${ad_group} ilike '%LocalMarkets' then 'S7: 7 Local Markets'
+          when ${ad_group} ilike '%LocalMarkets' then ''
+          when ${ad_group} ilike '%Azucar' then 'WC: Azucar Ancillary'
+          when ${ad_group} ilike '%SpectacularBoatRides' then 'S7: Boat Rides'
 
           when ${ad_group} ilike '%_PlanNow' then 'WC: Plan Now'
           when ${ad_group} ilike '%_OutdoorDining' then 'WC: Outdoor Dining'

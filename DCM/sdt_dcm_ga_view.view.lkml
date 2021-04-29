@@ -244,6 +244,9 @@ view: sdt_dcm_ga_view {
 
         when ${ad_id} = '491597526' then 'Email/Native'
         when ${ad_id} = '491536729' then 'N/A'
+        when ${ad_id} = '493635242' then 'Email/Native'
+        when ${ad_id} = '493635344' then 'N/A'
+        when ${ad_id} = '493634756' then 'Email/Native'
 
         when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_Display_Native Driver_1x1' then 'Native'
 
@@ -557,6 +560,8 @@ view: sdt_dcm_ga_view {
         case
           when ${placement_id} = '298274051' then 'National'
           when ${placement_id} = '298503262' then 'National'
+          when ${placement_id} = '299674643' then 'National'
+          when ${placement_id} = '299674640' then 'National'
 
           when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_California_Video' then 'California'
           when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_Arizona_Video' then 'Arizona'
@@ -976,6 +981,9 @@ view: sdt_dcm_ga_view {
 
         when ${ad_id} = '491597526' then 'TravelZoo Traffic Drivers (Email/Native)'
         when ${ad_id} = '491536729' then 'TravelZoo Page Traffic'
+        when ${ad_id} = '493635242' then 'TravelZoo Traffic Drivers (Email/Native)'
+        when ${ad_id} = '493635344' then 'TravelZoo Page Traffic'
+        when ${ad_id} = '493634756' then 'TravelZoo Traffic Drivers (Email/Native)'
 
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Audio XP' then 'Pandora :30 Audio + Display'
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Display_Mobile Welcome Interstitial' then 'Pandora Mobile Welcome Interstitial'
@@ -1653,7 +1661,10 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_970x250_Plan Now_1x1' then 'PlanNow_970x250'
 
           when ${ad_id} = '491597526' then 'TravelZoo Creative'
-          when ${ad_id} = '491536729' then 'TravelZoo Page'
+          when ${ad_id} = '491536729' then '"Why San Diego is Six Vacations in One" Article'
+          when ${ad_id} = '493635242' then 'TravelZoo Creative'
+          when ${ad_id} = '493635344' then '"Where The GReat Outdoors Promise The Greatest Escapes" Article'
+          when ${ad_id} = '493634756' then 'TravelZoo Creative'
 
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_160x600_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_160x600'
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x250_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_300x250'
@@ -2336,6 +2347,10 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Brand_Guide To SD Beaches%' then 'WC: Guide to San Diego Beaches'
           when ${ad} ilike '%Topical_Mothers Day%' then 'WC: Mother''s Day'
 
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Sunny 7: Boat Rides_1x1' then 'S7: Boat Rides'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Azucar_1x1' then 'WC: Azucar Ancillary'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Kelp Forest Diving_Book Now_1x1' then 'WC: Kelp Forest Diving'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Balboa Park Cultural Heart_1x1' then 'WC: Balboa Park Cultural Heart'
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream%' then 'Happiness is Calling You Back (:30)'
 
             ELSE 'Uncategorized'
