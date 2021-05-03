@@ -23,7 +23,7 @@ view: omni_fb {
       }
       filters: {
         field: sdt_fb_ga_view.sdt_campaign
-        value: "Always On Content,Fall Drive Market,US Pull-Through"
+        value: "Always On Content,Fall Drive Market,US Pull-Through,Spring Awareness"
       }
     }
     datagroup_trigger: sdt_omnitrak_datagroup

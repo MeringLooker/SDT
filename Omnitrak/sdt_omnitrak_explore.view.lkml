@@ -4,7 +4,9 @@ include: "/Facebook/*.view"
 include: "/DCM/*.view"
 include: "/AdWords/*.view"
 include: "/Pinterest/*.view"
+include: "/Helm/*.view"
 include: "/Omnitrak/*.view"
+
 
 datagroup: sdt_omnitrak_datagroup {
   sql_trigger: SELECT current_date;;
