@@ -180,6 +180,81 @@ view: sdt_omnitrak_ads {
         total_views,
         total_cost
         from ${omni_helm.SQL_TABLE_NAME}
+        union
+        select
+        cast("ad_id" as varchar),
+        ad_name,
+        date,
+        campaign,
+        placement,
+        publisher,
+        region,
+        creative_name,
+        total_impressions,
+        total_clicks,
+        total_views,
+        total_cost
+        from ${omni_fy21_adara_pt_2h.SQL_TABLE_NAME}
+        union
+        select
+        cast("ad_id" as varchar),
+        ad_name,
+        date,
+        campaign,
+        placement,
+        publisher,
+        region,
+        creative_name,
+        total_impressions,
+        total_clicks,
+        total_views,
+        total_cost
+        from ${omni_fy21_adara_pt_2h_offline.SQL_TABLE_NAME}
+        union
+        select
+        cast("ad_id" as varchar),
+        ad_name,
+        date,
+        campaign,
+        placement,
+        publisher,
+        region,
+        creative_name,
+        total_impressions,
+        total_clicks,
+        total_views,
+        total_cost
+        from ${omni_pullthrough_priceline.SQL_TABLE_NAME}
+        union
+        select
+        cast("ad_id" as varchar),
+        ad_name,
+        date,
+        campaign,
+        placement,
+        publisher,
+        region,
+        creative_name,
+        total_impressions,
+        total_clicks,
+        total_views,
+        total_cost
+        from ${omni_pullthrough_ta.SQL_TABLE_NAME}
+        union
+        select
+        cast("ad_id" as varchar),
+        ad_name,
+        date,
+        campaign,
+        placement,
+        publisher,
+        region,
+        creative_name,
+        total_impressions,
+        total_clicks,
+        total_views,
+        total_cost
+        from ${omni_dcm_pullthrough_2h.SQL_TABLE_NAME}
         ;;
     sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*1)/(60*60*24)) ;;
     distribution_style: all

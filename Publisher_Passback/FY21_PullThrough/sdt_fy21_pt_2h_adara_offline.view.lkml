@@ -55,6 +55,11 @@ view: sdt_fy21_pt_2h_adara_offline {
     sql: ${TABLE}.creative_name ;;
   }
 
+  dimension: omni_ad_name {
+    type: string
+    sql: ${TABLE}.creative_name ;;
+  }
+
   dimension_group: date {
     type: time
     timeframes: [
