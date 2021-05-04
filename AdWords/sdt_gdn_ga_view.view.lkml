@@ -386,6 +386,9 @@ view: sdt_gdn_ga_view {
     group_label: "Client Dimensions"
     sql:
       case
+        when ${ad_group} ilike '%_MothersDay' then 'WC: Mother''s Day'
+        when ${ad_group} ilike '%_KelpForest' then 'WC: Kelp Forest Diving'
+
         when ${campaign} ilike 'Surfer Couple - OMN%' then 'Surfer Couple'
         when ${campaign} ilike 'Surfer - Consider%' then 'Surfer Couple'
         when ${campaign} ilike 'Surfer - Active Eval%' then 'Surfer Couple'

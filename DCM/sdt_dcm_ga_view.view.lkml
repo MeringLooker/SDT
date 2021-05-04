@@ -2348,6 +2348,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Topical_Mothers Day%' then 'WC: Mother''s Day'
 
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Sunny 7: Boat Rides_1x1' then 'S7: Boat Rides'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Sunny 7: Boat Rides_1x1' then 'S7: Boat Rides'
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Azucar_1x1' then 'WC: Azucar Ancillary'
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Kelp Forest Diving_Book Now_1x1' then 'WC: Kelp Forest Diving'
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Balboa Park Cultural Heart_1x1' then 'WC: Balboa Park Cultural Heart'

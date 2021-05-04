@@ -340,6 +340,12 @@ view: sdt_yt_ga_view {
         when ${ad_group} ilike '%DHAzucar30%' then 'DH: Azucar (:30)'
         when ${ad_group} ilike '%DHAnimae30%' then 'DH: Animae (:30)'
 
+        when ${ad_group} ilike '%OBI_USSMidway60%' then 'OBI: USS Midway (:60)'
+        when ${ad_group} ilike '%OBI_LearnToSurf60%' then 'OBI: Learn to Surf (:60)'
+        when ${ad_group} ilike '%OBI_WhaleWatching60%' then 'OBI: Whale Watching (:60)'
+        when ${ad_group} ilike '%OBI_Midway15%' then 'OBI: USS Midway (:30)'
+        when ${ad_group} ilike '%DH_Azucar30%' then 'DH: Azucar (:30)'
+
         ELSE 'Uncategorized'
         end
         ;;
