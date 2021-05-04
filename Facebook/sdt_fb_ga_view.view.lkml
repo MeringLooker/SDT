@@ -952,7 +952,7 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%_TorreyPines' then 'WC: Torrey Pines'
         when ${ad_name} ilike '%_LeopardSharks' then 'WC: Swimming with Leopard Sharks'
         when ${ad_name} ilike '%SDTidePools' then 'WC: SD Tide Pools: Exploring Life at the Edge of the Sea'
-        when ${ad_name} ilike '%Socks_TidePools' then 'SFTSD: Tidepools (:15)'
+        when ${ad_name} ilike '%Socks_TidePools' then 'Socks: Tidepooling (:15)'
         when ${ad_name} ilike '%_Sailing' then 'WC: Sailing in San Diego'
         when ${ad_name} ilike '%_MissionBayBeaches' then 'WC: Mission Bay & Beaches'
         when ${ad_name} ilike '%_MeleSurfFaves' then 'WC: Mele Sali''s Surf Faves'

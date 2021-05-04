@@ -376,6 +376,13 @@ view: sdt_omnitrak_ads {
           when ${ad_name} ilike '%HICYB%' then 'Happiness Is Calling'
           when ${campaign} = 'US Pull-Through' then 'Happiness Is Calling'
           when ${creative_name} ilike '%WeekYay%' then 'Week Yay'
+          when ${publisher} = 'Travelzoo' then 'Happiness Is Calling'
+          when ${creative_name} ilike 'Sunset_%' then 'Happiness Is Calling'
+          when ${creative_name} ilike 'Family_%' then 'Happiness Is Calling'
+          when ${creative_name} ilike 'SELF Native Article Driver' then 'Happiness Is Calling'
+          when ${creative_name} ilike 'HICYB Snap Story' then 'Happiness Is Calling'
+          when ${creative_name} ilike 'HICYB:%' then 'Happiness Is Calling'
+          when ${creative_name} ilike 'HICYB_%' then 'Happiness Is Calling'
 
           else null
           end
@@ -389,6 +396,7 @@ view: sdt_omnitrak_ads {
     sql:
         case
           when ${publisher} = 'Trip Advisor' then 'Trip Advisor'
+          when ${publisher} = 'Travelzoo' then 'Happiness Is Calling Advertorial'
           when ${creative_name} ilike 'OBI:%' then 'One Bright Idea'
           when ${creative_name} ilike 'BB:%' then 'Bliss Break'
           when ${creative_name} ilike 'DH:%' then 'Dishing Happiness'
@@ -417,6 +425,9 @@ view: sdt_omnitrak_ads {
           when ${publisher} = 'Spot X' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
           when ${publisher} = 'NBC' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
           when ${publisher} = 'Hulu' and ${creative_name} ilike '%Happiness Is Calling%' then 'Happiness Is Calling Video'
+          when ${publisher} = 'The Helm' and ${creative_name} ilike 'Happiness is Calling You Back (:30)' then 'Happiness Is Calling Video'
+          when ${publisher} = 'Pandora' and ${creative_name} ilike 'Happiness is Calling You Back (:30)' then 'Happiness Is Calling Video'
+          when ${publisher} = 'VDX.tv' and ${creative_name} ilike 'Happiness is Calling You Back (:30)' then 'Happiness Is Calling Video'
           when ${publisher} = 'CBS' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${publisher} = 'ABC' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
           when ${publisher} = 'Spot X' and ${creative_name} ilike 'Kids Free%' then 'Kids Free Video'
@@ -426,6 +437,8 @@ view: sdt_omnitrak_ads {
           when ${placement} = 'Spotify :30 Audio' and ${program} = 'Kids Free' then 'Kids Free Radio'
           when ${placement} = 'Spotify :30 Audio' and ${program} = 'Week Yay' then 'WeekYay Radio'
           when ${placement} = 'Pandora :30 Audio' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Radio'
+          when ${placement} = 'Pandora :30 Audio + Display' and ${creative_name} = 'Pandora HICYB Audio (:30)' then 'Happiness Is Calling Radio'
+          when ${placement} = 'Pandora :30 Audio + Display' and ${creative_name} = 'Pandora WeekYay Audio (:30)' then 'WeekYay Radio'
           when ${placement} = 'Pandora :30 Audio' and ${program} = 'Kids Free' then 'Kids Free Radio'
           when ${placement} = 'Pandora :30 Audio' and ${program} = 'Week Yay' then 'WeekYay Radio'
           when ${placement} = 'Spotify Video Sponsored Session' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Video'
@@ -440,6 +453,19 @@ view: sdt_omnitrak_ads {
           when ${program} = 'Pandora Audio Companion Banner' and ${program} = 'Week Yay' then 'WeekYay Digital'
           when ${campaign} = 'US Pull-Through' and ${program} = 'Happiness Is Calling' then 'Happiness Is Calling Digital'
           when ${campaign} = 'US Pull-Through' and ${program} = 'Week Yay' then 'WeekYay Digital'
+          when ${creative_name} ilike 'PlanNow%' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'WeekYay_Hotel%' then 'WeekYay Digital'
+          when ${creative_name} ilike 'WeekYay_Family%' then 'WeekYay Digital'
+          when ${creative_name} ilike 'BookHotel%' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'HICYB: Animated Slideshow' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'HICYB Mobile Interstitial' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'Happiness is Calling You Back (:15)' then 'Happiness Is Calling Video'
+          when ${creative_name} ilike 'HICYB_%' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'Sunset_%' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'Family_%' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'HICYB Snap Story' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'HICYB:' then 'Happiness Is Calling Digital'
+          when ${creative_name} ilike 'SELF Native Article Driver' then 'Happiness Is Calling Advertorial'
           else null
           end
         ;;

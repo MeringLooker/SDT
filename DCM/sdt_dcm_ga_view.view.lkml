@@ -1663,7 +1663,7 @@ view: sdt_dcm_ga_view {
           when ${ad_id} = '491597526' then 'TravelZoo Creative'
           when ${ad_id} = '491536729' then '"Why San Diego is Six Vacations in One" Article'
           when ${ad_id} = '493635242' then 'TravelZoo Creative'
-          when ${ad_id} = '493635344' then '"Where The GReat Outdoors Promise The Greatest Escapes" Article'
+          when ${ad_id} = '493635344' then '"Where The Great Outdoors Promise The Greatest Escapes" Article'
           when ${ad_id} = '493634756' then 'TravelZoo Creative'
 
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_160x600_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_160x600'
