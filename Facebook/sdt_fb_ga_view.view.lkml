@@ -1,5 +1,5 @@
 view: sdt_fb_ga_view {
-  sql_table_name: public.sdt_fb_ga_view_2 ;;
+  sql_table_name: public.sdt_fb_ga_view ;;
 
 ###### Primary Key #######
 
