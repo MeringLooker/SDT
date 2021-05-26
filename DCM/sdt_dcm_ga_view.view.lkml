@@ -168,6 +168,7 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '254378168' then 'N/A'
           when ${placement_id} = '254378150' then 'N/A'
           when ${placement_id} = '254378162' then 'N/A'
+          when ${ad_id} = '497295168' then 'N/A'
 
           when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_Newsletters%' then 'Newsletter'
           when ${placement} ilike 'Sunset_FY20 Balboa_Awareness_VS A25-54_NTL_High Impact Halo Unit%' then 'Halo Unit'
@@ -726,6 +727,7 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '255163510' then 'National'
           when ${placement_id} = '255163867' then 'National'
           when ${placement_id} = '255163489' then 'National'
+          when ${placement_id} = '299677001' then 'National'
 
           when ${placement_id} = '255163882' then 'Los Angeles'
           when ${placement_id} = '255163483' then 'Phoenix'
@@ -983,6 +985,7 @@ view: sdt_dcm_ga_view {
         when ${ad_id} = '491536729' then 'TravelZoo Page Traffic'
         when ${ad_id} = '493635242' then 'TravelZoo Traffic Drivers (Email/Native)'
         when ${ad_id} = '493635344' then 'TravelZoo Page Traffic'
+        when ${ad_id} = '497295168' then 'TravelZoo Page Traffic'
         when ${ad_id} = '493634756' then 'TravelZoo Traffic Drivers (Email/Native)'
 
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Audio XP' then 'Pandora :30 Audio + Display'
@@ -2368,6 +2371,7 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Kelp Forest Diving_Book Now_1x1' then 'WC: Kelp Forest Diving'
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Balboa Park Cultural Heart_1x1' then 'WC: Balboa Park Cultural Heart'
           when ${ad} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_%_In-stream%' then 'Happiness is Calling You Back (:30)'
+          when ${ad_id} = '497295168' then '"Sun, Surf and So Much More" Article'
 
             ELSE 'Uncategorized'
         END;;

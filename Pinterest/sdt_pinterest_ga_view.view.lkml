@@ -452,8 +452,12 @@ view: sdt_pinterest_ga_view {
           when ${promoted_pin_name} ilike '%WeekyayCreativeTest_LessCrowds' then 'WeekYay: Less Crowds Pin'
           when ${promoted_pin_name} ilike '%WeekyayCreativeTest_LowerRateActivity' then 'WeekYay: Lower Rate Activity Pin'
           when ${promoted_pin_name} ilike '%WeekyayCreativeTest_WorkFromHotel' then 'WeekYay: Work From Hotel Pin'
-          when ${promoted_pin_name} ilike '%HICYB_PlanNow' then 'HICYB: Plan Now Pin'
-          when ${promoted_pin_name} ilike '%HICYB_Spring%' then 'HICYB: Plan Now Pin'
+          when ${promoted_pin_name} ilike '%FY21_SDT_SpringAwareness_Consideration_California_HICYB_Spring2' then 'HICYB: Plan Now v2 Pin'
+          when ${promoted_pin_name} ilike '%FY21_SDT_SpringAwareness_Consideration_California_HICYB_Spring1' then 'HICYB: Plan Now v1 Pin'
+          when ${promoted_pin_name} ilike '%FY21_SDT_SpringAwareness_Consideration_California_HICYB_PlanNow' then 'HICYB: SoCal Plan Now Pin'
+          when ${promoted_pin_name} ilike '%FY21_SDT_SpringAwareness_Consideration_Arizona_HICYB_Spring2' then 'HICYB: Plan Now v2 Pin'
+          when ${promoted_pin_name} ilike '%FY21_SDT_SpringAwareness_Consideration_Arizona_HICYB_Spring1' then 'HICYB: Plan Now v1 Pin'
+          when ${promoted_pin_name} ilike '%FY21_SDT_SpringAwareness_Consideration_Arizona_HICYB_PlanNow' then 'HICYB: Phoenix Plan Now Pin'
 
                 else 'Uncategorized'
               end;;
