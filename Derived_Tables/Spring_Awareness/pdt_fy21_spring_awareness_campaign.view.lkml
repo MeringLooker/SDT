@@ -70,7 +70,8 @@ view: pdt_fy21_spring_awareness_campaign {
             when ${creative_name} ilike '%Happiness Is Calling You Back%' then 'Happiness Is Calling You Back'
             when ${creative_name} ilike '%WeekYay%' then 'WeekYay'
             when ${creative_name} ilike 'BB:%' then 'Bliss Break'
-            when ${creative_name} ilike 'TravelZoo%' then 'TravelZoo'
+            when ${creative_name} ilike 'SELF %' then 'Self Magazine Article'
+            when ${publisher} ilike 'Travelzoo%' then 'TravelZoo'
             else 'Uncategorized'
             end
       ;;
