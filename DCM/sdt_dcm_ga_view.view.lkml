@@ -2347,6 +2347,21 @@ view: sdt_dcm_ga_view {
           when ${ad} ilike '%Brand_Guide To SD Beaches%' then 'WC: Guide to San Diego Beaches'
           when ${ad} ilike '%Topical_Mothers Day%' then 'WC: Mother''s Day'
 
+          when ${ad} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_%_Native_Topical_Father''s Day_1x1' then 'WC: Father''s Day'
+          when ${ad} ilike 'VERIZON_YAHOO_SDTAFY21_AlwaysOnContent_%_Native_Topical_July 4th_1x1' then 'WC: July 4th'
+
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_%_Native_%Father''s Day%' then 'WC: Father''s Day'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_RTG_%_Native_%July 4th%' then 'WC: July 4th'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_DH: Azucar :15%' then 'DH: Azucar (:15)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_DH: Azucar :30%' then 'DH: Azucar (:30)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_OBI: Whale Watching :60%' then 'OBI: Whale Watching (:60)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_OBI: Whale Watching :15%' then 'OBI: Whale Watching (:15)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_Bliss Break: Taco Tranquility :15%' then 'BB: Taco Tranquility (:15)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_Bliss Break: Koala Cuteness :15%' then 'BB: Koala Cuteness (:15)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_Bliss Break: Torrey Pines Golf :15%' then 'BB: Torrey Pines Golf (:15)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_Bliss Break: Petco Park :15%' then 'BB: Petco Park (:15)'
+          when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Video_Bliss Break: Dog Beach :15%' then 'BB: Dog Beach (:15)'
+
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Sunny 7: Boat Rides_1x1' then 'S7: Boat Rides'
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%_Sunny 7: Boat Rides_1x1' then 'S7: Boat Rides'
           when ${ad} ilike 'STACKADAPT_SDTAFY21_AlwaysOnContent_%Brand_Azucar_1x1' then 'WC: Azucar Ancillary'

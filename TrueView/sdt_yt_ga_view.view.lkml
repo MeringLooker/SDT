@@ -346,6 +346,13 @@ view: sdt_yt_ga_view {
         when ${ad_group} ilike '%OBI_Midway15%' then 'OBI: USS Midway (:30)'
         when ${ad_group} ilike '%DH_Azucar30%' then 'DH: Azucar (:30)'
 
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%Birch60%' then 'OBI: Birch Aquarium (:60)'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%TorreyPinesGolf%' then 'BB: Torrey Pines Golf (:15)'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%TacoTranquility%' then 'BB: Taco Tranquility (:15)'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%PetcoPark%' then 'OBI: Petco Park (:15)'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%KoalaCuteness%' then 'OBI: Koala Cuteness (:15)'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%DogBeach%' then 'BB: Dog Beach (:15)'
+
         ELSE 'Uncategorized'
         end
         ;;

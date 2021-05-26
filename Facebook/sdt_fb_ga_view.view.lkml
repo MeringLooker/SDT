@@ -409,6 +409,7 @@ view: sdt_fb_ga_view {
         WHEN ${campaign_name} ILIKE 'FY21_SDT_LocalsRecovery%' then 'Single Image Ads (FB/IG Feeds/Stories, IG Explore, In-Article)'
 
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting%' then 'Topical Retargeting - Single Image'
+        when ${adset_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch_%_Stories%' then 'First Touch - Stories'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_VideoViews_FirstTouch%' then 'First Touch - Video'
         when ${campaign_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch%' then 'First Touch - Single Image'
 
@@ -1116,6 +1117,17 @@ view: sdt_fb_ga_view {
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_%_SpectacularBoatRides' then 'S7: Boat Rides'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_FirstTouch_%_Azucar' then 'WC: Azucar Ancillary'
           when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_Retargeting_%_KelpForest' then 'WC: Kelp Forest Diving'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_%_FourthOfJuly' then 'WC: July 4th'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_Conversion_%_FathersDay' then 'WC: Father''s Day'
+
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%DogBeach' then 'BB: Dog Beach (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%TacoTranquility' then 'BB: Taco Tranquility (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%ElephantCuteness' then 'BB: Elephant Cuteness (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%KoalaCuteness' then 'BB: Koala Cuteness (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%PetcoPark' then 'BB: Petco Park (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%TorreyPinesGolf' then 'BB: Torrey Pines Golf (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%Birch15' then 'OBI: Birch Aquarium (:15)'
+          when ${ad_name} ilike 'FY21_SDT_AlwaysOnContent_%Birch60' then 'OBI: Birch Aquarium (:60)'
 
         else 'Uncategorized'
         end

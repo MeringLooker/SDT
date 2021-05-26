@@ -135,6 +135,8 @@ view: sdt_helm_ga_view {
           when ${creative} ilike '%BalboaParkCulturalHeart_1200x1200%' then 'WC: Balboa Park Cultural Heart'
 
           when ${creative} ilike '%25ThingsToDo_1200%' then 'WC: 25 Fun & Free Things to do'
+          when ${creative} ilike '%July4th%' then 'WC: July 4th'
+          when ${creative} ilike '%FathersDay%' then 'WC: Father''s Day'
           when ${creative} ilike '%TopPicnicSpots_1200%' then 'S7: Picnic Spots'
             ELSE 'Uncategorized'
         END;;
