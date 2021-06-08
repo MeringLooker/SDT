@@ -2655,6 +2655,24 @@ view: sdt_dcm_ga_view {
     sql: ${TABLE}.wheel_interactions ;;
   }
 
+  dimension: video_views {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.video_views ;;
+  }
+
+  dimension: video_plays {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.video_plays ;;
+  }
+
+  dimension: video_completes {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.video_completes ;;
+  }
+
   ## Dimensions for GA Events ##
 
   dimension: discover_sd {
@@ -2807,7 +2825,15 @@ view: sdt_dcm_ga_view {
     type: sum_distinct
     sql_distinct_key: ${ga_join_id} ;;
     label: "Video Views"
-    sql: 0 ;;
+    sql: ${video_views} ;;
+  }
+
+  measure: total_plays {
+    group_label: "3rd Party Measures"
+    type: sum_distinct
+    sql_distinct_key: ${ga_join_id} ;;
+    label: "Video Plays"
+    sql: ${video_plays} ;;
   }
 
   measure: total_completes {
@@ -2815,7 +2841,7 @@ view: sdt_dcm_ga_view {
     type: sum_distinct
     sql_distinct_key: ${ga_join_id} ;;
     label: "Video Completes"
-    sql: 0 ;;
+    sql: ${video_completes} ;;
   }
 
   ### GA Measures ###
