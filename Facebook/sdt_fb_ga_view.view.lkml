@@ -1531,7 +1531,7 @@ view: sdt_fb_ga_view {
     sql_distinct_key: ${ga_join_id} ;;
     sql:
         case
-        when ${views_to_25} > 0 then ${impressions}
+        when ${views_to_25} > 0 then ${spend}
         else null
         end;;
     hidden: yes
