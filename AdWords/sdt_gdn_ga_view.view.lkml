@@ -482,6 +482,9 @@ view: sdt_gdn_ga_view {
           when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch_%_PicnicSpots' then 'S7: Picnic Spots'
           when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_GDN_FirstTouch_%_MothersDay' then 'WC: Mother''s Day'
 
+          when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%_FourthOfJuly' then 'WC: July 4th'
+          when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%_FathersDay' then 'WC: Father''s Day'
+
         ELSE 'Uncategorized'
         end
         ;;

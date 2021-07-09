@@ -248,6 +248,8 @@ view: sdt_dcm_ga_view {
         when ${ad_id} = '493635242' then 'Email/Native'
         when ${ad_id} = '493635344' then 'N/A'
         when ${ad_id} = '493634756' then 'Email/Native'
+        when ${ad_id} = '496942310' then 'Email/Native'
+        when ${ad_id} = '497288268' then 'Email/Native'
 
         when ${ad} ilike 'CONDE NAST_SDTAFY21_SpringAwareness_SELF Native Article_National_Display_Native Driver_1x1' then 'Native'
 
@@ -563,6 +565,7 @@ view: sdt_dcm_ga_view {
           when ${placement_id} = '298503262' then 'National'
           when ${placement_id} = '299674643' then 'National'
           when ${placement_id} = '299674640' then 'National'
+          when ${placement_id} = '300873092' then 'National'
 
           when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_California_Video' then 'California'
           when ${placement} ilike 'ABC_SDTAFY21_SpringAwareness_In Market Travel_Arizona_Video' then 'Arizona'
@@ -586,6 +589,7 @@ view: sdt_dcm_ga_view {
 
           when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_%_California_Video' then 'California'
           when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_%_Arizona_Video' then 'Arizona'
+          when ${placement_id} = '296337015' then 'California'
 
           when ${placement} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_California%' then 'California'
           when ${placement} ilike 'VDX.tv_SDTAFY21_Spring Awareness_Variety Seeker_Arizona%' then 'Arizona'
@@ -963,6 +967,7 @@ view: sdt_dcm_ga_view {
 
         when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_In Market Travel_%_Video%' then 'Hulu :30 Video - In Market Travel'
         when ${placement} ilike 'HULU_SDTAFY21_SpringAwareness_Affluent Travelers_%_Video%' then 'Hulu :30 Video - Affluent Travelers'
+        when ${placement_id} = '296337015' then 'Hulu :30 Video - Affluent Travelers'
 
         when ${ad} ilike 'NBC_SDTAFY21_SpringAwareness_Travel Interest_%_Video_FEP%' then 'NBC FEP Midroll :30 Video - Travel Interest'
         when ${ad} ilike 'NBC_SDTAFY21_SpringAwareness_Travel Interest_%_Video_Spot On%' then 'NBC Spot On Midroll :30 Video - Travel Interest'
@@ -987,6 +992,8 @@ view: sdt_dcm_ga_view {
         when ${ad_id} = '493635344' then 'TravelZoo Page Traffic'
         when ${ad_id} = '497295168' then 'TravelZoo Page Traffic'
         when ${ad_id} = '493634756' then 'TravelZoo Traffic Drivers (Email/Native)'
+        when ${ad_id} = '496942310' then 'TravelZoo Traffic Drivers (Email/Native)'
+        when ${ad_id} = '497288268' then 'TravelZoo Traffic Drivers (Email/Native)'
 
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Audio XP' then 'Pandora :30 Audio + Display'
         when ${placement} ilike 'PANDORA_SDTAFY21_SpringAwareness_Variety Seeker_%_Display_Mobile Welcome Interstitial' then 'Pandora Mobile Welcome Interstitial'
@@ -1668,6 +1675,8 @@ view: sdt_dcm_ga_view {
           when ${ad_id} = '493635242' then 'TravelZoo Creative'
           when ${ad_id} = '493635344' then '"Where The Great Outdoors Promise The Greatest Escapes" Article'
           when ${ad_id} = '493634756' then 'TravelZoo Creative'
+          when ${ad_id} = '496942310' then 'TravelZoo Creative'
+          when ${ad_id} = '497288268' then 'TravelZoo Creative'
 
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_160x600_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_160x600'
           when ${ad} ilike 'SEESOURCE_SDTAFY21_Spring Awareness_Variety Seeker_%_Display_300x250_WeekYay_Hotel_1x1' then 'WeekYay_Hotel_300x250'

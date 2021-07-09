@@ -940,6 +940,7 @@ view: sdt_fb_ga_view {
         when ${ad_name} ilike '%OBIMidway15%' then 'OBI: USS Midway (:15)'
         when ${ad_name} ilike '%OBI_Midway15%' then 'OBI: USS Midway (:15)'
         when ${ad_name} ilike '%OBI_Midway15%' then 'OBI: USS Midway (:30)'
+        when ${ad_name} ilike '%BlissBreak_Midway%' then 'BB: USS Midway (:15)'
 
         when ${ad_name} ilike '%G2GSPicturePerfect60%' then 'G2GS: Picture Perfect Spots (:60)'
         when ${ad_name} ilike '%G2GSBarrioLogan60%' then 'G2GS: Barrio Logan (:60)'

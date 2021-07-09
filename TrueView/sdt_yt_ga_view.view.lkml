@@ -352,6 +352,7 @@ view: sdt_yt_ga_view {
         when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%PetcoPark%' then 'OBI: Petco Park (:15)'
         when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%KoalaCuteness%' then 'OBI: Koala Cuteness (:15)'
         when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%DogBeach%' then 'BB: Dog Beach (:15)'
+        when ${ad_group} ilike 'FY21_SDT_AlwaysOnContent_%BlissBreak_Midway%' then 'BB: USS Midway (:15)'
 
         ELSE 'Uncategorized'
         end
