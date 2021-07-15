@@ -10,7 +10,6 @@ include: "/Pinterest/**/*.view"
 include: "/TrueView/**/*.view"
 include: "/Derived_Tables/**/*.view"
 include: "/Campaign_Final/**/*.view"
-include: "/FY21_Case_Study/**/*.view"
 include: "/Snap/**/*.view"
 include: "/Helm/**/*.view"
 
@@ -26,14 +25,6 @@ explore: sdt_omnitrak_ext {
   hidden: no
   extends: [sdt_omnitrak]
 }
-
-## FY21 Creatives Case Study ## -- Removed, used briefly for Kat/Christine Case Study
-
-# explore: sdt_fy21_case_study_ext {
-#   persist_with: sdt_default_datagroup
-#   hidden: no
-#   extends: [sdt_case_study]
-# }
 
 ## FY21 Spring Awareness ##
 
